@@ -23,8 +23,7 @@
 				type="guest.actions.ListAction">
 			<forward name="success" path="/guest/list.jsp"/>		
 		</action> -->
-	
-	    <action path=""></action>    
+	    <action path=""></action>
 	</action-mappings>
-    
+
 </struts-config>
