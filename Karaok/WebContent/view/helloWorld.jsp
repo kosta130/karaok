@@ -5,16 +5,34 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<!-- jsp:include page="header.jsp" flush="true"/-->
+<jsp:include page="header.jsp" flush="true"/>
 </head>
 <body>
-	<table>
+<div class="container">
+ 	<table>
 		<tr>
-			<th>헤더</th>
+			<td><!-- nav 메뉴/로그인바 -->
+				<jsp:include page="nav.jsp" flush="true"/>
+			</td>
 		</tr>
 		<tr>
-			<td>안녕</td>
+			<td><!-- banner -->
+				<jsp:include page="banner.jsp" flush="true"/>
+			</td>
+		</tr>
+		<tr>
+			<td><!-- body -->
+				<jsp:include page="body_main.jsp" flush="true"/>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<hr><jsp:include page="footer.jsp" flush="true"/><hr>
+			</td>
 		</tr>
 	</table>
+</div><!--/.container-->
+<!-- jQuery -->
+<jsp:include page="jQuery.jsp" flush="true"/>
 </body>
 </html>
