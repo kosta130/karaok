@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 
 <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -32,7 +33,7 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">이 벤 트<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">이벤트</a></li>
+            <li><a href="./event.ok">이벤트</a></li>
           </ul>
         </li>
       <!-- 커뮤니티 -->
