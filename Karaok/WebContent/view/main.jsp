@@ -26,7 +26,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td>
+			<td><!-- footer -->
 			<hr><jsp:include page="footer.jsp" flush="true"/><hr>
 			</td>
 		</tr>

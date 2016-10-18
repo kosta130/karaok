@@ -17,40 +17,57 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Link</a></li>
+      <!-- 게임소식 -->
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">게임소식 <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
+            <li><a href="#">공지사항</a></li>
             <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
+            <li><a href="#">개임소개</a></li>
             <li class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
+            <li><a href="#">개발자노트</a></li>
           </ul>
         </li>
+      <!-- 이벤트 -->
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">이 벤 트<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">이벤트</a></li>
+          </ul>
+        </li>
+      <!-- 커뮤니티 -->
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">커뮤니티<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">자유게시판</a></li>
+            <li class="divider"></li>
+            <li><a href="#">랭킹게시판</a></li>
+            <li class="divider"></li>
+            <li><a href="#">스 크 린 샷</a></li>
+          </ul>
+        </li>
+      <!-- 고객센터 -->
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">고객센터<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">QnA</a></li>
+            <li class="divider"></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </li>
+        <li></li>
       </ul>
       <form class="navbar-form navbar-left" role="search">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
+          <input type="text" class="form-control" placeholder="아이디" id="id" size="15">
+          <input type="password" class="form-control" placeholder="비밀번호" id="pwd" size="15">
         </div>
-        <button type="submit" class="btn btn-default">Submit</button>
+        <div class="form-group" align="right">
+        	<button type="button" class="btn btn-default" id="login">로그인</button>
+        	<button type="button" class="btn btn-default" id="signup">회원가입</button>
+        	<button type="button" class="btn btn-default" id="signup">GAME START</button>
+        </div>
       </form>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Link</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-          </ul>
-        </li>
-      </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
