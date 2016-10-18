@@ -22,7 +22,7 @@
 		</tr>
 		<tr>
 			<td><!-- body -->
-				<jsp:include page="body_main.jsp" flush="true"/>
+				<jsp:include page="body_rank.jsp" flush="true"/>
 			</td>
 		</tr>
 		<tr>
