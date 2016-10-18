@@ -26,6 +26,5 @@
 	<action path="/main"
 	    		forward="/view/main/main.jsp"/>
 	</action-mappings>
-	
 
 </struts-config>
