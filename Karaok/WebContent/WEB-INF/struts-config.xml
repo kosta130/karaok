@@ -25,7 +25,6 @@
 		</action> -->
 	<action path="/main"
 	    		forward="/view/main/main.jsp"/>
-
 	</action-mappings>
 	
 
