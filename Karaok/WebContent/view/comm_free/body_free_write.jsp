@@ -4,51 +4,42 @@
 		<div class="row row-offcanvas row-offcanvas-center">
 			<div class="row">
 
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-<script type="text/javascript">
-</script>
-</head>
-<body>		
-   <h3>자유게시판>글쓰기</h3>
-<center>
-   <hr>
-   
-   <form  action="crud.ok?action=insert" method="post" name="write">
-   	<input type="hidden" name="num" value="${num }">
-      <table border="1" width="300" cellpadding="2" cellspacing="3">
-      <tr>
-         <td width="100" bgcolor="skyblue">작성자
-         </td>
-         <td>
-         <input type="text" name="id" value="${nickname }">
-         </td>
-    </tr>
-      <tr>
-         <td width="100" bgcolor="skyblue">제목</td>
-         <td>
-         <input type="text" name="subject" value="${subject }" >
-         </td>
-    </tr>
-    <tr>
-    <td colspan=2 >
-    <textarea rows="5" cols="40" name="contents">${contents }</textarea>
-    </td>
-    </tr>
-      <tr>
-         <td colspan="4">
-         <input type="submit" value="입력" />
-         <input type="reset" value="취소" onclick="location.href='free_list.ok'" />
-         </td>
-      </tr>
-      </table>
-   </form>
-</center>
-</body>
-</html>
-			</div>
+<form role="form" action="crud.ok?action=insert" method="post" name="write">
+<h1>자유게시판 입력</h1>
+<hr>
+              <div class="box-body" >
+                <div class="form-group">
+                <input type="hidden" name="num" value="${num }">
+                  <label for="exampleInputEmail1">제목</label>
+                  <input type="text" class="form-control" name="subject" placeholder="제목" value="${subject }">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">작성자</label>
+                  <input type="text" class="form-control" name="nickname" placeholder="작성자" value="${nickname }">
+                </div>
+                <div class="form-group" >
+                  <label>Textarea</label>
+                  <textarea  style="height: 300px;" class="form-control" rows="3" placeholder="Enter ..." name="contents">${contents }</textarea>
+                </div>
+                
+                
+ 
+
+              </div>
+              <!-- /.box-body -->
+
+              <div class="box-footer" align="center">
+                <button type="submit" class="btn btn-primary">등록</button>
+                <button type="submit" class="btn btn-primary" onclick="location.href='free_list.ok'">취소</button>
+              </div>
+        
+            </form>
+          </div>
+
+
+
+
+
+          </div><!--/row-->
 		</div>
 	</div>
-           
