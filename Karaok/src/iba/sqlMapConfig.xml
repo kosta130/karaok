@@ -23,6 +23,6 @@
   		<property name="JDBC.Password" value="${password}"/>
   	</dataSource>
   </transactionManager>
- 
+  <sqlMap resource="./com/karaok/main/dao/member.xml"/>
   <sqlMap resource="./com/karaok/freeBoard/dao/free.xml" />
 </sqlMapConfig>

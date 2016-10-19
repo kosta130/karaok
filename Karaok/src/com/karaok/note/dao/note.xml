@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd" >
+<sqlMap namespace="note">
+	<insert id="insert" parameterClass="com.karaok.note.dto.NoteDTO">
+		insert into tb_update values (seq_update_num.nextval,#id#,#subject#,#contents#,sysdate)
+	</insert>
+	<select id="selectAll" resultClass="com.karaok.note.dto.NoteDTO">
+		select NUM, ID,SUBJECT,CONTENTS,NDATE from karaok order by id desc
+	</select>
+</sqlMap>

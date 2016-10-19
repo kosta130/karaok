@@ -14,7 +14,6 @@ import com.karaok.notice.dao.noticeDAO;
 import com.karaok.notice.dto.noticeDTO;
 
 public class noticeAction extends Action {
-   
    @Override
    public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
          HttpServletResponse response) throws Exception {

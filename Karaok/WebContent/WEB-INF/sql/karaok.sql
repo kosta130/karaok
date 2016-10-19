@@ -34,11 +34,11 @@ drop table tb_update;
 create table tb_update
 (
 num number(20) constraint update_num_pk primary key,
-id varchar2(50),
+nickname varchar2(50),
 subject varchar2(100),
 contents varchar2(1000),
 ndate date,
-constraint tb_update_fk_id foreign key(id) references tb_member(id)
+constraint tb_update_fk_nickname foreign key(nickname) references tb_member(nickname)
 );
 
 drop sequence seq_update_num;
