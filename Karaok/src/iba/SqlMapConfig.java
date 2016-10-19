@@ -9,7 +9,7 @@ import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 public class SqlMapConfig {
 	/*
 	 	sqlMapConfig.xml(sql문을 포함한 XML) 문서를 객체화 시켜주는 클래스
-	 	
+	 	o
 	 	SqlMapClient클래스 : XML에 작성한 sql문을 호출
 	 */
 	
