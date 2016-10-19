@@ -7,24 +7,26 @@
 	
 	<action-mappings>
 	
-<!--    입력폼 보이기
 		<action path="/form"
 				forward="/guest/inputForm.jsp"/>
 		
-		DB입력요청
+		
 		<action path="/crud"
 				type="guest.actions.GuestAction">
 			<forward name="list" path="/list.do" redirect="true"/>
 			<forward name="upform" path="/guest/editForm.jsp" />		
 		</action>
 		
-		게시물 목록 요청
+		
 		<action path="/list"
 				type="guest.actions.ListAction">
 			<forward name="success" path="/guest/list.jsp"/>		
-		</action> -->
+		</action>
 	<action path="/main"
 	    		forward="/view/main/main.jsp"/>
+	    		
+	<action path="/note"
+	    		forward="/view/news_note/note.jsp"/>
 	</action-mappings>
 
 </struts-config>
