@@ -12,18 +12,18 @@
 </script>
 </head>
 <body>		
-   <h3>자유게시판>게시글 수정</h3>
 <center>
+   <h3>조회화면</h3>
    <hr>
    
-   <form  action="" method="post" name="upform">
-   	<input type="hidden" name="num" value="${num }">
+   <form  action="" method="post" name="select">
+   	<input type="hidden" name="no" value="${num }">
       <table border="1" width="300" cellpadding="2" cellspacing="3">
       <tr>
          <td width="100" bgcolor="skyblue">작성자
          </td>
          <td>
-         <input type="text" name="id" value="${id }">
+         <input type="text" name="id" value="${nickname }">
          </td>
     </tr>
       <tr>
@@ -32,6 +32,7 @@
          <input type="text" name="subject" value="${subject }" >
          </td>
     </tr>
+     
     <tr>
     <td colspan=2 >
     <textarea rows="5" cols="40" name="contents">${contents }</textarea>
@@ -39,9 +40,9 @@
     </tr>
       <tr>
          <td colspan="4">
-         <input type="submit" value="수정" >
+         <input type="button" value="수정" onclick=""/>
          <input type="button" value="삭제" onclick=""/> 
-         <input type="reset" value="취소" onclick="location.href='free_list.ok'"/>
+         <input type="reset" value="목록으로" onclick=""/>
          </td>
       </tr>
       </table>

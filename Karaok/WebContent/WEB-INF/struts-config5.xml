@@ -25,6 +25,22 @@
 		</action> -->
 	<action path="/main"
 	    		forward="/view/main/main.jsp"/>
+	  
+	  <action path="/notice"
+	  			forward="/view/news_notice/notice_inputForm.jsp"/>
+	  			
+	  <action path="/notice2"
+	  			forward="/view/news_notice/notice_editForm.jsp"/>
+	  			
+	  <action path="/notice3"
+	  			forward="/view/news_notice/notice_list.jsp"/>
+	  			
+	  <action path="/notice4"
+	  			forward="/view/news_notice/notice_show.jsp"/>
+	    		
+	    		
+	    		
 	</action-mappings>
+
 
 </struts-config>

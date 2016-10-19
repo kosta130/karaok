@@ -15,11 +15,11 @@ drop table tb_notice;
 create table tb_notice
 (
 num number(20) constraint notice_num_pk primary key,
-id varchar2(50),
+nickname varchar2(50),
 subject varchar2(100),
 contents varchar2(1000),
 ndate date,
-constraint tb_notice_fk_id foreign key(id) references tb_member(id)
+constraint tb_notice_fk_nickname foreign key(nickname) references tb_member(nickname)
 );
 
 drop sequence seq_notice_num;
@@ -57,11 +57,11 @@ drop table tb_free;
 create table tb_free
 (
 num number(20) constraint free_num_pk primary key,
-id varchar2(50),
+nickname varchar2(50),
 subject varchar2(100),
 contents varchar2(1000),
 ndate date,
-constraint tb_free_fk_id foreign key(id) references tb_member(id)
+constraint tb_free_fk_nickname foreign key(nickname) references tb_member(nickname)
 );
 
 drop sequence seq_free_num;
@@ -70,6 +70,8 @@ increment by 1
 start with 1
 nocycle
 nocache;
+
+
 
 --·©Å·°Ô½ÃÆÇ
 drop table tb_rank;
@@ -86,3 +88,8 @@ nickname varchar2(50) constraint rank_nickname_fk references tb_member(nickname)
 --QnA
 
 --FAQ
+insert into tb_member values ('ball4716@naver.com', 1234, '±èÇö¿µ', 'µÕµÕ', sysdate, '010-7722-4716')
+select * from TB_MEMBER
+insert into tb_free	
+		values (seq_free_num.nextval,'ball4716@naver.com','µÕµÕ3','µÕµÕ3',sysdate)
+select * from TB_FREE

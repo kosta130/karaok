@@ -3,9 +3,8 @@
 	<div class="container">
 		<div class="row row-offcanvas row-offcanvas-center">
 			<div class="row">
-
 <form role="form">
-<h1>공지사항 입력</h1>
+<h1>공지사항 수정</h1>
 <hr>
               <div class="box-body">
                 <div class="form-group">
@@ -28,17 +27,12 @@
               <!-- /.box-body -->
 
               <div class="box-footer" align="center">
-                <button type="submit" class="btn btn-primary">등록</button>
+                <button type="submit" class="btn btn-primary">수정</button>
                 <button type="submit" class="btn btn-primary">취소</button>
               </div>
         
             </form>
           </div>
-
-
-
-
-
           </div><!--/row-->
 		</div>
 	</div>
