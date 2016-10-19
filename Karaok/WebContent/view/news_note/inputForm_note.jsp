@@ -1,13 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    
 	<div class="container">
 		<div class="row row-offcanvas row-offcanvas-center">
 			<div class="row">
-
-<form role="form">
-<h1>공지사항 입력</h1>
-<hr>
-              <div class="box-body">
+            <center>
+            	<h1>개발자 노트 입력</h1>
+            	<hr>
+            	     <div class="box-body">
                 <div class="form-group">
                   <label for="exampleInputEmail1">제목</label>
                   <input type="email" class="form-control" id="exampleInputEmail1" placeholder="제목">
@@ -27,18 +28,12 @@
               </div>
               <!-- /.box-body -->
 
-              <div class="box-footer" align="center">
+              <div class="box-footer" align="right">
                 <button type="submit" class="btn btn-primary">등록</button>
                 <button type="submit" class="btn btn-primary">취소</button>
               </div>
-        
-            </form>
-          </div>
-
-
-
-
-
-          </div><!--/row-->
-		</div>
-	</div>
+            	
+         	</center>
+        </div>
+    </div>
+    

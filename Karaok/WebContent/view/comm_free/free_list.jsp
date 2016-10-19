@@ -22,7 +22,7 @@
 		</tr>
 		<tr>
 			<td><!-- body -->
-				<jsp:include page="inputForm_note.jsp" flush="true"/>
+				<jsp:include page="body_free_list.jsp" flush="true"/>
 			</td>
 		</tr>
 		<tr>
