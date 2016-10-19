@@ -15,11 +15,11 @@ drop table tb_notice;
 create table tb_notice
 (
 num number(20) constraint notice_num_pk primary key,
-id varchar2(50),
+nickname varchar2(50),
 subject varchar2(100),
 contents varchar2(1000),
 ndate date,
-constraint tb_notice_fk_id foreign key(id) references tb_member(id)
+constraint tb_notice_fk_nickname foreign key(nickname) references tb_member(nickname)
 );
 
 drop sequence seq_notice_num;
@@ -34,11 +34,11 @@ drop table tb_update;
 create table tb_update
 (
 num number(20) constraint update_num_pk primary key,
-id varchar2(50),
+nickname varchar2(50),
 subject varchar2(100),
 contents varchar2(1000),
 ndate date,
-constraint tb_update_fk_id foreign key(id) references tb_member(id)
+constraint tb_update_fk_nickname foreign key(nickname) references tb_member(nickname)
 );
 
 drop sequence seq_update_num;
@@ -75,11 +75,11 @@ drop table tb_free;
 create table tb_free
 (
 num number(20) constraint free_num_pk primary key,
-id varchar2(50),
+nickname varchar2(50),
 subject varchar2(100),
 contents varchar2(1000),
 ndate date,
-constraint tb_free_fk_id foreign key(id) references tb_member(id)
+constraint tb_free_fk_nickname foreign key(nickname) references tb_member(nickname)
 );
 
 drop sequence seq_free_num;
@@ -88,6 +88,8 @@ increment by 1
 start with 1
 nocycle
 nocache;
+
+
 
 --·©Å·°Ô½ÃÆÇ
   29 Ç³°æ      Ç³°æº¸¼¼¿ä~   C:/Users/SungWook/git/karaok/Karaok/WebContent/imgtest11.jpg
@@ -106,7 +108,6 @@ nickname varchar2(50) constraint rank_nickname_fk references tb_member(nickname)
 --QnA
 
 --FAQ
-
 
 select *from tb_event
 delete from tb_member where id='lee52x@naver.com'

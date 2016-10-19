@@ -16,7 +16,7 @@
 			/WEB-INF/struts-config2.xml,
 			/WEB-INF/struts-config3.xml,
 			/WEB-INF/struts-config4.xml,
-			/WEB-INF/struts-config5.xml,
+			/WEB-INF/struts-config5.xml
 			</param-value>
 		</init-param>
 		<load-on-startup>2</load-on-startup>

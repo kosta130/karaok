@@ -12,18 +12,18 @@
 </script>
 </head>
 <body>		
-   <h3>자유게시판>게시글 수정</h3>
+   <h3>자유게시판>글쓰기</h3>
 <center>
    <hr>
    
-   <form  action="" method="post" name="upform">
+   <form  action="crud.ok?action=insert" method="post" name="write">
    	<input type="hidden" name="num" value="${num }">
       <table border="1" width="300" cellpadding="2" cellspacing="3">
       <tr>
          <td width="100" bgcolor="skyblue">작성자
          </td>
          <td>
-         <input type="text" name="id" value="${id }">
+         <input type="text" name="id" value="${nickname }">
          </td>
     </tr>
       <tr>
@@ -39,9 +39,8 @@
     </tr>
       <tr>
          <td colspan="4">
-         <input type="submit" value="수정" >
-         <input type="button" value="삭제" onclick=""/> 
-         <input type="reset" value="취소" onclick="location.href='free_list.ok'"/>
+         <input type="submit" value="입력" />
+         <input type="reset" value="취소" onclick="location.href='free_list.ok'" />
          </td>
       </tr>
       </table>

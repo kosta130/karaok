@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
-
+<jsp:include page="signUp.jsp" flush="true"/>
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -65,8 +64,8 @@
         </div>
         <div class="form-group" align="right">
         	<button type="button" class="btn btn-default" id="login">로그인</button>
-        	<button type="button" class="btn btn-default" id="signup">회원가입</button>
-        	<button type="button" class="btn btn-default" id="signup">GAME START</button>
+        	<button type="button" class="btn btn-default" id="signup" data-target="#layerpop" data-toggle="modal">회원가입</button>
+        	<button type="button" class="btn btn-default" id="gamestart">GAME START</button>
         </div>
       </form>
     </div><!-- /.navbar-collapse -->
