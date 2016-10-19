@@ -50,7 +50,7 @@ public class noticeDAO {
 		}
 		return dto;
 	}
-	public List<noticeDTO> findAll(){
+	public List<noticeDTO> selectAll(){
 		List<noticeDTO> list=null;
 		try {
 			list = smc.queryForList("notice.selectAll");

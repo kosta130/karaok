@@ -19,13 +19,13 @@
   </select>
   
   <select id="select" parameterClass="int" resultClass="com.karaok.notice.dto.noticeDTO">
-	select id, subject, contents
+	select nickname, subject, contents
 	from tb_notice
 	where no=#no#
   </select>
   
   <select id="selectAll" resultClass="com.karaok.notice.dto.noticeDTO">
-	select no, id, subject, ndate
+	select no, nickname, subject, ndate
 	from tb_notice
 	order by no desc;
   </select>
