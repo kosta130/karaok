@@ -114,3 +114,10 @@ delete from tb_member where id='lee52x@naver.com'
 
 insert into tb_member values ('lee52x@naver.com', 1234, '이성욱', '드루미드루미', sysdate, '010-7157-8550');
 select id,subject,name,contents from tb_event natural join tb_member
+
+insert into tb_notice values (seq_notice_num.nextval, '드루미드루미', 'gonggong', 'hihihi', sysdate);
+delete from tb_notice where nickname='드루미드루미';
+
+
+
+
