@@ -15,11 +15,11 @@ drop table tb_notice;
 create table tb_notice
 (
 num number(20) constraint notice_num_pk primary key,
-id varchar2(50),
+nickname varchar2(50),
 subject varchar2(100),
 contents varchar2(1000),
 ndate date,
-constraint tb_notice_fk_id foreign key(id) references tb_member(id)
+constraint tb_notice_fk_nickname foreign key(nickname) references tb_member(nickname)
 );
 
 drop sequence seq_notice_num;
