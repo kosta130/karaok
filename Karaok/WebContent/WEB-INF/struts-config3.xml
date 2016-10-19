@@ -23,13 +23,11 @@
 				type="guest.actions.ListAction">
 			<forward name="success" path="/guest/list.jsp"/>		
 		</action> -->
-	<action path="/main"
-	    		forward="/view/main/main.jsp"/>
 	
 	<!-- 아이디 확인 작업 Ajax -->
-	<action path="/idConfirm"
-			type="com.karaok.main.actions.idConfirmAction">
-		<forward name="success" path="/view/idConfirm.jsp"/>
+	<action path="/signUpConfirm"
+			type="com.karaok.main.actions.signUpConfirmAction">
+		<forward name="success" path="/view/signUpConfirm.jsp"/>
 	</action>
 	
 	

@@ -23,8 +23,6 @@
 				type="guest.actions.ListAction">
 			<forward name="success" path="/guest/list.jsp"/>		
 		</action> -->
-	<action path="/main"
-	    		forward="/view/main/main.jsp"/>
 	  
 	  <action path="/notice"
 	  			forward="/view/news_notice/notice_inputForm.jsp"/>

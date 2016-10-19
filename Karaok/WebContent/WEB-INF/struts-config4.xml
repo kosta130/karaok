@@ -6,9 +6,7 @@
 <struts-config>
 	
 	<action-mappings>
-	
-	<action path="/main"
-	    		forward="/view/main/main.jsp"/>
+
 	<!-- 입력폼 -->
 	<action path="/free_write"
 	    		forward="/view/comm_free/free_write.jsp"/>
