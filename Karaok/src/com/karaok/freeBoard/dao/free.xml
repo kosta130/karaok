@@ -10,6 +10,7 @@
 	<select id="selectAll" resultClass="com.karaok.freeBoard.dto.FreeBoard">
 		select num, nickname, subject, contents, ndate
 		from tb_free
+		order by num desc
 	</select>
 	
 	<delete id="delete" parameterClass="int">
@@ -24,6 +25,7 @@
 	</select>
 	
 	<update id="update" parameterClass="com.karaok.freeBoard.dto.FreeBoard">
-		 update tb_free set subject=#subject#,contents = #contents#  
+		 update tb_free set nickname=#nickname#,subject=#subject#,contents = #contents#  
+		 where num=#num#
 	</update>
 </sqlMap>

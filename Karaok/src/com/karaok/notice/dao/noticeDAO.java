@@ -23,9 +23,9 @@ public class noticeDAO {
 		}
 		return false;
 	}
-	public boolean delete(int no){
+	public boolean delete(int num){
 		try {
-			int t = smc.delete("notice.delete",no);
+			int t = smc.delete("notice.delete",num);
 			if(t==1)return true;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -41,10 +41,10 @@ public class noticeDAO {
 		}
 		return false;
 	}
-	public noticeDTO select(int no){
+	public noticeDTO select(int num){
 		noticeDTO dto=null;
 		try {
-			no = (int) smc.queryForObject("notice.select",no);
+			num = (int) smc.queryForObject("notice.select",num);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -54,6 +54,9 @@ public class noticeDAO {
 		List<noticeDTO> list=null;
 		try {
 			list = smc.queryForList("notice.selectAll");
+			for (int i = 0; i < list.size(); i++) {
+				System.out.println("listNick="+list.get(i).getNickname());
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

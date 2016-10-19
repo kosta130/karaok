@@ -31,9 +31,7 @@
       	<forward name="success" path="/view/comm_free/free_list.jsp"></forward>
       </action> 
           		
-    <!-- 조회화면 -->
-	<action path="/free_select"
-	    		forward="/view/comm_free/free_select.jsp"/>  
+     
         
 	
 	</action-mappings>

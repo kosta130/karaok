@@ -3,7 +3,7 @@ package com.karaok.notice.dto;
 import java.sql.Date;
 
 public class noticeDTO {
-	private int no;
+	private int num;
 	private String nickname;
 	private String subject;
 	private String contents;
@@ -13,21 +13,21 @@ public class noticeDTO {
 		// TODO Auto-generated constructor stub
 	}
 
-	public noticeDTO(int no, String nickname, String subject, String contents, Date ndate) {
+	public noticeDTO(int num, String nickname, String subject, String contents, Date ndate) {
 		super();
-		this.no = no;
+		this.num = num;
 		this.nickname = nickname;
 		this.subject = subject;
 		this.contents = contents;
 		this.ndate = ndate;
 	}
 
-	public int getNo() {
-		return no;
+	public int getnum() {
+		return num;
 	}
 
-	public void setNo(int no) {
-		this.no = no;
+	public void setnum(int num) {
+		this.num = num;
 	}
 
 	public String getNickname() {
