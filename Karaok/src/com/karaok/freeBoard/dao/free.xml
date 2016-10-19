@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd" >
+<sqlMap namespace="free">
+
+	<insert id="insert" parameterClass="com.karaok.freeBoard.dto.FreeBoard">
+		insert into tb_free	
+		values (seq_free_num.nextval,#nickname#,#subject#,#contents#,sysdate)
+	</insert>
+	
+	<select id="selectAll" resultClass="com.karaok.freeBoard.dto.FreeBoard">
+		select num, nickname, subject, contents, ndate
+		from tb_free
+	</select>
+	
+	<delete id="delete" parameterClass="int">
+		delete from tb_free
+		where num = #num#
+	</delete>
+	
+	<select id="select" parameterClass="int" resultClass="com.karaok.freeBoard.dto.FreeBoard">
+		select nickname, subject, contents
+		from tb_free
+		where num=#num#
+	</select>
+	
+	<update id="update" parameterClass="com.karaok.freeBoard.dto.FreeBoard">
+		 update tb_free set subject=#subject#,contents = #contents#  
+	</update>
+</sqlMap>
