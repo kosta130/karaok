@@ -11,6 +11,7 @@ import org.apache.struts.action.ActionMapping;
 import com.karaok.freeBoard.dao.FreeBoardDAO;
 import com.karaok.freeBoard.dto.FreeBoard;
 import com.karaok.notice.dao.noticeDAO;
+import com.karaok.notice.dto.noticeDTO;
 
 public class noticeAction extends Action {
    
@@ -24,7 +25,7 @@ public class noticeAction extends Action {
       ActionForward forward = mapping.findForward("list");
       
       if(action.equals("insert")){// 글입력 요청 action="insert"
-         FreeBoard dto = new FreeBoard(0,
+         noticeDTO dto = new noticeDTO(0,
                            request.getParameter("nickname"),
                            request.getParameter("subject"),
                            request.getParameter("contents"),null);
