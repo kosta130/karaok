@@ -22,7 +22,7 @@ public class NoteAction extends Action{
 		ActionForward forward = mapping.findForward("list");
 		
 		if(action.equals("insert")) {
-			NoteDTO dto = new NoteDTO(0, request.getParameter("id"), request.getParameter("subject"),  request.getParameter("contents"), null);
+			NoteDTO dto = new NoteDTO(0, request.getParameter("nickname"), request.getParameter("subject"),  request.getParameter("contents"), null);
 			dao.insert(dto);
 		}
 		

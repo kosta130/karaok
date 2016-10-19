@@ -25,7 +25,7 @@
             <li class="divider"></li>
             <li><a href="#">개임소개</a></li>
             <li class="divider"></li>
-            <li><a href="#">개발자노트</a></li>
+            <li><a href="">개발자노트</a></li>
           </ul>
         </li>
       <!-- 이벤트 -->
