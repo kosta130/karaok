@@ -49,7 +49,25 @@ nocycle
 nocache;
 
 --[이벤트]
+
 --이벤트
+drop table tb_event
+create table tb_event
+(	
+	num number(20) constraint event_num_pk primary key,
+	id varchar2(50),
+	subject varchar2(100),
+	contents varchar2(1000),
+	startDate date,
+	endDate date,
+	fileName varchar2(100),
+	constraint tb_event_fk_id foreign key(id) references tb_member(id)
+);
+create sequence seq_event_num
+increment by 1
+start with 1
+nocycle
+nocache;
 
 --[커뮤니티]
 --자유게시판
@@ -72,6 +90,8 @@ nocycle
 nocache;
 
 --랭킹게시판
+  29 풍경      풍경보세요~   C:/Users/SungWook/git/karaok/Karaok/WebContent/imgtest11.jpg
+
 drop table tb_rank;
 create table tb_rank
 (
@@ -86,3 +106,10 @@ nickname varchar2(50) constraint rank_nickname_fk references tb_member(nickname)
 --QnA
 
 --FAQ
+
+
+select *from tb_event
+delete from tb_member where id='lee52x@naver.com'
+
+insert into tb_member values ('lee52x@naver.com', 1234, '이성욱', '드루미드루미', sysdate, '010-7157-8550');
+select id,subject,name,contents from tb_event natural join tb_member

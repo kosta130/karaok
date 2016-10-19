@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd" >
+<sqlMap namespace="event">
+	<insert id="insert" parameterClass="com.karaok.event.dto.Event">
+		insert into tb_event values(seq_event_num.nextval,#id#,#subject#,#contents#,#startDate#,#endDate#,#fileName#)
+	</insert>
+	
+	<select id="select" resultClass="com.karaok.event.dto.Event">
+		select id,subject,name,contents,fileName from tb_event natural join tb_member
+	</select>
+</sqlMap>

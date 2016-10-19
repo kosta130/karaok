@@ -25,6 +25,23 @@
 		</action> -->
 	<action path="/main"
 	    		forward="/view/main/main.jsp"/>
+	 <!-- Event리스트 -->
+	<action path="/event_list"
+			type="com.karaok.event.actions.r_EventAction">
+		<forward name="list" path="/view/event_event/event_list.jsp"></forward>		
+	</action>
+	<!-- 글쓰기폼 띄우기 -->
+	<action path="/event_create"
+	    		forward="/view/event_event/event_create.jsp"/>
+	 <!-- 글 등록완료 -->   		
+	<action path="/event_create_complete"
+			type="com.karaok.event.actions.EventAction">
+			<forward name="success" path="/view/event_event/event_list.jsp"></forward>		
+	</action>
+	
+
 	</action-mappings>
+	
+	
 
 </struts-config>
