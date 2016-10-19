@@ -38,7 +38,7 @@ public class EventAction extends Action {
 		String subject=mr.getParameter("subject");
 		String name=mr.getParameter("name");
 		String contents=mr.getParameter("contents");
-		Date startDate=mr.getParameter("startDate");//"10/19/2016"
+		String startDate=mr.getParameter("startDate");//"10/19/2016"
 		String endDate=mr.getParameter("endDate");
 		String fileName=mr.getFilesystemName("fileName");
 		
