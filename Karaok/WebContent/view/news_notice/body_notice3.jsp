@@ -28,13 +28,14 @@
                 </tr>
                 </thead>
                 <tbody>
-                   <tr>
-                  <td class="title">1</td>
-                  <td>[공지] 10/13(목) 넥슨 정기점검 안내</td>
-                  <td class="title">관리자</td>
-                  <td class="title">2016/10/19</td>
-                </tr>
-                </tfoot>
+<c:forEach items="${list }" var="v">
+       <tr>
+         <td>${v.num }</td>
+         <td><a href="">${v.subject }</a></td>
+         <td>${v.nickname }</td>
+         <td>${v.ndate }</td>
+       </tr>
+ </c:forEach>
               </table>
             </div>
             <!-- /.box-body -->
@@ -44,9 +45,3 @@
         <!-- /.col -->
       </div>
       <!-- /.row -->
-    </section>
-    <!-- /.content -->
-  </div>
-          </div><!--/row-->
-		</div>
-	</div>

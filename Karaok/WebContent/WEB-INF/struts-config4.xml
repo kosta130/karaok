@@ -6,9 +6,7 @@
 <struts-config>
 	
 	<action-mappings>
-	
-	<action path="/main"
-	    		forward="/view/main/main.jsp"/>
+
 	<!-- 입력폼 -->
 	<action path="/free_write"
 	    		forward="/view/comm_free/free_write.jsp"/>
@@ -33,9 +31,7 @@
       	<forward name="success" path="/view/comm_free/free_list.jsp"></forward>
       </action> 
           		
-    <!-- 조회화면 -->
-	<action path="/free_select"
-	    		forward="/view/comm_free/free_select.jsp"/>  
+     
         
 	
 	</action-mappings>
