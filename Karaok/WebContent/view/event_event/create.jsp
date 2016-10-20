@@ -25,7 +25,7 @@ $(".datepicker").datepicker();
 function check(){
 	var f=document.create;
 	var subject=f.subject.value;
-	var name=f.name.value;
+	var point=f.point.value;
 	var contents=f.contents.value;
 	var fileName=f.fileName.value;
 	f.submit();
@@ -42,8 +42,8 @@ function check(){
                   <input type="text" class="form-control" id="exampleInputEmail1" name="subject" placeholder="제목을 입력하세요">
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputPassword1">작성자</label>
-                  <input type="text" class="form-control" id="exampleInputPassword1" name="name" placeholder="작성자를 입력하세요">
+                  <label for="exampleInputPassword1">핵심 내용</label>
+                  <input type="text" class="form-control" id="exampleInputPassword1" name="point" placeholder="핵심 내용을 입력하세요">
                 </div>
                 
                                    

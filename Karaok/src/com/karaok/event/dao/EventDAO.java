@@ -38,4 +38,29 @@ public class EventDAO {
 		}
 		return list;
 	}
+	
+	public List<Event> selectIng(){
+		List<Event> listIng=null;
+		try {
+			listIng = smc.queryForList("event.selectIng");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return listIng;
+		
+	}
+	
+	public List<Event> selectEnd(){
+		List<Event> listEnd=null;
+		try {
+	
+			listEnd = smc.queryForList("event.selectEnd");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return listEnd;
+		
+	}
 }
