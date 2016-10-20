@@ -118,6 +118,7 @@ select id,subject,name,contents from tb_event natural join tb_member
 insert into tb_notice values (seq_notice_num.nextval, '드루미드루미', 'gonggong', 'hihihi', sysdate);
 delete from tb_notice where nickname='드루미드루미';
 
-
+insert into tb_member values ('ojh5797@naver.com', 1234, '오정훈', '오바사키', sysdate, '010-3952-5797');
+insert into tb_notice values (seq_notice_num.nextval, '오바사키', '2016년 10월 20일 공지사항입니다.', '제곧내', sysdate);
 
 

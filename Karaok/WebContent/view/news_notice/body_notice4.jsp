@@ -1,45 +1,42 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-	<div class="container">
-		<div class="row row-offcanvas row-offcanvas-center">
-			<div class="row">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>공지사항 보기</title>
-</head>
-<%-- inputForm.jsp --%>
-<body>
- <center>
-   <h3>공지사항 보기</h3>
-   <hr>
-   [<a href="control.do">게시물 목록으로</a>]<br><br>
-   <form action="control.do?action=insert" method="post">
-     <table border="1" cellpadding="5">
-       <tr>
-         <td bgcolor="#99ccff">제목</td>
-         <td>
-           <input type="text" name="subject">
-         </td>
-       </tr>
-       <tr>
-         <td bgcolor="#99ccff">작성자</td>
-         <td>
-           <input type="text" name="id">
-         </td>
-       </tr>
-       <tr>
-         <td colspan="2">
-           <textarea rows="5" cols="30" name="contents"></textarea>
-         </td>         
-       </tr>
- 
-     </table>
-   </form>
- </center>
+   <div class="container">
+      <div class="row row-offcanvas row-offcanvas-center">
+         <div class="row">
+<script type="text/javascript">
 
-</body>
-</html>
+</script>
+<form role="form" action="notice.ok?action=select" method="post" name="view">
+<h1>자유게시판 글화면</h1>
+<hr>
+              <div class="box-body">
+                <div class="form-group">
+                <input type="hidden" name="num" value="${dto.num }">
+                  <label for="exampleInputEmail1">제목</label>
+                  <input type="text" class="form-control" name="subject" placeholder="제목" value=${dto.subject } readonly="readonly">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">작성자</label>
+                  <input type="text" class="form-control" name="nickname" placeholder="작성자" value=${dto.nickname } readonly="readonly">
+                </div>
+                <div class="form-group" >
+                  <label>Textarea</label>
+                  <textarea  style="height: 300px;" class="form-control" rows="3" placeholder="Enter ..." name="contents" readonly="readonly">${dto.contents }</textarea>
+                </div>
+                
+                
+ 
+
+              </div>
+              <!-- /.box-body -->
+
+              <div class="box-footer" align="center">
+                <button type="submit" class="btn btn-primary" >수정</button>
+                <button type="reset" class="btn btn-primary" onclick="location.href='free_list.ok'">취소</button>
+              </div>
+        
+            </form>
+          </div>
           </div><!--/row-->
-		</div>
-	</div>
+      </div>
+   </div>

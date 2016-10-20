@@ -28,8 +28,8 @@
               <!-- /.box-body -->
 
               <div class="box-footer" align="center">
-                <button type="submit" class="btn btn-primary">등록</button>
-                <button type="submit" class="btn btn-primary">취소</button>
+                <button type="submit" class="btn btn-primary" onclick="">등록</button>
+                <button type="submit" class="btn btn-primary" onclick="history.back()">취소</button>
               </div>
         
             </form>

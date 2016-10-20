@@ -21,7 +21,7 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">게임소식 <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="notice/control.ok?action=list">공지사항</a></li>
+            <li><a href="notice.ok?action=list">공지사항</a></li>
             <li class="divider"></li>
             <li><a href="#">개임소개</a></li>
             <li class="divider"></li>

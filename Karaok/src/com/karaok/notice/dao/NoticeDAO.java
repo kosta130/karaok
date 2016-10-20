@@ -4,17 +4,18 @@ import java.sql.SQLException;
 import java.util.List;
 
 import com.ibatis.sqlmap.client.SqlMapClient;
-import com.karaok.notice.dto.noticeDTO;
+import com.karaok.notice.dto.NoticeDTO;
 
 import iba.SqlMapConfig;
 
-public class noticeDAO {
+public class NoticeDAO {
 	SqlMapClient smc;
-	public noticeDAO() {
+	
+	public NoticeDAO() {
 		smc = SqlMapConfig.getSqlMapInstance();
 	}
 	
-	public boolean insert(noticeDTO dto){
+	public boolean insert(NoticeDTO dto){
 		try {
 			smc.insert("notice.insert",dto);
 			return true;
@@ -32,7 +33,7 @@ public class noticeDAO {
 		}
 		return false;
 	}
-	public boolean update(noticeDTO dto){
+	public boolean update(NoticeDTO dto){
 		try {
 			int t = smc.update("notice.update",dto);
 			if(t==1) return true;
@@ -41,8 +42,8 @@ public class noticeDAO {
 		}
 		return false;
 	}
-	public noticeDTO select(int num){
-		noticeDTO dto=null;
+	public NoticeDTO select(int num){
+		NoticeDTO dto=null;
 		try {
 			num = (int) smc.queryForObject("notice.select",num);
 		} catch (SQLException e) {
@@ -50,8 +51,8 @@ public class noticeDAO {
 		}
 		return dto;
 	}
-	public List<noticeDTO> selectAll(){
-		List<noticeDTO> list=null;
+	public List<NoticeDTO> selectAll(){
+		List<NoticeDTO> list=null;
 		try {
 			list = smc.queryForList("notice.selectAll");
 			for (int i = 0; i < list.size(); i++) {
