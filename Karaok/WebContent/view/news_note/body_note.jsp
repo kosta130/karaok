@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     
 	<style>
 	
@@ -17,10 +17,10 @@
 		<div class="row row-offcanvas row-offcanvas-center">
 			<div class="row">
 			<div class="box-body">
-            <center>
+            <div align="center">
             	<h3>개발자 노트</h3>
             	<hr>
-            	<table id="example2" class="table table-bordered table-striped" align="center">
+            	<table id="example2" class="table table-bordered table-striped">
             	 <thread>
             	 <tr>
             	 	<th width="10%" class="title">번호</th>
@@ -30,26 +30,22 @@
             	 </tr>
             	 </thread>
             	 <tbody>
-            	 <tr>
-            	 <td>1</td>
-            	 <td>1</td>
-            	 <td>1</td>
-            	 <td>1</td>
-            	 </tr>
-            	<c:forEach items="${list }" var="note">
+             	<c:forEach items="${list }" var="note">
             		<tr>
-            			<td>${note.num }</td>
-            			<td>${note.id }</td>
+            			<td align="center">${note.num }</td>
             			<td>${note.subject }</td>
-            			<td>${note.ndate }</td>
+            			<td align="center">${note.nickname }</td>
+            			<td align="center">${note.ndate }</td>
             		</tr>
             	</c:forEach>
             	</tbody>
             	</table>
-            </center>
-            <right>
-            	<button onClick="location.href=''"></button>
-            </right>
+            </div>
+            <div align="right">
+           		<form action="./note2.ok">
+           		<input type="submit" value="글등록">
+           		</form>
+            </div>
             </div>
           	</div><!--/row-->
 		</div>

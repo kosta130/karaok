@@ -42,7 +42,6 @@ public class signUpConfirmAction extends Action {
 				request.setAttribute("countResult",countResult);
 				request.setAttribute("returnValue", returnValue);
 			}else{
-				request
 			}
 		}
 		return mapping.findForward("fail");

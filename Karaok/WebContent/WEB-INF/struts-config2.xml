@@ -7,24 +7,20 @@
 	
 	<action-mappings>
 	
-		<action path="/form"
-				forward="/guest/inputForm.jsp"/>
-		
-		
-		<action path="/crud"
-				type="guest.actions.GuestAction">
-			<forward name="list" path="/list.do" redirect="true"/>
-			<forward name="upform" path="/guest/editForm.jsp" />		
+		<!-- Note리스트 -->
+		<action path="/note_list"
+				type="com.karaok.note.actions.NoteListAction">
+			<forward name="success" path="/view/news_note/note.jsp" />	
 		</action>
 		
-		
-		<action path="/list"
-				type="guest.actions.ListAction">
-			<forward name="success" path="/guest/list.jsp"/>		
+		 <!-- 글쓰기 -->   		
+		<action path="/note_create"
+	    		forward="/view/news_note/note2.jsp"/>
+		<!-- 글쓰기 완료 -->
+		<action path="/note_create_complete"
+				type="com.karaok.note.actions.NoteAction">
+			<forward name="success" path="/view/news_note/note.jsp"/>		
 		</action>
-	    		
-	<action path="/note"
-	    		forward="/view/news_note/note.jsp"/>
 	</action-mappings>
 
 </struts-config>

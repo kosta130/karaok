@@ -48,6 +48,7 @@ start with 1
 nocycle
 nocache;
 
+
 --[이벤트]
 
 --이벤트
@@ -118,6 +119,8 @@ select id,subject,name,contents from tb_event natural join tb_member
 insert into tb_notice values (seq_notice_num.nextval, '드루미드루미', 'gonggong', 'hihihi', sysdate);
 delete from tb_notice where nickname='드루미드루미';
 
+insert into tb_update values (seq_update_num.nextval, '드루미드루미', '도', '하이', sysdate);
 
 
 
+select NUM,NICKNAME,SUBJECT,CONTENTS,NDATE from TB_UPDATE order by NUM desc
