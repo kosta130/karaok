@@ -2,7 +2,7 @@
 <!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd" >
 
 <sqlMap namespace="notice">
-<typeAlias alias="notice" type="com.karaok.notice.dto.noticeDTO"/>
+<typeAlias alias="notice" type="com.karaok.notice.dto.NoticeDTO"/>
  <select id="insert" parameterClass="notice">
 	insert into tb_notice
 	values(seq_notice_num.nextval, #nickname#, #subject#, #contents#, sysdate)

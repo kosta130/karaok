@@ -1,5 +1,7 @@
 package com.karaok.event.actions;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,11 +19,31 @@ public class r_EventAction extends Action {
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		
+
+		//전체 이벤트 보기
 		EventDAO dao=new EventDAO();
-		List<Event> list = null;
-		list=dao.selectEvent();
-		request.setAttribute("list", list);
+		List<Event> listAll = null;
+		listAll=dao.selectEvent();
+		request.setAttribute("listAll", listAll);
+		
+		//진행중인 이벤트 보기
+		
+		List<Event> listIng =null;
+		listIng=dao.selectIng();
+		request.setAttribute("listIng", listIng);
+		Date sysdate2=new Date();
+		String sysdate = sysdate2.toString();
+		request.setAttribute("sysdate", sysdate);
+		System.out.println(listIng);
+
+		
+		
+		//종료된 이벤트 보기
+		List<Event> listEnd =null;
+		listEnd=dao.selectEnd();
+		request.setAttribute("listEnd", listEnd);
+		System.out.println(listEnd);
+		
 		return mapping.findForward("list");
 	}
 }

@@ -1,9 +1,11 @@
-<%@page import="com.karaok.notice.dto.noticeDTO"%>
+<%@page import="com.karaok.notice.dto.NoticeDTO"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<script type="text/javascript">
 
+</script>
 <style>
 
 	th.no{
@@ -39,6 +41,12 @@
               </table>
             </div>
             <!-- /.box-body -->
+            <form action="./notice3.ok">
+             <div class="box-footer" align="center">
+                <input type="submit" value="글쓰기" >
+              </div>
+              </form>
+              
           </div>
           <!-- /.box -->
         </div>

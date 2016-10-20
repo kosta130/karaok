@@ -4,11 +4,19 @@
 		<div class="row row-offcanvas row-offcanvas-center">
 			<div class="row">
 <script type="text/javascript">
-function ud() {
-		document.upform.submit();
-}
+ function update(up) {
+		if(up=='del'){
+			if (confirm('정말삭제?')){
+				location.href = 'crud.ok?action=delete&num=${dto.num }';
+			}else{
+				return;
+			}
+		}else{
+			document.upform.submit();
+		}
+} 
 </script>
-<form role="form" action="crud.ok?action=update" method="post" name="upform">
+<form role="form"  action="crud.ok?action=update" method="post" name="upform"> 
 <h1>자유게시판 글수정</h1>
 <hr>
               <div class="box-body">
@@ -25,15 +33,13 @@ function ud() {
                   <label>Textarea</label>
                   <textarea  style="height: 300px;" class="form-control" rows="3" placeholder="Enter ..." name="contents">${dto.contents }</textarea>
                 </div>
-                
-                
- 
 
               </div>
               <!-- /.box-body -->
 
               <div class="box-footer" align="center">
-                <button type="submit" class="btn btn-primary" onclick="ud()">수정</button>
+                <button type="button" class="btn btn-primary" onclick="update('up')">수정</button>
+                <button type="button" class="btn btn-primary" onclick="update('del')">삭제</button>
                 <button type="reset" class="btn btn-primary" onclick="location.href='free_list.ok'">취소</button>
               </div>
         

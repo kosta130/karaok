@@ -9,12 +9,29 @@ public class Event {
 	private String startDate;
 	private String endDate;
 	private String fileName;
-	private String name;
+	private String point;
+	private String state;
 	
 	
 	public Event() {
 		// TODO Auto-generated constructor stub
 	}
+	
+	
+
+
+	public String getState() {
+		return state;
+	}
+
+
+
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+
 
 
 	public int getNum() {
@@ -87,13 +104,13 @@ public class Event {
 	}
 
 
-	public String getName() {
-		return name;
+	public String getPoint() {
+		return point;
 	}
 
 
-	public void setName(String name) {
-		this.name = name;
+	public void setPoint(String point) {
+		this.point = point;
 	}
 
 

@@ -44,6 +44,21 @@ public class FreeBoardAction extends Action {
 			
 			dao.updateFreeBoard(dto);
 			
+		}else if(action.equals("view")){// 글화면 요청 
+			int num = Integer.parseInt(request.getParameter("num"));
+			FreeBoard dto = dao.selectFreeBoard(num);
+			dto.setNum(num);
+			request.setAttribute("dto", dto);
+			forward = mapping.findForward("view");
+			
+		}else if(action.equals("select")){//글화면 관련
+			FreeBoard dto = new FreeBoard(Integer.parseInt(request.getParameter("num")),
+					request.getParameter("nickname"),
+					request.getParameter("subject"),
+					request.getParameter("contents"),null);
+			
+			dao.updateFreeBoard(dto);
+			
 		}else if(action.equals("delete")){// 글삭제 요청 action="delete"
 			int num = Integer.parseInt(request.getParameter("num"));
 			dao.deleteFreeBoard(num);

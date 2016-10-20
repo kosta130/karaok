@@ -10,44 +10,45 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
-import com.karaok.notice.dao.noticeDAO;
-import com.karaok.notice.dto.noticeDTO;
+import com.karaok.notice.dao.NoticeDAO;
+import com.karaok.notice.dto.NoticeDTO;
 
-public class noticeAction extends Action {
+public class NoticeAction extends Action {
 	String action = null;
 
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		noticeDAO dao = new noticeDAO();
+		NoticeDAO dao = new NoticeDAO();
 
 		action = request.getParameter("action");
 
 		ActionForward forward = mapping.findForward("list");
 		if (action == null) {
-			response.sendRedirect("/Karaok/notice/control.ok?action=list");
-		} else if (action.equals("list")) {// 글입력 요청 action="insert"
-			List<noticeDTO> list = dao.selectAll();
-			System.out.println("actionList=" + list);
+			response.sendRedirect("/Karaok/notice.ok?action=list");
+		} else if (action.equals("list")) {
+			List<NoticeDTO> list = dao.selectAll();
 			request.setAttribute("list", list);
 			forward = mapping.findForward("list");
 
-		} else if (action.equals("insert")) {// 글수정폼 요청 action="upform"
+		} else if (action.equals("insert")) {
 
-			noticeDTO dto = new noticeDTO(0, request.getParameter("nickname"), request.getParameter("subject"),
+			NoticeDTO dto = new NoticeDTO(0, request.getParameter("nickname"), request.getParameter("subject"),
 					request.getParameter("contents"), null);
+			request.setAttribute("form", form);
+			forward = mapping.findForward("form");
 			dao.insert(dto);
 
 		} else if (action.equals("upform")) {// 글수정 요청 action="update"
 
 			int num = Integer.parseInt(request.getParameter("num"));
-			noticeDTO dto = dao.select(num);
+			NoticeDTO dto = dao.select(num);
 			dto.setnum(num);
 			request.setAttribute("dto", dto);
 			forward = mapping.findForward("upform");
 
 		} else if (action.equals("update")) {// 글삭제 요청 action="delete"
-			noticeDTO dto = new noticeDTO(Integer.parseInt(request.getParameter("num")),
+			NoticeDTO dto = new NoticeDTO(Integer.parseInt(request.getParameter("num")),
 					request.getParameter("nickname"), request.getParameter("subject"), request.getParameter("contents"),
 					null);
 

@@ -36,8 +36,8 @@
 	  <action path="/notice4"
 	  			forward="/view/news_notice/notice_show.jsp"/>
 	  			
-	  		<action path="/notice/control" 
-	  				type="com.karaok.notice.actions.noticeAction">
+	  		<action path="/notice" 
+	  				type="com.karaok.notice.actions.NoticeAction">
 				<forward name="list" path="/view/news_notice/notice_list.jsp"/>
 				<forward name="edit" path="/notice2.ok"/>
 				<forward name="form" path="/notice3.ok" />
