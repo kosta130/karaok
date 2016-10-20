@@ -17,6 +17,7 @@ import org.apache.struts.action.ActionMapping;
 
 import com.karaok.event.dao.EventDAO;
 import com.karaok.event.dto.Event;
+import com.karaok.event.model.EventModel;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
@@ -38,19 +39,25 @@ public class EventAction extends Action {
 		String subject=mr.getParameter("subject");
 		String name=mr.getParameter("name");
 		String contents=mr.getParameter("contents");
-		String startDate=mr.getParameter("startDate");//"10/19/2016"
-		String endDate=mr.getParameter("endDate");
+		String sDate=mr.getParameter("startDate");//"10/19/2016"
+		String eDate=mr.getParameter("endDate");
+		String point=mr.getParameter("point");
 		String fileName=mr.getFilesystemName("fileName");
 		
 		
+		EventModel m = new EventModel();
+		String startDate=m.dateConfirm(sDate);
+		String endDate=m.dateConfirm(eDate);
+		String state=m.dateCompare(endDate);
 		
 		
+
 		System.out.println(subject);
-		System.out.println(name);
 		System.out.println(contents);
 		System.out.println(fileName);
 		System.out.println(startDate);
 		System.out.println(endDate);
+		
 
 		
 		
@@ -58,9 +65,12 @@ public class EventAction extends Action {
 		dto.setId(id);
 		dto.setSubject(subject);
 		dto.setContents(contents);
-		dto.setStartDate(startDate);
-		dto.setEndDate(endDate);
+		dto.setStartDate(startDate.substring(0,10));
+		dto.setEndDate(endDate.substring(0,10));
 		dto.setFileName(fileName);
+		dto.setPoint(point);
+		dto.setState(state);
+		System.out.println(state);
 		
 		EventDAO dao=new EventDAO();
 		boolean result=dao.insertEvent(dto);

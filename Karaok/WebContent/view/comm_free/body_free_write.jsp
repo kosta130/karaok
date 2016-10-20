@@ -30,7 +30,7 @@
 
               <div class="box-footer" align="center">
                 <button type="submit" class="btn btn-primary">등록</button>
-                <button type="submit" class="btn btn-primary" onclick="location.href='free_list.ok'">취소</button>
+                <button type="button" class="btn btn-primary" onclick="location.href='free_list.ok'">취소</button>
               </div>
         
             </form>

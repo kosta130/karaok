@@ -36,7 +36,7 @@
 	 <!-- 글 등록완료 -->   		
 	<action path="/event_create_complete"
 			type="com.karaok.event.actions.EventAction">
-			<forward name="success" path="/view/event_event/event_list.jsp"></forward>		
+			<forward name="success" path="/event_list.ok" redirect="true"></forward>		
 	</action>
 	
 

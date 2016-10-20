@@ -22,7 +22,7 @@
 		</tr>
 		<tr>
 			<td><!-- body -->
-				<jsp:include page="body_free_select.jsp" flush="true"/>
+				<jsp:include page="body_free_show.jsp" flush="true"/>
 			</td>
 		</tr>
 		<tr>

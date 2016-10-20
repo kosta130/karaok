@@ -18,7 +18,11 @@
 		<div class="row row-offcanvas row-offcanvas-center">
 			<div class="row">
 <div class="box-body">
-              <table id="example1" class="table table-bordered table-striped"align="center">
+<div align="right">
+<button type="button" class="btn btn-primary" onclick="location.href='free_write.ok'" >글쓰기</button>
+</div>
+<br>
+              <table id="example1" class="table table-bordered table-striped" align="center">
                 <thead>
                 <tr>
                   <th style="width: 7%" class="title">글번호</th>
@@ -31,7 +35,7 @@
 		  <c:forEach items="${list }" var="dto">
                    <tr>
                   <td class="title">${dto.num }</td>
-                  <td><a href="crud.ok?action=upform&num=${dto.num }">${dto.subject }</a></td>
+                  <td><a href="crud.ok?action=view&num=${dto.num }">${dto.subject }</a></td>
                   <td class="title">${dto.nickname}</td>
                   <td class="title">${dto.ndate }</td>
 		  </c:forEach>
