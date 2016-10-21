@@ -8,9 +8,9 @@ var lastPass = '';
 function startSuggestPass(){
 	if(!checkFirstPass){
 		setTimeout("sendPass()",50);
-		loopSendId = true;
+		loopSendPass = true;
 	}
-	checkFirstId = true;
+	checkFirstPass = true;
 }//startSuggest
 
 function sendPass(){//서버 페이지 요청!!
@@ -27,6 +27,6 @@ function sendPass(){//서버 페이지 요청!!
 	} else if (pass != lastPass){
 		lastPass = pass;
 		var params = "signup_pass="+pass;//signup_pass=비밀번호
-		sendRequest("id")
+		sendRequest("signUpConfirm.ok",params);
 	}
 }

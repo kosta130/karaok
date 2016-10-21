@@ -8,18 +8,18 @@ public class NoteDTO {
 	private String nickname;
 	private String subject;
 	private String contents;
-	private Date date;
+	private Date ndate;
 	
 	public NoteDTO() {
 	}
 
-	public NoteDTO(int num, String nickname, String subject, String contents, Date date) {
+	public NoteDTO(int num, String nickname, String subject, String contents, Date ndate) {
 		super();
 		this.num = num;
 		this.nickname = nickname;
 		this.subject = subject;
 		this.contents = contents;
-		this.date = date;
+		this.ndate = ndate;
 	}
 
 	public int getNum() {
@@ -54,12 +54,12 @@ public class NoteDTO {
 		this.contents = contents;
 	}
 
-	public Date getDate() {
-		return date;
+	public Date getNdate() {
+		return ndate;
 	}
 
-	public void setDate(Date date) {
-		this.date = date;
+	public void setNdate(Date ndate) {
+		this.ndate = ndate;
 	}
 	
 }
