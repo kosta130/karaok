@@ -19,7 +19,7 @@
 		<!-- 글쓰기 완료 -->
 		<action path="/note_create_complete"
 				type="com.karaok.note.actions.NoteAction">
-			<forward name="success" path="/view/news_note/note_list.jsp"/>		
+			<forward name="list" path="/view/news_note/note_list.jsp"/>		
 		</action>
 		<!-- 글보기 -->
 		<action path="/note_show"
