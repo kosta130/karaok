@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <script type="text/javascript" src="/Karaok/js/ajax.js"></script>
 <script type="text/javascript" src="/Karaok/js/idCheck.js"></script>
+<script type="text/javascript" src="/Karaok/js/passCheck.js"></script>
 <script type="text/javascript">
 	function show(elementId){
 		var frm = document.getElementById(elementId);
@@ -27,25 +28,25 @@
       <div class="modal-body">
 이메일(ID)<font color="red">*</font>
 <input type="email" class="form-control" placeholder="e-mail" id="signup_id" onkeydown="startSuggestId()">
-<div id="suggestId"></div>
+<div id="suggestId"></div><br>
 비밀번호<font color="red">*</font>
-<input type="password" class="form-control" placeholder="password" id="signup_pass" onkeydown=""><br>
-<div id="suggestPass"></div>
+<input type="password" class="form-control" placeholder="password" id="signup_pass" onkeydown="startSuggestPass()">
+<div id="suggestPass"></div><br>
 비밀번호 확인<font color="red">*</font>
-<input type="password" class="form-control" placeholder="password-confirm" id="signup_pass_confirm" onkeydown=""><br>
-<div id="suggestPassConfirm"></div>
+<input type="password" class="form-control" placeholder="password-confirm" id="signup_pass_confirm" onkeydown="">
+<div id="suggestPassConfirm"></div><br>
 이름<font color="red">*</font>
-<input type="text" class="form-control" placeholder="name" id="signup_name" onkeydown=""><br>
-<div id="suggestName"></div>
+<input type="text" class="form-control" placeholder="name" id="signup_name" onkeydown="">
+<div id="suggestName"></div><br>
 별명<font color="red">*</font>
-<input type="text" class="form-control" placeholder="nickname" id="signup_nickname" onkeydown=""><br>
-<div id="suggestNickName"></div>
+<input type="text" class="form-control" placeholder="nickname" id="signup_nickname" onkeydown="">
+<div id="suggestNickName"></div><br>
 생년월일<font color="red">*</font>
-<input type="text" class="form-control" placeholder="birthday" id="signup_birth" onkeydown=""><br>
-<div id="suggestBirth"></div>
+<input type="text" class="form-control" placeholder="birthday" id="signup_birth" onkeydown="">
+<div id="suggestBirth"></div><br>
 휴대폰번호<font color="red">*</font>
-<input type="text" class="form-control" placeholder="phone number" id="signup_phone" onkeydown=""><br>
-<div id="suggestTel"></div>
+<input type="text" class="form-control" placeholder="phone number" id="signup_phone" onkeydown="">
+<div id="suggestTel"></div><br>
 </div>
       <!-- Footer -->
       <div class="modal-footer">

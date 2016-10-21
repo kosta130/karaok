@@ -22,7 +22,7 @@ public class SignUpConfirmAction extends Action {
 		String id = request.getParameter("signup_id");
 		String pass = request.getParameter("signup_pass");
 		
-		if (id.length() > 0) {
+		if (id!=null && id.length() > 0) {
 			if (!id.matches("^[_a-zA-Z0-9-\\.]+@[\\.a-zA-Z0-9-]+\\.[a-zA-Z]+$")) {
 				countResult = 2;// 이메일 형식 미비
 				request.setAttribute("countResult", countResult);
@@ -36,12 +36,17 @@ public class SignUpConfirmAction extends Action {
 				return mapping.findForward("success");
 			} else
 				return mapping.findForward("fail");
-		}else if(pass.length()>0){
+		}else if(pass != null && pass.length()>0){
 			String returnValue=passwordValidator(pass);
 			if(!returnValue.equals("success")){
 				request.setAttribute("countResult",countResult);
 				request.setAttribute("returnValue", returnValue);
-			}else{
+				return mapping.findForward("success");
+			}else{//패스워드 형식 확정
+				countResult=8;//패스워드 형식 확정 
+				request.setAttribute("countResult",countResult);
+				request.setAttribute("returnValue", "사용 가능한 비밀번호입니다.");
+				return mapping.findForward("success");
 			}
 		}
 		return mapping.findForward("fail");
@@ -68,7 +73,7 @@ public class SignUpConfirmAction extends Action {
 		if(spaceCheck(passwd)){	//패스워드 공백 문자열 체크
 			returnValue = "비밀번호에 공백문자를 허용하지 않습니다.";
 			countResult = 3;
-		}else if(passwd.length() > 10 || passwd.length() < 16){	//자릿수 검증
+		}else if(passwd.length() < 10 || passwd.length() > 16){	//자릿수 검증
 			returnValue = "비밀번호는 10자 이상, 16자 이하로 구성하세요.";
 			countResult = 4;
 		}else if(!m.find()){	//정규식 이용한 패턴 체크

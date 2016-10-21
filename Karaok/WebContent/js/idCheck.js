@@ -14,13 +14,12 @@ function startSuggestId() {
 }// startSuggest
 
 function sendId() {// 서버 페이지 요청!!
-	if (!loopSendId){
+	if (!loopSendId)
 		return;
-	}
 	var id = document.signup.signup_id.value;
 	if (id == '') {
 		hide('suggestId');
-		document.signup.submit.disabled = 'false';
+		//document.signup.submit.disabled = 'true';
 		lastId = '';
 		loopSendId = false;
 		checkFirstId = false;
@@ -28,12 +27,12 @@ function sendId() {// 서버 페이지 요청!!
 	} else if (id != lastId) {
 		lastId = id;
 		var params = "signup_id=" + id;// signup_id=아이디
-		sendRequest("signUpConfirm.ok", params, displayResult, 'POST');
+		sendRequest("signUpConfirm.ok", params, displayIdResult, 'POST');
 	}
 	setTimeout("sendId()", 50);
 }// sendId
 
-function displayResult() {// 콜백함수 : 서버 요청 후 실행할 함수
+function displayIdResult() {// 콜백함수 : 서버 요청 후 실행할 함수
 	if (xhr.readyState == 4) {// 응답데이터 전부 전송 완료
 		if (xhr.status == 200) {
 			var resultText = xhr.responseText;// "0|사용 가능한 이메일입니다."
