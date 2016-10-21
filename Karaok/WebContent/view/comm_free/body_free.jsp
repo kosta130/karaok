@@ -8,13 +8,12 @@
 		if(up=='del'){
 			if (confirm('정말삭제?')){
 				location.href = 'crud.ok?action=delete&num=${dto.num }';
-			}else{
-				return;
 			}
 		}else{
 			document.upform.submit();
 		}
-} 
+	} 
+
 </script>
 <form role="form"  action="crud.ok?action=update" method="post" name="upform"> 
 <h1>자유게시판 글수정</h1>
@@ -27,7 +26,7 @@
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">작성자</label>
-                  <input type="text" class="form-control" name="nickname" placeholder="작성자" value=${dto.nickname }>
+                  <input type="text" class="form-control" name="nickname" placeholder="작성자" value=${dto.nickname } readonly="readonly">
                 </div>
                 <div class="form-group" >
                   <label>Textarea</label>
@@ -38,9 +37,9 @@
               <!-- /.box-body -->
 
               <div class="box-footer" align="center">
-                <button type="button" class="btn btn-primary" onclick="update('up')">수정</button>
-                <button type="button" class="btn btn-primary" onclick="update('del')">삭제</button>
-                <button type="reset" class="btn btn-primary" onclick="location.href='free_list.ok'">취소</button>
+                <button  type="button" class="btn btn-primary" onclick="update('up')">등록</button>
+                <button  type="button" class="btn btn-primary" onclick="update('del')">삭제</button>
+                <button type="reset" class="btn btn-primary" onclick="history.back()">취소</button>
               </div>
         
             </form>

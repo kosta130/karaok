@@ -16,6 +16,7 @@ import com.karaok.freeBoard.dto.FreeBoard;
 
 
 public class ListAction extends Action{
+	
 		@Override
 		public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 				HttpServletResponse response) throws Exception {//전체 게시물 조회

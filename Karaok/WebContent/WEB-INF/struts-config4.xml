@@ -12,7 +12,7 @@
 	    		forward="/view/comm_free/free_write.jsp"/>
 	    		
 	<!-- 수정폼 -->
-	<action path="/free"
+	<action path="/free_edit"
 	    		forward="/view/comm_free/free.jsp"/>
 	    		
 	<!-- 리스트 -->

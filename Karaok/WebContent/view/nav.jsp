@@ -39,7 +39,7 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">커뮤니티<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">자유게시판</a></li>
+            <li><a href="free_list.ok">자유게시판</a></li>
             <li class="divider"></li>
             <li><a href="#">랭킹게시판</a></li>
             <li class="divider"></li>

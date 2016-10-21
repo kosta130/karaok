@@ -92,8 +92,35 @@ start with 1
 nocycle
 nocache;
 
+insert into tb_free values (seq_free_num.nextval,'오1', '안녕', '리턴3조',sysdate);
+insert into tb_free values (seq_free_num.nextval,'오2', '안녕', '리턴3조',sysdate);
+insert into tb_free values (seq_free_num.nextval,'오3', '안녕', '리턴3조',sysdate);
+insert into tb_free values (seq_free_num.nextval,'오4', '안녕', '리턴3조',sysdate);
+insert into tb_free values (seq_free_num.nextval,'오5', '안녕', '리턴3조',sysdate);
+insert into tb_free values (seq_free_num.nextval,'오6', '안녕', '리턴3조',sysdate);
+insert into tb_free values (seq_free_num.nextval,'오1', '안녕1', '리턴3조',sysdate);
+insert into tb_free values (seq_free_num.nextval,'오2', '안녕1', '리턴3조',sysdate);
+insert into tb_free values (seq_free_num.nextval,'오3', '안녕1', '리턴3조',sysdate);
+insert into tb_free values (seq_free_num.nextval,'오4', '안녕1', '리턴3조',sysdate);
+insert into tb_free values (seq_free_num.nextval,'오5', '안녕1', '리턴3조',sysdate);
+insert into tb_free values (seq_free_num.nextval,'오6', '안녕1', '리턴3조',sysdate);
+insert into tb_free values (seq_free_num.nextval,'오1', '안녕12', '리턴3조',sysdate);
+insert into tb_free values (seq_free_num.nextval,'오2', '안녕12', '리턴3조',sysdate);
+insert into tb_free values (seq_free_num.nextval,'오3', '안녕12', '리턴3조',sysdate);
+insert into tb_free values (seq_free_num.nextval,'오4', '안녕12', '리턴3조',sysdate);
+insert into tb_free values (seq_free_num.nextval,'오5', '안녕12', '리턴3조',sysdate);
+insert into tb_free values (seq_free_num.nextval,'오6', '안녕12', '리턴3조',sysdate);
+insert into tb_free values (seq_free_num.nextval,'오1', '안녕123', '리턴3조',sysdate);
+insert into tb_free values (seq_free_num.nextval,'오2', '안녕123', '리턴3조',sysdate);
+insert into tb_free values (seq_free_num.nextval,'오3', '안녕123', '리턴3조',sysdate);
+insert into tb_free values (seq_free_num.nextval,'오4', '안녕123', '리턴3조',sysdate);
+insert into tb_free values (seq_free_num.nextval,'오5', '안녕123', '리턴3조',sysdate);
+insert into tb_free values (seq_free_num.nextval,'오6', '안녕123', '리턴3조',sysdate);
 
+delete from TB_FREE
+select * from TB_FREE
 
+select * from TB_member
 --랭킹게시판
   29 풍경      풍경보세요~   C:/Users/SungWook/git/karaok/Karaok/WebContent/imgtest11.jpg
 
