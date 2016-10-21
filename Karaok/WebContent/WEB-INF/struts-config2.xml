@@ -10,16 +10,21 @@
 		<!-- Note리스트 -->
 		<action path="/note_list"
 				type="com.karaok.note.actions.NoteListAction">
-			<forward name="success" path="/view/news_note/note.jsp" />	
+			<forward name="success" path="/view/news_note/note_list.jsp" />	
 		</action>
 		
 		 <!-- 글쓰기 -->   		
 		<action path="/note_create"
-	    		forward="/view/news_note/note2.jsp"/>
+	    		forward="/view/news_note/note_create.jsp"/>
 		<!-- 글쓰기 완료 -->
 		<action path="/note_create_complete"
 				type="com.karaok.note.actions.NoteAction">
-			<forward name="success" path="/view/news_note/note.jsp"/>		
+			<forward name="success" path="/view/news_note/note_list.jsp"/>		
+		</action>
+		<!-- 글보기 -->
+		<action path="/note_show"
+				type="com.karaok.note.actions.NoteShowAction">
+				<forward name="success" path="/view/news_note/note_show.jsp"/>
 		</action>
 	</action-mappings>
 

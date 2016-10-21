@@ -42,7 +42,7 @@
             	</table>
             </div>
             <div align="right">
-           		<form action="./note2.ok">
+           		<form action="./note_create.ok">
            		<input type="submit" value="글등록">
            		</form>
             </div>
