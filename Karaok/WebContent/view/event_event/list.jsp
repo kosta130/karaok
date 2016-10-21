@@ -123,19 +123,18 @@
 					<hr>
 				</div>
 			</c:forEach>
-
-
-
-
 		</div>
 	</div>
 </div>
-
-
-
+<div align="center">
 <form action="./event_create.ok">
-	<input type="submit" value="글등록">
+	<input class="btn btn-warning" type="submit" value="글등록">
 </form>
+
+
+
+</div>
+
 
 
 

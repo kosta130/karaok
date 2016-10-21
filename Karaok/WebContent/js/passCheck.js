@@ -27,6 +27,6 @@ function sendPass(){//서버 페이지 요청!!
 	} else if (pass != lastPass){
 		lastPass = pass;
 		var params = "signup_pass="+pass;//signup_pass=비밀번호
-		sendRequest("signUpConfirm.ok",params,)
+		sendRequest("signUpConfirm.ok",params);
 	}
 }
