@@ -32,20 +32,32 @@ public class NoticeAction extends Action {
 			forward = mapping.findForward("list");
 
 		} else if (action.equals("insert")) {
-
-			NoticeDTO dto = new NoticeDTO(0, request.getParameter("nickname"), request.getParameter("subject"),
-					request.getParameter("contents"), null);
-			request.setAttribute("form", form);
+			
+			String nickname=request.getParameter("nickname");
+			String subject = request.getParameter("subject");
+			String contents = request.getParameter("contents");
+			
+			NoticeDTO dto = new NoticeDTO();
+			dto.setNickname(nickname);
+			dto.setSubject(subject);
+			dto.setContents(contents);
+			
+			if(dao.insert(dto)==true){
+				System.out.println("디비입력성공");
+			}else{
+				System.out.println("디비입력실패");
+			}
+			
+	
 			forward = mapping.findForward("form");
-			dao.insert(dto);
 
-		} else if (action.equals("upform")) {// 글수정 요청 action="update"
+		} else if (action.equals("edit")) {
 
 			int num = Integer.parseInt(request.getParameter("num"));
 			NoticeDTO dto = dao.select(num);
 			dto.setnum(num);
 			request.setAttribute("dto", dto);
-			forward = mapping.findForward("upform");
+			forward = mapping.findForward("edit");
 
 		} else if (action.equals("update")) {// 글삭제 요청 action="delete"
 			NoticeDTO dto = new NoticeDTO(Integer.parseInt(request.getParameter("num")),

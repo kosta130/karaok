@@ -6,8 +6,8 @@
 <script type="text/javascript">
 
 </script>
-<form role="form" action="notice.ok?action=select" method="post" name="view">
-<h1>자유게시판 글화면</h1>
+<form role="form" action="./notice.ok?action=edit" method="post" name="view">
+<h1>공지사항 글화면</h1>
 <hr>
               <div class="box-body">
                 <div class="form-group">
@@ -31,7 +31,7 @@
               <!-- /.box-body -->
 
               <div class="box-footer" align="center">
-                <button type="submit" class="btn btn-primary" >수정</button>
+                <button type="submit" class="btn btn-primary">수정</button>
                 <button type="reset" class="btn btn-primary" onclick="location.href='free_list.ok'">취소</button>
               </div>
         

@@ -33,7 +33,7 @@
 <c:forEach items="${list }" var="v">
        <tr>
          <td>${v.num }</td>
-         <td><a href="">${v.subject }</a></td>
+         <td><a href="/Karaok/notice4.ok">${v.subject }</a></td>
          <td>${v.nickname }</td>
          <td>${v.ndate }</td>
        </tr>

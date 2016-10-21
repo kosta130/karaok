@@ -13,7 +13,7 @@ import org.apache.struts.action.ActionMapping;
 
 import com.karaok.main.dao.MemberDAO;
 
-public class signUpConfirmAction extends Action {
+public class SignUpConfirmAction extends Action {
 	int countResult=-1;
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
@@ -42,7 +42,6 @@ public class signUpConfirmAction extends Action {
 				request.setAttribute("countResult",countResult);
 				request.setAttribute("returnValue", returnValue);
 			}else{
-
 			}
 		}
 		return mapping.findForward("fail");
