@@ -63,4 +63,16 @@ public class EventDAO {
 		return listEnd;
 		
 	}
+	
+	public Event seletConfirm(int num){
+		
+		Event dto=null;
+		try {
+			dto=(Event)smc.queryForObject("event.selectConfirm",num);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return dto;
+	}
 }

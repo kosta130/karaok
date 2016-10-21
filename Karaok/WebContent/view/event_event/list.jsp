@@ -2,6 +2,10 @@
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
 <!-- Custom Tabs -->
 <div class="nav-tabs-custom">
 	<ul class="nav nav-tabs">
@@ -20,10 +24,11 @@
 				<div class="container">
 					<div class="row" style="outline-color: blue;">
 
-						<div class="col-lg-7 col-md-7">
-							<a href=""> <img width="600" height="250"
+						<div i class="col-lg-7 col-md-7">
+						<a href="./event_confirm.ok?num=${ing.num}">
+							 <img width="600" height="250"
 								src="./img/${ing.fileName}" alt="">
-							</a>
+						</a>	
 						</div>
 
 						<div class="col-lg-5 col-md-4" align="left">
@@ -45,7 +50,7 @@
 					<div class="row" style="outline-color: blue;">
 
 						<div class="col-lg-7 col-md-7">
-							<a href=""> <img width="600" height="250"
+							<a href="./event_confirm.ok?num=${end.num}"> <img width="600" height="250"
 								src="./img/${end.fileName}" alt="">
 							</a>
 						</div>
@@ -76,8 +81,8 @@
 					<div class="row" style="outline-color: blue;">
 
 						<div class="col-lg-7 col-md-7">
-							<a href=""> <img width="600" height="250"
-								src="./img/${ing.fileName}" alt="">
+							<a href="./event_confirm.ok?num=${ing.num}"> <img width="600" height="250"
+								src="./img/${ing.fileName }" alt="">
 							</a>
 						</div>
 
@@ -104,8 +109,8 @@
 					<div class="row" style="outline-color: blue;">
 
 						<div class="col-lg-7 col-md-7">
-							<a href=""> <img width="600" height="250"
-								src="./img/${end.fileName}" alt="">
+							<a href="./event_confirm.ok?num=${end.num}"> <img width="600" height="250"
+								src="./img/${end.fileName }" alt="">
 							</a>
 						</div>
 
@@ -126,14 +131,10 @@
 		</div>
 	</div>
 </div>
-<div align="center">
 <form action="./event_create.ok">
-	<input class="btn btn-warning" type="submit" value="글등록">
+	<h3 align="center"><input class="btn btn-warning" type="submit" value="글등록"></h3>
 </form>
 
-
-
-</div>
 
 
 

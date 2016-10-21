@@ -33,7 +33,7 @@ public class EventAction extends Action {
 		MultipartRequest mr=
 				new MultipartRequest(request, saveDirectory,maxSize,"UTF-8",
 						new DefaultFileRenamePolicy());
-		
+
 		
 		String id="lee52x@naver.com";
 		String subject=mr.getParameter("subject");
@@ -49,18 +49,7 @@ public class EventAction extends Action {
 		String startDate=m.dateConfirm(sDate);
 		String endDate=m.dateConfirm(eDate);
 		String state=m.dateCompare(endDate);
-		
-		
 
-		System.out.println(subject);
-		System.out.println(contents);
-		System.out.println(fileName);
-		System.out.println(startDate);
-		System.out.println(endDate);
-		
-
-		
-		
 		Event dto=new Event();
 		dto.setId(id);
 		dto.setSubject(subject);
@@ -70,8 +59,7 @@ public class EventAction extends Action {
 		dto.setFileName(fileName);
 		dto.setPoint(point);
 		dto.setState(state);
-		System.out.println(state);
-		
+
 		EventDAO dao=new EventDAO();
 		boolean result=dao.insertEvent(dto);
 		

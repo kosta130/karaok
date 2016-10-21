@@ -39,6 +39,12 @@
 			<forward name="success" path="/event_list.ok" redirect="true"></forward>		
 	</action>
 	
+	<!-- 글 보기 -->
+	<action path="/event_confirm"
+			type="com.karaok.event.actions.u_EventAction">	
+			<forward name="confirm"  path="/view/event_event/event_confirm.jsp"/>	
+	</action>
+	
 
 	</action-mappings>
 	

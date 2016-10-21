@@ -33,7 +33,7 @@ public class r_EventAction extends Action {
 		Date sysdate2=new Date();
 		String sysdate = sysdate2.toString();
 		request.setAttribute("sysdate", sysdate);
-		System.out.println(listIng);
+
 
 		
 		
@@ -41,7 +41,7 @@ public class r_EventAction extends Action {
 		List<Event> listEnd =null;
 		listEnd=dao.selectEnd();
 		request.setAttribute("listEnd", listEnd);
-		System.out.println(listEnd);
+
 		
 		return mapping.findForward("list");
 	}

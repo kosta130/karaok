@@ -26,6 +26,10 @@
 			order by num desc]]> 
 	</select>
 	
+	<select id="selectConfirm" parameterClass="int" resultClass="com.karaok.event.dto.Event">
+		select id,point,subject,contents,startDate,endDate,fileName from tb_event where num=#num#
+	</select>
+
 	
 	
 	
