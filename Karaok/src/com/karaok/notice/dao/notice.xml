@@ -2,31 +2,32 @@
 <!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd" >
 
 <sqlMap namespace="notice">
-<typeAlias alias="notice" type="com.karaok.notice.dto.NoticeDTO"/>
+<typeAlias alias="Notice" type="com.karaok.notice.dto.NoticeDTO"/>
 
-<insert id="insert" parameterClass="notice">
+<insert id="insert" parameterClass="Notice">
 insert into tb_notice
 	values(seq_notice_num.nextval, #nickname#, #subject#, #contents#, sysdate)
 
 </insert>
 
-  <select id="delete" parameterClass="int">
+  <delete id="delete" parameterClass="int">
 	delete from tb_notice
 	where num=#num#
-  </select>
+  </delete>
   
-  <select id="update" parameterClass="notice">
+  <update id="update" parameterClass="Notice">
 	update tb_notice
 	set subject=#subject# contents=#contents#
-  </select>
+	where num=#num#
+  </update>
   
-  <select id="select" parameterClass="int" resultClass="notice">
-	select nickname, subject, contents
+  <select id="select" parameterClass="int" resultClass="Notice">
+	select num, nickname, subject, contents, ndate
 	from tb_notice
 	where num=#num#
   </select>
   
-  <select id="selectAll" resultClass="notice">
+  <select id="selectAll" resultClass="Notice">
 	select num, nickname, subject, ndate
 	from tb_notice
 	order by num desc

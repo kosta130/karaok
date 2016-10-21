@@ -3,17 +3,17 @@
 	<div class="container">
 		<div class="row row-offcanvas row-offcanvas-center">
 			<div class="row">
-<form role="form">
+<form role="form" action="./notice.ok?action=update">
 <h1>공지사항 수정</h1>
 <hr>
               <div class="box-body">
                 <div class="form-group">
                   <label for="exampleInputEmail1">제목</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" placeholder="제목">
+                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="제목">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">작성자</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" placeholder="작성자">
+                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="작성자">
                 </div>
                 <div class="form-group" >
                   <label>Textarea</label>
@@ -35,4 +35,3 @@
           </div>
           </div><!--/row-->
 		</div>
-	</div>

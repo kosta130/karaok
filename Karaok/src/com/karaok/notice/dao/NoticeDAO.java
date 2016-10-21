@@ -45,7 +45,7 @@ public class NoticeDAO {
 	public NoticeDTO select(int num){
 		NoticeDTO dto=null;
 		try {
-			num = (int) smc.queryForObject("notice.select",num);
+			dto = (NoticeDTO) smc.queryForObject("notice.select",num);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

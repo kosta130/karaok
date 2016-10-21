@@ -1,5 +1,6 @@
 package com.karaok.notice.actions;
 
+import java.sql.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -52,22 +53,42 @@ public class NoticeAction extends Action {
 			forward = mapping.findForward("form");
 
 		} else if (action.equals("edit")) {
-
+			
 			int num = Integer.parseInt(request.getParameter("num"));
 			NoticeDTO dto = dao.select(num);
 			dto.setnum(num);
 			request.setAttribute("dto", dto);
 			forward = mapping.findForward("edit");
 
-		} else if (action.equals("update")) {// 글삭제 요청 action="delete"
-			NoticeDTO dto = new NoticeDTO(Integer.parseInt(request.getParameter("num")),
-					request.getParameter("nickname"), request.getParameter("subject"), request.getParameter("contents"),
-					null);
-
-			dao.update(dto);
+		} else if(action.equals("update")){
+			  
+			  String subject = request.getParameter("subject");
+			  String contents = request.getParameter("contents");
+			  
+			  String str = request.getParameter("num");
+			  int num = Integer.parseInt(str);
+			  
+			  //다섯개의 데이터를 하나(클래스)의 이름으로 묶기
+			  NoticeDTO dto = new NoticeDTO();
+			  
+			  dto.setSubject(subject);
+			  dto.setContents(contents);
+			  dto.setnum(num);
+			  
+			  dao = new NoticeDAO();
+			     if(dao.update(dto)){
+			    	 return forward=mapping.findForward("update");
+			     }
 		} else if (action.equals("delete")) {
 			int num = Integer.parseInt(request.getParameter("num"));
 			dao.delete(num);
+		} else if(action.equals("select")){
+			
+			int num = Integer.parseInt(request.getParameter("num"));
+			
+			NoticeDTO dto = dao.select(num);
+			request.setAttribute("dto", dto);
+			forward = mapping.findForward("select");
 		}
 		return forward;
 	}

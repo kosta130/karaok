@@ -41,6 +41,7 @@
 				<forward name="list" path="/view/news_notice/notice_list.jsp"/>
 				<forward name="edit" path="/notice2.ok"/>
 				<forward name="form" path="/notice.ok" redirect="true" />
+				<forward name="select" path="/notice4.ok"></forward>
 			</action>
 	    		
 	    		

@@ -1,42 +1,47 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-   <div class="container">
-      <div class="row row-offcanvas row-offcanvas-center">
-         <div class="row">
 <script type="text/javascript">
 
 </script>
-<form role="form" action="./notice.ok?action=edit" method="post" name="view">
-<h1>공지사항 글화면</h1>
-<hr>
-              <div class="box-body">
-                <div class="form-group">
-                <input type="hidden" name="num" value="${dto.num }">
-                  <label for="exampleInputEmail1">제목</label>
-                  <input type="text" class="form-control" name="subject" placeholder="제목" value=${dto.subject } readonly="readonly">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputEmail1">작성자</label>
-                  <input type="text" class="form-control" name="nickname" placeholder="작성자" value=${dto.nickname } readonly="readonly">
-                </div>
-                <div class="form-group" >
-                  <label>Textarea</label>
-                  <textarea  style="height: 300px;" class="form-control" rows="3" placeholder="Enter ..." name="contents" readonly="readonly">${dto.contents }</textarea>
-                </div>
-                
-                
- 
-
-              </div>
-              <!-- /.box-body -->
-
-              <div class="box-footer" align="center">
-                <button type="submit" class="btn btn-primary">수정</button>
-                <button type="reset" class="btn btn-primary" onclick="location.href='free_list.ok'">취소</button>
-              </div>
-        
-            </form>
-          </div>
-          </div><!--/row-->
+   <div class="container">
+      <div class="row row-offcanvas row-offcanvas-center">
+         <div class="row">
+         <div class="box-body">
+            <div align="center">
+               <h3>공지사항 보기</h3>
+               <hr>
+               
+               <table cellpadding="5" class="table table-bordered table-striped">
+                <tr>
+                   <th width="20%" bgcolor="#949494">글번호</th>
+                   <th>${dto.num }</th>
+                </tr>
+                <tr>
+                   <th width="20%" bgcolor="#cccccc">제목</th>
+                   <th>${dto.subject }</th>
+                </tr>
+                <tr>
+                   <th width="20%" bgcolor="#949494">작성자</th>
+                   <th>${dto.nickname }</th>
+                </tr>
+                <tr>
+                   <th bgcolor="#ccccc">날짜</th>
+                   <th>${dto.ndate }</th>
+                </tr>
+                <tr>
+                   <td colspan="2" height="250pt">${dto.contents }</td>
+                </tr>
+               <tr>
+                  <td colspan="2" align="center">
+                  
+                     <input type="submit" value="수정">         
+                     <input type="button" value="삭제" onclick="buttonAction('delete')">
+                  </td>
+                </tr>
+               </table>
+               
+            </div>
+            </div>
+             </div><!--/row-->
       </div>
    </div>
