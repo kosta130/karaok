@@ -3,7 +3,14 @@
 <script type="text/javascript" src="/Karaok/js/ajax.js"></script>
 <script type="text/javascript" src="/Karaok/js/idCheck.js"></script>
 <script type="text/javascript">
-
+	function show(elementId){
+		var frm = document.getElementById(elementId);
+		frm.style.display='';
+	}
+	function hide(elementId){
+		var frm = document.getElementById(elementId);
+		frm.style.display='none';
+	}
 </script>
 <div class="modal fade" id="layerpop" >
   <div class="modal-dialog">
@@ -20,25 +27,25 @@
       <div class="modal-body">
 이메일(ID)<font color="red">*</font>
 <input type="email" class="form-control" placeholder="e-mail" id="signup_id" onkeydown="startSuggestId()">
-<div id="suggestId"></div><br>
+<div id="suggestId"></div>
 비밀번호<font color="red">*</font>
 <input type="password" class="form-control" placeholder="password" id="signup_pass" onkeydown=""><br>
-<div id="suggestPass"></div><br>
+<div id="suggestPass"></div>
 비밀번호 확인<font color="red">*</font>
 <input type="password" class="form-control" placeholder="password-confirm" id="signup_pass_confirm" onkeydown=""><br>
-<div id="suggestPassConfirm"></div><br>
+<div id="suggestPassConfirm"></div>
 이름<font color="red">*</font>
 <input type="text" class="form-control" placeholder="name" id="signup_name" onkeydown=""><br>
-<div id="suggestName"></div><br>
+<div id="suggestName"></div>
 별명<font color="red">*</font>
 <input type="text" class="form-control" placeholder="nickname" id="signup_nickname" onkeydown=""><br>
-<div id="suggestNickName"></div><br>
+<div id="suggestNickName"></div>
 생년월일<font color="red">*</font>
 <input type="text" class="form-control" placeholder="birthday" id="signup_birth" onkeydown=""><br>
-<div id="suggestBirth"></div><br>
+<div id="suggestBirth"></div>
 휴대폰번호<font color="red">*</font>
 <input type="text" class="form-control" placeholder="phone number" id="signup_phone" onkeydown=""><br>
-<div id="suggestTel"></div><br>
+<div id="suggestTel"></div>
 </div>
       <!-- Footer -->
       <div class="modal-footer">

@@ -14,15 +14,16 @@ function startSuggestId() {
 }// startSuggest
 
 function sendId() {// 서버 페이지 요청!!
-	if (!loopSendId)
+	if (!loopSendId){
 		return;
+	}
 	var id = document.signup.signup_id.value;
 	if (id == '') {
-		hide('suggest');
-		document.signup.submit.disabled = 'true';
+		hide('suggestId');
+		document.signup.submit.disabled = 'false';
 		lastId = '';
 		loopSendId = false;
-		checkFirst = false;
+		checkFirstId = false;
 		idCheck = false;
 	} else if (id != lastId) {
 		lastId = id;
@@ -40,8 +41,7 @@ function displayResult() {// 콜백함수 : 서버 요청 후 실행할 함수
 			var state = parseInt(result[0]);
 			if (state == 0) {// msg가 있을때
 				var suggest = document.getElementById("suggestId");
-				suggest.innerHTML = "<font color=green>" + result[1]
-						+ "</font>";
+				suggest.innerHTML = "<font color=green>" + result[1] + "</font>";
 				show('suggestId');
 				idCheck = false;
 			} else if (state == 1) {
@@ -62,13 +62,4 @@ function displayResult() {// 콜백함수 : 서버 요청 후 실행할 함수
 			alert('서버에러: ' + xhr.status);
 		}
 	}
-}
-
-function show(elementId){
-	var frm = document.getElementById(elementId);
-	frm.style.display='';
-}
-function hide(elementId){
-	var frm = document.getElementById(elementId);
-	frm.style.display='none';
 }
