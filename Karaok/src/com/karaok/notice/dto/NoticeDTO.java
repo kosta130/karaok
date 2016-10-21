@@ -2,18 +2,18 @@ package com.karaok.notice.dto;
 
 import java.sql.Date;
 
-public class noticeDTO {
+public class NoticeDTO {
 	private int num;
 	private String nickname;
 	private String subject;
 	private String contents;
 	private Date ndate;
 	
-	public noticeDTO() {
+	public NoticeDTO() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public noticeDTO(int num, String nickname, String subject, String contents, Date ndate) {
+	public NoticeDTO(int num, String nickname, String subject, String contents, Date ndate) {
 		super();
 		this.num = num;
 		this.nickname = nickname;
