@@ -39,9 +39,12 @@
                   <td class="title">${dto.nickname}</td>
                   <td class="title">${dto.ndate }</td>
 		  </c:forEach>
+		  
                 </tr>
                 </tfoot>
               </table>
+             
+              
             </div>
             <!-- /.box-body -->
           </div>
@@ -53,6 +56,8 @@
     </section>
     <!-- /.content -->
   </div>
+  
+			    
           </div><!--/row-->
 		</div>
 	</div>

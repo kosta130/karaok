@@ -7,6 +7,7 @@
 		values (seq_free_num.nextval,#nickname#,#subject#,#contents#,sysdate)
 	</insert>
 	
+	<!-- 리스트화면 데이터 출력 -->
 	<select id="selectAll" resultClass="com.karaok.freeBoard.dto.FreeBoard">
 		select num, nickname, subject, contents, ndate
 		from tb_free
@@ -18,6 +19,7 @@
 		where num = #num#
 	</delete>
 	
+	<!-- 글화면 데이터 출력 -->
 	<select id="select" parameterClass="int" resultClass="com.karaok.freeBoard.dto.FreeBoard">
 		select nickname, subject, contents
 		from tb_free
@@ -28,4 +30,6 @@
 		 update tb_free set nickname=#nickname#,subject=#subject#,contents = #contents#  
 		 where num=#num#
 	</update>
+	
+
 </sqlMap>

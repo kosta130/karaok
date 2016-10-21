@@ -23,7 +23,10 @@
                   <label>Textarea</label>
                   <textarea  style="height: 300px;" class="form-control" rows="3" placeholder="Enter ..." name="contents" readonly="readonly">${dto.contents }</textarea>
                 </div>
-                
+                <hr>
+                <label for="exampleInputEmail1" value="${dto.nickname }" >ID</label>
+                <textarea rows="" cols="" placeholder="로그인 후 이용하실 수 있습니다." onkeydown=" "></textarea>
+                 <button>댓글 등록</button>
                 
  
 
@@ -31,6 +34,7 @@
               <!-- /.box-body -->
 
               <div class="box-footer" align="center">
+                
                 <button type="submit" class="btn btn-primary" >수정</button>
                 <button type="reset" class="btn btn-primary" onclick="location.href='free_list.ok'">취소</button>
               </div>
