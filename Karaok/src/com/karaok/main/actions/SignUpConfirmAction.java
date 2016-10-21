@@ -13,14 +13,16 @@ import org.apache.struts.action.ActionMapping;
 
 import com.karaok.main.dao.MemberDAO;
 
-public class signUpConfirmAction extends Action {
+public class SignUpConfirmAction extends Action {
 	int countResult=-1;
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-
+		System.out.println("액션 들어옴");
 		String id = request.getParameter("signup_id");
 		String pass = request.getParameter("signup_pass");
+		System.out.println(id);
+		
 		
 		if (id.length() > 0) {
 			if (!id.matches("^[_a-zA-Z0-9-\\.]+@[\\.a-zA-Z0-9-]+\\.[a-zA-Z]+$")) {
@@ -38,13 +40,10 @@ public class signUpConfirmAction extends Action {
 				return mapping.findForward("fail");
 		}else if(pass.length()>0){
 			String returnValue=passwordValidator(pass);
-			if(!returnValue.equals("success")){
-				request.setAttribute("countResult",countResult);
-				request.setAttribute("returnValue", returnValue);
-			}else{
-
-			}
+			request.setAttribute("countResult",countResult);
+			request.setAttribute("returnValue", returnValue);
 		}
+		System.out.println("실패");
 		return mapping.findForward("fail");
 	}
 
@@ -55,7 +54,7 @@ public class signUpConfirmAction extends Action {
 	 * @return
 	 */
 	public String passwordValidator(String passwd){
-		String returnValue = "success";
+		String returnValue = "사용가능한 비밀번호 형식입니다.";
 		
 		Pattern p = Pattern.compile("([a-zA-Z0-9].*[!,@,#,$,%,^,&amp;,*,?,_,~])|([!,@,#,$,%,^,&amp;,*,?,_,~].*[a-zA-Z0-9])");
 		Matcher m = p.matcher(passwd);

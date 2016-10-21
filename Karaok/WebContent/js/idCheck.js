@@ -7,8 +7,8 @@ var lastId = '';
 
 function startSuggestId() {
 	if (!checkFirstId) {
-		setTimeout("sendId()", 50);
 		loopSendId = true;
+		setTimeout("sendId()", 50);
 	}
 	checkFirstId = true;
 }// startSuggest

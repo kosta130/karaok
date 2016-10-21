@@ -18,21 +18,27 @@
       <!-- body -->
       <form name="signup">
       <div class="modal-body">
-이메일(ID) 
+이메일(ID)<font color="red">*</font>
 <input type="email" class="form-control" placeholder="e-mail" id="signup_id" onkeydown="startSuggestId()">
 <div id="suggestId"></div><br>
-비밀번호
+비밀번호<font color="red">*</font>
 <input type="password" class="form-control" placeholder="password" id="signup_pass" onkeydown=""><br>
-비밀번호 확인
+<div id="suggestPass"></div><br>
+비밀번호 확인<font color="red">*</font>
 <input type="password" class="form-control" placeholder="password-confirm" id="signup_pass_confirm" onkeydown=""><br>
-이름
+<div id="suggestPassConfirm"></div><br>
+이름<font color="red">*</font>
 <input type="text" class="form-control" placeholder="name" id="signup_name" onkeydown=""><br>
-별명
+<div id="suggestName"></div><br>
+별명<font color="red">*</font>
 <input type="text" class="form-control" placeholder="nickname" id="signup_nickname" onkeydown=""><br>
-생년월일
+<div id="suggestNickName"></div><br>
+생년월일<font color="red">*</font>
 <input type="text" class="form-control" placeholder="birthday" id="signup_birth" onkeydown=""><br>
-휴대폰번호
+<div id="suggestBirth"></div><br>
+휴대폰번호<font color="red">*</font>
 <input type="text" class="form-control" placeholder="phone number" id="signup_phone" onkeydown=""><br>
+<div id="suggestTel"></div><br>
 </div>
       <!-- Footer -->
       <div class="modal-footer">
