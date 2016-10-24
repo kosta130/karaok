@@ -22,11 +22,11 @@ public class NoticeDTO {
 		this.ndate = ndate;
 	}
 
-	public int getnum() {
+	public int getNum() {
 		return num;
 	}
 
-	public void setnum(int num) {
+	public void setNum(int num) {
 		this.num = num;
 	}
 

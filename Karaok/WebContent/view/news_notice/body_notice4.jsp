@@ -1,8 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <script type="text/javascript">
-
+	function update(up) {
+		if(up=='del'){
+			if (confirm('정말삭제?')){
+				location.href = 'notice.ok?action=delete&num=${dto.num }';
+			}
+		}else{
+			document.view.submit();
+		}
+	}
 </script>
+<form role="form" action="notice.ok?action=edit&num=${dto.num }" method="post" name="view">
    <div class="container">
       <div class="row row-offcanvas row-offcanvas-center">
          <div class="row">
@@ -10,7 +19,7 @@
             <div align="center">
                <h3>공지사항 보기</h3>
                <hr>
-               
+                 
                <table cellpadding="5" class="table table-bordered table-striped">
                 <tr>
                    <th width="20%" bgcolor="#949494">글번호</th>
@@ -34,12 +43,14 @@
                <tr>
                   <td colspan="2" align="center">
                   
-                     <input type="submit" value="수정">         
-                     <input type="button" value="삭제" onclick="buttonAction('delete')">
+                     <button type="submit" class="btn btn-primary" onclick="update('up')">수정</button>
+                     <button  type="button" class="btn btn-primary" onclick="update('del')">삭제</button>
+               		 <button type="reset" class="btn btn-primary" onclick="location.href='list.ok'">목록</button>        
+                     
                   </td>
                 </tr>
                </table>
-               
+               </form>
             </div>
             </div>
              </div><!--/row-->

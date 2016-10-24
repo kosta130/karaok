@@ -29,7 +29,7 @@ public class NoticeAction extends Action {
 			response.sendRedirect("/Karaok/notice.ok?action=list");
 		} else if (action.equals("list")) {
 			List<NoticeDTO> list = dao.selectAll();
-			request.setAttribute("list", list);
+			request.getSession().setAttribute("list", list);
 			forward = mapping.findForward("list");
 
 		} else if (action.equals("insert")) {
@@ -50,42 +50,46 @@ public class NoticeAction extends Action {
 			}
 			
 	
-			forward = mapping.findForward("form");
+			forward = mapping.findForward("list");
+			request.getSession().setAttribute("list", dao.selectAll()); 
 
-		} else if (action.equals("edit")) {
-			
+		} else if (action.equals("edit")) {	
 			int num = Integer.parseInt(request.getParameter("num"));
 			NoticeDTO dto = dao.select(num);
-			dto.setnum(num);
+			dto.setNum(num);
 			request.setAttribute("dto", dto);
 			forward = mapping.findForward("edit");
 
 		} else if(action.equals("update")){
-			  
+			int num = Integer.parseInt(request.getParameter("num"));
 			  String subject = request.getParameter("subject");
 			  String contents = request.getParameter("contents");
 			  
-			  String str = request.getParameter("num");
-			  int num = Integer.parseInt(str);
-			  
-			  //다섯개의 데이터를 하나(클래스)의 이름으로 묶기
+			  //다섯개의 데이터를 하나(클래스)의 이름으로 묶기s
 			  NoticeDTO dto = new NoticeDTO();
 			  
 			  dto.setSubject(subject);
 			  dto.setContents(contents);
-			  dto.setnum(num);
+			  dto.setNum(num);
+			  System.out.println("up제목:"+ subject);
+			  System.out.println("up내용:"+ contents);
+			  System.out.println("up번호:"+ num);
 			  
-			  dao = new NoticeDAO();
-			     if(dao.update(dto)){
-			    	 return forward=mapping.findForward("update");
-			     }
+			  
+			  boolean flag=dao.update(dto);
+			  System.out.println("update Flag: "+ flag);
+			    if(flag){
+			    	 forward = mapping.findForward("list");
+			    	 request.getSession().setAttribute("list", dao.selectAll()); 
+			    }
 		} else if (action.equals("delete")) {
 			int num = Integer.parseInt(request.getParameter("num"));
 			dao.delete(num);
+			forward = mapping.findForward("list");
+			request.getSession().setAttribute("list", dao.selectAll()); 
 		} else if(action.equals("select")){
 			
 			int num = Integer.parseInt(request.getParameter("num"));
-			
 			NoticeDTO dto = dao.select(num);
 			request.setAttribute("dto", dto);
 			forward = mapping.findForward("select");
