@@ -155,7 +155,15 @@ insert into tb_notice values (seq_notice_num.nextval, '드루미드루미', 'gonggong'
 delete from tb_notice where nickname='드루미드루미';
 insert into tb_update values (seq_update_num.nextval, '드루미드루미', '도', '하이', sysdate);
 insert into tb_member values ('ojh5797@naver.com', 1234, '오정훈', '오바사키', sysdate, '010-3952-5797');
+insert into tb_member values ('ojh5791@naver.com', 1234, '오1', '오바사키', sysdate, '010-3952-5791');
+insert into tb_member values ('ojh5@naver.com', 1234, '오1', '오바사키', sysdate, '010-3952-5791');
+insert into tb_member values ('ojh57@naver.com', 1234, '오2', '오바사키', sysdate, '010-3952-5791');
+insert into tb_member values ('ojh57918@naver.com', 1234, '오3', '오바사키', sysdate, '010-3952-5791');
+insert into tb_member values ('ojh57917@naver.com', 1234, '오4', '오바사키', sysdate, '010-3952-5791');
+insert into tb_member values ('ojh57916@naver.com', 1234, '오5', '오바사키', sysdate, '010-3952-5791');
+insert into tb_member values ('ojh579d16@naver.com', 1234, '오6', '오바사키', sysdate, '010-3952-5791');
 insert into tb_notice values (seq_notice_num.nextval, '오바사키', '2016년 10월 20일 공지사항입니다.', '제곧내', sysdate);
 
 select * from tb_notice
+delete from tb_notice where num between 7 and 18 
 select NUM,NICKNAME,SUBJECT,CONTENTS,NDATE from TB_UPDATE order by NUM desc;

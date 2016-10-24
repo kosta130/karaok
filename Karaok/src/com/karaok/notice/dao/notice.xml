@@ -17,18 +17,18 @@ insert into tb_notice
   
   <update id="update" parameterClass="Notice">
 	update tb_notice
-	set subject=#subject# contents=#contents#
+	set subject=#subject#,contents=#contents#
 	where num=#num#
   </update>
   
   <select id="select" parameterClass="int" resultClass="Notice">
-	select num, nickname, subject, contents, ndate
+	select  num, nickname, subject, contents, ndate
 	from tb_notice
 	where num=#num#
   </select>
   
   <select id="selectAll" resultClass="Notice">
-	select num, nickname, subject, ndate
+	select num, nickname, subject, contents, ndate
 	from tb_notice
 	order by num desc
   </select>

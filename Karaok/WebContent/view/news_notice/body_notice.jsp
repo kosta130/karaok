@@ -4,16 +4,16 @@
 		<div class="row row-offcanvas row-offcanvas-center">
 			<div class="row">
 
-<form method="POST" action="./notice.ok?action=insert">
+<form method="POST" action="./notice.ok?action=insert" name="input">
 <h1>공지사항 입력</h1>
 <hr>
-	<input name="subject" type="text" class="form-control" id="exampleInputEmail1" placeholder="제목"><br>
-	<input name="nickname" type="text" class="form-control" id="exampleInputEmail1" placeholder="작성자"><br>
-	<textarea name="contents" style="height: 300px;" class="form-control" rows="3"></textarea>
+	<input name="subject" type="text" class="form-control" id="exampleInputEmail1" placeholder="제목" value="${subject }"><br>
+	<input name="nickname" type="text" class="form-control" id="exampleInputEmail1" placeholder="작성자" value="${nickname }"><br>
+	<textarea name="contents" style="height: 300px;" class="form-control" rows="3">${contents }</textarea>
                
     <div class="box-footer" align="center">
-        <button type="submit" class="btn btn-primary" onclick="">등록</button>
-        <button type="submit" class="btn btn-primary" onclick="history.back()">취소</button>
+        <button type="submit" class="btn btn-primary" >등록</button>
+        <button type="button" class="btn btn-primary" onclick="history.back()">취소</button>
     </div>
         
 </form>
