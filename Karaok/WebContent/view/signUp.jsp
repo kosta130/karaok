@@ -3,6 +3,8 @@
 <script type="text/javascript" src="/Karaok/js/ajax.js"></script>
 <script type="text/javascript" src="/Karaok/js/idCheck.js"></script>
 <script type="text/javascript" src="/Karaok/js/passCheck.js"></script>
+<script type="text/javascript" src="/Karaok/js/passConfirmCheck.js"></script>
+<script type="text/javascript" src="/Karaok/js/nameCheck.js"></script>
 <script type="text/javascript">
 	function show(elementId){
 		var frm = document.getElementById(elementId);
@@ -33,10 +35,10 @@
 <input type="password" class="form-control" placeholder="password" id="signup_pass" onkeydown="startSuggestPass()">
 <div id="suggestPass"></div><br>
 비밀번호 확인<font color="red">*</font>
-<input type="password" class="form-control" placeholder="password-confirm" id="signup_pass_confirm" onkeydown="">
+<input type="password" class="form-control" placeholder="password-confirm" id="signup_pass_confirm" onkeydown="startSuggestPassConfirm()">
 <div id="suggestPassConfirm"></div><br>
 이름<font color="red">*</font>
-<input type="text" class="form-control" placeholder="name" id="signup_name" onkeydown="">
+<input type="text" class="form-control" placeholder="name" id="signup_name" onkeydown="startSuggestName()">
 <div id="suggestName"></div><br>
 별명<font color="red">*</font>
 <input type="text" class="form-control" placeholder="nickname" id="signup_nickname" onkeydown="">
