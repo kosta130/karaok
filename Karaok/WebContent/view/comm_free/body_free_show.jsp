@@ -46,7 +46,6 @@
                                         <div class="form-group">
                                             <input type="text" id="commentParentName" name="commentParentName" class="form-control col-lg-2" data-rule-required="true" placeholder="이름" maxlength="10">
                                         </div>
-                                        
                                         <div class="form-group">
                                             <button type="button" id="commentParentSubmit" name="commentParentSubmit" class="btn btn-default">댓글 입력</button>
                                         </div>
@@ -70,11 +69,12 @@
                                    
                                 if($.trim(pName.val())==""){
                                     alert("이름을 입력하세요.");
-                                    pName.focus();
+                                    pName.focus();  
+                                    return false;
                                 }else if($.trim(pText.val())==""){
                                     alert("내용을 입력하세요.");
                                     pText.focus();
-                                    return;
+                                    return false;
                                 }
                                    
                                 var commentParentText = '<tr id="r1" name="commentParentCode">'+
@@ -104,11 +104,11 @@
                                 if($.trim(cName.val())==""){
                                     alert("이름을 입력하세요.");
                                     cName.focus();
-                                    return;
+                                    return false;
                                 }else if($.trim(cText.val())==""){
                                     alert("내용을 입력하세요.");
                                     cText.focus();
-                                    return;
+                                    return false;
                                 }
                                    
                                 var commentChildText = '<tr name="commentChildCode">'+

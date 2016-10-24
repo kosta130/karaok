@@ -35,7 +35,7 @@
               <div class="box-body">
                 <div class="form-group">
                 <input type="hidden" name="num" value="${dto.num }">
-                  <label for="exampleInputEmail1">제목</label>ㅈ
+                  <label for="exampleInputEmail1">제목</label>
                   <input type="text" class="form-control" name="subject" placeholder="제목" value=${dto.subject }>
                 </div>
                 <div class="form-group">

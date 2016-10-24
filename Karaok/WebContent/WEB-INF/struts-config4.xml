@@ -20,8 +20,8 @@
 	    		forward="/view/comm_free/free_list.jsp"/>
 	    		
 	<!-- 글화면 -->
-	<action path="/free_show"
-	    		forward="/view/comm_free/free_show.jsp"/>
+	<!-- <action path="/free_show"
+	    		forward="/view/comm_free/free_show.jsp"/> -->
 	    		
 	<!-- DB입력요청 -->
       <action path="/crud"
