@@ -6,4 +6,9 @@
 		from tb_member
 		where id=#id#
 	</select>
+	<select id="selectNickNameCount" parameterClass="String" resultClass="int">
+		select count(*)
+		from tb_member
+		where nickname=#nickname#
+	</select>
 </sqlMap>

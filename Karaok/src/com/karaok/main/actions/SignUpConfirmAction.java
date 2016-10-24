@@ -23,6 +23,7 @@ public class SignUpConfirmAction extends Action {
 		String pass = request.getParameter("signup_pass");
 		String pass2 = request.getParameter("signup_pass_2");
 		String passConfirm = request.getParameter("signup_pass_confirm");
+		String nickName = request.getParameter("signup_nickname");
 		
 		if (id!=null && id.length() > 0) {
 			if (!id.matches("^[_a-zA-Z0-9-\\.]+@[\\.a-zA-Z0-9-]+\\.[a-zA-Z]+$")) {
@@ -63,6 +64,33 @@ public class SignUpConfirmAction extends Action {
 				request.setAttribute("countResult",countResult);
 				request.setAttribute("returnValue", returnValue);
 				return mapping.findForward("success");
+			}
+		}else if(nickName != null && nickName.length()>0){
+			String returnValue = null;//
+			if (nickName.length()<2||nickName.length()>5) {
+				countResult = 13;// 이메일 형식 미비
+				returnValue = "별명은 2자 이상 5자 이하로 입력해야합니다.";
+				request.setAttribute("countResult", countResult);
+				request.setAttribute("returnValue", returnValue);
+				return mapping.findForward("success");
+			}
+			// DB전달 ---> ID갯수 조회
+			MemberDAO memberDao = new MemberDAO();
+			countResult = memberDao.selectNickNameCount(nickName);
+			if (countResult > -1) {
+				if(countResult==1){
+					countResult = 12;
+					returnValue = "이미 존재하는 별명입니다.";
+					request.setAttribute("countResult", countResult);
+					request.setAttribute("returnValue", returnValue);
+					return mapping.findForward("success");
+				}else if(countResult==0){
+					countResult = 11;
+					returnValue = "사용 가능한 별명입니다.";
+					request.setAttribute("countResult", countResult);
+					request.setAttribute("returnValue", returnValue);
+					return mapping.findForward("success");
+				}
 			}
 		}
 		return mapping.findForward("fail");
