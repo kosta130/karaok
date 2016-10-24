@@ -14,4 +14,13 @@
 		from TB_UPDATE
 		order by NUM desc
 	</select>
+	<delete id="delete" parameterClass="int" >
+		delete from TB_UPDATE
+		where NUM = #NUM#
+	</delete>
+	<update id="update" parameterClass="com.karaok.note.dto.NoteDTO">
+		update TB_NOTE
+		set subject=#subject# contents=#contents#
+		where num=#num#
+	</update>
 </sqlMap>

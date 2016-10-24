@@ -22,6 +22,9 @@
 <button type="button" class="btn btn-primary" onclick="location.href='free_write.ok'" >글쓰기</button>
 </div>
 <br>
+<%
+	request.getSession().setAttribute("currentNickname", "오바사키");
+%>
               <table id="example1" class="table table-bordered table-striped" align="center">
                 <thead>
                 <tr>

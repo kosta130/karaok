@@ -30,19 +30,20 @@
 	  <action path="/notice2"
 	  			forward="/view/news_notice/notice_editForm.jsp"/>
 	  			
-	  <action path="/notice"
-	  			forward="/view/news_notice/notice_list.jsp"/>
-	  			
 	  <action path="/notice4"
 	  			forward="/view/news_notice/notice_show.jsp"/>
+	  
+	  <action path="/list"
+	          forward="/view/news_notice/notice_list.jsp"></action>
 	  			
-	  		<action path="/notice" 
+	  <action path="/notice" 
 	  				type="com.karaok.notice.actions.NoticeAction">
-				<forward name="list" path="/view/news_notice/notice_list.jsp"/>
+				<forward name="list" path="/list.ok" redirect="true"/>
 				<forward name="edit" path="/notice2.ok"/>
-				<forward name="form" path="/notice.ok" redirect="true" />
 				<forward name="select" path="/notice4.ok"></forward>
-			</action>
+				<forward name="update" path="/notice.ok"></forward>
+				<forward name="delete" path="/notice.ok"></forward>
+	   </action>
 	    		
 	    		
 	    		

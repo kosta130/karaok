@@ -23,4 +23,15 @@ public class MemberDAO {
 		}
 		return count;
 	}
+	
+	public int selectNickNameCount(String nickName){
+		int count = -1;
+		try {
+			count=(int)smc.queryForObject("member.selectNickNameCount", nickName);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return count;
+	}
 }

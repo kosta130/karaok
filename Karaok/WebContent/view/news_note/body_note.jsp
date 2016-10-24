@@ -17,6 +17,9 @@
 		<div class="row row-offcanvas row-offcanvas-center">
 			<div class="row">
 			<div class="box-body">
+			<div align="right">
+				<button class="btn btn-primary" onclick="location.href='note_input.ok'">글 등록</button>
+			</div>
             <div align="center">
             	<h3>개발자 노트</h3>
             	<hr>
@@ -33,18 +36,13 @@
              	<c:forEach items="${list }" var="note">
             		<tr>
             			<td align="center">${note.num }</td>
-            			<td>${note.subject }</td>
+            			<td><a href="note.ok?action=view&num=${note.num}">${note.subject }</td>
             			<td align="center">${note.nickname }</td>
             			<td align="center">${note.ndate }</td>
             		</tr>
             	</c:forEach>
             	</tbody>
             	</table>
-            </div>
-            <div align="right">
-           		<form action="./note_create.ok">
-           		<input type="submit" value="글등록">
-           		</form>
             </div>
             </div>
           	</div><!--/row-->

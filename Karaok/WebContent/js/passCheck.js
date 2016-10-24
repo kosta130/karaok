@@ -9,6 +9,7 @@ function startSuggestPass(){
 	if(!checkFirstPass){
 		loopSendPass = true;
 		setTimeout("sendPass()",50);
+		startSuggestPassConfirm();
 	}
 	checkFirstPass = true;
 }//startSuggest

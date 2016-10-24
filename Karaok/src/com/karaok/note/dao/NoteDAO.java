@@ -37,4 +37,39 @@ public class NoteDAO {
 		return list;
 	}
 	
+	public boolean delete(int num){
+		try {
+			int t = smc.delete("note.delete", num);
+			if(t==1)
+				return true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	public boolean update(NoteDTO dto) {
+		try {
+			int t = smc.update("note.update", dto);
+			if(t==1)
+				return true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	public NoteDTO select(int num) {
+		NoteDTO dto = null;
+		try {
+			dto = (NoteDTO)smc.queryForObject("note.select", num);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return dto;
+	}
+	
 }
