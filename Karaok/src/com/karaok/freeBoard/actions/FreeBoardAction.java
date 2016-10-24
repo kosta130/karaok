@@ -64,5 +64,6 @@ public class FreeBoardAction extends Action {
 			dao.deleteFreeBoard(num);
 		}
 		return forward;
+		
 	}
 }

@@ -31,7 +31,6 @@
         <forward name="upform" path="/view/comm_free/free.jsp" ></forward>        
       </action> 
       
-
       <!-- 게시물 목록 요청 -->
       <action path="/free_list" type="com.karaok.freeBoard.actions.ListAction">
       	<forward name="success" path="/view/comm_free/free_list.jsp"></forward>
