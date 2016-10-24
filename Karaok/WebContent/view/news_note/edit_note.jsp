@@ -7,20 +7,20 @@
 			<script type="text/javascript">
 				$(function(){
 					var subject = $("#subject");
-					var cont = $("#cont");
+					var contents = $("#contents");
 					
 					$("button[type=submit]").click(function(){
-						if($.trim(subject.val())==""){
+						if($.trim(sub.val())==""){
 							alert("제목을 입력하여 주십시오.");
 							subject.focus();
 							return false;
-						} else if($.trim(cont.val())==""){
+						} else if($.trim(contents.val())==""){
 							alert("내용을 입력하여 주십시오.");
-							cont.focus();
+							contents.focus();
 							return false;
-						} else if($.trim(cont.val()).length < 3){
+						} else if($.trim(contents.val()).length < 3){
 							alert("내용을 3자 이상 입력하세요.");
-							cont.focus();
+							contents.focus();
 							return false;
 						}
 						document.write.action="note.ok?action=insert";
@@ -29,32 +29,33 @@
 					
 				});
 			</script>
-			<form role="form" method="post" name="write" id="write">
-            	<h1>개발자 노트 입력</h1>
-            	<hr>
-            	<div class="box-body">
+			<form role="form" action="./note.ok?action=update" method="POST" name="upform">
+			<h3>개발자 노트 수정</h3>
+			<hr>
+              <div class="box-body">
                 <div class="form-group">
-                  <input type="hidden" name="num" value="${num }">
+                 <input type="hidden" name="num" value="${dto.num }">
                   <label for="exampleNote1">제목</label>
-                  <input type="text" class="form-control" id="subject" placeholder="제목" value="${subject }" name="subject">
+                  <input type="text" class="form-control" id="subject" placeholder="제목" value=${dto.subject }>
                 </div>
                 <div class="form-group">
                   <label for="exampleNote1">작성자</label>
-                  <input type="text" class="form-control" id="nickname" placeholder="작성자" value="${subject }" name="nickname">
+                  <input type="text" class="form-control" id="nickname" placeholder="작성자" value=${dto.nickname } readonly="readonly">
                 </div>
                 <div class="form-group" >
                   <label>Textarea</label>
-                  <textarea  style="height: 300px;" id="cont" class="form-control" rows="3" placeholder="3글자 이상 입력하여 주십시오..." name="contents"> ${contents } </textarea>
+                  <textarea  style="height: 300px;" class="form-control" rows="3" placeholder="내용을 입력해 주십시오..." name="contents">${dto.contents }</textarea>
                 </div>
                 
               </div>
               <!-- /.box-body -->
 
               <div class="box-footer" align="center">
-                <button type="submit" class="btn btn-primary">등록</button>
-                <button type="button" class="btn btn-primary" onclick="location.href='note_list.ok'">취소</button>
+                <button class="btn btn-primary">수정</button>
+                <button type="submit" class="btn btn-primary" onclick="location.href='note_list.ok'">취소</button>
               </div>
-              </form>
-        </div>
-    </div>
-    
+        
+            </form>
+          </div>
+          </div><!--/row-->
+		</div>

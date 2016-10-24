@@ -24,7 +24,33 @@ public class NoteAction extends Action{
 		if(action.equals("insert")) {
 			NoteDTO dto = new NoteDTO(0, request.getParameter("nickname"), request.getParameter("subject"),  request.getParameter("contents"), null);
 			dao.insert(dto);
+		} else if(action.equals("upform")) {
+			int num= Integer.parseInt(request.getParameter("num"));
+			NoteDTO dto = dao.select(num);
+			dto.setNum(num);
+			request.setAttribute("dto", dto);
+			forward = mapping.findForward("upform");
+		} else if(action.equals("update")){
+			NoteDTO dto = new NoteDTO(0, request.getParameter("nickname"), request.getParameter("subject"),  request.getParameter("contents"), null);
+			dao.update(dto);
+		} else if(action.equals("view")){
+			int num = Integer.parseInt(request.getParameter("num"));
+			NoteDTO dto =dao.select(num);
+			dto.setNum(num);
+			request.setAttribute("dto", dto);
+			forward = mapping.findForward("view");
+		} else if(action.equals("select")){
+			NoteDTO dto = new NoteDTO(Integer.parseInt(request.getParameter("num")),
+			request.getParameter("nickname"),
+			request.getParameter("subject"),
+			request.getParameter("contents"),null);
+			
+			dao.update(dto);
+		}else if(action.equals("delete")){
+			int num = Integer.parseInt(request.getParameter("num"));
+			dao.delete(num);
 		}
+			
 		
 		return forward;
 	}

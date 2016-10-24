@@ -22,7 +22,7 @@
 		</tr>
 		<tr>
 			<td><!-- body -->
-				<jsp:include page="show_note.jsp" flush="true"/>
+				<jsp:include page="edit_note.jsp" flush="true"/>
 			</td>
 		</tr>
 		<tr>

@@ -13,19 +13,22 @@
 			<forward name="success" path="/view/news_note/note_list.jsp" />	
 		</action>
 		
-		 <!-- 글쓰기 -->   		
-		<action path="/note_create"
-	    		forward="/view/news_note/note_create.jsp"/>
-		<!-- 글쓰기 완료 -->
-		<action path="/note_create_complete"
+		<!-- DB입력요청 -->
+		<action path="/note"
 				type="com.karaok.note.actions.NoteAction">
-			<forward name="list" path="/view/news_note/note_list.jsp"/>		
+				<forward name="list" path="/note_list.ok" redirect="true" />
+				<forward name="show" path="/note_show.ok" />
+				<forward name="edit" path="/note_edit.ok" />
+				<forward name="input" path="/note_input.ok" />
 		</action>
-		<!-- 글보기 -->
+		
 		<action path="/note_show"
-				type="com.karaok.note.actions.NoteShowAction">
-				<forward name="success" path="/view/news_note/note_show.jsp"/>
-		</action>
+				forward="/view/news_note/note_show.jsp"/>
+	
+		<action path="/note_edit"
+				forward="/view/news_note/note_edit.jsp"/>
+		<action path="/note_input"
+				forward="/view/news_note/note_create.jsp"/>
 	</action-mappings>
 
 </struts-config>
