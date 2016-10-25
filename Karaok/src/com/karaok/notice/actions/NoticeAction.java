@@ -14,6 +14,8 @@ import org.apache.struts.action.ActionMapping;
 import com.karaok.notice.dao.NoticeDAO;
 import com.karaok.notice.dto.NoticeDTO;
 
+
+
 public class NoticeAction extends Action {
 	String action = null;
 
@@ -25,14 +27,45 @@ public class NoticeAction extends Action {
 		action = request.getParameter("action");
 
 		ActionForward forward = mapping.findForward("list");
-		if (action == null) {
-			response.sendRedirect("/Karaok/notice.ok?action=list");
-		} else if (action.equals("list")) {
-			List<NoticeDTO> list = dao.selectAll();
-			request.getSession().setAttribute("list", list);
-			forward = mapping.findForward("list");
 
-		} else if (action.equals("insert")) {
+			if(action==null || action.equals("list")){
+				
+				List<NoticeDTO> list = dao.selectAll();
+				request.getSession().setAttribute("list", list);
+				forward = mapping.findForward("list");
+				
+				
+		    	  //페이지 정보 얻어오기
+		    	  String pageStr = request.getParameter("page");
+		          
+		    	  int page=1;//기본페이지를 1페이지로 하겠다!!
+		    	  
+		    	  int viewRowCnt=10;//한 페이지에 보여줄 행(레코드)의 수
+		    	  
+		    	  if(pageStr != null){
+		    		  page = Integer.parseInt(pageStr);
+		    	  }
+		    	  
+		    	  int end=page*viewRowCnt;
+		    	  int start=end-(viewRowCnt-1);
+		    	  
+		    	  int totalRecord=dao.selectCount();
+		    	  System.out.println("totalRecord: "+ totalRecord);
+		    	  int totalPage = totalRecord/viewRowCnt;
+		    	      if(totalRecord%viewRowCnt >0)
+		    	    	  totalPage++;
+		    	  request.getSession().removeAttribute("list");
+		    	  request.getSession().removeAttribute("page");
+		    	  request.getSession().removeAttribute("totalPage");
+		    	  
+		    	  list = dao.selectPage(start,end);//dao.selectAll(); 			  
+		    	  request.getSession().setAttribute("list", list);//4. 영역에 데이터 저장
+		    	  request.getSession().setAttribute("page", page);//현재페이지
+		    	  request.getSession().setAttribute("totalPage", totalPage);//전체페이지
+		    	  
+		    	  //영역에 데이터 저장하는 이유? 뷰와 공유하기 위해서!!    	  
+		    	  return forward=mapping.findForward("list");
+			}else if (action.equals("insert")) {
 			
 			String nickname=request.getParameter("nickname");
 			String subject = request.getParameter("subject");
@@ -71,10 +104,6 @@ public class NoticeAction extends Action {
 			  dto.setSubject(subject);
 			  dto.setContents(contents);
 			  dto.setNum(num);
-			  System.out.println("up제목:"+ subject);
-			  System.out.println("up내용:"+ contents);
-			  System.out.println("up번호:"+ num);
-			  
 			  
 			  boolean flag=dao.update(dto);
 			  System.out.println("update Flag: "+ flag);
