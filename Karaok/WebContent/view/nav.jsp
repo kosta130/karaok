@@ -52,7 +52,7 @@
           <ul class="dropdown-menu" role="menu">
             <li><a href="#">QnA</a></li>
             <li class="divider"></li>
-            <li><a href="#">FAQ</a></li>
+            <li><a href="faq_list.ok">FAQ</a></li>
           </ul>
         </li>
         <li></li>
