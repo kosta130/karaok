@@ -215,7 +215,7 @@
 
               <div class="box-footer" align="center">
                 
-                <button type="button" class="btn btn-primary" onclick="location.href='free_write.ok'">답글 달기</button>
+                <button type="button" class="btn btn-primary" onclick="location.href='free_reWrite.ok'">답글 달기</button>
                 <button type="submit" class="btn btn-primary" >수정</button>
                 <button type="reset" class="btn btn-primary" onclick="location.href='free_list.ok'">목록</button>
               </div>

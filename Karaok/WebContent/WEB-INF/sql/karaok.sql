@@ -136,7 +136,6 @@ nickname varchar2(50) constraint rank_nickname_fk references tb_member(nickname)
 
 drop table tb_screen;
 
-
 create table tb_screen
 (
 num number(20) constraint screen_num_pk primary key,

@@ -64,8 +64,4 @@ public class FreeBoardDAO {
 		}
 		 return list;
 	 }//listFreeBoard
-
-	
-	 
-	 
 }

@@ -2,10 +2,11 @@
 <!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd" >
 <sqlMap namespace="free">
 
-	<insert id="insert" parameterClass="com.karaok.freeBoard.dto.FreeBoard">
+	 <insert id="insert" parameterClass="com.karaok.freeBoard.dto.FreeBoard">
 		insert into tb_free	
 		values (seq_free_num.nextval,#nickname#,#subject#,#contents#,sysdate)
-	</insert>
+	</insert> 
+	
 	
 	<!-- 리스트화면 데이터 출력 -->
 	<select id="selectAll" resultClass="com.karaok.freeBoard.dto.FreeBoard">

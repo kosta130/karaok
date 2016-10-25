@@ -21,35 +21,39 @@ $(".datepicker").datepicker();
 
 </script>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 function check(){
 	var f=document.create;
+	var id=f.id.value;
 	var subject=f.subject.value;
-	var point=f.point.value;
 	var contents=f.contents.value;
 	var fileName=f.fileName.value;
 	f.submit();
 }
-</script>
+</script> -->
 </head>
 <body>
 <h1 align="left">스크린샷 등록</h1>
 <hr>
-           <form name="create" method="post" action="./event_create_complete.ok" enctype="multipart/form-data">
+<%
+	request.getSession().setAttribute("currentId", "ojh5797@naver.com");
+%>
+           <form name="create" method="post" action="screen.ok?action=insert" enctype="multipart/form-data">
               <div class="box-body">
                 <div class="form-group">
+                <input type="hidden" name="num" value="${num }" >
                   <label for="exampleInputEmail1">제목</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" name="subject" placeholder="제목을 입력하세요">
+                  <input type="text" class="form-control" id="exampleInputEmail1" name="subject" placeholder="제목을 입력하세요" value="${subject }">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">아이디</label>
-                  <input type="text" class="form-control" id="exampleInputPassword1" name="point" placeholder="핵심 내용을 입력하세요">
+                  <input type="text" class="form-control" id="exampleInputPassword1" name="id" placeholder="작성자 id" value="${currentId }" readonly="readonly">
                 </div>
                 
                                    
                  <div class="form-group">
                   <label>내용</label>
-                  <textarea name="contents" style="height: 300px;" class="form-control" rows="3" placeholder="내용을 입력하세요"></textarea>
+                  <textarea name="contents" style="height: 300px;" class="form-control" rows="3" placeholder="내용을 입력하세요">${contents }</textarea>
                 </div>
                 
 
@@ -63,7 +67,7 @@ function check(){
               </div>
               <!-- /.box-body -->
               <div class="box-footer" align="center">
-                <button type="button" class="btn btn-primary" onclick="check()">등록</button>
+                <button type="submit" class="btn btn-primary" >등록</button>
                  <button type="button" class="btn btn-primary">취소</button>
               </div>
               
