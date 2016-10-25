@@ -5,6 +5,10 @@
 		insert into tb_event values(seq_event_num.nextval,#id#,#point#,#subject#,#contents#,#startDate#,#endDate#,#fileName#,#state#)
 	</insert>
 	
+	<delete id="delete" parameterClass="int">
+	delete from tb_event where num=#parameter#
+	</delete>
+	
 	<select id="select" resultClass="com.karaok.event.dto.Event">
 		select num,id,subject,point,contents,fileName,startDate,endDate,state 
 			from tb_event natural join tb_member
@@ -29,8 +33,27 @@
 	<select id="selectConfirm" parameterClass="int" resultClass="com.karaok.event.dto.Event">
 		select id,point,subject,contents,startDate,endDate,fileName from tb_event where num=#num#
 	</select>
-
 	
+	
+	<!-- 이전글  -->
+	<select id="previous" parameterClass="int" resultClass="com.karaok.event.dto.Event">
+	<![CDATA[
+	select num,subject from TB_EVENT
+		where num in(
+				(select max(num)
+					from tb_event
+						where num<#parameter#))]]> 
+	</select>
+
+	<!-- 다음글 -->
+	<select id="next" parameterClass="int" resultClass="com.karaok.event.dto.Event">
+	<![CDATA[
+	select num,subject from TB_EVENT
+		where num in(
+					(select min(num)
+						from tb_event
+							where num>#parameter#))]]>
+	</select>
 	
 	
 </sqlMap>

@@ -11,6 +11,16 @@
 
 </head>
 
+<script type="text/javascript">
+function check(){
+	if(confirm('정말로 삭제하시겠습니까?')){
+		location.href='./event_delete.ok?num='+${num}
+	}else{
+		return false;
+	}
+}
+</script>
+
 <body>
 
    
@@ -42,21 +52,28 @@
 				
 				<c:if test="${dto !=null }">
 				<p>${dto.contents }</p>
+				<hr>
 				</c:if>
-				
-				
-				
+				이전글:
+				<c:if test="${pre != null }">
+				<a href="./event_confirm.ok?num=${pre.num}">${pre.subject }</a>
+				</c:if>
+				<br>
+				다음글:
+				<c:if test="${next != null }">
+				<a href="./event_confirm.ok?num=${next.num }">${next.subject }</a>
+				</c:if>
               </div>
               <!-- /.mailbox-read-message -->
             </div>
-            <div class="box-footer">
+       
               <div class="pull-right">
-            <form action="./event_list.ok">
+            <form action="./event_list.ok" name="frm">
               	<button type="submit" class="btn btn-primary">목록으로</button>
-                 <button type="button" class="btn btn-warning" ><i class="fa fa-trash-o"></i>삭제</button>
+                 <button type="button" class="btn btn-warning" name="delete" onclick="check()"><i class="fa fa-trash-o" ></i>삭제</button>
            	</form>  
               </div>
             </div>
-          </div>
+ 
 </body>
 </html>

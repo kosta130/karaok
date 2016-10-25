@@ -26,6 +26,17 @@ public class EventDAO {
 		return false;
 	}
 	
+	public boolean deleteEvent(int num){
+		try {
+			smc.delete("event.delete",num);
+			return true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
 	public List<Event> selectEvent(){
 		
 		List<Event> list=null;
@@ -65,10 +76,32 @@ public class EventDAO {
 	}
 	
 	public Event seletConfirm(int num){
-		
 		Event dto=null;
 		try {
 			dto=(Event)smc.queryForObject("event.selectConfirm",num);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return dto;
+	}
+	
+	public Event previous(int num){
+		Event dto=null;
+		
+		try {
+			dto =(Event)smc.queryForObject("event.previous",num);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return dto;
+	}
+	
+	public Event next(int num){
+		Event dto=null;
+		try {
+		dto =(Event)smc.queryForObject("event.next",num);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

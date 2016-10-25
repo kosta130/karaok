@@ -97,8 +97,9 @@
 						</div>
 					</div>
 
-					<hr>
+				
 				</div>
+			<hr>
 			</c:forEach>
 		</div>
 		<!-- /.tab-pane -->
@@ -124,9 +125,8 @@
 							<!--<a class="btn btn-primary" href="#">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>  -->
 						</div>
 					</div>
-
-					<hr>
 				</div>
+				<hr>
 			</c:forEach>
 		</div>
 	</div>
