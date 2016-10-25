@@ -10,6 +10,6 @@ ${countResult }|이미 존재하는 이메일입니다.
 <c:if test="${countResult == 2 }">
 ${countResult }|이메일 형식에 맞지 않습니다.
 </c:if>
-<c:if test="${countResult >= 3 && countResult <=15 }">
+<c:if test="${countResult >= 3 && countResult <=17 }">
 ${countResult }|${returnValue }
 </c:if>
