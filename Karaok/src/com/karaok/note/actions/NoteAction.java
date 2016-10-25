@@ -28,11 +28,12 @@ public class NoteAction extends Action{
 			int num= Integer.parseInt(request.getParameter("num"));
 			NoteDTO dto = dao.select(num);
 			dto.setNum(num);
-			request.setAttribute("dto", dto);
+			request.getSession().setAttribute("dto", dto);
 			forward = mapping.findForward("upform");
 		} else if(action.equals("update")){
-			NoteDTO dto = new NoteDTO(0, request.getParameter("nickname"), request.getParameter("subject"),  request.getParameter("contents"), null);
+			NoteDTO dto = new NoteDTO(Integer.valueOf(request.getParameter("num")), request.getParameter("nickname"), request.getParameter("subject"),  request.getParameter("contents"), null);
 			dao.update(dto);
+			
 		} else if(action.equals("view")){
 			int num = Integer.parseInt(request.getParameter("num"));
 			NoteDTO dto =dao.select(num);

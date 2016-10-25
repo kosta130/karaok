@@ -36,7 +36,7 @@
              	<c:forEach items="${list }" var="note">
             		<tr>
             			<td align="center">${note.num }</td>
-            			<td><a href="note.ok?action=view&num=${note.num}">${note.subject }</td>
+            			<td><a href="note.ok?action=view&num=${note.num}">${note.subject }</a></td>
             			<td align="center">${note.nickname }</td>
             			<td align="center">${note.ndate }</td>
             		</tr>

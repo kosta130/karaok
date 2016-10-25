@@ -17,8 +17,8 @@
 		<action path="/note"
 				type="com.karaok.note.actions.NoteAction">
 				<forward name="list" path="/note_list.ok" redirect="true" />
-				<forward name="show" path="/note_show.ok" />
-				<forward name="edit" path="/note_edit.ok" />
+				<forward name="view" path="/note_show.ok" />
+				<forward name="upform" path="/note_edit.ok" />
 				<forward name="input" path="/note_input.ok" />
 		</action>
 		

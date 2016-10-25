@@ -23,18 +23,18 @@
 							contents.focus();
 							return false;
 						}
-						document.write.action="note.ok?action=insert";
-						document.write.submit();
+						document.upform.action="note.ok?action=update";
+						document.upform.submit();
 					});
 					
 				});
 			</script>
-			<form role="form" action="./note.ok?action=update" method="POST" name="upform">
+			<form role="form" action="note.ok?action=update&num=${dto.num}" method="POST" name="upform">
 			<h3>개발자 노트 수정</h3>
 			<hr>
               <div class="box-body">
+                 <input type="hidden" name="num" value="${note.num }">
                 <div class="form-group">
-                 <input type="hidden" name="num" value="${dto.num }">
                   <label for="exampleNote1">제목</label>
                   <input type="text" class="form-control" id="subject" placeholder="제목" value=${dto.subject }>
                 </div>
@@ -51,8 +51,8 @@
               <!-- /.box-body -->
 
               <div class="box-footer" align="center">
-                <button class="btn btn-primary">수정</button>
-                <button type="submit" class="btn btn-primary" onclick="location.href='note_list.ok'">취소</button>
+                <button type="submit" class="btn btn-primary">수정</button>
+                <button type="button" class="btn btn-primary" onclick="location.href='note_list.ok'">취소</button>
               </div>
         
             </form>
