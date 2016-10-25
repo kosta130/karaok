@@ -27,6 +27,7 @@
   <sqlMap resource="./com/karaok/freeBoard/dao/free.xml" />
   <sqlMap resource="./com/karaok/event/dao/event.xml"/>
   <sqlMap resource="./com/karaok/notice/dao/notice.xml"/>
-  <sqlMap resource="./com/karaok/note/dao/note.xml"/>
   <sqlMap resource="./com/karaok/faq/dao/faq.xml"/>
+  <sqlMap resource="./com/karaok/note/dao/note.xml"/>
+  <sqlMap resource="./com/karaok/screen/dao/screen.xml"/>
 </sqlMapConfig>
