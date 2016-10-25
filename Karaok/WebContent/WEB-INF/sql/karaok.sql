@@ -134,6 +134,31 @@ nickname varchar2(50) constraint rank_nickname_fk references tb_member(nickname)
 
 --스크린샷게시판
 
+drop table tb_screen;
+
+
+create table tb_screen
+(
+num number(20) constraint screen_num_pk primary key,
+id varchar2(50),
+subject varchar2(100),
+contents varchar2(1000),
+jumsu number(20),
+idate date,
+seek number(20),
+fileName varchar2(50),
+constraint tb_screen_fk_id foreign key(id) references tb_member(id)
+)
+
+
+
+
+
+
+
+
+
+
 --[고객센터]
 --QnA
 

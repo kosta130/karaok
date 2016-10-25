@@ -43,7 +43,7 @@
             <li class="divider"></li>
             <li><a href="#">랭킹게시판</a></li>
             <li class="divider"></li>
-            <li><a href="#">스 크 린 샷</a></li>
+            <li><a href="screen_list.ok">스 크 린 샷</a></li>
           </ul>
         </li>
       <!-- 고객센터 -->
