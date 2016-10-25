@@ -3,7 +3,7 @@
 	<div class="container">
 		<div class="row row-offcanvas row-offcanvas-center">
 			<div class="row">
-			<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+		 	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 			<script type="text/javascript">
 				$(function(){
 					var subject = $("#subject");
@@ -23,8 +23,6 @@
 							contents.focus();
 							return false;
 						}
-						document.upform.action="note.ok?action=update";
-						document.upform.submit();
 					});
 					
 				});
@@ -33,14 +31,14 @@
 			<h3>개발자 노트 수정</h3>
 			<hr>
               <div class="box-body">
-                 <input type="hidden" name="num" value="${note.num }">
+                 <input type="hidden" name="num" value="${dto.num }">
                 <div class="form-group">
                   <label for="exampleNote1">제목</label>
-                  <input type="text" class="form-control" id="subject" placeholder="제목" value=${dto.subject }>
+                  <input type="text" class="form-control" id="subject" placeholder="제목" value=${dto.subject } name="subject">
                 </div>
                 <div class="form-group">
                   <label for="exampleNote1">작성자</label>
-                  <input type="text" class="form-control" id="nickname" placeholder="작성자" value=${dto.nickname } readonly="readonly">
+                  <input type="text" class="form-control" id="nickname" placeholder="작성자" value=${dto.nickname } name="nickname" readonly="readonly">
                 </div>
                 <div class="form-group" >
                   <label>Textarea</label>
@@ -52,7 +50,7 @@
 
               <div class="box-footer" align="center">
                 <button type="submit" class="btn btn-primary">수정</button>
-                <button type="button" class="btn btn-primary" onclick="location.href='note_list.ok'">취소</button>
+                <button type="reset" class="btn btn-primary" onclick="location.href='note_list.ok'">취소</button>
               </div>
         
             </form>
