@@ -31,5 +31,17 @@
 		 where num=#num#
 	</update>
 	
+	<!-- 페이지 -->
+	<select id="selectCount" resultClass="int">  
+ 	select count(*) from tb_free  
+ 	</select>  
+ 	
+ 	<select id="selectPage" parameterClass="java.util.Map" resultClass="com.karaok.freeBoard.dto.FreeBoard">  
+ 		select num,nickname,subject,contents,ndate   
+ 		from  (select num,nickname,subject,contents,ndate, rownum rn   
+      	from ( select num,nickname,subject,contents,ndate    
+        from tb_notice order by num desc))  
+        where rn between #start# and #end#  
+ 	</select>  
 
 </sqlMap>

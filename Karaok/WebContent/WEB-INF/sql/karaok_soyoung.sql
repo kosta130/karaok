@@ -115,7 +115,7 @@ constraint tb_screen_fk_nickname foreign key(nickname) references tb_member(nick
 
 select * from tb_screen
 
-delete from tb_screen where num between 1 and 5;
+delete from tb_screen where num between 9 and 36;
 
 create sequence seq_screen_num
 increment by 1
