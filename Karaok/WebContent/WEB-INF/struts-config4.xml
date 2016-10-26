@@ -36,8 +36,25 @@
       	<forward name="success" path="/view/comm_free/free_list.jsp"></forward>
       </action> 
           		
-     
-        
-	
-	</action-mappings>
+		<!-- 스크린 리스트 페이지  -->
+		<action path="/screen_list"
+				forward="/view/comm_screenshot/screen_list.jsp"></action>
+				
+		<!-- 스크린 글쓰기폼  -->
+		<action path="/screen_create"
+				forward="/view/comm_screenshot/screen_create.jsp"></action>
+				
+		<!-- DB입력요청 -->
+	      <action path="/screen"
+	              type="com.karaok.screen.actions.ScreenAction">
+	        <forward name="sc_list" path="/screen_list.ok" redirect="true"/>        
+	     
+	      </action> 
+      
+      	<!-- 게시물 목록 요청 -->
+      	<action path="/screen_list" type="com.karaok.screen.actions.ListAction">
+      		<forward name="sc_success" path="/view/comm_screenshot/screen_list.jsp"/>
+      	</action> 		
+				
+		</action-mappings>
 </struts-config>

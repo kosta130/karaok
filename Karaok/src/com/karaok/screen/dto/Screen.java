@@ -4,30 +4,39 @@ import java.util.Date;
 
 public class Screen {
 
-	int num;
-	String id;
-	String subject;
-	String contents;
-	int jumsu;
-	Date idate;
-	int seek;
-
+	private int num;
+	private String nickname;
+	private String subject;
+	private String contents;
+	private Date ndate;
+	private int seek;
+	private String fileName;
+	
 	public Screen() {
 		
 	}
+	public Screen(int num, String nickname, String subject, String contents, Date ndate, int seek, String fileName) {
 	
-	String fileName;
+		this.num = num;
+		this.nickname = nickname;
+		this.subject = subject;
+		this.contents = contents;
+		this.ndate = ndate;
+		this.seek = seek;
+		this.fileName = fileName;
+	}
+
 	public int getNum() {
 		return num;
 	}
 	public void setNum(int num) {
 		this.num = num;
 	}
-	public String getId() {
-		return id;
+	public String getNickname() {
+		return nickname;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
 	}
 	public String getSubject() {
 		return subject;
@@ -41,18 +50,7 @@ public class Screen {
 	public void setContents(String contents) {
 		this.contents = contents;
 	}
-	public int getJumsu() {
-		return jumsu;
-	}
-	public void setJumsu(int jumsu) {
-		this.jumsu = jumsu;
-	}
-	public Date getIdate() {
-		return idate;
-	}
-	public void setIdate(Date idate) {
-		this.idate = idate;
-	}
+
 	public int getSeek() {
 		return seek;
 	}
