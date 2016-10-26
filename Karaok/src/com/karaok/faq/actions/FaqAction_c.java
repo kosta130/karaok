@@ -29,13 +29,15 @@ public class FaqAction_c extends Action {
 		String id="lee52x@naver.com";
 		String subject=mr.getParameter("subject");
 		String contents=mr.getParameter("contents");
+		String options=mr.getParameter("options");
 		String fileName=mr.getFilesystemName("fileName");
-		
+			
 		Faq dto=new Faq();
 		dto.setId(id);
 		dto.setSubject(subject);
 		dto.setContents(contents);
 		dto.setFileName(fileName);
+		dto.setOptions(options);
 		
 		FaqDAO dao=new FaqDAO();
 		if(dao.insertFaq(dto)){
@@ -45,10 +47,6 @@ public class FaqAction_c extends Action {
 		}
 		
 	
-		System.out.println(subject);
-		System.out.println(contents);
-		System.out.println(fileName);
-		
 		
 		
 		return mapping.findForward("create");

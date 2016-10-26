@@ -1,6 +1,7 @@
 package com.karaok.faq.dao;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.karaok.faq.dto.Faq;
@@ -25,5 +26,16 @@ public class FaqDAO {
 		}
 		
 		return false;
+	}
+	
+	public List<Faq> selectAll(){
+		List<Faq> list=null;
+		try {
+			list=smc.queryForList("faq.selectAll");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
 	}
 }

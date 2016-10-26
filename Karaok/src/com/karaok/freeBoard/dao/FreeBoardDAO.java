@@ -1,10 +1,13 @@
 package com.karaok.freeBoard.dao;
 
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.karaok.freeBoard.dto.FreeBoard;
+import com.karaok.notice.dto.NoticeDTO;
 
 import iba.SqlMapConfig;
 
@@ -64,7 +67,32 @@ public class FreeBoardDAO {
 		}
 		 return list;
 	 }//listFreeBoard
+	 
+	 public int selectCount() {
+			int cnt = 0;
+			try {
+				cnt = (int) smc.queryForObject("free.selectCount");
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			return cnt;
 
+		}
+	 
+	 public List<FreeBoard> selectPage(int start, int end) {
+			List<FreeBoard> list = null;
+			try {
+				Map<String, Integer> map = new HashMap<>();
+				map.put("start", start);
+				map.put("end", end);
+				list = smc.queryForList("free.selectPage", map);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			return list;
+		}
+
+	
 	
 	 
 	 

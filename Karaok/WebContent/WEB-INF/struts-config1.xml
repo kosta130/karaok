@@ -54,14 +54,16 @@
 	<!--                   FAQ 게시판                                -->
 	
 	<action path="/faq_list"
-			forward="/view/customer_FAQ/faq_list.jsp"/>
+			type="com.karaok.faq.actions.FaqAction_l">
+			<forward name="list" path="/view/customer_FAQ/faq_list.jsp"></forward>	
+		</action>
 			
 	<action path="/faq_create"
 			forward="/view/customer_FAQ/faq_create.jsp"/>
 	
 	<action path="/faq_create_complete"
 			type="com.karaok.faq.actions.FaqAction_c">
-			<forward name="create" path="/view/event_event/event_confirm.jsp"></forward>		
+			<forward name="create" path="/faq_list.ok" redirect="true"></forward>		
 	</action>
 	
 	

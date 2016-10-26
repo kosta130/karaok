@@ -6,6 +6,7 @@ public class Faq {
 	String id;
 	String subject;
 	String contents;
+	String options;
 	String fileName;
 	
 	public Faq() {
@@ -15,6 +16,29 @@ public class Faq {
 	
 	
 	
+	
+	
+	
+	public String getOptions() {
+		return options;
+	}
+
+
+
+
+
+
+
+	public void setOptions(String options) {
+		this.options = options;
+	}
+
+
+
+
+
+
+
 	public int getNum() {
 		return num;
 	}

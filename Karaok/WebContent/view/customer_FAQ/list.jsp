@@ -45,10 +45,11 @@
 
 <!-- Custom Tabs -->
 <div class="nav-tabs-custom">
+<h1><span class="glyphicon glyphicon-question-sign" style="color: blue"></span>  자주묻는 질문</h1><hr>
 	<ul class="nav nav-tabs">
 		<li class="active"><a href="#tab_1" data-toggle="tab">전체</a></li>
 		<li><a href="#tab_2" data-toggle="tab">게임관련</a></li>
-		<li><a href="#tab_3" data-toggle="tab">게임관련</a></li>
+		<li><a href="#tab_3" data-toggle="tab">설치실행</a></li>
 		<li><a href="#tab_4" data-toggle="tab">그래픽카드</a></li>
 		<li><a href="#tab_5" data-toggle="tab">서버,패치,렉</a></li>
 
@@ -61,50 +62,129 @@
 			<!-------- tab1 자리 --------->
 			
 <ul id="faq_list" >
+<c:forEach items="${list }" var="v">
   <li>
-      <h4><a href="#a1">faq 제목1 영역입니다.</a></h4>
-         <p>faq 내용 영역입니다. faq 내용 영역입니다. faq 내용 영역입니다. faq 내용 영역입니다. faq 내용 영역입니다. faq 내용 영역입니다. faq 내용 영역입니다. </p>
+      <h4><a href="#a1">${v.subject }</a></h4>
+         <p>
+         <c:if test="${v.fileName!=null }">
+  		<img  src="./img/${v.fileName }"><br>
+  		</c:if>
+         ${v.contents }</p>
      </li>
-  <li>
-      <h4><a href="#a2">faq 제목2 영역입니다.</a></h4>
-         <p>faq 내용 영역입니다. faq 내용 영역입니다. faq 내용 영역입니다. faq 내용 영역입니다. faq 내용 영역입니다. faq 내용 영역입니다. faq 내용 영역입니다. </p>
-     </li>
-  <li>
-      <h4><a href="#a3">faq 제목3 영역입니다.</a></h4>
-         <p>faq 내용 영역입니다. faq 내용 영역입니다. faq 내용 영역입니다. faq 내용 영역입니다. faq 내용 영역입니다. faq 내용 영역입니다. faq 내용 영역입니다. </p>
-     </li>
-  <li>
-      <h4><a href="#a4">faq 제목4 영역입니다.</a></h4>
-         <p>faq 내용 영역입니다. faq 내용 영역입니다. faq 내용 영역입니다. faq 내용 영역입니다. faq 내용 영역입니다. faq 내용 영역입니다. faq 내용 영역입니다. </p>
-     </li>
-  <li>
-      <h4><a href="#a5">faq 제목5 영역입니다.</a></h4>
-         <p>faq 내용 영역입니다. faq 내용 영역입니다. faq 내용 영역입니다. faq 내용 영역입니다. faq 내용 영역입니다. faq 내용 영역입니다. faq 내용 영역입니다. </p>
-     </li>
+   </c:forEach>
  </ul>
+ <div align="center">
+<!--  <nav>
+  <ul class="pagination pagination-lg">
+    <li>
+      <a href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li>
+      <a href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav> -->
+</div>
 			
 			<!-- /.container -->
 		</div>
 
-		<!-- /.tab-pane -->
-		<div class="tab-pane" id="tab_2">
+
 			<!-------- tab2 자리 --------->
-tab2
+		<div class="tab-pane" id="tab_2">
+
+<ul id="faq_list" >
+<c:forEach items="${list }" var="v">
+	<c:if test="${v.options=='game' }">
+  <li>
+      <h4><a href="#a1">${v.subject }</a></h4>
+         <p>
+         <c:if test="${v.fileName!=null }">
+  		<img  src="./img/${v.fileName }"><br>
+  		</c:if>
+         ${v.contents }</p>
+     </li>
+     </c:if>
+   </c:forEach>
+ </ul>
 		</div>
-		<!-- /.tab-pane -->
-		<div class="tab-pane" id="tab_3">
+
 			<!-------- tab3 자리 --------->
-			tab3
+		<div class="tab-pane" id="tab_3">
+	
+	<ul id="faq_list" >
+<c:forEach items="${list }" var="v">
+	<c:if test="${v.options=='excute' }">
+  <li>
+      <h4><a href="#a1">${v.subject }</a></h4>
+         <p>
+         <c:if test="${v.fileName!=null }">
+  		<img  src="./img/${v.fileName }"><br>
+  		</c:if>
+         ${v.contents }</p>
+     </li>
+     </c:if>
+   </c:forEach>
+ </ul>
+	
+	
+	
+	
 		</div>
-		<!-- /.tab-pane -->
-		<div class="tab-pane" id="tab_4">
+
 			<!-------- tab4 자리 --------->
-			tab4
+		<div class="tab-pane" id="tab_4">
+
+<ul id="faq_list" >
+<c:forEach items="${list }" var="v">
+	<c:if test="${v.options=='graphic' }">
+  <li>
+      <h4><a href="#a1">${v.subject }</a></h4>
+         <p>
+         <c:if test="${v.fileName!=null }">
+  		<img  src="./img/${v.fileName }"><br>
+  		</c:if>
+         ${v.contents }</p>
+     </li>
+     </c:if>
+   </c:forEach>
+ </ul>
+
+
+
+
+
+
+
+
+
+
 		</div>
-				<!-- /.tab-pane -->ㄴ
-		<div class="tab-pane" id="tab_5">
 			<!-------- tab5 자리 --------->
-			tab5
+		<div class="tab-pane" id="tab_5">
+			<ul id="faq_list" >
+<c:forEach items="${list }" var="v">
+	<c:if test="${v.options=='server' }">
+  <li>
+      <h4><a href="#a1">${v.subject }</a></h4>
+         <p>
+         <c:if test="${v.fileName!=null }">
+  		<img  src="./img/${v.fileName }"><br>
+  		</c:if>
+         ${v.contents }</p>
+     </li>
+     </c:if>
+   </c:forEach>
+ </ul>
 		</div>
 	</div>
 </div>

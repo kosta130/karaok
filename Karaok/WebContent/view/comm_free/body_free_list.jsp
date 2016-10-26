@@ -42,13 +42,26 @@
                   <td class="title">${dto.nickname}</td>
                   <td class="title">${dto.ndate }</td>
 		  </c:forEach>
-		  
+					     
                 </tr>
                 </tfoot>
               </table>
-             
-              
-            </div>
+            <br> 
+         
+			<c:if test="${page == 1}">이전</c:if> 
+			<c:if test="${page > 1}"> 
+			<a href="crud.ok?action=list&page=${ page-1 }">이전</a>       
+			</c:if> 
+			         
+			<c:if test="${page == totalPage }">다음</c:if> 
+			<c:if test="${page < totalPage }"> 
+			 <a href="crud.ok?action=list&page=${ page+1 }">다음</a>       
+			</c:if> 
+			<br><br> 
+			 <c:forEach begin="1" end="${totalPage }" var="i"> 
+			[<a href="crud.ok?action=list&page=${i }">${i }</a>] 
+			</c:forEach> 
+		
             <!-- /.box-body -->
           </div>
           <!-- /.box -->

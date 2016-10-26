@@ -11,4 +11,9 @@
 		from tb_member
 		where nickname=#nickname#
 	</select>
+	<select id="selectLogin" parameterClass="com.karaok.main.dto.MemberDTO" resultClass="com.karaok.main.dto.MemberDTO">
+		select id,pwd,name,nickname,birth,tel
+		from tb_member
+		where id=#id# and pwd=#pwd#
+	</select>
 </sqlMap>
