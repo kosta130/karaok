@@ -20,8 +20,8 @@
 	    		forward="/view/comm_free/free_list.jsp"/>
 	    		
 	<!-- 글화면 -->
-	<!-- <action path="/free_show"
-	    		forward="/view/comm_free/free_show.jsp"/> -->
+	 <action path="/free_show"
+	    		forward="/view/comm_free/free_show.jsp"/> 
 	    		
 	<!-- DB입력요청 -->
       <action path="/crud"
@@ -43,15 +43,25 @@
 		<!-- 스크린 글쓰기폼  -->
 		<action path="/screen_create"
 				forward="/view/comm_screenshot/screen_create.jsp"></action>
-				
-		<!-- DB입력요청 -->
+		
+		<!-- 스크린 글화면 -->
+	 	<action path="/screen_show"
+	    		forward="/view/comm_screenshot/screen_show.jsp"/>		
+		
+		<!-- 스크린 글수정폼 -->
+	 	<action path="/screen_edit"
+	    		forward="/view/comm_screenshot/screen_edit.jsp"/>		
+		
+		<!-- 스크린 DB입력요청 -->
 	      <action path="/screen"
 	              type="com.karaok.screen.actions.ScreenAction">
 	        <forward name="sc_list" path="/screen_list.ok" redirect="true"/>        
+	        <forward name="sc_view" path="/screen_show.ok" />        
+	        <forward name="sc_edit" path="/screen_edit.ok" />        
 	     
 	      </action> 
       
-      	<!-- 게시물 목록 요청 -->
+      	<!-- 스크린 게시물 목록 요청 -->
       	<action path="/screen_list" type="com.karaok.screen.actions.ListAction">
       		<forward name="sc_success" path="/view/comm_screenshot/screen_list.jsp"/>
       	</action> 		

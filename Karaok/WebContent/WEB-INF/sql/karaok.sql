@@ -52,7 +52,7 @@ nocache;
 --[이벤트]
 
 --이벤트
-drop table tb_event
+drop table tb_event;
 create table tb_event
 (	
 	num number(20) constraint event_num_pk primary key,

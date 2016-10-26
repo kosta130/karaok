@@ -10,6 +10,22 @@
 	<select id="selectAll" resultClass="scr">
 		select num,nickname,subject,ndate,seek,fileName from tb_screen order by num desc
 	</select>
-		
+	
+	<!-- 글화면 데이터 출력 -->
+	<select id="select" parameterClass="int" resultClass="scr">
+		select nickname, subject, contents,fileName
+		from tb_screen
+		where num=#num#
+	</select>	
+	
+	<update id="update" parameterClass="scr">
+		 update tb_screen set nickname=#nickname#,subject=#subject#,contents = #contents# ,fileName=#fileName# 
+		 where num=#num#
+	</update>
+	
+	<delete id="delete" parameterClass="int">
+		delete from tb_screen
+		where num = #num#
+	</delete>
 
 </sqlMap>

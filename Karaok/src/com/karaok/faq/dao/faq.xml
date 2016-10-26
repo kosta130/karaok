@@ -3,8 +3,13 @@
 <sqlMap namespace="faq">
 	
 	<insert id="insert" parameterClass="com.karaok.faq.dto.Faq">
-		insert into tb_faq values(seq_faq_num.nextval,#id#,#subject#,#contents#,#fileName#)
+		insert into tb_faq values(seq_faq_num.nextval,#id#,#subject#,#contents#,#options#,#fileName#)
 	</insert>
+	
+	<select id="selectAll" resultClass="com.karaok.faq.dto.Faq">
+		select num,id,subject,contents,options,fileName from tb_faq natural join tb_member
+			order by num desc
+	</select>
 	
 	
 </sqlMap>

@@ -7,23 +7,101 @@
 <script type="text/javascript">
 	var link = document.location.href;
 	$(document).ready(function(){
+		var currentId = "<%=(String)session.getAttribute("currentId")%>";
+		if(currentId=='null'){//현재 세션에 currentId 존재하지 않을경우
+			$('#login').show();
+			$('#logout').hide();
+			$('#signup').show();
+			$('#usernickname').hide();
+			$('#login_id').show();
+			$('#login_pwd').show();
+		}else{//현재 세션에 currentId 존재할경우
+			$('#login').hide();
+			$('#logout').show();
+			$('#signup').hide();
+			$('#usernickname').show();
+			$('#login_id').hide();
+			$('#login_pwd').hide();
+		}
+		
+		$('#logout').click(function(){
+			
+		});
+		
 		$('#login').click(function(){
 			var action = $('#loginForm').attr("action");
-			var form_data={
+			if($.trim($('#login_id').val()) == ''){
+				alert("아이디(email)을 입력해주세요.");
+				$("#login_id").focus();
+				return;
+			}
+			
+			if($.trim($('#login_pwd').val()) == ''){
+				alert("비밀번호를 입력해주세요.");
+				$("#login_pwd").focus();
+				return;
+			}
+			
+			var form_data = /* $("#loginForm").serialize(); */
+			{
 				login_id : $('#login_id').val(),
 				login_pwd : $('#login_pwd').val()
 			};
+			
+			//로그인 프로세스 호출
 			$.ajax({
 				type:"POST",
 				url:action,
 				data:form_data,
 				success:function(response){
-					if(response.trim()=="success"){
-						session
+					currentId =  "<%=(String)session.getAttribute("currentId")%>";
+					if(currentId!='null' && currentId!=''){//로그인 성공
+						alert(response.msg);
+						
+						var currentNickName = "<%=(String)session.getAttribute("currentNickName")%>";
+						alert(<%=(String)session.getAttribute("currentNickName")%>);
+						$('#usernickname').text(currentNickName+'님이 로그인하셨습니다.');
+						$('#login').hide();
+						$('#logout').show();
+						$('#signup').hide();
+						$('#usernickname').show();
+						$('#login_id').hide();
+						$('#login_pwd').hide();
+					}else{//로그인 실패
+						alert(response.msg);
+						
+						$('#login').show();
+						$('#logout').hide();
+						$('#signup').show();
+						$('#usernickname').hide();
+						$('#login_id').show();
+						$('#login_pwd').show();
 					}
-				}
+				},
+				dataType : "json",
+	            error: function(error,status,xhr) {
+	               alert('error : '+error
+	                     +'\nstatus : '+status
+	                     +'\nxhr : '+xhr.statusText);
+	            }
 			});
 		});
+		
+		if(currentId=='null'){//현재 세션에 currentId 존재하지 않을경우
+			$('#login').show();
+			$('#logout').hide();
+			$('#signup').show();
+			$('#usernickname').hide();
+			$('#login_id').show();
+			$('#login_pwd').show();
+		}else{//현재 세션에 currentId 존재할경우
+			$('#login').hide();
+			$('#logout').show();
+			$('#signup').hide();
+			$('#usernickname').show();
+			$('#login_id').hide();
+			$('#login_pwd').hide();
+		}
 	});
 </script>
 <nav class="navbar navbar-default">
@@ -75,7 +153,7 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">고객센터<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">QnA</a></li>
+            <li><a href="qna.ok?action=qlist">QnA</a></li>
             <li class="divider"></li>
             <li><a href="faq_list.ok">FAQ</a></li>
           </ul>
@@ -89,6 +167,7 @@
         </div>
         <div class="form-group" align="right">
         	<button type="button" class="btn btn-default" id="login">로그인</button>
+        	<div id=usernickname></div>
         	<button type="button" class="btn btn-default" id="logout">로그아웃</button>
         	<button type="button" class="btn btn-default" id="signup" data-target="#layerpop" data-toggle="modal">회원가입</button>
         	<button type="button" class="btn btn-default" id="gamestart">GAME START</button>
