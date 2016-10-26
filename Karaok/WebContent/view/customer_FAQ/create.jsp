@@ -38,6 +38,28 @@ $(".datepicker").datepicker();
                   <textarea name="contents" style="height: 300px;" class="form-control" rows="3" placeholder="내용을 입력하세요"></textarea>
                 </div>
                 
+                  
+               <div class="form-group">
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="options" id="optionsRadios1" value="game" checked="checked">
+                      	게임관련
+                    </label>
+                   <label>
+                      <input type="radio" name="options" id="optionsRadios1" value="excute" >
+                   		 설치실행
+                    </label>
+                    <label>
+                      <input type="radio" name="options" id="optionsRadios1" value="graphic" >
+                    		 그래픽카드
+                    </label>
+                    <label>
+                      <input type="radio" name="options" id="optionsRadios1" value="server" >
+                   		 서버,패치,렉
+                    </label>
+                  </div>
+               </div>
+                
 
 
 				 <div class="form-group">
