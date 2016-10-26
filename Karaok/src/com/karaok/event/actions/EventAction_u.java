@@ -11,7 +11,7 @@ import org.apache.struts.action.ActionMapping;
 import com.karaok.event.dao.EventDAO;
 import com.karaok.event.dto.Event;
 
-public class u_EventAction extends Action {
+public class EventAction_u extends Action {
 
 	
 	@Override

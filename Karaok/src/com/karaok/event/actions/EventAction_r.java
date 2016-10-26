@@ -14,7 +14,7 @@ import org.apache.struts.action.ActionMapping;
 import com.karaok.event.dao.EventDAO;
 import com.karaok.event.dto.Event;
 
-public class r_EventAction extends Action {
+public class EventAction_r extends Action {
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {

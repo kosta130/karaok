@@ -21,7 +21,7 @@ import com.karaok.event.model.EventModel;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-public class EventAction extends Action {
+public class EventAction_c extends Action {
 	
 	DefaultFileRenamePolicy dfr;
 	

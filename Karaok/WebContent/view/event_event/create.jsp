@@ -52,9 +52,9 @@ function check(){
                   <textarea name="contents" style="height: 300px;" class="form-control" rows="3" placeholder="내용을 입력하세요"></textarea>
                 </div>
                 
-                             <div><label for="exampleInputEmail1">시작날짜:</label><input type="text" class="datepicker" name="startDate"/> 
-                             <label for="exampleInputEmail1">종료날짜:</label><input type="text" class="datepicker" name="endDate" />
-                             </div>
+               <div><label for="exampleInputEmail1">시작날짜:</label><input type="text" class="datepicker" name="startDate"/> 
+               <label for="exampleInputEmail1">종료날짜:</label><input type="text" class="datepicker" name="endDate" />
+               </div>
 
 				 <div class="form-group">
                   <label for="exampleInputFile">File input</label>
@@ -69,6 +69,7 @@ function check(){
                  <button type="button" class="btn btn-primary">취소</button>
               </div>
               
+
               
             </form>
 </body>

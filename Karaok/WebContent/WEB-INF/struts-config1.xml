@@ -27,7 +27,7 @@
 	    		forward="/view/main/main.jsp"/>
 	 <!-- Event리스트 -->
 	<action path="/event_list"
-			type="com.karaok.event.actions.r_EventAction">
+			type="com.karaok.event.actions.EventAction_r">
 		<forward name="list" path="/view/event_event/event_list.jsp"></forward>		
 	</action>
 	<!-- 글쓰기폼 띄우기 -->
@@ -35,18 +35,18 @@
 	    		forward="/view/event_event/event_create.jsp"/>
 	 <!-- 글 등록완료 -->   		
 	<action path="/event_create_complete"
-			type="com.karaok.event.actions.EventAction">
+			type="com.karaok.event.actions.EventAction_c">
 			<forward name="success" path="/event_list.ok" redirect="true"></forward>		
 	</action>
 	<!-- 글 삭제 -->
 	<action path="/event_delete"
-			type="com.karaok.event.actions.d_EventAction">
+			type="com.karaok.event.actions.EventAction_d">
 			<forward name="delete" path="/event_list.ok" redirect="true"></forward>
 	</action>
 	
 	<!-- 글 보기 -->
 	<action path="/event_confirm"
-			type="com.karaok.event.actions.u_EventAction">	
+			type="com.karaok.event.actions.EventAction_u">	
 			<forward name="confirm"  path="/view/event_event/event_confirm.jsp"/>	
 	</action>
 	
@@ -60,7 +60,7 @@
 			forward="/view/customer_FAQ/faq_create.jsp"/>
 	
 	<action path="/faq_create_complete"
-			type="com.karaok.faq.actions.c_FaqAction">
+			type="com.karaok.faq.actions.FaqAction_c">
 			<forward name="create" path="/view/event_event/event_confirm.jsp"></forward>		
 	</action>
 	

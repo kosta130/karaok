@@ -13,7 +13,7 @@ import com.karaok.faq.dto.Faq;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-public class c_FaqAction extends Action {
+public class FaqAction_c extends Action {
 	DefaultFileRenamePolicy dfr;
 	
 	@Override
