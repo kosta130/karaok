@@ -21,40 +21,24 @@ $(".datepicker").datepicker();
 
 </script>
 
-<script type="text/javascript">
-function check(){
-	var f=document.create;
-	var subject=f.subject.value;
-	var point=f.point.value;
-	var contents=f.contents.value;
-	var fileName=f.fileName.value;
-	f.submit();
-}
-</script>
+
 </head>
 <body>
 <h1 align="left">이벤트 등록</h1>
 <hr>
-           <form name="create" method="post" action="./event_create_complete.ok" enctype="multipart/form-data">
+           <form name="create" method="post" action="./faq_create_complete.ok" enctype="multipart/form-data">
               <div class="box-body">
                 <div class="form-group">
-                  <label for="exampleInputEmail1">제목</label>
+                  <label for="exampleInputEmail1">자주하는 질문</label>
                   <input type="text" class="form-control" id="exampleInputEmail1" name="subject" placeholder="제목을 입력하세요">
                 </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword1">핵심 내용</label>
-                  <input type="text" class="form-control" id="exampleInputPassword1" name="point" placeholder="핵심 내용을 입력하세요">
-                </div>
-                
-                                   
+           
                  <div class="form-group">
-                  <label>Textarea</label>
+                  <label>답변</label>
                   <textarea name="contents" style="height: 300px;" class="form-control" rows="3" placeholder="내용을 입력하세요"></textarea>
                 </div>
                 
-                             <div><label for="exampleInputEmail1">시작날짜:</label><input type="text" class="datepicker" name="startDate"/> 
-                             <label for="exampleInputEmail1">종료날짜:</label><input type="text" class="datepicker" name="endDate" />
-                             </div>
+
 
 				 <div class="form-group">
                   <label for="exampleInputFile">File input</label>
@@ -65,7 +49,7 @@ function check(){
               </div>
               <!-- /.box-body -->
               <div class="box-footer" align="center">
-                <button type="button" class="btn btn-primary" onclick="check()">등록</button>
+                <button type="submit" class="btn btn-primary">등록</button>
                  <button type="button" class="btn btn-primary">취소</button>
               </div>
               

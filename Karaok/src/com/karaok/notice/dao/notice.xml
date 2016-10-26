@@ -27,23 +27,10 @@ insert into tb_notice
 	where num=#num#
   </select>
   
-  <select id="selectAll"  resultClass="Notice">
+  <select id="selectAll" resultClass="Notice">
 	select num, nickname, subject, contents, ndate
 	from tb_notice
 	order by num desc
   </select>
-  
-
-<select id="selectPage" parameterClass="java.util.Map" resultClass="Notice">
-select num,nickname,subject,contents,ndate 
-from  (select num,nickname,subject,contents,ndate, rownum rn 
-     from ( select num,nickname,subject,contents,ndate  
-          from tb_notice order by num desc))
-             where rn between #start# and #end#
-</select>
-
-<select id="selectCount" resultClass="int">
-select count(*) from tb_notice
-</select>
 
 </sqlMap>

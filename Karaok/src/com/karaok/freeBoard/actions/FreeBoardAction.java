@@ -27,8 +27,8 @@ public class FreeBoardAction extends Action {
 									request.getParameter("nickname"),
 									request.getParameter("subject"),
 									request.getParameter("contents"),null);
-			dao.insertFreeBoard(dto);	
-			
+			dao.insertFreeBoard(dto);					
+									
 		}else if(action.equals("upform")){// 글수정폼 요청 action="upform"
 			int num = Integer.parseInt(request.getParameter("num"));
 			FreeBoard dto = dao.selectFreeBoard(num);

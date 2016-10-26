@@ -6,6 +6,8 @@
 <script type="text/javascript" src="/Karaok/js/passConfirmCheck.js"></script>
 <script type="text/javascript" src="/Karaok/js/nameCheck.js"></script>
 <script type="text/javascript" src="/Karaok/js/nickNameCheck.js"></script>
+<script type="text/javascript" src="/Karaok/js/birthCheck.js"></script>
+<script type="text/javascript" src="/Karaok/js/telCheck.js"></script>
 <script type="text/javascript">
 	function show(elementId){
 		var frm = document.getElementById(elementId);
@@ -15,6 +17,7 @@
 		var frm = document.getElementById(elementId);
 		frm.style.display='none';
 	}
+	
 </script>
 <div class="modal fade" id="layerpop" >
   <div class="modal-dialog">
@@ -45,10 +48,10 @@
 <input type="text" class="form-control" placeholder="nickname" id="signup_nickname" onkeydown="startSuggestNickName()">
 <div id="suggestNickName"></div><br>
 생년월일<font color="red">*</font>
-<input type="text" class="form-control" placeholder="YYYY-MM-DD" id="signup_birth" onkeydown="">
+<input type="text" class="form-control" placeholder="19920308" id="signup_birth" onkeydown="startSuggestBirth()">
 <div id="suggestBirth"></div><br>
 휴대폰번호<font color="red">*</font>
-<input type="text" class="form-control" placeholder="'-'없이 입력하세요." id="signup_tel" onkeydown="">
+<input type="text" class="form-control" placeholder="01055556666 or 0105556666" id="signup_tel" onkeydown="startSuggestTel()">
 <div id="suggestTel"></div><br>
 </div>
       <!-- Footer -->

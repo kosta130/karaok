@@ -2,11 +2,12 @@ var checkFirstTel = false;
 var loopSendTel = false;
 var telCheck = false;
 
+var lastTel = '';
+
 function startSuggestTel(){
 	if(!checkFirstTel){
 		loopSendTel = true;
 		setTimeout("sendTel()",50);
-		startSuggestTelConfirm();
 	}
 	checkFirstTel = true;
 }//startSuggest
@@ -35,19 +36,19 @@ function displayTelResult() {// 콜백함수 : 서버 요청 후 실행할 함�
 			var resultText = xhr.responseText;// "0|사용 가능한 이메일입니다."
 			var result = resultText.split("|");// result[]={"0","사용가능한 이메일입니다"}
 			var state = parseInt(result[0]);
-			if (state == 14) {// msg가 있을때
-				var suggest = document.getElementById("suggestPass");
+			if (state == 16) {// msg가 있을때
+				var suggest = document.getElementById("suggestTel");
 				suggest.innerHTML = "<font color=red>" + result[1] + "</font>";
-				show('suggestPass');
-				passCheck = false;
-			} else if (state == 8) {
-				var suggest = document.getElementById("suggestPass");
+				show('suggestTel');
+				telCheck = false;
+			} else if (state == 17) {
+				var suggest = document.getElementById("suggestTel");
 				suggest.innerHTML = "<font color=green>" + result[1] + "</font>";
-				show('suggestPass');
-				passCheck = false;
+				show('suggestTel');
+				telCheck = true;
 			} else {
-				hide('suggestPass');
-				passCheck = false;
+				hide('suggestTel');
+				telCheck = false;
 			}
 		} else {
 			alert('서버에러: ' + xhr.status);

@@ -7,23 +7,9 @@
 				location.href = 'notice.ok?action=delete&num=${dto.num }';
 			}
 		}else{
-			var subject=document.upform.subject.value;
-			var contents=document.upform.contents.value;
-			
-			if(subject==0){
-				 alert("제목을 입력하세요.");
-				 //subject.focus();왜 포커스는 작동이 되지 않을까?
-		         return false;
-			}else if(contents==0){
-				 alert("내용을 입력하세요.");
-		         return false;
-			}else if(contents.length < 3){
-				alert("내용을 3자 이상 입력하세요.");
-	            return false;
-			}
-			document.upform.submit();
+			document.view.submit();
 		}
-	} 
+	}
 </script>
 <form role="form" action="notice.ok?action=edit&num=${dto.num }" method="post" name="view">
    <div class="container">

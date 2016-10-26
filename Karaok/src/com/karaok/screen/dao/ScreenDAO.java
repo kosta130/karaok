@@ -1,5 +1,6 @@
 package com.karaok.screen.dao;
 
+
 import java.sql.SQLException;
 import java.util.List;
 
@@ -34,4 +35,5 @@ public class ScreenDAO {
 		}
 		return list;
 	}
+
 }

@@ -22,7 +22,7 @@
 		</tr>
 		<tr>
 			<td><!-- body -->
-				<jsp:include page="body_FAQ.jsp" flush="true"/>
+				<jsp:include page="list.jsp" flush="true"/>
 			</td>
 		</tr>
 		<tr>

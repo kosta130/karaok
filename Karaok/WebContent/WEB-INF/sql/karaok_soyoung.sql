@@ -8,7 +8,7 @@ create table tb_member
 	birth date not null,
 	tel varchar2(50) not null
 );
-select * from tb_member
+
 --[게임소식]
 
 
@@ -32,9 +32,6 @@ create table tb_event
 	state varchar2(50),
 	constraint tb_event_fk_id foreign key(id) references tb_member(id)
 );
---글작성하고 싶은 데 안된다.
-insert into tb_event value (seq_event_num.nextval,ojh5797@naver.com,'이벤트입니다.','이벤트입니다.','이벤트입니다.',16/10/25,16/10/26,null,null)
-
 create sequence seq_event_num
 increment by 1
 start with 1
@@ -56,7 +53,6 @@ ndate date,
 constraint tb_free_fk_nickname foreign key(nickname) references tb_member(nickname)
 );
 
-
 drop sequence seq_free_num;
 create sequence seq_free_num
 increment by 1
@@ -64,13 +60,46 @@ start with 1
 nocycle
 nocache;
 
+insert into tb_free values (seq_free_num.nextval,'오1', '안녕', '리턴3조',sysdate);
+insert into tb_free values (seq_free_num.nextval,'오2', '안녕', '리턴3조',sysdate);
+insert into tb_free values (seq_free_num.nextval,'오3', '안녕', '리턴3조',sysdate);
+insert into tb_free values (seq_free_num.nextval,'오4', '안녕', '리턴3조',sysdate);
+insert into tb_free values (seq_free_num.nextval,'오5', '안녕', '리턴3조',sysdate);
+insert into tb_free values (seq_free_num.nextval,'오6', '안녕', '리턴3조',sysdate);
+insert into tb_free values (seq_free_num.nextval,'오1', '안녕1', '리턴3조',sysdate);
+insert into tb_free values (seq_free_num.nextval,'오2', '안녕1', '리턴3조',sysdate);
+insert into tb_free values (seq_free_num.nextval,'오3', '안녕1', '리턴3조',sysdate);
+insert into tb_free values (seq_free_num.nextval,'오4', '안녕1', '리턴3조',sysdate);
+insert into tb_free values (seq_free_num.nextval,'오5', '안녕1', '리턴3조',sysdate);
+insert into tb_free values (seq_free_num.nextval,'오6', '안녕1', '리턴3조',sysdate);
+insert into tb_free values (seq_free_num.nextval,'오1', '안녕12', '리턴3조',sysdate);
+insert into tb_free values (seq_free_num.nextval,'오2', '안녕12', '리턴3조',sysdate);
+insert into tb_free values (seq_free_num.nextval,'오3', '안녕12', '리턴3조',sysdate);
+insert into tb_free values (seq_free_num.nextval,'오4', '안녕12', '리턴3조',sysdate);
+insert into tb_free values (seq_free_num.nextval,'오5', '안녕12', '리턴3조',sysdate);
+insert into tb_free values (seq_free_num.nextval,'오6', '안녕12', '리턴3조',sysdate);
+insert into tb_free values (seq_free_num.nextval,'오1', '안녕123', '리턴3조',sysdate);
+insert into tb_free values (seq_free_num.nextval,'오2', '안녕123', '리턴3조',sysdate);
+insert into tb_free values (seq_free_num.nextval,'오3', '안녕123', '리턴3조',sysdate);
+insert into tb_free values (seq_free_num.nextval,'오4', '안녕123', '리턴3조',sysdate);
+insert into tb_free values (seq_free_num.nextval,'오5', '안녕123', '리턴3조',sysdate);
+insert into tb_free values (seq_free_num.nextval,'오6', '안녕123', '리턴3조',sysdate);
+
 delete from TB_FREE
-
 select * from TB_FREE
+select * from TB_member
+--랭킹게시판
+  29 풍경      풍경보세요~   C:/Users/SungWook/git/karaok/Karaok/WebContent/imgtest11.jpg
 
-select * from TB_member 
-
+drop table tb_rank;
+create table tb_rank
+(
+score number(20) constraint rank_score_pk primary key,
+id varchar2(50) constraint rank_id_fk references tb_member(id),
+nickname varchar2(50) constraint rank_nickname_fk references tb_member(nickname)
+);
 --스크린샷게시판
+
 drop table tb_screen
 create table tb_screen
 (
@@ -119,7 +148,3 @@ insert into tb_notice values (seq_notice_num.nextval, '오바사키', '2016년 10월 2
 
 select * from tb_notice
 select NUM,NICKNAME,SUBJECT,CONTENTS,NDATE from TB_UPDATE order by NUM desc;
-
-
-
-insert into tb_screen values (seq_screen_num.nextval, 'ojh5797@naver.com', '입니다.', '제곧내', sysdate,0,null);

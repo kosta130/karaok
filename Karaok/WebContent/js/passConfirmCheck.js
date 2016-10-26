@@ -23,7 +23,7 @@ function sendPassConfirm(){//서버 페이지 요청!!
 		lastPassConfirm='';
 		loopSendPassConfirm = false;
 		checkFirstPassConfirm = false;
-		passCheckConfirm = false;
+		passConfirmCheck = false;
 	} else if (passConfirm != lastPassConfirm){
 		lastPassConfirm = passConfirm;
 		var params = "signup_pass_2="+pass+"&signup_pass_confirm="+passConfirm;
@@ -50,7 +50,7 @@ function displayPassConfirmResult(){//콜백함수 : 서버 요청 후 실행할
 				passConfirmCheck = true;
 			}else {
 				hide('suggestPassConfirm');
-				passCheckConfirm = false;
+				passConfirmCheck = false;
 			}
 		} else {
 			alert('서버에러: ' + xhr.status);

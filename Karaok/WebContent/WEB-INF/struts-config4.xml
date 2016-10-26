@@ -6,44 +6,36 @@
 <struts-config>
 	
 	<action-mappings>
-	
-	<!-- 자유게시판 -->
-		<!-- 입력폼 -->
-		<action path="/free_write"
-		    		forward="/view/comm_free/free_write.jsp"/>
-		    		
-		<!-- 수정폼 -->
-		<action path="/free_edit"
-		    		forward="/view/comm_free/free.jsp"/>
-		    		
-		<!-- 리스트 -->
-		<action path="/free_list"
-		    		forward="/view/comm_free/free_list.jsp"/>
-		    		
-		<!-- 글화면 -->
-		 <action path="/free_show"
-		    		forward="/view/comm_free/free_show.jsp"/> 
-		    		
-		<!-- 답글 입력폼 -->
-		 <action path="/free_reWrite"
-		    		forward="/view/comm_free/free_re_write.jsp"/> 
-		    		
-		<!-- DB입력요청 -->
-	      <action path="/crud"
-	              type="com.karaok.freeBoard.actions.FreeBoardAction">
-	        <forward name="list" path="/free_list.ok" redirect="true"/>        
-	        <forward name="view" path="/view/comm_free/free_show.jsp" />        
-	        <forward name="upform" path="/view/comm_free/free.jsp" />       
-	        <forward name="re_write" path="/view/comm_free/re_write.jsp" />        
-	      </action> 
+
+	<!-- 입력폼 -->
+	<action path="/free_write"
+	    		forward="/view/comm_free/free_write.jsp"/>
+	    		
+	<!-- 수정폼 -->
+	<action path="/free_edit"
+	    		forward="/view/comm_free/free.jsp"/>
+	    		
+	<!-- 리스트 -->
+	<action path="/free_list"
+	    		forward="/view/comm_free/free_list.jsp"/>
+	    		
+	<!-- 글화면 -->
+	<!-- <action path="/free_show"
+	    		forward="/view/comm_free/free_show.jsp"/> -->
+	    		
+	<!-- DB입력요청 -->
+      <action path="/crud"
+              type="com.karaok.freeBoard.actions.FreeBoardAction">
+        <forward name="list" path="/free_list.ok" redirect="true"></forward>        
+        <forward name="view" path="/view/comm_free/free_show.jsp" ></forward>        
+        <forward name="upform" path="/view/comm_free/free.jsp" ></forward>        
+      </action> 
       
-      	<!-- 게시물 목록 요청 -->
-      	<action path="/free_list" type="com.karaok.freeBoard.actions.ListAction">
-      		<forward name="success" path="/view/comm_free/free_list.jsp"></forward>
-      	</action> 
+      <!-- 게시물 목록 요청 -->
+      <action path="/free_list" type="com.karaok.freeBoard.actions.ListAction">
+      	<forward name="success" path="/view/comm_free/free_list.jsp"></forward>
+      </action> 
           		
-     <!-- 스크린샷 게시판 -->
-        
 		<!-- 스크린 리스트 페이지  -->
 		<action path="/screen_list"
 				forward="/view/comm_screenshot/screen_list.jsp"></action>

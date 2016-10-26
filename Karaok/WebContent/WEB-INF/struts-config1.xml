@@ -51,19 +51,18 @@
 	</action>
 	
 	
-	<!--                   스크린샷 게시판                                 -->
+	<!--                   FAQ 게시판                                -->
 	
-	<!-- 스크린 리스트 페이지 띄우기 -->
-	<action path="/screen_list"
-			forward="/view/comm_screenshot/screen_list.jsp"></action>
-	<!-- 스크린 글쓰기폼 띄우기 -->
-	<action path="/screen_create"
-			forward="/view/comm_screenshot/screen_create.jsp"></action>
+	<action path="/faq_list"
+			forward="/view/customer_FAQ/faq_list.jsp"/>
+			
+	<action path="/faq_create"
+			forward="/view/customer_FAQ/faq_create.jsp"/>
 	
-	
-	
-	
-	
+	<action path="/faq_create_complete"
+			type="com.karaok.faq.actions.c_FaqAction">
+			<forward name="create" path="/view/event_event/event_confirm.jsp"></forward>		
+	</action>
 	
 	
 	

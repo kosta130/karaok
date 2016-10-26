@@ -5,7 +5,7 @@
 		insert into tb_update values (seq_update_num.nextval,#nickname#,#subject#,#contents#,sysdate)
 	</insert>
 	<select id="select" parameterClass="int" resultClass="com.karaok.note.dto.NoteDTO">
-		select NUM, NICKNAME,SUBJECT,CONTENTS,NDATE
+		select NUM, NICKNAME,CONTENTS
 		from TB_UPDATE
 		where NUM=#NUM#
 	</select>
@@ -19,8 +19,8 @@
 		where NUM = #NUM#
 	</delete>
 	<update id="update" parameterClass="com.karaok.note.dto.NoteDTO">
-		update TB_UPDATE
-		set subject=#subject#, contents=#contents#
+		update TB_NOTE
+		set subject=#subject# contents=#contents#
 		where num=#num#
 	</update>
 </sqlMap>

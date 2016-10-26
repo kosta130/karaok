@@ -1,6 +1,6 @@
 package com.karaok.screen.dto;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Screen {
 
@@ -15,7 +15,6 @@ public class Screen {
 	public Screen() {
 		
 	}
-	
 	public Screen(int num, String nickname, String subject, String contents, Date ndate, int seek, String fileName) {
 	
 		this.num = num;
@@ -51,13 +50,7 @@ public class Screen {
 	public void setContents(String contents) {
 		this.contents = contents;
 	}
-	
-	public Date getNdate() {
-		return ndate;
-	}
-	public void setNdate(Date ndate) {
-		this.ndate = ndate;
-	}
+
 	public int getSeek() {
 		return seek;
 	}

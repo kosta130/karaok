@@ -11,7 +11,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Keyboard Warrior</a>
+      <a class="navbar-brand" href="main.ok">Keyboard Warrior</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -52,12 +52,12 @@
           <ul class="dropdown-menu" role="menu">
             <li><a href="#">QnA</a></li>
             <li class="divider"></li>
-            <li><a href="#">FAQ</a></li>
+            <li><a href="faq_list.ok">FAQ</a></li>
           </ul>
         </li>
         <li></li>
       </ul>
-      <form class="navbar-form navbar-left" role="search">
+      <form class="navbar-form navbar-left" name="loginForm">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="아이디" id="id" size="15">
           <input type="password" class="form-control" placeholder="비밀번호" id="pwd" size="15">

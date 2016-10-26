@@ -5,7 +5,6 @@ import java.io.Reader;
 import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
-import com.karaok.screen.dto.Screen;
 
 public class SqlMapConfig {
 	/*
@@ -30,8 +29,4 @@ public class SqlMapConfig {
 	public static SqlMapClient getSqlMapInstance(){
 		return sqlMap;
 	}
-
-	
-
-	
 }
