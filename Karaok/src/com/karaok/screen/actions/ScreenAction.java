@@ -21,8 +21,13 @@ public class ScreenAction extends Action {
 		ActionForward forward = mapping.findForward("sc_list");
 
 		if (action.equals("insert")) {// 글입력 요청
-			Screen dto = new Screen(0, request.getParameter("nickname"), request.getParameter("subject"),
-					request.getParameter("contents"), null, 0, request.getParameter("fileName"));
+			Screen dto = new Screen(0, 
+					request.getParameter("nickname"), 
+					request.getParameter("subject"),
+					request.getParameter("contents"), 
+					null, 
+					0, 
+					request.getParameter("fileName"));
 
 			dao.insertScreen(dto);
 		}
