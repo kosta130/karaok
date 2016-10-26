@@ -10,7 +10,7 @@
 	
 	<!-- 리스트화면 데이터 출력 -->
 	<select id="selectAll" resultClass="com.karaok.freeBoard.dto.FreeBoard">
-		select num, nickname, subject, contents, ndate
+		select num, nickname, subject, ndate
 		from tb_free
 		order by num desc
 	</select>
