@@ -30,6 +30,11 @@
 		<forward name="success" path="/view/signUpConfirm.jsp"/>
 	</action>
 	
+	<action path="/loginSucceed"
+			type="com.karaok.main.actions.LoginAction">
+		<forward name="success" path="/view/loginSucceed.jsp"/>
+	</action>
+	
 	
 	</action-mappings>
 	
