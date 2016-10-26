@@ -41,10 +41,36 @@
 				<forward name="list" path="/list.ok" redirect="true"/>
 				<forward name="edit" path="/notice2.ok"/>
 				<forward name="select" path="/notice4.ok"></forward>
-				<forward name="update" path="/notice.ok"></forward>
-				<forward name="delete" path="/notice.ok"></forward>
+				<forward name="insert" path="/notice.ok?action=list"></forward>
+				<forward name="update" path="/notice.ok?action=list"></forward>
+				<forward name="delete" path="/notice.ok?action=list"></forward>
 	   </action>
+	   
+	   
+	   
+	 <action path="/qna3"
+	 		forward="/view/customer_QnA/qna_inputForm.jsp"></action>
+	
+	
+	<action path="/qna2"
+			forward="/view/customer_QnA/qna_editForm.jsp"></action>
+			
+	  			
+	  <action path="/qna4"
+	  			forward="/view/customer_QnA/qna_show.jsp"/>
+	  
+	  <action path="/qlist"
+	          forward="/view/customer_QnA/qna_list.jsp"></action>
 	    		
+	  <action path="/qna" 
+	  				type="com.karaok.qna.actions.QnaAction">
+				<forward name="qlist" path="/qlist.ok" redirect="true"/>
+				<forward name="edit" path="/qna2.ok"/>
+				<forward name="select" path="/qna4.ok"></forward>
+				<forward name="insert" path="/qna.ok?action=qlist"></forward>
+				<forward name="update" path="/qna.ok?action=qlist"></forward>
+				<forward name="delete" path="/qna.ok?action=qlist"></forward>
+	   </action>
 	    		
 	    		
 	</action-mappings>

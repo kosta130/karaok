@@ -3,36 +3,8 @@
 	<div class="container">
 		<div class="row row-offcanvas row-offcanvas-center">
 			<div class="row">
-<script type="text/javascript">
-$(document).ready(function(){
-	
-	  var sub = $("#sub");
-	  var con = $("#con");
-	  
-    $('button[type=submit]').click(function() {
-        if($.trim(sub.val())==""){
-            alert("제목을 입력하세요.");
-            sub.focus();
-            return false;
-        }else if($.trim(con.val())==""){
-            alert("내용을 입력하세요.");
-            con.focus();
-            return false;
-        }else if(con.val().length < 3){
-        	alert("내용을 3자 이상 입력하세요.");
-            con.focus();
-            return false;
-        }
-        document.write.action="notice.ok?action=insert";
-        document.write.submit();
-    })
- 
-});
-
-</script>
-			
-<form role="form" action="notice.ok?action=update&num=${dto.num }" method="post">
-<h1>공지사항 수정</h1>
+<form role="form" action="qna.ok?action=update&num=${dto.num }" method="post">
+<h1>1대1 질문글 수정</h1>
 <hr>
               <div class="box-body">
                 <div class="form-group">
@@ -41,7 +13,7 @@ $(document).ready(function(){
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">제목</label>
-                  <input type="text" class="form-control" id="sub" placeholder="제목" value=${dto.subject } name="subject">
+                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="제목" value=${dto.subject } name="subject">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">작성자</label>
@@ -49,7 +21,7 @@ $(document).ready(function(){
                 </div>
                 <div class="form-group" >
                   <label>Textarea</label>
-                  <textarea  style="height: 300px;" class="form-control" rows="3" placeholder="Enter ..." name="contents" id="con">${dto.contents }</textarea>
+                  <textarea  style="height: 300px;" class="form-control" rows="3" placeholder="Enter ..." name="contents">${dto.contents }</textarea>
                 </div>
                 
                 

@@ -20,7 +20,7 @@
 		<div class="row row-offcanvas row-offcanvas-center">
 			<div class="row">
 <div class="box-body">
-		<font size="10">공지사항 게시판</font>
+<font size="10">QnA 게시판</font>
               <table id="example1" class="table table-bordered table-striped"align="center">
                 <thead>
                 <tr>
@@ -31,10 +31,10 @@
                 </tr>
                 </thead>
                 <tbody>
-<c:forEach items="${list }" var="v">
+<c:forEach items="${qlist }" var="v">
        <tr>
          <td>${v.num }</td>
-         <td><a href="/Karaok/notice.ok?action=select&num=${v.num }">${v.subject }</a></td>
+         <td><a href="/Karaok/qna.ok?action=select&num=${v.num }">${v.subject }</a></td>
          <td>${v.nickname }</td>
          <td>${v.ndate }</td>
        </tr>
@@ -42,22 +42,22 @@
               </table>
             </div>
             <!-- /.box-body -->
-            <form action="./notice3.ok">
+            <form action="./qna3.ok">
              <div class="box-footer" align="center">
-                <input type="submit" value="글쓰기" >
+                <input type="button" value="글쓰기" onclick="location.href='./qna3.ok'">
   <br> 
 <c:if test="${page == 1}">이전</c:if> 
 <c:if test="${page > 1}"> 
-<a href="notice.ok?action=list&page=${ page-1 }">이전</a>       
+<a href="qna.ok?action=qlist&page=${ page-1 }">이전</a>       
 </c:if> 
          
 <c:if test="${page == totalPage }">다음</c:if> 
 <c:if test="${page < totalPage }"> 
- <a href="notice.ok?action=list&page=${ page+1 }">다음</a>       
+ <a href="qna.ok?action=qlist&page=${ page+1 }">다음</a>       
 </c:if> 
 <br><br> 
  <c:forEach begin="1" end="${totalPage }" var="i"> 
-[<a href="notice.ok?action=list&page=${i }">${i }</a>] 
+[<a href="qna.ok?action=qlist&page=${i }">${i }</a>] 
 </c:forEach>     
                 
               </div>

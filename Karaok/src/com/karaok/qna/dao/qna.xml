@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd" >
+
+<sqlMap namespace="qna">
+<typeAlias alias="Qna" type="com.karaok.qna.dto.QnaDTO"/>
+
+<insert id="insert" parameterClass="Qna">
+insert into tb_qna
+	values(seq_qna_num.nextval, #nickname#, #subject#, #contents#, sysdate)
+
+</insert>
+
+  <delete id="delete" parameterClass="int">
+	delete from tb_qna
+	where num=#num#
+  </delete>
+  
+  <update id="update" parameterClass="Qna">
+	update tb_qna
+	set subject=#subject#,contents=#contents#
+	where num=#num#
+  </update>
+  
+  <select id="select" parameterClass="int" resultClass="Qna">
+	select  num, nickname, subject, contents, ndate
+	from tb_qna
+	where num=#num#
+  </select>
+  
+  <select id="selectAll" resultClass="Qna">
+	select num, nickname, subject, contents, ndate
+	from tb_qna
+	order by num desc
+  </select>
+  
+  <select id="selectPage" parameterClass="java.util.Map" resultClass="Qna">  
+ select num,nickname,subject,contents,ndate   
+ 	from  (select num,nickname,subject,contents,ndate, rownum rn   
+      from ( select num,nickname,subject,contents,ndate    
+           from tb_qna order by num desc))  
+              where rn between #start# and #end#  
+ </select>  
+   
+ <select id="selectCount" resultClass="int">  
+ select count(*) from tb_qna  
+ </select>  
+  
+
+</sqlMap>
