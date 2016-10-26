@@ -44,6 +44,23 @@
             	</tbody>
             	</table>
             </div>
+            <br>
+            <div>
+            <center>
+            <c:if test="${page ==1 }">이전</c:if>
+            <c:if test="${page > 1 }">
+            	<a href = "note_list.ok?page=${page-1 }">이전</a>
+            </c:if>
+            <c:if test="${page == totalPage }">다음</c:if> 
+            <c:if test="${page < totalPage }"> 
+            	<a href="note_list.ok?page=${ page+1 }">다음</a>       
+           	</c:if>
+           	<br><br>
+           	<c:forEach begin="1" end="${totalPage }" var="i">
+           		[<a href="note_list.ok?page=${i }">${i }</a>]
+           	</c:forEach>  
+           	</center>   
+            </div>
             </div>
           	</div><!--/row-->
 		</div>

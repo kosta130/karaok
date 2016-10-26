@@ -21,7 +21,33 @@ public class NoteListAction extends Action {
 		NoteDAO dao = new NoteDAO();
 		List<NoteDTO> list = dao.selectAll();
 		
-		request.setAttribute("list", list);
+		request.getSession().setAttribute("list", list);
+		String pageStr = request.getParameter("page");
+		
+		int page=1;
+		int viewRowCnt=3;
+		
+		if(pageStr != null) {
+			page = Integer.parseInt(pageStr);
+		}
+		
+		int end = page*viewRowCnt;
+		int start=end-(viewRowCnt-1);
+		int totalRecord=dao.selectCount();
+		int totalPage = totalRecord/viewRowCnt;
+		
+		if(totalRecord%viewRowCnt > 0) {
+			totalPage++;
+		}
+		request.getSession().removeAttribute("list"); 
+		request.getSession().removeAttribute("page"); 
+		request.getSession().removeAttribute("totalPage"); 
+		
+		list = dao.selectPage(start,end);//dao.selectAll(); 			   
+		
+		request.getSession().setAttribute("list", list);
+		request.getSession().setAttribute("page", page);
+		request.getSession().setAttribute("totalPage", totalPage);
 		
 		return mapping.findForward("success");
 	}

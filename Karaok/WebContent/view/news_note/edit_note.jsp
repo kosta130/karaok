@@ -10,7 +10,7 @@
 					var contents = $("#contents");
 					
 					$("button[type=submit]").click(function(){
-						if($.trim(sub.val())==""){
+						if($.trim(subject.val())==""){
 							alert("제목을 입력하여 주십시오.");
 							subject.focus();
 							return false;
@@ -23,36 +23,36 @@
 							contents.focus();
 							return false;
 						}
-						document.write.action="note.ok?action=insert";
-						document.write.submit();
+						document.update.action="note.ok?action=update&num=${dto.num }";
+						document.update.submit();
 					});
 					
 				});
 			</script>
-			<form role="form" action="./note.ok?action=update" method="POST" name="upform">
+			<form role="form"  method="post" id="update" name="update">
 			<h3>개발자 노트 수정</h3>
 			<hr>
               <div class="box-body">
+                 <input type="hidden" name="num" value="${note.num }">
                 <div class="form-group">
-                 <input type="hidden" name="num" value="${dto.num }">
                   <label for="exampleNote1">제목</label>
-                  <input type="text" class="form-control" id="subject" placeholder="제목" value=${dto.subject }>
+                  <input type="text" class="form-control" id="subject" placeholder="제목"name="subject" value=${dto.subject } >
                 </div>
                 <div class="form-group">
                   <label for="exampleNote1">작성자</label>
-                  <input type="text" class="form-control" id="nickname" placeholder="작성자" value=${dto.nickname } readonly="readonly">
+                  <input type="text" class="form-control" id="nickname" placeholder="작성자" name="nickname" value=${dto.nickname } readonly="readonly">
                 </div>
                 <div class="form-group" >
                   <label>Textarea</label>
-                  <textarea  style="height: 300px;" class="form-control" rows="3" placeholder="내용을 입력해 주십시오..." name="contents">${dto.contents }</textarea>
+                  <textarea  style="height: 300px;" class="form-control" rows="3" name="contents" id="contents"> ${dto.contents }</textarea>
                 </div>
                 
               </div>
               <!-- /.box-body -->
 
               <div class="box-footer" align="center">
-                <button class="btn btn-primary">수정</button>
-                <button type="submit" class="btn btn-primary" onclick="location.href='note_list.ok'">취소</button>
+                <button type="submit" class="btn btn-primary">수정</button>
+                <button type="reset" class="btn btn-primary" onclick="location.href='note_list.ok'">취소</button>
               </div>
         
             </form>

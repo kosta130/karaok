@@ -1,9 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<script type="text/javascript">
+	function update(up) {
+		if(up=='del'){
+			if (confirm('정말삭제?')){
+				location.href = 'note.ok?action=delete&num=${note.num }';
+			}
+		}else{
+			document.view.submit();
+		}
+	}
+</script>
    <div class="container">
 		<div class="row row-offcanvas row-offcanvas-center">
 			<div class="row">
 			<div class="box-body">
+			<form action="note.ok?action=upform&num=${dto.num }" role="form"  method="POST" name="upform">
             <div align="center">
             	<h3>개발자 노트</h3>
             	<hr>
@@ -29,12 +41,14 @@
             	 </tr>
 		         <tr>
 		         	<td colspan="2" align="center">
-                     <input type="submit" value="수정">         
-                     <input type="button" value="삭제" onclick="buttonAction('delete')">
+                     <input type="submit" value="수정"">         
+                     <input type="button" value="삭제" onclick="update('del')">
+                     <input type="reset" value="취소" onclick="location.href='note_list.ok'">
 		         	</td>
 		       	</tr>
             	</table>
             </div>
+            </form>
             </div>
           	</div><!--/row-->
 		</div>
