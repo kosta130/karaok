@@ -1,6 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <jsp:include page="signUp.jsp" flush="true"/>
+<script src="http://code.jquery.com/jquery-1.12.0.js"></script>
+<script type="text/javascript">
+	var link = document.location.href;
+	$(document).ready(function(){
+		$('#login').click(function(){
+			var action = $('#loginForm').attr("action");
+			var form_data={
+				login_id : $('#login_id').val(),
+				login_pwd : $('#login_pwd').val()
+			};
+			$.ajax({
+				type:"POST",
+				url:action,
+				data:form_data,
+				success:function(response){
+					if(response.trim()=="success"){
+						session
+					}
+				}
+			});
+		});
+	});
+</script>
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -57,13 +82,14 @@
         </li>
         <li></li>
       </ul>
-      <form class="navbar-form navbar-left" name="loginForm">
+      <form class="navbar-form navbar-left" id="loginForm" action="loginSucceed.ok" method="post">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="아이디" id="id" size="15">
-          <input type="password" class="form-control" placeholder="비밀번호" id="pwd" size="15">
+          <input type="text" class="form-control" placeholder="아이디" id="login_id" name="login_id" size="15">
+          <input type="password" class="form-control" placeholder="비밀번호" id="login_pwd" name="login_pwd" size="15">
         </div>
         <div class="form-group" align="right">
         	<button type="button" class="btn btn-default" id="login">로그인</button>
+        	<button type="button" class="btn btn-default" id="logout">로그아웃</button>
         	<button type="button" class="btn btn-default" id="signup" data-target="#layerpop" data-toggle="modal">회원가입</button>
         	<button type="button" class="btn btn-default" id="gamestart">GAME START</button>
         </div>
