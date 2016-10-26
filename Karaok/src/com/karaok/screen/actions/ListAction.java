@@ -23,6 +23,6 @@ public class ListAction extends Action{
 				List<Screen> list = dao.listScreenBoard();
 				request.setAttribute("list", list);
 			
-			return mapping.findForward("success");
+			return mapping.findForward("sc_success");
 		}
 }

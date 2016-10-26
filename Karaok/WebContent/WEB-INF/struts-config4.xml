@@ -55,13 +55,13 @@
 		<!-- DB입력요청 -->
 	      <action path="/screen"
 	              type="com.karaok.screen.actions.ScreenAction">
-	        <forward name="list" path="/screen_list.ok" redirect="true"/>        
+	        <forward name="sc_list" path="/screen_list.ok" redirect="true"/>        
 	     
 	      </action> 
       
       	<!-- 게시물 목록 요청 -->
       	<action path="/screen_list" type="com.karaok.screen.actions.ListAction">
-      		<forward name="success" path="/view/comm_screenshot/screen_list.jsp"/>
+      		<forward name="sc_success" path="/view/comm_screenshot/screen_list.jsp"/>
       	</action> 		
 				
 		</action-mappings>

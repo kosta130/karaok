@@ -10,43 +10,9 @@ create table tb_member
 );
 select * from tb_member
 --[게임소식]
---공지사항
-drop table tb_notice;
-create table tb_notice
-(
-num number(20) constraint notice_num_pk primary key,
-nickname varchar2(50),
-subject varchar2(100),
-contents varchar2(1000),
-ndate date,
-constraint tb_notice_fk_nickname foreign key(nickname) references tb_member(nickname)
-);
 
-drop sequence seq_notice_num;
-create sequence seq_notice_num
-increment by 1
-start with 1
-nocycle
-nocache;
 
---개발자노트
-drop table tb_update;
-create table tb_update
-(
-num number(20) constraint update_num_pk primary key,
-nickname varchar2(50),
-subject varchar2(100),
-contents varchar2(1000),
-ndate date,
-constraint tb_update_fk_nickname foreign key(nickname) references tb_member(nickname)
-);
 
-drop sequence seq_update_num;
-create sequence seq_update_num
-increment by 1
-start with 1
-nocycle
-nocache;
 
 
 --[이벤트]
@@ -102,42 +68,32 @@ delete from TB_FREE
 
 select * from TB_FREE
 
-
 select * from TB_member 
-
-
---랭킹게시판
-  29 풍경      풍경보세요~   C:/Users/SungWook/git/karaok/Karaok/WebContent/imgtest11.jpg
-
-drop table tb_rank;
-create table tb_rank
-(
-score number(20) constraint rank_score_pk primary key,
-id varchar2(50) constraint rank_id_fk references tb_member(id),
-nickname varchar2(50) constraint rank_nickname_fk references tb_member(nickname)
-);
 
 --스크린샷게시판
 drop table tb_screen
 create table tb_screen
 (
 num number(20) constraint screen_num_pk primary key,
-id varchar2(50),
+nickname varchar2(50),
 subject varchar2(100),
 contents varchar2(1000),
 ndate date,
 seek number(20),
 fileName varchar2(50),
-constraint tb_screen_fk_id foreign key(id) references tb_member(id)
-)
+constraint tb_screen_fk_nickname foreign key(nickname) references tb_member(nickname)
+);
 
 select * from tb_screen
+
+delete from tb_screen where num between 1 and 5;
 
 create sequence seq_screen_num
 increment by 1
 start with 1
 nocycle
 nocache;
+drop sequence seq_screen_num;
 --[고객센터]
 --QnA
 

@@ -4,22 +4,22 @@ import java.sql.Date;
 
 public class Screen {
 
-	int num;
-	String id;
-	String subject;
-	String contents;
-	Date ndate;
-	int seek;
-	String fileName;
+	private int num;
+	private String nickname;
+	private String subject;
+	private String contents;
+	private Date ndate;
+	private int seek;
+	private String fileName;
 	
 	public Screen() {
 		
 	}
 	
-	public Screen(int num, String id, String subject, String contents, Date ndate, int seek, String fileName) {
-		super();
+	public Screen(int num, String nickname, String subject, String contents, Date ndate, int seek, String fileName) {
+	
 		this.num = num;
-		this.id = id;
+		this.nickname = nickname;
 		this.subject = subject;
 		this.contents = contents;
 		this.ndate = ndate;
@@ -33,11 +33,11 @@ public class Screen {
 	public void setNum(int num) {
 		this.num = num;
 	}
-	public String getId() {
-		return id;
+	public String getNickname() {
+		return nickname;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
 	}
 	public String getSubject() {
 		return subject;

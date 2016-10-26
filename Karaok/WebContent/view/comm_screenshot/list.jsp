@@ -36,14 +36,13 @@
                 <tbody>
 		  <c:forEach items="${list }" var="dto">
                    <tr>
-                  <td class="title">${dto.num }</td>
-                  <td><a href="screen.ok?action=create&num=${dto.num }">${dto.subject }</a></td>
-                  <td class="title">${dto.contents}</td>
-                  <td class="title">${dto.seek}</td>
-                  <td class="title">${dto.ndate }</td>
-		  </c:forEach>
-		  
-                </tr>
+	                  <td >${dto.num }</td>
+	                  <td><a href="">${dto.subject }</a></td>
+	                  <td>${dto.nickname }</td>
+	                  <td >${dto.seek}</td>
+	                  <td >${dto.ndate }</td>
+          </c:forEach>
+                   </tr>
                 </tfoot>
               </table>
              

@@ -15,18 +15,20 @@ public class ScreenAction extends Action {
 		@Override
 		public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 				HttpServletResponse response) throws Exception {
+			
 			ScreenDAO dao = new ScreenDAO();
 			String action = request.getParameter("action");
-			ActionForward forward=mapping.findForward("list");
+			ActionForward forward=mapping.findForward("sc_list");
 			
 			if(action.equals("insert")){//글입력 요청
 				Screen dto = new Screen(0,
-										request.getParameter("id"),
+										request.getParameter("nickname"),
 										request.getParameter("subject"),
 										request.getParameter("contents"),
 										null,
 										0,
 										request.getParameter("fileName"));
+		
 				dao.insertScreen(dto);
 			}
 			return forward;

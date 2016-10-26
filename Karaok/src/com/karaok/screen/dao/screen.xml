@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd" >
 <sqlMap namespace="screen" >
-<typeAlias alias="screen" type="com.karaok.screen.dto.Screen"/>
+<typeAlias alias="scr" type="com.karaok.screen.dto.Screen"/>
 	
-	<insert id="insert" parameterClass="screen">
-		insert into tb_screen values(seq_screen_num.nextval,#id#,#subject#,#contents#,sysdate,#seek#,#fileName#)
+	<insert id="insert" parameterClass="scr">
+		insert into tb_screen values(seq_screen_num.nextval,#nickname#,#subject#,#contents#,sysdate,#seek#,#fileName#)
 	</insert>
 	
-	<select id="selectAll" parameterClass="int" resultClass="screen">
-		select id,subject,contents,ndate,fileName from tb_screen where num=#num#
+	<select id="selectAll" resultClass="scr">
+		select num,nickname,subject,ndate,seek,fileName from tb_screen order by num desc
 	</select>
 		
 
