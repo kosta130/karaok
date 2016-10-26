@@ -1,8 +1,10 @@
 package com.karaok.main.dao;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import com.ibatis.sqlmap.client.SqlMapClient;
+import com.karaok.main.dto.MemberDTO;
 
 import iba.SqlMapConfig;
 
@@ -33,5 +35,16 @@ public class MemberDAO {
 			e.printStackTrace();
 		}
 		return count;
+	}
+	
+	public MemberDTO selectLogin(MemberDTO dto){
+		MemberDTO memberDto = null;
+		try {
+			memberDto = (MemberDTO)smc.queryForObject("member.selectLogin", dto);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return memberDto;
 	}
 }
