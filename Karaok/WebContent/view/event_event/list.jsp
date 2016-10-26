@@ -7,6 +7,7 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 
 <!-- Custom Tabs -->
+<h1><span class="glyphicon glyphicon-exclamation-sign" style="color: red"></span>&nbsp이벤트</h1><hr>
 <div class="nav-tabs-custom">
 	<ul class="nav nav-tabs">
 		<li class="active"><a href="#tab_1" data-toggle="tab">전체 이벤트</a></li>
