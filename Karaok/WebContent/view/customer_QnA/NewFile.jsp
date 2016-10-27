@@ -1,63 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+	<div class="container">
+		<div class="row row-offcanvas row-offcanvas-center">
+			<div class="row">
 <script type="text/javascript">
-	function update(up) {
-		if(up=='del'){
-			if (confirm('정말삭제?')){
-				location.href = 'qna.ok?action=delete&num=${dto.num }';
-			}
-		}else{
-			document.view.submit();
-		}
-	}
 </script>
-<form role="form" action="qna.ok?action=edit&num=${dto.num }" method="post" name="view">
-   <div class="container">
-      <div class="row row-offcanvas row-offcanvas-center">
-         <div class="row">
-         <div class="box-body">
-            <div align="center">
-               <h3>1대1 질문 현황</h3>
-               <hr>
-                 
-               <table cellpadding="5" class="table table-bordered table-striped">
-                <tr>
-                   <th width="20%" bgcolor="#949494">글번호</th>
-                   <th>${dto.num }</th>
-                </tr>
-                <tr>
-                   <th width="20%" bgcolor="#cccccc">제목</th>
-                   <th>${dto.subject }</th>
-                </tr>
-                <tr>
-                   <th width="20%" bgcolor="#949494">작성자</th>
-                   <th>${dto.nickname }</th>
-                </tr>
-                <tr>
-                   <th bgcolor="#ccccc">날짜</th>
-                   <th>${dto.ndate }</th>
-                </tr>
-                <tr>
-                   <td colspan="2" height="250pt">${dto.contents }</td>
-                </tr>
-               <tr>
-                  <td colspan="2" align="center">
-                  
-                     <button type="submit" class="btn btn-primary" onclick="update('up')">수정</button>
-                     <button  type="button" class="btn btn-primary" onclick="update('del')">삭제</button>
-               		 <button type="reset" class="btn btn-primary" onclick="location.href='qlist.ok'">목록</button>        
-                     
-                  </td>
-                </tr>
-               </table>
-
-               </form>
-            </div>
-            </div>
-             </div><!--/row-->
-      </div>
-   </div>
-   <!-- 댓글 영역 --> 
+<form role="form"  action="crud.ok?action=upform" method="post" name="view"> 
+<h1>자유게시판 글화면</h1>
+<hr>
+              <div class="box-body">
+                <div class="form-group">
+                <input type="hidden" name="num" value="${dto.num }">
+                  <label for="exampleInputEmail1">제목</label>
+                  <input type="text" class="form-control" name="subject" placeholder="제목" value=${dto.subject } readonly="readonly">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">작성자</label>
+                  <input type="text" class="form-control" name="nickname" placeholder="작성자" value=${dto.nickname } readonly="readonly">
+                </div>
+                <div class="form-group" >
+                  <label>Textarea</label>
+                  <textarea  style="height: 300px;" class="form-control" rows="3" placeholder="Enter ..." name="contents" readonly="readonly">${dto.contents }</textarea>
+       
+       <!-- 댓글 영역 --> 
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <!-- meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0"/ -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -78,7 +43,7 @@
                                 <span class="form-inline" role="form">
                                     <p>
                                         <div class="form-group">
-                                            <input type="text" id="commentParentName" name="commentParentName" class="form-control col-lg-2" data-rule-required="true" placeholder="이름" maxlength="10" value="${currentNickname }">
+                                            <input type="text" id="commentParentName" name="commentParentName" class="form-control col-lg-2" data-rule-required="true" placeholder="이름" maxlength="10">
                                         </div>
                                         
                                         <div class="form-group">
@@ -223,7 +188,7 @@
                                                                 '<span class="form-inline" role="form">'+
                                                                     '<p>'+
                                                                         '<div class="form-group">'+
-                                                                            '<input type="text" value=${currentNickname } id="commentChildName" name="commentChildName" class="form-control col-lg-2" data-rule-required="true" placeholder="이름" maxlength="10">'+
+                                                                            '<input type="text" id="commentChildName" name="commentChildName" class="form-control col-lg-2" data-rule-required="true" placeholder="이름" maxlength="10">'+
                                                                         '</div>'+
                                                                         
                                                                         '<div class="form-group">'+
@@ -245,3 +210,17 @@
                 </div>
             </div>
         </div>    
+              <!-- /.box-body -->
+
+              <div class="box-footer" align="center">
+                
+                <button type="button" class="btn btn-primary" onclick="location.href='free_write.ok'">답글 달기</button>
+                <button type="submit" class="btn btn-primary" >수정</button>
+                <button type="reset" class="btn btn-primary" onclick="location.href='free_list.ok'">목록</button>
+              </div>
+        
+            </form>
+          </div>
+          </div><!--/row-->
+		</div>
+	</div>

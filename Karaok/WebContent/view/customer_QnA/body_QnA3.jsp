@@ -16,6 +16,9 @@
 	text-align: center;
 	}
 </style>
+<%
+	request.getSession().setAttribute("currentNickname", "오바사키");
+%>
 	<div class="container">
 		<div class="row row-offcanvas row-offcanvas-center">
 			<div class="row">
