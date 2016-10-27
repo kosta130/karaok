@@ -36,24 +36,13 @@
   }
   }
   faqList.find(">h4>a").click(unfoldFaq);
-  
-  
  });
  
  function search(){
 	var keyword=$('input[name=keyword]').val();
-	if(keyword==''){
-		alert('검색할 단어를 입력해주세요.');
-		return false;
-	}
-	location.href="./faq_list.ok?keyword="+keyword;
+	alert(keyword);
+	location.href=""
  }
- 
- function previous(){
-	 location.href="./faq_list.ok";
- }
- 
- 
  
  
  </script>
@@ -69,16 +58,14 @@
 <h1><span class="glyphicon glyphicon-question-sign" style="color: blue"></span>  자주묻는 질문</h1><hr>
 <div align="center" >
          <div class="box box-solid" style="width: 500px;">
-         
             <div class="box-header with-border" >
               <h3 class="box-title">FAQ검색<small>캐치마인드</small></h3>
             </div>
-            
             <div class="box-body" >
               <!-- /btn-group -->
               <div class="input-group">
                 <input id="new-event" name="keyword" type="text" class="form-control" placeholder="검색하세요">
-                
+
                 <div class="input-group-btn">
                   <button id="add-new-event" type="button" class="btn btn-primary btn-flat" onclick="search()">찾기</button>
                 </div>
@@ -105,7 +92,7 @@
 			<!-------- tab1 자리 --------->
 			
 <ul id="faq_list" >
-<c:forEach items="${list}" var="v">
+<c:forEach items="${list }" var="v">
   <li>
       <h4><a href="#a1">${v.subject }</a></h4>
          <p>
@@ -230,21 +217,11 @@
  </ul>
 		</div>
 	</div>
-
 </div>
-<form action="./faq_create.ok"  >
-	<div align="right">
-	<input class="btn btn-info" type="button" value="처음으로" onclick="previous()">
-	<input class="btn btn-warning" type="submit" value="글등록">
-	</div>
-</form>
 
-               <ul class="todo-list">
-                <li>
-                  <span class="text">찾으시는 답변이 없을 경우에는 1:1문의를 이용해 주세요.</span>
-               		<button class="btn btn-danger">1:1문의하기</button>
-                </li>
-              </ul>
+<form action="./faq_create.ok">
+	<h3 align="center"><input class="btn btn-warning" type="submit" value="글등록"></h3>
+</form>
 
 
 

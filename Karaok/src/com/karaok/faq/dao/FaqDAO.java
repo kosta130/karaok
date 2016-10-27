@@ -38,4 +38,15 @@ public class FaqDAO {
 		}
 		return list;
 	}
+	
+	public List<Faq> seletSearch(String keyword){
+		List<Faq> list=null;
+		try {
+			list = smc.queryForList("faq.selectSearch",keyword);
+			return list;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 }

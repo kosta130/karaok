@@ -29,6 +29,7 @@ public class FaqAction_c extends Action {
 		String id="lee52x@naver.com";
 		String subject=mr.getParameter("subject");
 		String contents=mr.getParameter("contents");
+		contents=contents.replace("/r/n", "<br>");
 		String options=mr.getParameter("options");
 		String fileName=mr.getFilesystemName("fileName");
 			
