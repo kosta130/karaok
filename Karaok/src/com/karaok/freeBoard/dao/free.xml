@@ -40,7 +40,7 @@
  		select num,nickname,subject,contents,ndate   
  		from  (select num,nickname,subject,contents,ndate, rownum rn   
       	from ( select num,nickname,subject,contents,ndate    
-        from tb_notice order by num desc))  
+        from tb_free order by num desc))  
         where rn between #start# and #end#  
  	</select>  
 

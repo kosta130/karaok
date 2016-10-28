@@ -9,17 +9,19 @@ public class NoteDTO {
 	private String subject;
 	private String contents;
 	private Date ndate;
+	private int hits;
 	
 	public NoteDTO() {
 	}
 
-	public NoteDTO(int num, String nickname, String subject, String contents, Date ndate) {
+	public NoteDTO(int num, String nickname, String subject, String contents, Date ndate, int hits) {
 		super();
 		this.num = num;
 		this.nickname = nickname;
 		this.subject = subject;
 		this.contents = contents;
 		this.ndate = ndate;
+		this.hits = hits;
 	}
 
 	public int getNum() {
@@ -60,6 +62,14 @@ public class NoteDTO {
 
 	public void setNdate(Date ndate) {
 		this.ndate = ndate;
+	}
+
+	public int getHits() {
+		return hits;
+	}
+
+	public void setHits(int hits) {
+		this.hits = hits;
 	}
 	
 }

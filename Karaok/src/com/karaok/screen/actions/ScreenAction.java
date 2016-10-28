@@ -8,9 +8,10 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
-import com.karaok.freeBoard.dto.FreeBoard;
 import com.karaok.screen.dao.ScreenDAO;
 import com.karaok.screen.dto.Screen;
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 public class ScreenAction extends Action {
 	@Override
@@ -20,16 +21,24 @@ public class ScreenAction extends Action {
 		ScreenDAO dao = new ScreenDAO();
 		String action = request.getParameter("action");
 		ActionForward forward = mapping.findForward("sc_list");
-
+		
+		int maxSize=5*1024*1024;	
+		String saveDirectory=request.getRealPath("img_soyoung");//저장경로
+		
 		if (action.equals("insert")) {// 글입력 요청
+			
+			MultipartRequest mr=
+					new MultipartRequest(request, saveDirectory,maxSize,"UTF-8",
+							new DefaultFileRenamePolicy());			
+			
 			Screen dto = new Screen(0, 
-					request.getParameter("nickname"), 
-					request.getParameter("subject"),
-					request.getParameter("contents"), 
+					mr.getParameter("nickname"),
+					mr.getParameter("subject"),
+					mr.getParameter("contents"), 
 					null, 
 					0, 
-					request.getParameter("fileName"));
-
+					mr.getFilesystemName("fileName"));
+			
 			dao.insertScreen(dto);
 		}else if(action.equals("view")){//글화면,수정폼 데이터 출력
 			int num = Integer.parseInt(request.getParameter("num"));
@@ -39,20 +48,30 @@ public class ScreenAction extends Action {
 			forward = mapping.findForward("sc_view");
 			
 		}else if(action.equals("edit")){// 글수정폼 요청 
-			int num = Integer.parseInt(request.getParameter("num"));
+			
+			MultipartRequest mr=
+					new MultipartRequest(request, saveDirectory,maxSize,"UTF-8",
+							new DefaultFileRenamePolicy());
+			
+			int num = Integer.parseInt(mr.getParameter("num"));
 			Screen dto = dao.selectScreen(num);
 			dto.setNum(num);
 			request.setAttribute("dto", dto);
 			forward = mapping.findForward("sc_edit");
 			
 		}else if(action.equals("update")){// 글수정 요청 action="update"
-			Screen dto = new Screen(Integer.parseInt(request.getParameter("num")),
-					request.getParameter("nickname"),
-					request.getParameter("subject"),
-					request.getParameter("contents"),
+			
+			MultipartRequest mr=
+					new MultipartRequest(request, saveDirectory,maxSize,"UTF-8",
+							new DefaultFileRenamePolicy());			
+			
+			Screen dto = new Screen(Integer.parseInt(mr.getParameter("num")),
+					mr.getParameter("nickname"),
+					mr.getParameter("subject"),
+					mr.getParameter("contents"),
 					null,
 					0,
-					request.getParameter("fileName"));
+					mr.getFilesystemName("fileName"));
 			
 			dao.updateScreen(dto);
 			

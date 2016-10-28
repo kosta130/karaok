@@ -27,9 +27,11 @@
             	 <thread>
             	 <tr>
             	 	<th width="10%" class="title">번호</th>
-            	 	<th width="60%" class="title">제목</th>
-            	 	<th width="10%" class="title">작성자</th>
-            	 	<th width="20%" class="title">작성일</th>
+            	 	<th width="50%" class="title">제목</th>
+            	 	<th width="15%" class="title">작성자</th>
+            	 	<th width="15%" class="title">작성일</th>
+            	 	<th width="10%" class="title">조회수</th>
+            	 	
             	 </tr>
             	 </thread>
             	 <tbody>
@@ -39,6 +41,7 @@
             			<td><a href="note.ok?action=view&num=${note.num}">${note.subject }</td>
             			<td align="center">${note.nickname }</td>
             			<td align="center">${note.ndate }</td>
+            			<td align="center">${note.hits }</td>
             		</tr>
             	</c:forEach>
             	</tbody>
