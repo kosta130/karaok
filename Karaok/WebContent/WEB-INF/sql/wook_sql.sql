@@ -49,3 +49,62 @@ insert into tb_faq(seq_faq_num,'lee52x@naver.com','[캐치마인드] 어떤 게임인가요?
 게임의 기본형식은 주어지는 단어를 그림 판에 그림으로 그려서 설명하고 맞추는 
 그림퀴즈 게임으로 무한한 창의적 발상과 상상력이 발휘되는 매우 교육적인 게임의
 형태입니다.' ,'game',null)
+
+
+select count(*) from tb_faq
+select *From tb_faq
+
+select num,id,subject,contents,options,filename
+	from (select num,id,subject,contents,options,filename, rownum rn from tb_faq) 
+	
+	select num,id,subject,contents,options,filename, rownum rn from (
+		select num,id,subject,contents,options,filename from tb_faq)
+		where rn between 1 and 10
+
+				
+ select num,nickname,subject,contents,ndate   
+ 	from  (select num,nickname,subject,contents,ndate, rownum rn)   
+      from ( select num,nickname,subject,contents,ndate    
+           from tb_notice order by num desc))  
+              where rn between 1 and 10  
+              
+ select * from(
+ 		select A.*,rownum rn
+ 			from(
+ 				select *from tb_faq order by num desc
+ 				)A
+ 			)
+ 			where rn between 1 and 10
+
+
+ 			
+drop table event_reply
+
+<!-- 이벤트 댓글 테이블  -->
+create table event_reply(
+	replyNum number(20) constraint evnet_replyNum_pk primary key,
+	num number(20),
+	id varchar2(50),
+	edate Date,
+	contents varchar2(1000),
+	constraint tb_Revent_fk_id foreign key(num) references tb_event(num)
+)
+
+create sequence seq_Revent_num
+increment by 1
+start with 1
+nocycle
+nocache;
+select*from tb_event
+
+	insert into event_reply values(seq_Revent_num.nextval,#num#,#id#,sysdate,#contents#)
+	insert into event_reply values(seq_Revent_num.nextval,156,'lee52x@naver.com',sysdate,'ㅋㅋㅋㅋㅋ')
+	
+select *from event_reply
+
+select replyNum,num,id,edate,contents from event_reply where contents='ㅋㅋㅋㅋㅋ'
+select replyNum,num,id,edate,contents from event_reply
+
+select replyNum,num,id,edate,contents from event_reply where contents=#contents#
+
+

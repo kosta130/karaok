@@ -1,10 +1,13 @@
 package com.karaok.event.dao;
 
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.karaok.event.dto.Event;
+import com.karaok.event.dto.EventReply;
 
 import iba.SqlMapConfig;
 
@@ -107,5 +110,30 @@ public class EventDAO {
 			e.printStackTrace();
 		}
 		return dto;
+	}
+	
+	//´ñ±Û µî·Ï
+	public boolean insertReply(EventReply dto){
+		
+		try {
+			smc.insert("event.insertReply",dto);
+			return true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	public EventReply selectReply(String contents){
+		EventReply dto1=null;
+		try {
+			dto1= (EventReply)smc.queryForObject("event.selectReply",contents);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return dto1;
 	}
 }

@@ -6,9 +6,14 @@
 		insert into tb_faq values(seq_faq_num.nextval,#id#,#subject#,#contents#,#options#,#fileName#)
 	</insert>
 	
-	<select id="selectAll" resultClass="com.karaok.faq.dto.Faq">
-		select num,id,subject,contents,options,fileName from tb_faq natural join tb_member
-			order by num desc
+	<select id="selectAll" parameterClass="java.util.Map" resultClass="com.karaok.faq.dto.Faq">
+ select * from(
+ 		select A.*,rownum rn
+ 			from(
+ 				select *from tb_faq order by num desc
+ 				)A
+ 			)
+ 			where rn between #start# and #end#
 	</select>
 	
 	<select id="selectSearch" parameterClass="String" resultClass="com.karaok.faq.dto.Faq">
@@ -16,5 +21,8 @@
 			where subject like '%'||#keyword#||'%'
 	</select>
 	
-	
+	<select id="selectCount" resultClass="int">
+		select count(*) from tb_faq
+	</select>
+
 </sqlMap>

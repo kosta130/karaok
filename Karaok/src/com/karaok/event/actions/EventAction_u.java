@@ -10,19 +10,28 @@ import org.apache.struts.action.ActionMapping;
 
 import com.karaok.event.dao.EventDAO;
 import com.karaok.event.dto.Event;
+import com.karaok.event.dto.EventReply;
 
 public class EventAction_u extends Action {
+	
+	int num;
 
 	
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		
+		String id=(String)request.getSession().getAttribute("currentId");
+		request.getSession().getAttribute("currentNickName");
 		
-		int num=Integer.parseInt(request.getParameter("num"));
+		String action=request.getParameter("action");
+		
+		
+		EventDAO dao=new EventDAO();
 		
 		//글번호 받아와서 해당되는 게시물 출력
-		EventDAO dao=new EventDAO();
+		if(action.equals("read")){
+		 num=Integer.parseInt(request.getParameter("num"));
 		Event dto = dao.seletConfirm(num);
 		request.setAttribute("num", num);
 		request.setAttribute("dto", dto);
@@ -32,9 +41,23 @@ public class EventAction_u extends Action {
 		Event next= dao.next(num);
 		request.setAttribute("pre", pre);
 		request.setAttribute("next",next);
-
 		
-		
+		//댓글 등록누르자 마자 출력?
+		}else if(action.equals("insertReply")){
+				String contents=request.getParameter("contents");
+				System.out.println(contents);
+				EventReply dto=new EventReply();
+				dto.setId(id);
+				dto.setContents(contents);
+				dto.setNum(num);
+				dao.insertReply(dto);
+				
+				EventReply dto1 = dao.selectReply(contents);
+				request.setAttribute("dto1", dto1);
+				
+				return mapping.findForward("reply");
+				
+		}
 		return mapping.findForward("confirm");
 	}
 }

@@ -28,6 +28,12 @@ public class EventAction_c extends Action {
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
+		
+		
+		String id=(String)request.getSession().getAttribute("currentId");
+		request.getSession().getAttribute("currentNickName");
+		
+		
 		int maxSize=5*1024*1024;	
 		String saveDirectory=request.getRealPath("img");//저장경로
 		MultipartRequest mr=
@@ -35,7 +41,6 @@ public class EventAction_c extends Action {
 						new DefaultFileRenamePolicy());
 
 		
-		String id="lee52x@naver.com";
 		String subject=mr.getParameter("subject");
 		String name=mr.getParameter("name");
 		String contents=mr.getParameter("contents");
