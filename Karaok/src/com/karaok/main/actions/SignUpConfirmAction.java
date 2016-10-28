@@ -68,7 +68,7 @@ public class SignUpConfirmAction extends Action {
 				request.setAttribute("returnValue", returnValue);
 				return mapping.findForward("success");
 			}
-		} else if (pass2 == null && passConfirm != null && passConfirm.length() > 0) {
+		} else if ((pass2==""||pass2 == null) && passConfirm != null && passConfirm.length() > 0) {
 			String returnValue = null;// 비밀번호-비밀번호확인 일치여부
 
 			countResult = 9;

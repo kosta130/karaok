@@ -19,6 +19,64 @@
 	}
 	
 </script>
+<script src="http://code.jquery.com/jquery-1.12.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#submit').click(function(){
+		if(!idCheck || !passCheck || !passConfirmCheck || !nameCheck || !nickNameCheck || !birthCheck || !telCheck){
+			alert("passCheck:"+passCheck);
+			alert("내용을 정확하게 입력해주세요.");
+			return;
+		}else{
+			
+			var action = $('#signup').attr("action");
+			
+			var form_data =
+			{
+				signup_id : $('#signup_id').val(),
+				signup_pass : $('#signup_pass').val(),
+				signup_name : $('#signup_name').val(),
+				signup_nickname : $('#signup_nickname').val(),
+				signup_birth : $('#signup_birth').val(),
+				signup_tel : $('#signup_tel').val()
+			}
+			
+			$.ajax({
+				type:"POST",
+				url:action,
+				data:form_data,
+				success:function(response){
+					alert(response.msg);
+					if(response.state==0){//회원가입실패
+						return;
+					}else if(response.state==1){//회원가입성공
+						$('#signup_id').val('');
+						$('#signup_pass').val('');
+						$('#signup_pass_confirm').val('');
+						$('#signup_name').val('');
+						$('#signup_nickname').val('');
+						$('#signup_birth').val('');
+						$('#signup_tel').val('');
+						return;
+					}
+				}
+			});
+		}
+	});
+	
+	$('#signupExit').click(function(){
+		alert("닫기버튼!!");
+		$('#signup_id').val('');
+		$('#signup_pass').val('');
+		$('#signup_pass_confirm').val('');
+		$('#signup_name').val('');
+		$('#signup_nickname').val('');
+		$('#signup_birth').val('');
+		$('#signup_tel').val('');
+	});
+});
+	
+</script>
 <div class="modal fade" id="layerpop" >
   <div class="modal-dialog">
     <div class="modal-content">
@@ -30,7 +88,7 @@
         <h4 class="modal-title">회원 가입</h4>
       </div>
       <!-- body -->
-      <form name="signup">
+      <form name="signup" id="signup">
       <div class="modal-body">
 이메일(ID)<font color="red">*</font>
 <input type="email" class="form-control" placeholder="e-mail" id="signup_id" onkeydown="startSuggestId()">
@@ -51,16 +109,16 @@
 <input type="text" class="form-control" placeholder="19920308" id="signup_birth" onkeydown="startSuggestBirth()">
 <div id="suggestBirth"></div><br>
 휴대폰번호<font color="red">*</font>
-<input type="text" class="form-control" placeholder="01055556666 or 0105556666" id="signup_tel" onkeydown="startSuggestTel()">
+<input type="text" class="form-control" placeholder="01XOOOOOOOO" id="signup_tel" onkeydown="startSuggestTel()">
 <div id="suggestTel"></div><br>
 </div>
       <!-- Footer -->
       <div class="modal-footer">
         <input type="button" class="btn btn-default" value="가입" id="submit">
         <input type="reset" class="btn btn-default" value="취소">
-        <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal" id=#signupExit>닫기</button>
       </div>
-      </form>
+      </form> 
     </div>
   </div>
 </div>

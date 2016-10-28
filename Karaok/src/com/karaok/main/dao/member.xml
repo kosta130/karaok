@@ -16,4 +16,8 @@
 		from tb_member
 		where id=#id# and pwd=#pwd#
 	</select>
+	<insert id="insertUser" parameterClass="com.karaok.main.dto.MemberDTO">
+		insert into tb_member (id, pwd, name, nickname, birth, tel)
+		values (#id#,#pwd#,#name#,#nickname#,#birth#,#tel#)
+	</insert>
 </sqlMap>

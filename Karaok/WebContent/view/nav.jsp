@@ -8,11 +8,14 @@
 	var link = document.location.href;
 	$(document).ready(function(){
 		
-		$('#logout').click(function(){
-			
+		$(document).on("keyup","#login_pwd",function(e){
+			if(e.keyCode == 13){//엔터입력
+				login();
+			}
 		});
 		
-		$('#login').click(function(){
+		//$('#login').click(function(){
+		$(document).on("click","#login",login=function(){
 			var action = $('#loginForm').attr("action");
 			if($.trim($('#login_id').val()) == ''){
 				alert("아이디(email)을 입력해주세요.");
@@ -65,6 +68,32 @@
 						$('#login_id').hide();
 						$('#login_pwd').hide();
 					}
+				},
+				dataType : "json",
+	            error: function(error,status,xhr) {
+	               alert('error : '+error
+	                     +'\nstatus : '+status
+	                     +'\nxhr : '+xhr.statusText);
+	            }
+			});
+		});
+		
+		
+		//$('#logout').click(function(){
+		$(document).on("click","#logout",function(){
+			//로그인 프로세스 호출
+			$.ajax({
+				type:"POST",
+				url:"logoutSucceed.ok",
+				success:function(response){
+					alert(response.msg);
+					$('#loginFormDiv').prepend("<button type='button' class='btn btn-default' id='signup' data-target='#layerpop' data-toggle='modal'>회원가입</button>");	
+					$('#loginFormDiv').prepend("<button type='button' class='btn btn-default' id='login'>로그인</button>");
+					$('#loginFormDiv').prepend("<input type='password' class='form-control' placeholder='비밀번호' id='login_pwd' name='login_pwd' size='15'>");
+					$('#loginFormDiv').prepend("<input type='text' class='form-control' placeholder='아이디' id='login_id' name='login_id' size='15'>");
+						
+					$('#logout').hide();
+					$('#usernickname').hide();
 				},
 				dataType : "json",
 	            error: function(error,status,xhr) {
@@ -128,7 +157,7 @@
           <ul class="dropdown-menu" role="menu">
             <li><a href="qna.ok?action=qlist">QnA</a></li>
             <li class="divider"></li>
-            <li><a href="faq_list.ok">FAQ</a></li>
+            <li><a href="faq_list.ok?page=1">FAQ</a></li>
           </ul>
         </li>
         <li></li>

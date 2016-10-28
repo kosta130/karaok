@@ -14,9 +14,9 @@ function startSuggestPassConfirm(){
 }//startSuggestPassConfirm
 
 function sendPassConfirm(){//서버 페이지 요청!!
-	if(!loopSendPass)
+	if(!loopSendPassConfirm)
 		return;
-	var pass = document.signup.signup_pass.value;
+	var pass2 = document.signup.signup_pass.value;
 	var passConfirm = document.signup.signup_pass_confirm.value;
 	if(passConfirm == ''){
 		hide('suggestPassConfirm');
@@ -26,7 +26,7 @@ function sendPassConfirm(){//서버 페이지 요청!!
 		passConfirmCheck = false;
 	} else if (passConfirm != lastPassConfirm){
 		lastPassConfirm = passConfirm;
-		var params = "signup_pass_2="+pass+"&signup_pass_confirm="+passConfirm;
+		var params = "signup_pass_2="+pass2+"&signup_pass_confirm="+passConfirm;
 		sendRequest("signUpConfirm.ok",params,displayPassConfirmResult);
 	}
 	setTimeout("sendPassConfirm()",50);

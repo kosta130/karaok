@@ -9,7 +9,6 @@ function startSuggestPass(){
 	if(!checkFirstPass){
 		loopSendPass = true;
 		setTimeout("sendPass()",50);
-		startSuggestPassConfirm();
 	}
 	checkFirstPass = true;
 }//startSuggest
@@ -46,9 +45,9 @@ function displayPassResult() {// 콜백함수 : 서버 요청 후 실행할 함�
 				passCheck = false;
 			} else if (state == 8) {
 				var suggest = document.getElementById("suggestPass");
-				suggest.innerHTML = "<font color=green>" + result[1] + "</font>";
+				suggest.innerHTML = "<font color=green>" + result[1] +"으아아악!"+ "</font>";
 				show('suggestPass');
-				passCheck = false;
+				passCheck = true;
 			} else {
 				hide('suggestPass');
 				passCheck = false;
