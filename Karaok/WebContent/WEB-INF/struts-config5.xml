@@ -71,7 +71,29 @@
 				<forward name="update" path="/qna.ok?action=qlist"></forward>
 				<forward name="delete" path="/qna.ok?action=qlist"></forward>
 	   </action>
-	    		
+	   
+	       <!-- 댓글관련 요청 -->        
+        <action path="/reply/add"
+                type="com.karaok.qna.reply.actions.AddAction">
+             <forward name="success" path="/customer_QnA/addResult.jsp"></forward>        
+        </action>
+        
+        <action path="/reply/list"
+                type="com.karaok.qna.reply.actions.ListAction">
+             <forward name="success" path="/customer_QnA/replyList.jsp"></forward>        
+        </action>
+        
+        <action path="/reply/update"
+                type="com.karaok.qna.reply.actions.UpdateAction">
+             <forward name="success" path="/customer_QnA/addResult.jsp"></forward>        
+        </action>
+        
+        <action path="/reply/delete"
+                type="com.karaok.qna.reply.actions.DeleteAction">
+             <forward name="success" path="/customer_QnA/addResult.jsp"></forward>        
+        </action>
+	   
+    
 	    		
 	</action-mappings>
 

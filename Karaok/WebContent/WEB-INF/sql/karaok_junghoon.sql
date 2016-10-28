@@ -47,9 +47,32 @@ delete from tb_qna where nickname='오바사키';
 drop table tb_qna_reply;
 create table tb_qna_reply
 (
-nickname varchar2(50) references tb_member(nickname) primary key,
-contents varchar2(1000)
+reply_num number(20) primary key,
+num number(20),
+nickname varchar2(50),
+contents varchar2(1000),
+constraint tb_reply_fk_num foreign key(num) references tb_qna(num)
 );
+
+select * from tb_qna_reply;
+
+-- 댓글테이블
+drop table reply;
+create table reply(
+   no       number primary key,   -- 댓글 번호
+   num		number,
+   nickname     varchar2(15) not null,
+   contents  varchar2(200) not null,
+   foreign key(num) references tb_qna(num)
+);
+
+drop sequence reply_seq;
+create sequence reply_seq
+       start with 1
+       increment by 1
+       nocycle
+       nocache;
+
 
 
 

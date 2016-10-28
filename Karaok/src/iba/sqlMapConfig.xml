@@ -31,5 +31,6 @@
   <sqlMap resource="./com/karaok/note/dao/note.xml"/>
   <sqlMap resource="./com/karaok/screen/dao/screen.xml"/>
   <sqlMap resource="./com/karaok/qna/dao/qna.xml"/>
+  <sqlMap resource="./com/karaok/qna/reply/dao/reply.xml"/>
 
 </sqlMapConfig>

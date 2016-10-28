@@ -69,9 +69,9 @@ public class QnaAction extends Action {
 			dto.setContents(contents);
 
 			if (dao.insert(dto)) {
-				System.out.println("디비입력성공");
+				System.out.println("db입력 성공!");
 			} else {
-				System.out.println("디비입력실패");
+				System.out.println("db입력실패");
 			}
 
 			request.getSession().setAttribute("qlist", list);

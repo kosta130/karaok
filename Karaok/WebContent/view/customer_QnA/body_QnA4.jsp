@@ -11,6 +11,169 @@
 		}
 	}
 </script>
+
+
+<!--  abc{스타일}   ===> 문서내에서 <abc>태그에 스타일 적용
+     .abc{스타일}    ===> 문서내에서 <div class="abc">태그에 스타일 적용
+     #abc{스타일}     ===> 문서내에서 <abc id="abc">태그에 스타일 적용 -->
+  <style type="text/css">
+     .reply{
+        border: 1px solid red;
+     }
+  </style>
+  <script type="text/javascript" src="/Karaok/js/ajax2.js"></script>
+  <script type="text/javascript">
+    //댓글 등록 작업 : addReply, addResult
+    function addReply(){//댓글 등록 요청
+       var name = document.addForm.name.value;	
+       var content = document.addForm.content.value;	
+       var params="name="+name+"&content="+content; //"name=길동&content=안녕"
+       new ajax.xhr.Request("add.ok", params, addResult, 'POST');	
+    }//addReply
+    function addResult(xhr){//등록요청후 실행할 콜백함수
+       if(xhr.readyState==4){
+    	  if(xhr.status==200){
+    		  var msg = xhr.responseText;
+    		  alert(msg.trim());
+    		  
+    		  loadReplyList();
+    		  
+    		  document.addForm.name.value='';
+    		  document.addForm.content.value='';
+    		  document.addForm.name.focus();
+    	  }
+       }	
+    }//addResult  
+    
+    function updateReply(){//댓글 수정 요청
+       var no = document.updateForm.no.value;	
+       var name = document.updateForm.name.value;	
+       var content = document.updateForm.content.value;	
+       
+       var params="no="+no+"&name="+name+"&content="+content; 
+           //"no=3&name=길동&content=안녕"
+       new ajax.xhr.Request("update.ok", params, updateResult, 'POST');	
+    }//updateReply
+    
+    function updateResult(xhr){//수정요청후 실행할 콜백함수
+       if(xhr.readyState==4){
+    	  if(xhr.status==200){
+    		  var msg = xhr.responseText;
+    		  alert(msg.trim());
+    		  hideUpdateForm();//수정폼 숨기기
+    		  
+    		  loadReplyList();//변경된 내용 목록 재요청 		 
+    	  }
+       }	
+    }//updateResult  
+    
+    function deleteReply(no){//댓글 삭제요청
+       new ajax.xhr.Request('delete.ok','no='+no,deleteResult,'POST');	
+    }
+    function deleteResult(xhr){//삭제요청후 콜백
+       if(xhr.readyState==4){
+    	 if(xhr.status==200){
+    		 alert( xhr.responseText );//삭제 성공여부 출력
+    		 
+    		 loadReplyList();//변경된 내용 목록 재요청 	
+    	 }else{
+    		 alert('서버에러:'+xhr.status)
+    	 }  
+       } 
+    }
+    
+    
+    function loadReplyList(){//목록요청
+       new ajax.xhr.Request('list.ok',null,loadReplyResult);
+    }//loadReplyList
+    
+    function loadReplyResult(xhr){//콜백: 목록출력
+       if(xhr.readyState==4){
+    	 if(xhr.status==200){
+    		var list = eval('('+xhr.responseText+')');
+    		//[{no:1,name:'길동',content:'내용'},{},{}] 
+    	    //list ---> 배열객체
+    	    var replyList = document.getElementById('replyList');
+    	    
+    	    
+    	    //이전 자식노드 삭제
+    	    var divList = replyList.childNodes;
+    	    //alert('자식수: '+ divList.length)
+    	    /* for(var i=0; i<divList.length; i++){    	    	
+    	    	replyList.removeChild(replyList.firstChild); 	    	
+    	    } */   	    
+    	    while(replyList.hasChildNodes()){
+    	      replyList.removeChild(replyList.firstChild);
+    	    }
+    	    
+    	    //alert('삭제후 자식수: '+ divList.length)
+    	    
+    	    
+    	    for(var i=0; i<list.length; i++){
+    	    	var replyDiv = makeReplyView(list[i]);
+    	        replyList.appendChild(replyDiv);
+    	    }
+    	    //alert('추가후 자식수: '+ divList.length)
+    	 }else{
+    		 alert('서버에러:'+xhr.status)
+    	 }  
+       }	
+    }//loadReplyResult
+    
+    function viewUpdateForm(no){//수정폼 보이기
+       var replyDiv = document.getElementById("r"+no);//댓글div
+       var upFormDiv = document.getElementById("replyUpdate");//수정폼div
+       
+       //댓글<div>태그에 정의된 reply(JSON)객체 얻기
+       var reply = replyDiv.reply;
+       
+       alert('reply.no='+reply.no);
+       alert('document.updateForm='+document.updateForm);
+       alert('document.updateForm.no='+document.updateForm.no);
+       
+       document.updateForm.no.value=  reply.no;
+       document.updateForm.name.value= reply.name;
+       document.updateForm.content.value= reply.content;       
+       
+       replyDiv.appendChild(upFormDiv);       
+       upFormDiv.style.display='';
+    }//viewUpdateForm
+    
+    function hideUpdateForm(){//수정폼 감추기
+      var upFormDiv = document.getElementById("replyUpdate");//수정폼div	
+      
+      var root = document.documentElement;//<html>엘리먼트
+      //document.getElementsByTagName('body').item(0); //<body>엘리먼트
+      root.appendChild(upFormDiv);
+      
+      upFormDiv.style.display='none';
+      
+    }
+    
+    
+    window.onload=function(){
+    	loadReplyList();    	
+    }    
+    
+    
+    function makeReplyView(reply){//댓글에 대한 <div>태그 생성
+    //reply: { no:1, name:'나기롱', content:'Ajax재밌어요~!!' }
+      var replyDiv = document.createElement('div');//<div></div>
+      replyDiv.setAttribute("id","r"+ reply.no);//<div id="r1"></div>	
+      var html =  '<strong>'+reply.name+'</strong><br>'+
+               reply.content.replace('/\n/g', '\n<br>')+'<br>'+
+ '<input type="button" value="수정" onclick="viewUpdateForm('+reply.no+')">'+
+      '<input type="button" value="삭제" onclick="deleteReply('+reply.no+')">';
+      replyDiv.innerHTML = html; // <div id="r1">나길롱<br>안녕<br>수정삭제</div>	        
+      replyDiv.reply = reply; //replyDiv엘리먼트에 reply JSON객체저장
+      replyDiv.className='reply'; //<div id="r1" class="reply">내용</div>
+      return replyDiv;
+    }//makeReplyView
+  </script>
+
+
+
+
 <form role="form" action="qna.ok?action=edit&num=${dto.num }" method="post" name="view">
    <div class="container">
       <div class="row row-offcanvas row-offcanvas-center">
@@ -57,191 +220,28 @@
              </div><!--/row-->
       </div>
    </div>
-   <!-- 댓글 영역 --> 
-        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-        <!-- meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0"/ -->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- Bootstrap -->
-        <link href="./bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
-        <!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요한) -->
-        <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
-                  <!-- 좌우측의 공간 확보 -->
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10">
-                   
-                    <table id="commentTable" class="table table-condensed"></table>
-                    
-                    <table class="table table-condensed">
-                        <tr>
-                            <td>
-                                <span class="form-inline" role="form">
-                                    <p>
-                                        <div class="form-group">
-                                            <input type="text" id="commentParentName" name="commentParentName" class="form-control col-lg-2" data-rule-required="true" placeholder="이름" maxlength="10" value="${currentNickname }">
-                                        </div>
-                                        
-                                        <div class="form-group">
-                                            <button type="button" id="commentParentSubmit" name="commentParentSubmit" class="btn btn-default">댓글 입력</button>
-                                        </div>
-                                    </p>
-                                        <textarea id="commentParentText" class="form-control col-lg-12" style="width:100%" rows="4"></textarea>
-                                </span>
-                            </td>
-                        </tr>
-                    </table>
-                   
-                    <script>
-   
-                        $(function(){
-                               
-                            //제일 하단에 있는 depth1의 댓글을 다는 이벤트
-                            $("#commentParentSubmit").click(function( event ) {
-                                   
-                                //ajax로 저장하고 성공하면 저장한 데이터를 가져와 넣어야 하는데 여기서는 테스트라 그냥 입력값을 가져옴
-                                var pName = $("#commentParentName");
-                                var pText = $("#commentParentText");
-                                   
-                                if($.trim(pName.val())==""){
-                                    alert("이름을 입력하세요.");
-                                    pName.focus();
-                                }else if($.trim(pText.val())==""){
-                                    alert("내용을 입력하세요.");
-                                    pText.focus();
-                                    return;
-                                }
-                                   
-                                var commentParentText = '<tr id="r1" name="commentParentCode">'+
-                                                            '<td colspan=2>'+
-                                                                '<strong>'+pName.val()+'</strong> '+' <a style="cursor:pointer;" name="pAdd">댓글</a> | <a style="cursor:pointer;" name="pDel">삭제</a><p>'+pText.val().replace(/\n/g, "<br>")+'</p>'+
-                                                            '</td>'+
-                                                        '</tr>';
-                                   
-                                //테이블의 tr자식이 있으면 tr 뒤에 붙인다. 없으면 테이블 안에 tr을 붙인다.
-                                if($('#commentTable').contents().size()==0){
-                                    $('#commentTable').append(commentParentText);
-                                }else{
-                                    $('#commentTable tr:last').after(commentParentText);
-                                }
-                                   
-                                $("#commentParentName").val("");
-                                $("#commentParentText").val("");
-                                   
-                            });
-                               
-                            //댓글의 댓글을 다는 이벤트
-                            $(document).on("click","#commentChildSubmit", function(){
-                                   
-                                var cName = $("#commentChildName");
-                                var cText = $("#commentChildText");
-                                   
-                                if($.trim(cName.val())==""){
-                                    alert("이름을 입력하세요.");
-                                    cName.focus();
-                                    return;
-                                }else if($.trim(cText.val())==""){
-                                    alert("내용을 입력하세요.");
-                                    cText.focus();
-                                    return;
-                                }
-                                   
-                                var commentChildText = '<tr name="commentChildCode">'+
-                                                            '<td style="width:1%"><span class="glyphicon glyphicon-arrow-right"></span></td>'+
-                                                            '<td style="width:99%">'+
-                                                                '<strong>'+cName.val()+'</strong> '+' <a style="cursor:pointer;" name="cAdd">댓글</a> | <a style="cursor:pointer;" name="cDel">삭제</a>'+
-                                                                '<p>'+cText.val().replace(/\n/g, "<br>")+'</p>'+
-                                                            '</td>'+
-                                                        '</tr>';
-                                                           
-                                //앞의 tr노드 찾기
-                                var prevTr = $(this).parent().parent().parent().parent().prev();
-                                //댓글 적는 에디터 삭제
-                                $("#commentEditor").remove();//여기에서 삭제를 해줘야 에디터tr을 안 찾는다.
-                                   
-                                //댓글을 타고 올라가며 부모 tr을 찾음
-                                while(prevTr.attr("name")!="commentParentCode"){
-                                    prevTr = prevTr.prev();
-                                }
-                                //while를 타는지 체크
-                                var check = false;
-                                //다음 노드가 댓글(depth1)의 댓글인지 찾기위해 next
-                                var nextTr = prevTr.next();
-                                //뒤에 댓글(depth1)의 댓글(depth2_1)이 없다면 바로 붙인다.
-                                if(nextTr.attr("name")!="commentChildCode"){
-                                    prevTr.after(commentChildText);
-                                }else{
-                                    //댓글(depth1)의 댓글(depth2_n)이 있는경우 마지막까지 찾는다.
-                                    while(nextTr.attr("name")=="commentChildCode"){
-                                        nextTr = nextTr.next();
-                                        check = true;
-                                    }
-                                }
-                                   
-                                if(check){//댓글(depth1)의 댓글(depth2_n)이 있다면 그 댓글(depth2_n) 뒤에 댓글(depth2_n+1) 추가
-                                    nextTr = nextTr.prev();//while문에서 검색하느라 next로 넘거갔던거 다시 앞으로 돌려줌
-                                    nextTr.after(commentChildText);
-                                }
-                                   
-                            });
-                               
-                            //답글링크를 눌렀을때 에디터 창을 뿌려주는 이벤트, 삭제링크를 눌렀을때 해당 댓글을 삭제하는 이벤트
-                            $(document).on("click","table#commentTable a", function(){//동적으로 버튼이 생긴 경우 처리 방식
-                                   
-                                if($(this).attr("name")=="pDel"){
-                                    if (confirm("정말 삭제하시겠습니까?") == true){    //확인
-                                           
-                                        var delComment = $(this).parent().parent();
-                                        var nextTr = delComment.next();
-                                        var delTr;
-                                        //댓글(depth1)의 댓글(depth2_1)이 있는지 검사하여 삭제
-                                        while(nextTr.attr("name")=="commentCode"){
-                                            nextTr = nextTr.next();
-                                            delTr = nextTr.prev();//삭제하고 넘기면 삭제되서 없기 때문에 다음값을 가져오기 어려워 다시 앞으로 돌려서 찾은 다음 삭제
-                                            delTr.remove();
-                                        }
-                                           
-                                        delComment.remove();
-                                           
-                                    }else{   //취소
-                                        return;
-                                    }
-                                }else if($(this).attr("name")=="cDel"){
-                                    if (confirm("정말 삭제하시겠습니까??") == true){    //확인
-                                        $(this).parent().parent().remove();
-                                    }else{   //취소
-                                        return;
-                                    }
-                                }else{
-                                    //자기 부모의 tr을 알아낸다.
-                                    var parentElement = $(this).parent().parent();
-                                    //댓글달기 창을 없앤다.
-                                    $("#commentEditor").remove();
-                                    //부모의 하단에 댓글달기 창을 삽입
-                                    var commentEditor = '<tr id="commentEditor">'+
-                                                            '<td style="width:1%"> </td>'+
-                                                            '<td>'+
-                                                                '<span class="form-inline" role="form">'+
-                                                                    '<p>'+
-                                                                        '<div class="form-group">'+
-                                                                            '<input type="text" value=${currentNickname } id="commentChildName" name="commentChildName" class="form-control col-lg-2" data-rule-required="true" placeholder="이름" maxlength="10">'+
-                                                                        '</div>'+
-                                                                        
-                                                                        '<div class="form-group">'+
-                                                                            '<button type="button" id="commentChildSubmit" class="btn btn-default">확인</button>'+
-                                                                        '</div>'+
-                                                                    '</p>'+
-                                                                        '<textarea id="commentChildText" name="commentChildText" class="form-control" style="width:98%" rows="4"></textarea>'+
-                                                                '</span>'+
-                                                            '</td>'+
-                                                        '</tr>';
-                                                           
-                                    parentElement.after(commentEditor); 
-                                }
-                                   
-                            });
-                            
-                        });
-                    </script>
+   <!-- 댓글 목록 출력 -->
+  <div id="replyList"></div>
+  
+  <!-- 댓글 입력폼 -->
+  <div id="replyAdd">
+     <form name="addForm">
+         이름: <input type="text" name="name" size="10"><br>
+         내용: <textarea rows="2" cols="20" name="content"></textarea><br>
+       <input type="button" value="등록" onclick="addReply()">
+     </form>  
+  </div>
+  
+  <!-- 댓글 수정폼 -->
+  <div id="replyUpdate" style="display:none">
+     <form name="updateForm">
+       <input type="hidden" name="no">
+         이름: <input type="text" name="name" size="10"><br>
+         내용: <textarea rows="2" cols="20" name="content"></textarea><br>
+       <input type="button" value="등록" onclick="updateReply()">
+       <input type="button" value="취소" onclick="hideUpdateForm()">
+     </form>    
+  </div>
                 </div>
             </div>
-        </div>    
+        </div> 
