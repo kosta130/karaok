@@ -35,6 +35,11 @@
 		<forward name="success" path="/view/loginSucceed.jsp"/>
 	</action>
 	
+	<action path="/loginState"
+			type="com.karaok.main.actions.LoginStateAction">
+		<forward name="success" path="/view/loginSucceed.jsp"/>
+	</action>
+	
 	
 	</action-mappings>
 	

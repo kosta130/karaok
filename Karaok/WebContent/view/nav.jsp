@@ -7,22 +7,6 @@
 <script type="text/javascript">
 	var link = document.location.href;
 	$(document).ready(function(){
-		var currentId = "<%=(String)session.getAttribute("currentId")%>";
-		if(currentId=='null'){//현재 세션에 currentId 존재하지 않을경우
-			$('#login').show();
-			$('#logout').hide();
-			$('#signup').show();
-			$('#usernickname').hide();
-			$('#login_id').show();
-			$('#login_pwd').show();
-		}else{//현재 세션에 currentId 존재할경우
-			$('#login').hide();
-			$('#logout').show();
-			$('#signup').hide();
-			$('#usernickname').show();
-			$('#login_id').hide();
-			$('#login_pwd').hide();
-		}
 		
 		$('#logout').click(function(){
 			
@@ -54,21 +38,13 @@
 				url:action,
 				data:form_data,
 				success:function(response){
-					currentId =  "<%=(String)session.getAttribute("currentId")%>";
-					if(currentId!='null' && currentId!=''){//로그인 성공
+					currentId = response.currentId;
+					currentNickName = response.currentNickName;
+					currentInfo = response.currentInfo;
+					if(currentId=='null' || currentId == null ||currentId=='' || currentId=='undefined' || currentId ==undefined){//로그인 실패
 						alert(response.msg);
-						
-						var currentNickName = "<%=(String)session.getAttribute("currentNickName")%>";
-						alert(<%=(String)session.getAttribute("currentNickName")%>);
-						$('#usernickname').text(currentNickName+'님이 로그인하셨습니다.');
-						$('#login').hide();
-						$('#logout').show();
-						$('#signup').hide();
-						$('#usernickname').show();
-						$('#login_id').hide();
-						$('#login_pwd').hide();
-					}else{//로그인 실패
-						alert(response.msg);
+						$('#login_id').val('');
+						$('#login_pwd').val('');
 						
 						$('#login').show();
 						$('#logout').hide();
@@ -76,6 +52,18 @@
 						$('#usernickname').hide();
 						$('#login_id').show();
 						$('#login_pwd').show();
+					}else{//로그인 성공
+						alert(response.msg);
+					
+						$('#loginFormDiv').prepend("<button type='button' class='btn btn-default' id='logout'>로그아웃</button>");
+						$('#loginFormDiv').prepend("<span id='usernickname'></span>");
+						$('#usernickname').text(currentNickName+'님이 로그인하셨습니다.');
+						$('#login').hide();
+						$('#logout').show();
+						$('#signup').hide();
+						$('#usernickname').show();
+						$('#login_id').hide();
+						$('#login_pwd').hide();
 					}
 				},
 				dataType : "json",
@@ -87,21 +75,6 @@
 			});
 		});
 		
-		if(currentId=='null'){//현재 세션에 currentId 존재하지 않을경우
-			$('#login').show();
-			$('#logout').hide();
-			$('#signup').show();
-			$('#usernickname').hide();
-			$('#login_id').show();
-			$('#login_pwd').show();
-		}else{//현재 세션에 currentId 존재할경우
-			$('#login').hide();
-			$('#logout').show();
-			$('#signup').hide();
-			$('#usernickname').show();
-			$('#login_id').hide();
-			$('#login_pwd').hide();
-		}
 	});
 </script>
 <nav class="navbar navbar-default">
@@ -161,15 +134,16 @@
         <li></li>
       </ul>
       <form class="navbar-form navbar-left" id="loginForm" action="loginSucceed.ok" method="post">
-        <div class="form-group">
+        <div class="form-group" align="right" id=loginFormDiv>
+         <%if(request.getSession().getAttribute("currentId")==null) {%>
           <input type="text" class="form-control" placeholder="아이디" id="login_id" name="login_id" size="15">
           <input type="password" class="form-control" placeholder="비밀번호" id="login_pwd" name="login_pwd" size="15">
-        </div>
-        <div class="form-group" align="right">
-        	<button type="button" class="btn btn-default" id="login">로그인</button>
-        	<div id=usernickname></div>
+          <button type="button" class="btn btn-default" id="login">로그인</button>
+          <button type="button" class="btn btn-default" id="signup" data-target="#layerpop" data-toggle="modal">회원가입</button>	
+         <%}else{ %>
+        	<span id=usernickname><%=request.getSession().getAttribute("currentNickName") %>님이 로그인하셨습니다</span>
         	<button type="button" class="btn btn-default" id="logout">로그아웃</button>
-        	<button type="button" class="btn btn-default" id="signup" data-target="#layerpop" data-toggle="modal">회원가입</button>
+         <%} %>
         	<button type="button" class="btn btn-default" id="gamestart">GAME START</button>
         </div>
       </form>
