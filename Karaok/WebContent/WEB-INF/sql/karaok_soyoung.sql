@@ -115,14 +115,14 @@ constraint tb_screen_fk_nickname foreign key(nickname) references tb_member(nick
 
 select * from tb_screen
 
-delete from tb_screen where num between 9 and 36;
-
+delete from tb_screen where num between 79 and 86;
+drop sequence seq_screen_num;
 create sequence seq_screen_num
 increment by 1
 start with 1
 nocycle
 nocache;
-drop sequence seq_screen_num;
+
 --[고객센터]
 --QnA
 
@@ -148,3 +148,5 @@ insert into tb_notice values (seq_notice_num.nextval, '오바사키', '2016년 10월 2
 
 select * from tb_notice
 select NUM,NICKNAME,SUBJECT,CONTENTS,NDATE from TB_UPDATE order by NUM desc;
+
+select * from tb_screen

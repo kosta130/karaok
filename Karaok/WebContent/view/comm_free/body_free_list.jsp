@@ -23,7 +23,7 @@
 </div>
 <br>
 <%
-	request.getSession().setAttribute("currentNickname", "오바사키");
+	//request.getSession().setAttribute("currentNickname", "오바사키");
 %>
               <table id="example1" class="table table-bordered table-striped" align="center">
                 <thead>
@@ -47,21 +47,21 @@
                 </tfoot>
               </table>
             <br> 
-         
+         	<center>
 			<c:if test="${page == 1}">이전</c:if> 
 			<c:if test="${page > 1}"> 
-			<a href="crud.ok?action=list&page=${ page-1 }">이전</a>       
+			<a href="free_list.ok?page=${ page-1 }">이전</a>       
 			</c:if> 
 			         
 			<c:if test="${page == totalPage }">다음</c:if> 
 			<c:if test="${page < totalPage }"> 
-			 <a href="crud.ok?action=list&page=${ page+1 }">다음</a>       
+			 <a href="free_list.ok?page=${ page+1 }">다음</a>       
 			</c:if> 
 			<br><br> 
 			 <c:forEach begin="1" end="${totalPage }" var="i"> 
-			[<a href="crud.ok?action=list&page=${i }">${i }</a>] 
+			[<a href="free_list.ok?page=${i }">${i }</a>] 
 			</c:forEach> 
-		
+			</center>
             <!-- /.box-body -->
           </div>
           <!-- /.box -->

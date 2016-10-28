@@ -1,17 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+
 	<div class="container">
 		<div class="row row-offcanvas row-offcanvas-center">
 			<div class="row">
 <script type="text/javascript">
-
+function del() {
+		confirm('정말삭제?')
+		location.href = 'screen.ok?action=delete&num=${dto.num }';
+}
 </script>
-<form role="form"  action="screen.ok?action=edit" method="post" name="sc_view"> 
+<form role="form"  action="screen.ok?action=edit" method="post" name="sc_view" enctype="multipart/form-data"> 
 <h1>스크린샷 글화면</h1>
 <hr>
      <div class="box-body">
               	<div align="center"> 	
-         		 <img width="600" height="250" src="./img/${dto.fileName}" alt="">
+         		 <img width="600" height="250" src="./img_soyoung/${dto.fileName}" alt="">
          		 </div>	
                 <div class="form-group">
                 <input type="hidden" name="num" value="${dto.num }">
@@ -33,9 +38,10 @@
 
               <div class="box-footer" align="center">
                 
-                <button type="button" class="btn btn-primary" onclick="">답글 달기</button>
+              
                 <button type="submit" class="btn btn-primary" >수정</button>
-                <button type="reset" class="btn btn-primary" onclick="location.href='screen_list.ok'">목록</button>
+                <button type="button" class="btn btn-primary" onclick="del()" >삭제</button>
+                <button type="reset" class="btn btn-primary" onclick="location.href='screen_list.ok'">취소</button>
               </div>
         
             </form>

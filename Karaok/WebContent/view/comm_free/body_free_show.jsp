@@ -4,7 +4,10 @@
 		<div class="row row-offcanvas row-offcanvas-center">
 			<div class="row">
 <script type="text/javascript">
-
+function del() {
+		confirm('정말삭제?')
+		location.href = 'crud.ok?action=delete&num=${dto.num }';
+}
 </script>
 <form role="form"  action="crud.ok?action=upform" method="post" name="view"> 
 <h1>자유게시판 글화면</h1>
@@ -28,8 +31,8 @@
 
               <div class="box-footer" align="center">
                 
-                <button type="button" class="btn btn-primary" onclick="location.href='free_write.ok'">답글 달기</button>
                 <button type="submit" class="btn btn-primary" >수정</button>
+                <button  type="button" class="btn btn-primary" onclick="del()">삭제</button>
                 <button type="reset" class="btn btn-primary" onclick="location.href='free_list.ok'">목록</button>
               </div>
         

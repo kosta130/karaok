@@ -28,4 +28,16 @@
 		where num = #num#
 	</delete>
 
+	<!-- 페이지 -->
+	<select id="selectCount" resultClass="int">  
+ 	select count(*) from tb_screen  
+ 	</select>  
+ 	
+ 	<select id="selectPage" parameterClass="java.util.Map" resultClass="scr">  
+ 		select num,nickname,subject,ndate,seek,fileName
+ 		from  (select num,nickname,subject,ndate,seek,fileName, rownum rn   
+      	from ( select num,nickname,subject,ndate,seek,fileName
+        from tb_screen order by num desc))  
+        where rn between #start# and #end#  
+ 	</select>  
 </sqlMap>

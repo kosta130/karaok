@@ -19,12 +19,13 @@
 								
 						<div i class="col-lg-7 col-md-7">
 						<a href="screen.ok?action=view&num=${dto.num }">
-							 <img width="600" height="250" src="./img/${dto.fileName}" alt="">
+							 <img width="600" height="250" src="./img_soyoung/${dto.fileName}" alt="">
 						</a>
 						</div>
 						
 						<div class="col-lg-5 col-md-4" align="left">
 							
+							<h3>No. ${dto.num }</h3> 
 							<h1>${dto.subject }</h1> <br>
 							<h3>작성자: ${dto.nickname }</h3> 
 							<h3>조회수: ${dto.seek }</h3> 
@@ -37,7 +38,22 @@
 					<hr>
 				</div>
 			</c:forEach>
-	
+			 <br> 
+         	<center>
+			<c:if test="${page == 1}">이전</c:if> 
+			<c:if test="${page > 1}"> 
+			<a href="screen_list.ok?page=${ page-1 }">이전</a>       
+			</c:if> 
+			         
+			<c:if test="${page == totalPage }">다음</c:if> 
+			<c:if test="${page < totalPage }"> 
+			 <a href="screen_list.ok?page=${ page+1 }">다음</a>       
+			</c:if> 
+			<br><br> 
+			 <c:forEach begin="1" end="${totalPage }" var="i"> 
+			[<a href="screen_list.ok?page=${i }">${i }</a>] 
+			</c:forEach> 
+			</center>
 			
 			<!-- /.container -->
 		</div>

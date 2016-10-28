@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-	<div class="container">
-		<div class="row row-offcanvas row-offcanvas-center">
-			<div class="row">
+
+
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
@@ -25,17 +24,24 @@ $(document).ready(function(){
             return false;
         }
         document.sc_create.action="screen.ok?action=insert";
-        document.sc_create.submit();
+       
     })
  
 });
 
+
 </script>
-<form role="form"  method="post" name="sc_create" id="sc_create"> 
-<h1>자유게시판 입력</h1>
+	
+	<div class="container">
+		<div class="row row-offcanvas row-offcanvas-center">
+			<div class="row">
+
+<form role="form"  method="post" name="sc_create" id="sc_create" enctype="multipart/form-data"> 
+<h1>스크린샷 게시판 입력</h1>
 <hr>
 <%
 	request.getSession().setAttribute("currentNickname", "오1");
+
 %>
               <div class="box-body" >
                 <div class="form-group">
@@ -53,7 +59,7 @@ $(document).ready(function(){
                 </div>
  				<div class="form-group">
                   <label for="exampleInputFile">File input</label>
-                  <input type="file" name="fileName" id="exampleInputFile">
+                  <input type="file" name="fileName" id="exampleInputFile" >
                   <p class="help-block">JPG,JPEG,PNG파일만 가능합니다.</p>
                 </div>
 
@@ -63,7 +69,7 @@ $(document).ready(function(){
 
               <div class="box-footer" align="center" >
                 <button type="submit" class="btn btn-primary" >등록</button>
-                <button type="button" class="btn btn-primary" onclick="location.href='screen_list.ok'">목록</button>
+                <button type="button" class="btn btn-primary" onclick="location.href='screen_list.ok'">취소</button>
               </div>
         
             </form>
