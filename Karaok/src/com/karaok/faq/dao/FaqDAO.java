@@ -1,7 +1,9 @@
 package com.karaok.faq.dao;
 
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.karaok.faq.dto.Faq;
@@ -28,10 +30,13 @@ public class FaqDAO {
 		return false;
 	}
 	
-	public List<Faq> selectAll(){
+	public List<Faq> selectAll(int start, int end){
 		List<Faq> list=null;
+		Map<String, Object> map=new HashMap<>();
+		map.put("start", start);
+		map.put("end", end);
 		try {
-			list=smc.queryForList("faq.selectAll");
+			list=smc.queryForList("faq.selectAll",map);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -48,5 +53,18 @@ public class FaqDAO {
 			e.printStackTrace();
 		}
 		return null;
+	}
+	
+	//게시물 카운트
+	public int selectCount(){
+		int count;
+		try {
+			count=(Integer)smc.queryForObject("faq.selectCount");
+			return count;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return 0;
 	}
 }

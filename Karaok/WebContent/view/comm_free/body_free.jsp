@@ -4,12 +4,9 @@
 		<div class="row row-offcanvas row-offcanvas-center">
 			<div class="row">
 <script type="text/javascript">
- function update(up) {
-		if(up=='del'){
-			if (confirm('정말삭제?')){
-				location.href = 'crud.ok?action=delete&num=${dto.num }';
-			}
-		}else{
+ function update() {
+		
+		
 			var subject=document.upform.subject.value;
 			var contents=document.upform.contents.value;
 			
@@ -25,9 +22,9 @@
 	            return false;
 			}
 			document.upform.submit();
-		}
+		
 	} 
-
+ 
 </script>
 <form role="form"  action="crud.ok?action=update" method="post" name="upform"> 
 <h1>자유게시판 글수정</h1>
@@ -51,8 +48,7 @@
               <!-- /.box-body -->
 
               <div class="box-footer" align="center">
-                <button  type="button" class="btn btn-primary" onclick="update('up')">등록</button>
-                <button  type="button" class="btn btn-primary" onclick="update('del')">삭제</button>
+                <button  type="button" class="btn btn-primary" onclick="update()">등록</button>
                 <button type="reset" class="btn btn-primary" onclick="history.back()">취소</button>
               </div>
         

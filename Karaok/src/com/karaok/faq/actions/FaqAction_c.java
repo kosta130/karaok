@@ -46,10 +46,6 @@ public class FaqAction_c extends Action {
 		}else{
 			System.out.println("db입력 실패");
 		}
-		
-	
-		
-		
 		return mapping.findForward("create");
 	}
 }
