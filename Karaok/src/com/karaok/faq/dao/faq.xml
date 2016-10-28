@@ -11,5 +11,10 @@
 			order by num desc
 	</select>
 	
+	<select id="selectSearch" parameterClass="String" resultClass="com.karaok.faq.dto.Faq">
+		select num,id,subject,contents,options,fileName from tb_faq natural join tb_member
+			where subject like '%'||#keyword#||'%'
+	</select>
+	
 	
 </sqlMap>

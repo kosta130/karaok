@@ -43,3 +43,13 @@ insert into tb_qna values (seq_qna_num.nextval, '오바사키', '이것이 궁금하당께12
 insert into tb_qna values (seq_qna_num.nextval, '오바사키', '이것이 궁금하당께13.', '제곧내', sysdate);
 
 delete from tb_qna where nickname='오바사키';
+
+drop table tb_qna_reply;
+create table tb_qna_reply
+(
+nickname varchar2(50) references tb_member(nickname) primary key,
+contents varchar2(1000)
+);
+
+
+

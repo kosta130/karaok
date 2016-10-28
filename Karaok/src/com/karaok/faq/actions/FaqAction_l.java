@@ -17,14 +17,17 @@ public class FaqAction_l extends Action {
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-			
+		
+			String keyword=request.getParameter("keyword");
 			FaqDAO dao=new FaqDAO();
-			List<Faq> list  =dao.selectAll();
-			request.setAttribute("list", list);
-		
-		
-		
-		
+			List<Faq> list;
+			if(keyword==null){
+				 list  =dao.selectAll();
+				 request.setAttribute("list", list);
+			}else{
+				list = dao.seletSearch(keyword);
+				request.setAttribute("list", list);
+			}
 		return mapping.findForward("list");
 	}
 }
