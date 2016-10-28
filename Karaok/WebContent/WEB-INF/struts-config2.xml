@@ -29,6 +29,13 @@
 				forward="/view/news_note/note_edit.jsp"/>
 		<action path="/note_input"
 				forward="/view/news_note/note_create.jsp"/>
+				
+		<!-- rank -->
+		<action path="/rank"
+				type="com.karaok.rank.actions.RankAction">
+				<forward name="success" path="/view/comm_rank/rank.jsp"></forward>		
+		</action>
+				
 	</action-mappings>
 
 </struts-config>

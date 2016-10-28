@@ -22,7 +22,7 @@ public class NoteAction extends Action{
 		ActionForward forward = mapping.findForward("list");
 		
 		if(action.equals("insert")) {
-			NoteDTO dto = new NoteDTO(0, request.getParameter("nickname"), request.getParameter("subject"),  request.getParameter("contents"), null);
+			NoteDTO dto = new NoteDTO(0, request.getParameter("nickname"), request.getParameter("subject"),  request.getParameter("contents"), null, 0);
 			dao.insert(dto);
 		} else if(action.equals("upform")) {
 			int num= Integer.parseInt(request.getParameter("num"));
@@ -31,19 +31,22 @@ public class NoteAction extends Action{
 			request.setAttribute("dto", dto);
 			forward = mapping.findForward("upform");
 		} else if(action.equals("update")){
-			NoteDTO dto = new NoteDTO(Integer.parseInt(request.getParameter("num")), request.getParameter("nickname"), request.getParameter("subject"),  request.getParameter("contents"), null);
+			NoteDTO dto = new NoteDTO(Integer.parseInt(request.getParameter("num")), request.getParameter("nickname"), request.getParameter("subject"),  request.getParameter("contents"), null, Integer.parseInt(request.getParameter("hits")));
 			dao.update(dto);
 		} else if(action.equals("view")){
 			int num = Integer.parseInt(request.getParameter("num"));
 			NoteDTO dto =dao.select(num);
 			dto.setNum(num);
+			dao.hitsup(dto);
 			request.setAttribute("dto", dto);
 			forward = mapping.findForward("view");
 		} else if(action.equals("select")){
 			NoteDTO dto = new NoteDTO(Integer.parseInt(request.getParameter("num")),
 			request.getParameter("nickname"),
 			request.getParameter("subject"),
-			request.getParameter("contents"),null);
+			request.getParameter("contents"),
+			null,
+			Integer.parseInt(request.getParameter("hits")));
 			
 			dao.update(dto);
 		}else if(action.equals("delete")){
