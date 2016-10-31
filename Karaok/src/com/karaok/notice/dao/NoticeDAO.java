@@ -10,6 +10,8 @@ import com.karaok.notice.dto.NoticeDTO;
 
 import iba.SqlMapConfig;
 
+
+
 public class NoticeDAO {
 	SqlMapClient smc;
 

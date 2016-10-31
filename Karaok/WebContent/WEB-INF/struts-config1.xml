@@ -29,17 +29,8 @@
 			type="com.karaok.main.actions.StartAction">
 		<forward name="main" path="/view/main/main.jsp"></forward>
 	</action>
-	    		
-	    		
-	    		
-	    		
-	    		
-	    		
-	    		
-	    		
-	    		
-	    		
-	    		
+
+
 	 <!-- Event리스트 -->
 	<action path="/event_list"
 			type="com.karaok.event.actions.EventAction_r">

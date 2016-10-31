@@ -23,12 +23,14 @@ public class StartAction extends Action {
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		//공지사항 불러오기
+		
+		System.out.println("ㅋㅋㅋㅋ");
+		
+		
 		NoticeDAO dao=new NoticeDAO();
-		List<NoticeDTO> notice =  dao.selectAll();
+		List<NoticeDTO> notice = dao.selectAll();
 		request.setAttribute("notice", notice);
 		
-		//개발자노트 불러오기
 		NoteDAO dao1=new NoteDAO();
 		List<NoteDTO> note= dao1.selectAll();
 		request.setAttribute("note", note);
