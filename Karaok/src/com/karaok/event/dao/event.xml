@@ -64,8 +64,9 @@
 
 	
 	<!-- 댓글 출력 -->
-	<select id="selectReply" parameterClass="String" resultClass="com.karaok.event.dto.EventReply">
-		select replyNum,num,id,edate,contents from event_reply where contents=#contents#
+	<select id="ListReply"  parameterClass="int" resultClass="com.karaok.event.dto.EventReply">
+		select replyNum,num,id,edate,contents from event_reply where num=#num#
+		order by replyNum desc
 	</select>
 	
 	

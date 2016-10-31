@@ -1,5 +1,7 @@
 package com.karaok.event.actions;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -33,6 +35,8 @@ public class EventAction_u extends Action {
 		if(action.equals("read")){
 		 num=Integer.parseInt(request.getParameter("num"));
 		Event dto = dao.seletConfirm(num);
+		List<EventReply> list = dao.ListReply(num);//리플 받아오기
+		request.setAttribute("list", list);
 		request.setAttribute("num", num);
 		request.setAttribute("dto", dto);
 		
@@ -50,10 +54,10 @@ public class EventAction_u extends Action {
 				dto.setId(id);
 				dto.setContents(contents);
 				dto.setNum(num);
-				dao.insertReply(dto);
+				dao.insertReply(dto);//댓글 등록
 				
-				EventReply dto1 = dao.selectReply(contents);
-				request.setAttribute("dto1", dto1);
+				List<EventReply> list = dao.ListReply(num); //댓글 리스트
+				request.setAttribute("list", list);
 				
 				return mapping.findForward("reply");
 				

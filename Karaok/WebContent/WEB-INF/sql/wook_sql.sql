@@ -100,11 +100,20 @@ select*from tb_event
 	insert into event_reply values(seq_Revent_num.nextval,#num#,#id#,sysdate,#contents#)
 	insert into event_reply values(seq_Revent_num.nextval,156,'lee52x@naver.com',sysdate,'せせせせせ')
 	
+select *from event_reply from num=156
 select *from event_reply
 
-select replyNum,num,id,edate,contents from event_reply where contents='せせせせせ'
-select replyNum,num,id,edate,contents from event_reply
+select*from tb_event
 
-select replyNum,num,id,edate,contents from event_reply where contents=#contents#
+select id,replyNum,point,subject,contents,startDate,endDate,fileName from tb_event natural join event_reply  
+where num=156
+
+
+
+	select * from event_reply where num=156
+	
+	
+	select*from tb_member
+
 
 

@@ -19,25 +19,13 @@ $(document).ready(function(){
 			url:'./event_confirm.ok?action=insertReply',
 			data:{contents:$('#reply').val()},
 			success:function(result){
+				$('#reply').val('');
 				$('#replyResult').html(result);
 			}
 		});
 		
 	});
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -108,7 +96,18 @@ function check(){
                <!-------------------------  댓글생성부분 --------------------------------->
               </div>
                 <hr>
-                <div id="replyResult"></div>
+                <div id="replyResult">
+                <c:forEach items="${list}" var="v">
+               <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> ${v.edate}</small>
+                    ${v.id }<br>
+           
+             		${v.contents }
+             		<hr>
+			</c:forEach>
+                
+                
+                
+                </div>
              
             </div>
             
