@@ -89,6 +89,8 @@ public class EventDAO {
 		return dto;
 	}
 	
+	
+	
 	public Event previous(int num){
 		Event dto=null;
 		
@@ -125,15 +127,15 @@ public class EventDAO {
 		return false;
 	}
 	
-	public EventReply selectReply(String contents){
-		EventReply dto1=null;
+	public List<EventReply> ListReply(int num){
+		 List<EventReply> list=null;
 		try {
-			dto1= (EventReply)smc.queryForObject("event.selectReply",contents);
+			list= (List<EventReply>)smc.queryForList("event.ListReply",num);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		return dto1;
+		return list;
 	}
 }

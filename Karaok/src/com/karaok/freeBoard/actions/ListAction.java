@@ -22,7 +22,7 @@ public class ListAction extends Action{
 				HttpServletResponse response) throws Exception {//전체 게시물 조회
 			FreeBoardDAO dao=new FreeBoardDAO();
 			action = request.getParameter("action");
-			List<FreeBoard> list = dao.listFreeBoard();
+			List<FreeBoard> list;
 			
 			if(action==null || action.equals("list")){ 
 				 

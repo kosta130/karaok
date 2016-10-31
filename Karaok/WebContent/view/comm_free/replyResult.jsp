@@ -5,9 +5,10 @@
 
 
 <c:forEach items="${list}" var="v">
-               <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> ${v.edate}</small>
-                    ${v.id }<br>
+               <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> ${v.re_ndate}</small>
+                    ${v.re_id }<br>
            
-             		${v.contents }
+             		${v.re_contents }
              		<hr>
 </c:forEach>
+

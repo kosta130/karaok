@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd" >
 <sqlMap namespace="faq">
-	
-	<insert id="insert" parameterClass="com.karaok.faq.dto.Faq">
-		insert into tb_faq values(seq_faq_num.nextval,#id#,#subject#,#contents#,#options#,#fileName#)
-	</insert>
-	
-	<select id="selectAll" parameterClass="java.util.Map" resultClass="com.karaok.faq.dto.Faq">
+   
+   <insert id="insert" parameterClass="com.karaok.faq.dto.Faq">
+      insert into tb_faq values(seq_faq_num.nextval,#id#,#subject#,#contents#,#options#,#fileName#)
+   </insert>
+   
+   <select id="selectAll" parameterClass="java.util.Map" resultClass="com.karaok.faq.dto.Faq">
  select * from(
- 		select A.*,rownum rn
- 			from(
- 				select *from tb_faq order by num desc
- 				)A
- 			)
- 			where rn between #start# and #end#
-	</select>
-	
-	<select id="selectSearch" parameterClass="String" resultClass="com.karaok.faq.dto.Faq">
-		select num,id,subject,contents,options,fileName from tb_faq natural join tb_member
-			where subject like '%'||#keyword#||'%'
-	</select>
-	
-	<select id="selectCount" resultClass="int">
-		select count(*) from tb_faq
-	</select>
+       select A.*,rownum rn
+          from(
+             select *from tb_faq order by num desc
+             )A
+          )
+          where rn between #start# and #end#
+   </select>
+   
+   <select id="selectSearch" parameterClass="String" resultClass="com.karaok.faq.dto.Faq">
+      select num,id,subject,contents,options,fileName from tb_faq natural join tb_member
+         where subject like '%'||#keyword#||'%'
+   </select>
+   
+   <select id="selectCount" resultClass="int">
+      select count(*) from tb_faq
+   </select>
 
 </sqlMap>

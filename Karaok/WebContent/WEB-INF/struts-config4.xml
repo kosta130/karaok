@@ -58,6 +58,7 @@
 	        <forward name="sc_list" path="/screen_list.ok" redirect="true"/>        
 	        <forward name="sc_view" path="/screen_show.ok" />        
 	        <forward name="sc_edit" path="/screen_edit.ok" />        
+	        <forward name="sc_reply" path="/view/comm_screenshot/replyResult.jsp" />        
 	     
 	      </action> 
       
