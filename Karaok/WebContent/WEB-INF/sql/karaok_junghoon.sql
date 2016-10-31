@@ -11,6 +11,11 @@ ndate date,
 constraint tb_qna_fk_nickname foreign key(nickname) references tb_member(nickname)
 );
 
+alter table tb_qna add constraint tb_qna_fk_nickname foreign key(nickname) references tb_member(nickname)
+on delete cascade
+
+ALTER TABLE tb_qna ADD constraint tb_qna_fk_nickname FOREIGN KEY(nickname) REFERENCES qna_reply(num) ON DELETE CASCADE
+
 drop sequence seq_qna_num;
 create sequence seq_qna_num
 increment by 1
@@ -44,35 +49,34 @@ insert into tb_qna values (seq_qna_num.nextval, '오바사키', '이것이 궁금하당께13
 
 delete from tb_qna where nickname='오바사키';
 
-drop table tb_qna_reply;
-create table tb_qna_reply
-(
-reply_num number(20) primary key,
-num number(20),
-nickname varchar2(50),
-contents varchar2(1000),
-constraint tb_reply_fk_num foreign key(num) references tb_qna(num)
+delete from qna_reply;
+
+<!-- 이벤트 댓글 테이블  -->
+create table qna_reply(
+	qnaNum number(20) constraint qna_replyNum_fk,
+	num number(20),
+	nickname varchar2(50),
+	edate Date,
+	contents varchar2(1000),
+	constraint tb_Rqna_fk_nickname foreign key(num) references tb_qna(num)
 );
 
-select * from tb_qna_reply;
+create sequence seq_Rqna_num
+increment by 1
+start with 1
+nocycle
+nocache;
 
--- 댓글테이블
-drop table reply;
-create table reply(
-   no       number primary key,   -- 댓글 번호
-   num		number,
-   nickname     varchar2(15) not null,
-   contents  varchar2(200) not null,
-   foreign key(num) references tb_qna(num)
-);
-
-drop sequence reply_seq;
-create sequence reply_seq
-       start with 1
-       increment by 1
-       nocycle
-       nocache;
+select*from tb_qna
 
 
+	delete from tb_qna on delete CASCADE 
+	where num=3
+	
+	
+select CONSTRAINT_NAME, TABLE_NAME, R_CONSTRAINT_NAME
+from user_constraints
+where CONSTRAINT_NAME = 'TB_RQNA_FK_NICKNAME' 
 
+delete * 
 

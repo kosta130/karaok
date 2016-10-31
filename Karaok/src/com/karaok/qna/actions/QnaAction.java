@@ -10,8 +10,11 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
+import com.karaok.event.dto.EventReply;
+import com.karaok.qna.DTO;
 import com.karaok.qna.dao.QnaDAO;
 import com.karaok.qna.dto.QnaDTO;
+import com.karaok.qna.dto.ReplyDTO;
 
 public class QnaAction extends Action {
 	private String action = null;
@@ -102,6 +105,7 @@ public class QnaAction extends Action {
 			}
 		} else if (action.equals("delete")) {
 			int num = Integer.parseInt(request.getParameter("num"));
+			dao.deleteReply(num);
 			dao.delete(num);
 			request.getSession().setAttribute("qlist", dao.selectAll());
 			forward = mapping.findForward("delete");
@@ -111,6 +115,8 @@ public class QnaAction extends Action {
 			int num = Integer.parseInt(request.getParameter("num"));
 			QnaDTO dto = dao.select(num);
 			request.setAttribute("dto", dto);
+			List<ReplyDTO> list1 = dao.ListReply(num);//리플 받아오기
+			request.setAttribute("list1", list1);
 			forward = mapping.findForward("select");
 		}
 		return forward;

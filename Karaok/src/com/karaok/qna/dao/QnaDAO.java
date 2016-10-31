@@ -7,6 +7,7 @@ import java.util.Map;
 
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.karaok.qna.dto.QnaDTO;
+import com.karaok.qna.dto.ReplyDTO;
 
 import iba.SqlMapConfig;
 
@@ -92,5 +93,41 @@ public class QnaDAO {
 		}
 		return list;
 	}
+	
+	//´ñ±Û µî·Ï
+	public boolean insertReply(ReplyDTO dto){
+		
+		try {
+			smc.insert("qna.insertReply",dto);
+			return true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	public List<ReplyDTO> ListReply(int num){
+		 List<ReplyDTO> list=null;
+		try {
+			list= (List<ReplyDTO>)smc.queryForList("qna.ListReply",num);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+	
+	public boolean deleteReply(int num) {
+		try {
+			int t = smc.delete("qna.deleteReply", num);
+			if (t == 1)
+				return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	} 
 
 }

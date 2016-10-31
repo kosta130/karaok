@@ -1,29 +1,34 @@
 package com.karaok.qna.dto;
 
+import java.sql.Date;
+
 public class ReplyDTO {
-	private int reply_num;
-	private int num;
-	private String nickname;
-	private String contents;
 	
+	int replyNum;
+	int num;
+	String nickname;
+	Date edate;
+	String contents;
+
 	public ReplyDTO() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ReplyDTO(int reply_num, int num, String nickname, String contents) {
+	public ReplyDTO(int replyNum, int num, String nickname, Date edate, String contents) {
 		super();
-		this.reply_num = reply_num;
+		this.replyNum = replyNum;
 		this.num = num;
 		this.nickname = nickname;
+		this.edate = edate;
 		this.contents = contents;
 	}
 
-	public int getReply_num() {
-		return reply_num;
+	public int getReplyNum() {
+		return replyNum;
 	}
 
-	public void setReply_num(int reply_num) {
-		this.reply_num = reply_num;
+	public void setReplyNum(int replyNum) {
+		this.replyNum = replyNum;
 	}
 
 	public int getNum() {
@@ -42,6 +47,14 @@ public class ReplyDTO {
 		this.nickname = nickname;
 	}
 
+	public Date getEdate() {
+		return edate;
+	}
+
+	public void setEdate(Date edate) {
+		this.edate = edate;
+	}
+
 	public String getContents() {
 		return contents;
 	}
@@ -51,5 +64,4 @@ public class ReplyDTO {
 	}
 	
 	
-
 }
