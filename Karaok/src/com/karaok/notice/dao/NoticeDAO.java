@@ -71,6 +71,8 @@ public class NoticeDAO {
 		}
 		return list;
 	}
+	
+
 
 	public int selectCount() {
 		int cnt = 0;
