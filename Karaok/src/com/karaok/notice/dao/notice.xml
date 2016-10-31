@@ -32,7 +32,7 @@ insert into tb_notice
 	from tb_notice
 	order by num desc
   </select>
-  
+
   <select id="selectPage" parameterClass="java.util.Map" resultClass="Notice">  
  select num,nickname,subject,contents,ndate   
  	from  (select num,nickname,subject,contents,ndate, rownum rn   

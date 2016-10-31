@@ -114,6 +114,22 @@ where num=156
 	
 	
 	select*from tb_member
+	
+	
+	select*from tb_notice
+	
+	
+		select num, nickname, subject, contents, ndate, rownum rn
+			from (select num, nick name, subject, contents, ndate from tb_notice)
+					where rownum
+				order by num desc
 
+	
+				
+				
+				select * from tb_update
+				
+				insert into tb_update values(5,'드루미드루미','개발자노트','개발자노트입니다',sysdate,3)
+		
 
-
+	select*From tb_notice
