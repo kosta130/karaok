@@ -52,7 +52,7 @@
               <div class="box-footer" align="center">
                 
                 <button type="button" class="btn btn-primary" onclick="update()">등록</button>
-                <button type="reset" class="btn btn-primary" onclick="history.back()">취소</button>
+                <button type="reset" class="btn btn-primary" onclick="history.back()">목록</button>
               </div>
         
             </form>

@@ -26,13 +26,15 @@ public class FreeBoardAction extends Action {
 			FreeBoard dto = new FreeBoard(0,
 									request.getParameter("nickname"),
 									request.getParameter("subject"),
-									request.getParameter("contents"),null);
+									request.getParameter("contents"),null,
+									1);
 			dao.insertFreeBoard(dto);					
 									
 		}else if(action.equals("upform")){// 글수정폼 요청 action="upform"
 			int num = Integer.parseInt(request.getParameter("num"));
 			FreeBoard dto = dao.selectFreeBoard(num);
 			dto.setNum(num);
+			dao.seekCount(dto);
 			request.setAttribute("dto", dto);
 			forward = mapping.findForward("upform");
 			
@@ -40,7 +42,8 @@ public class FreeBoardAction extends Action {
 			FreeBoard dto = new FreeBoard(Integer.parseInt(request.getParameter("num")),
 					request.getParameter("nickname"),
 					request.getParameter("subject"),
-					request.getParameter("contents"),null);
+					request.getParameter("contents"),null,
+					Integer.parseInt(request.getParameter("hits")));
 			
 			dao.updateFreeBoard(dto);
 			
@@ -48,6 +51,7 @@ public class FreeBoardAction extends Action {
 			int num = Integer.parseInt(request.getParameter("num"));
 			FreeBoard dto = dao.selectFreeBoard(num);
 			dto.setNum(num);
+			dao.seekCount(dto);
 			request.setAttribute("dto", dto);
 			forward = mapping.findForward("view");
 			
@@ -55,7 +59,8 @@ public class FreeBoardAction extends Action {
 			FreeBoard dto = new FreeBoard(Integer.parseInt(request.getParameter("num")),
 					request.getParameter("nickname"),
 					request.getParameter("subject"),
-					request.getParameter("contents"),null);
+					request.getParameter("contents"),null,
+					Integer.parseInt(request.getParameter("hits")));
 			
 			dao.updateFreeBoard(dto);
 			

@@ -1,5 +1,7 @@
 package com.karaok.screen.actions;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -10,6 +12,7 @@ import org.apache.struts.action.ActionMapping;
 
 import com.karaok.screen.dao.ScreenDAO;
 import com.karaok.screen.dto.Screen;
+import com.karaok.screen.dto.ScreenReply;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
@@ -44,6 +47,7 @@ public class ScreenAction extends Action {
 			int num = Integer.parseInt(request.getParameter("num"));
 			Screen dto = dao.selectScreen(num);
 			dto.setNum(num);
+			dao.seekCount(dto);
 			request.setAttribute("dto", dto);
 			forward = mapping.findForward("sc_view");
 			
@@ -70,7 +74,7 @@ public class ScreenAction extends Action {
 					mr.getParameter("subject"),
 					mr.getParameter("contents"),
 					null,
-					0,
+					Integer.parseInt(mr.getParameter("seek")),
 					mr.getFilesystemName("fileName"));
 			
 			dao.updateScreen(dto);
@@ -78,9 +82,23 @@ public class ScreenAction extends Action {
 		}else if(action.equals("delete")){// 글삭제 요청 action="delete"
 			int num = Integer.parseInt(request.getParameter("num"));
 			dao.deleteScreen(num);
+			
+		}else if(action.equals("insertReply")){//댓글 입력
+			String re_id = request.getParameter("re_id");
+			int re_num= Integer.parseInt(request.getParameter("re_num"));
+			String re_contents=request.getParameter("re_contents");
+			ScreenReply r_dto=new ScreenReply();
+			r_dto.setRe_id(re_id);
+			r_dto.setRe_contents(re_contents);
+			r_dto.setRe_num(re_num);
+			dao.insertReply(r_dto);
+			
+			List<ScreenReply> list=dao.ListReply(re_num);//댓글 리스트
+			request.setAttribute("list", list);
+			
+			return mapping.findForward("reply");
 		}
 		
 			return forward;
-
 	}
 }

@@ -50,6 +50,7 @@ nickname varchar2(50),
 subject varchar2(100),
 contents varchar2(1000),
 ndate date,
+hits number(20),
 constraint tb_free_fk_nickname foreign key(nickname) references tb_member(nickname)
 );
 
@@ -59,6 +60,8 @@ increment by 1
 start with 1
 nocycle
 nocache;
+
+
 
 insert into tb_free values (seq_free_num.nextval,'ø¿1', 'æ»≥Á', '∏Æ≈œ3¡∂',sysdate);
 insert into tb_free values (seq_free_num.nextval,'ø¿2', 'æ»≥Á', '∏Æ≈œ3¡∂',sysdate);
@@ -122,7 +125,24 @@ increment by 1
 start with 1
 nocycle
 nocache;
+--Ω∫≈©∏∞º¶ ¥Ò±€
+drop table screen_reply
 
+-- Ω∫≈©∏∞º¶ ¥Ò±€ ≈◊¿Ã∫Ì  
+create table screen_reply(
+	replyNum number(20) constraint screen_replyNum_pk primary key,
+	re_num number(20),
+	re_id varchar2(50),
+	re_ndate Date,
+	re_contents varchar2(1000),
+	constraint tb_Rscreen_fk_id foreign key(re_num) references tb_screen(num)
+);
+
+create sequence seq_Rscreen_num
+increment by 1
+start with 1
+nocycle
+nocache;
 --[∞Ì∞¥ºæ≈Õ]
 --QnA
 

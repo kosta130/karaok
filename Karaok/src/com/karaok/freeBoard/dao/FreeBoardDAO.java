@@ -91,5 +91,14 @@ public class FreeBoardDAO {
 			}
 			return list;
 		}
-
+	 public boolean seekCount(FreeBoard dto){
+		 try {
+			int t= smc.update("free.seekCount",dto);
+			 if(t==1)
+				 return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		 return false;
+	 }
 }

@@ -35,7 +35,7 @@ $(document).ready(function(){
 <h1>자유게시판 입력</h1>
 <hr>
 <%
-	//request.getSession().setAttribute("currentNickname", "오1");
+	request.getSession().setAttribute("currentNickname", "오1");
 %>
               <div class="box-body" >
                 <div class="form-group">
@@ -45,7 +45,7 @@ $(document).ready(function(){
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">작성자</label>
-                  <input type="text" class="form-control"  name="nickname" placeholder="작성자" value="${nickname }" readonly="readonly">
+                  <input type="text" class="form-control"  name="nickname" placeholder="작성자" value="${currentNickname }" readonly="readonly">
                 </div>
                 <div class="form-group" >
                   <label>Textarea</label>

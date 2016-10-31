@@ -29,6 +29,11 @@ function del() {
                   <input type="text" class="form-control" name="nickname" placeholder="작성자" value=${dto.nickname } readonly="readonly">
                 </div>
                 
+                <div class="form-group">
+                  <label for="exampleInputEmail1">조회수</label>
+                  <input type="text" class="form-control" name="seek" placeholder="조회수" value=${dto.seek } readonly="readonly">
+                </div>
+                
                 <div class="form-group" >
                   <label>Textarea</label>
                   <textarea  style="height: 300px;" class="form-control" rows="3" placeholder="Enter ..." name="contents" readonly="readonly">${dto.contents }</textarea>
@@ -41,7 +46,7 @@ function del() {
               
                 <button type="submit" class="btn btn-primary" >수정</button>
                 <button type="button" class="btn btn-primary" onclick="del()" >삭제</button>
-                <button type="reset" class="btn btn-primary" onclick="location.href='screen_list.ok'">취소</button>
+                <button type="reset" class="btn btn-primary" onclick="location.href='screen_list.ok'">목록</button>
               </div>
         
             </form>

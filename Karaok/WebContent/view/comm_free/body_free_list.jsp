@@ -31,6 +31,7 @@
                   <th style="width: 7%" class="title">글번호</th>
                   <th style="width: *%" class="title" >제목</th>
                   <th style="width: 10%" class="title">작성자</th>
+                  <th style="width: 10%" class="title">조회수</th>
                   <th style="width: 20%" class="title">날짜</th>
                 </tr>
                 </thead>
@@ -40,6 +41,7 @@
                   <td class="title">${dto.num }</td>
                   <td><a href="crud.ok?action=view&num=${dto.num }">${dto.subject }</a></td>
                   <td class="title">${dto.nickname}</td>
+                  <td class="title">${dto.hits}</td>
                   <td class="title">${dto.ndate }</td>
 		  </c:forEach>
 					     
