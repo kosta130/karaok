@@ -10,7 +10,6 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
-import com.karaok.event.dto.EventReply;
 import com.karaok.qna.DTO;
 import com.karaok.qna.dao.QnaDAO;
 import com.karaok.qna.dto.QnaDTO;
