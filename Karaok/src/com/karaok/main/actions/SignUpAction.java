@@ -29,11 +29,13 @@ public class SignUpAction extends Action{
 		
 		if(id==null || pwd ==null || name==null || nickname==null || birth==null || tel==null){//입력값 부족
 			state=0;
+			msg="회원가입실패";
 			request.setAttribute("state", state);
 			request.setAttribute("msg", msg);
 			forward = mapping.findForward("success");
 		}else if(id=="" || pwd =="" || name=="" || nickname=="" || birth=="" || tel==""){//입력값 부족
 			state=0;
+			msg="회원가입실패";
 			request.setAttribute("state", state);
 			request.setAttribute("msg", msg);
 			forward = mapping.findForward("success");
@@ -45,11 +47,14 @@ public class SignUpAction extends Action{
 				request.setAttribute("state", state);
 				request.setAttribute("msg", msg);
 				forward = mapping.findForward("success");
+				System.out.println("여긴성공");
 			}else{//if(new MemberDAO().insertUser(dto).equals("fail")){
 				state=0;
+				msg="회원가입실패";
 				request.setAttribute("state", state);
 				request.setAttribute("msg", msg);
 				forward = mapping.findForward("success");
+				System.out.println("여긴실패");
 			}
 		}
 		

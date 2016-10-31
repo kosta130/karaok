@@ -78,6 +78,11 @@
 			});
 		});
 		
+		$(document).on("click","#signup",function(){
+			$('#signupForm').each(function(){
+				this.reset();
+			});
+		});
 		
 		//$('#logout').click(function(){
 		$(document).on("click","#logout",function(){

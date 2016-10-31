@@ -24,12 +24,9 @@
 $(document).ready(function(){
 	$('#submit').click(function(){
 		if(!idCheck || !passCheck || !passConfirmCheck || !nameCheck || !nickNameCheck || !birthCheck || !telCheck){
-			alert("passCheck:"+passCheck);
 			alert("내용을 정확하게 입력해주세요.");
 			return;
 		}else{
-			
-			var action = $('#signup').attr("action");
 			
 			var form_data =
 			{
@@ -43,37 +40,23 @@ $(document).ready(function(){
 			
 			$.ajax({
 				type:"POST",
-				url:action,
+				url:"signUpSucceed.ok",
 				data:form_data,
 				success:function(response){
 					alert(response.msg);
 					if(response.state==0){//회원가입실패
+					
 						return;
 					}else if(response.state==1){//회원가입성공
-						$('#signup_id').val('');
-						$('#signup_pass').val('');
-						$('#signup_pass_confirm').val('');
-						$('#signup_name').val('');
-						$('#signup_nickname').val('');
-						$('#signup_birth').val('');
-						$('#signup_tel').val('');
+						$('#layerpop').modal("hide");
 						return;
 					}
-				}
+				},
+				dataType:"json"
 			});
 		}
 	});
 	
-	$('#signupExit').click(function(){
-		alert("닫기버튼!!");
-		$('#signup_id').val('');
-		$('#signup_pass').val('');
-		$('#signup_pass_confirm').val('');
-		$('#signup_name').val('');
-		$('#signup_nickname').val('');
-		$('#signup_birth').val('');
-		$('#signup_tel').val('');
-	});
 });
 	
 </script>
@@ -83,12 +66,12 @@ $(document).ready(function(){
       <!-- header -->
       <div class="modal-header">
         <!-- 닫기(x) 버튼 -->
-        <button type="button" class="close" data-dismiss="modal">×</button>
+        <button type="button" class="close" data-dismiss="modal" id="signupExit2">×</button>
         <!-- header title -->
         <h4 class="modal-title">회원 가입</h4>
       </div>
       <!-- body -->
-      <form name="signup" id="signup">
+      <form name="signup" id="signupForm" action="signUpSucceed">
       <div class="modal-body">
 이메일(ID)<font color="red">*</font>
 <input type="email" class="form-control" placeholder="e-mail" id="signup_id" onkeydown="startSuggestId()">
@@ -116,7 +99,7 @@ $(document).ready(function(){
       <div class="modal-footer">
         <input type="button" class="btn btn-default" value="가입" id="submit">
         <input type="reset" class="btn btn-default" value="취소">
-        <button type="button" class="btn btn-default" data-dismiss="modal" id=#signupExit>닫기</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal" id=signupExit>닫기</button>
       </div>
       </form> 
     </div>

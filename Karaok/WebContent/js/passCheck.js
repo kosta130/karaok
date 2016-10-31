@@ -45,7 +45,7 @@ function displayPassResult() {// 콜백함수 : 서버 요청 후 실행할 함�
 				passCheck = false;
 			} else if (state == 8) {
 				var suggest = document.getElementById("suggestPass");
-				suggest.innerHTML = "<font color=green>" + result[1] +"으아아악!"+ "</font>";
+				suggest.innerHTML = "<font color=green>" + result[1] +"</font>";
 				show('suggestPass');
 				passCheck = true;
 			} else {

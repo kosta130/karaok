@@ -110,7 +110,7 @@ public class SignUpConfirmAction extends Action {
 				int year = Integer.parseInt(birth.substring(0, 4));
 				int month = Integer.parseInt(birth.substring(4, 6));
 				int day = Integer.parseInt(birth.substring(6, 8));
-				if (year < 1900 || year > 2999 || month < 0 || month > 12 || day < 0 || day > 31) {
+				if (year < 1900 || year > 2999 || month < 1 || month > 12 || day < 1 || day > 31) {
 					countResult = 14;
 					returnValue = "날짜 형식에 맞지 않습니다.(YYYYMMDD)";
 					request.setAttribute("countResult", countResult);
@@ -134,7 +134,6 @@ public class SignUpConfirmAction extends Action {
 			String returnValue = null;
 			if (tel.matches("^[0-9]{11}") || tel.matches("^[0-9]{10}")) {
 				String head = tel.substring(0, 3);
-				System.out.println(head);
 				
 				if(head.equals("010")||head.equals("011")||head.equals("016")||head.equals("017")||head.equals("018")||head.equals("019")){
 					countResult = 17;
