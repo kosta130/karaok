@@ -62,7 +62,8 @@
 	<!-- 글 보기 -->
 	<action path="/event_confirm"
 			type="com.karaok.event.actions.EventAction_u">	
-			<forward name="confirm"  path="/view/event_event/event_confirm.jsp"/>	
+			<forward name="confirm"  path="/view/event_event/event_confirm.jsp"/>
+			<forward name="reply" path="/view/event_event/replyResult.jsp"/>	
 	</action>
 	
 	
@@ -78,7 +79,7 @@
 	
 	<action path="/faq_create_complete"
 			type="com.karaok.faq.actions.FaqAction_c">
-			<forward name="create" path="/faq_list.ok" redirect="true"></forward>		
+			<forward name="create" path="/faq_list.ok?page=1" redirect="true"></forward>		
 	</action>
 	
 
