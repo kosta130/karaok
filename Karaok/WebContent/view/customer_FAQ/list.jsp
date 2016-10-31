@@ -50,7 +50,7 @@
  }
  
  function previous(){
-	 location.href="./faq_list.ok";
+	 location.href="./faq_list.ok?page=1";
  }
  
  
@@ -96,8 +96,7 @@
 		<li><a href="#tab_4" data-toggle="tab">그래픽카드</a></li>
 		<li><a href="#tab_5" data-toggle="tab">서버,패치,렉</a></li>
 
-		<li class="pull-right"><a href="#" class="text-muted"><i
-				class="fa fa-gear"></i></a></li>
+		<li class="pull-right"><h4><font color="blue">${page}페이지/${pageCount}페이지</font></h4></li>
 	</ul>
 	<br>
 	<div class="tab-content">
@@ -230,6 +229,31 @@
  </ul>
 		</div>
 	</div>
+</div>
+<div align="center">
+<nav>
+  <ul class="pagination pagination-lg">
+    <li>
+      <a href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+	
+    <li>
+    	<c:forEach  begin="1"  end="${pageCount }" var="i">
+    	<a href="faq_list.ok?page=${i}">${i }</a>
+    	</c:forEach>
+    </li>
+    
+
+    
+    <li>
+      <a href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
 
 </div>
 <form action="./faq_create.ok"  >

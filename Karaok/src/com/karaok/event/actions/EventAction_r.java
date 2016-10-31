@@ -18,6 +18,9 @@ public class EventAction_r extends Action {
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
+		
+		request.getSession().getAttribute("currentId");
+		request.getSession().getAttribute("currentNickName");
 
 		//전체 이벤트 보기
 		EventDAO dao=new EventDAO();

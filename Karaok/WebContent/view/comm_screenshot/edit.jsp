@@ -1,21 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 	<div class="container">
 		<div class="row row-offcanvas row-offcanvas-center">
 			<div class="row">
 <script type="text/javascript">
- function update(up) {
-		if(up=='del'){
-			if (confirm('정말삭제?')){
-				location.href = 'screen.ok?action=delete&num=${dto.num }';
-			}
-		}else{
+ function update() {
+		
 			var subject=document.sc_edit.subject.value;
 			var contents=document.sc_edit.contents.value;
 			
 			if(subject==0){
 				 alert("제목을 입력하세요.");
-				 //subject.focus();왜 포커스는 작동이 되지 않을까?
 		         return false;
 			}else if(contents==0){
 				 alert("내용을 입력하세요.");
@@ -26,9 +22,9 @@
 			}
 			document.sc_edit.submit();
 		}
-	} 
+	
  </script> 
-<form role="form"  action="screen.ok?action=update" method="post" name="sc_edit"> 
+<form role="form"  action="screen.ok?action=update" method="post" name="sc_edit" enctype="multipart/form-data"> 
 <h1>스크린샷 수정</h1>
 <hr>
               <div class="box-body">
@@ -55,9 +51,8 @@
 
               <div class="box-footer" align="center">
                 
-                <button type="button" class="btn btn-primary" onclick="update('up')">등록</button>
-                <button type="button" class="btn btn-primary" onclick="update('del')">삭제</button>
-                <button type="reset" class="btn btn-primary" onclick="history.back()">취소</button>
+                <button type="button" class="btn btn-primary" onclick="update()">등록</button>
+                <button type="reset" class="btn btn-primary" onclick="history.back()">목록</button>
               </div>
         
             </form>

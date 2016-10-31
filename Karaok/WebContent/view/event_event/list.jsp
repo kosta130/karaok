@@ -26,7 +26,7 @@
 					<div class="row" style="outline-color: blue;">
 
 						<div i class="col-lg-7 col-md-7">
-						<a href="./event_confirm.ok?num=${ing.num}">
+						<a href="./event_confirm.ok?action=read&num=${ing.num}">
 							 <img width="600" height="250"
 								src="./img/${ing.fileName}" alt="">
 						</a>	
@@ -51,7 +51,7 @@
 					<div class="row" style="outline-color: blue;">
 
 						<div class="col-lg-7 col-md-7">
-							<a href="./event_confirm.ok?num=${end.num}"> <img width="600" height="250"
+							<a href="./event_confirm.ok?action=read&num=${end.num}"> <img width="600" height="250"
 								src="./img/${end.fileName}" alt="">
 							</a>
 						</div>
@@ -82,7 +82,7 @@
 					<div class="row" style="outline-color: blue;">
 
 						<div class="col-lg-7 col-md-7">
-							<a href="./event_confirm.ok?num=${ing.num}"> <img width="600" height="250"
+							<a href="./event_confirm.ok?action=read&num=${ing.num}"> <img width="600" height="250"
 								src="./img/${ing.fileName }" alt="">
 							</a>
 						</div>
@@ -111,7 +111,7 @@
 					<div class="row" style="outline-color: blue;">
 
 						<div class="col-lg-7 col-md-7">
-							<a href="./event_confirm.ok?num=${end.num}"> <img width="600" height="250"
+							<a href="./event_confirm.ok?action=read&num=${end.num}"> <img width="600" height="250"
 								src="./img/${end.fileName }" alt="">
 							</a>
 						</div>

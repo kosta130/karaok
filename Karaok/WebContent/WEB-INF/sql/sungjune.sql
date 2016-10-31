@@ -38,6 +38,7 @@ nickname varchar2(50),
 subject varchar2(100),
 contents varchar2(1000),
 ndate date,
+hits number(20),
 constraint tb_update_fk_nickname foreign key(nickname) references tb_member(nickname)
 );
 
@@ -127,20 +128,34 @@ select * from TB_member
 drop table tb_rank;
 create table tb_rank
 (
-rank number(30)  primary key,
+num number(30)  primary key,
 score number(30) not null,
 nickname varchar2(50) references tb_member(nickname) not null,
-ndate date
+ndate date,
+rank number(30)
 );
 
-insert into tb_rank values(4, 20, '오1', sysdate);
-insert into tb_rank values(1, 30, '오2', sysdate);
-insert into tb_rank values(2, 40, '오3', sysdate);
-insert into tb_rank values(3, 50, '오1', sysdate);
+drop sequence seq_rank_num;
+create sequence seq_rank_num
+increment by 1
+start with 1
+nocycle
+nocache;
+
+insert into tb_rank values(4, 20, '오1', sysdate,0);
+insert into tb_rank values(1, 30, '오2', sysdate,0);
+insert into tb_rank values(2, 40, '오3', sysdate,0);
+insert into tb_rank values(3, 50, '오1', sysdate,0);
+insert into tb_rank values(5, 40, '오4', sysdate,0);
+insert into tb_rank values(6, 80, '오5', sysdate,0);
+insert into tb_rank values(7, 60, '오4', sysdate,0);
+insert into tb_rank values(8, 40, '오6', sysdate,0);
+insert into tb_rank values(9, 70, '오7', sysdate,0);
+insert into tb_rank values(10, 90, '오8', sysdate,0);
 
 SELECT *
  		FROM (
-   			 SELECT rank, nickname, SCORE, NDATE
+   			 SELECT RANK() OVER(ORDER BY SCORE DESC)rank, nickname, SCORE
      		FROM (SELECT tb_rank.*
            		, row_number() OVER (PARTITION BY nickname ORDER BY score DESC, ndate) rn
          		FROM tb_rank
@@ -204,7 +219,12 @@ insert into tb_member values ('ojh5797@naver.com', 1234, '오정훈', '오1', sysdat
 insert into tb_member values ('ojh5797@naver.co', 1234, '오정훈', '오2', sysdate, '010-3952-5797');
 insert into tb_member values ('ojh5797@nave.com', 1234, '오정훈', '오3', sysdate, '010-3952-5797');
 insert into tb_member values ('ojh5797@naer.com', 1234, '오정훈', '오4', sysdate, '010-3952-5797');
-insert into tb_member values ('ojh5797@nver.com', 1234, '오정훈', '오5', sysdate, '010-3952-5797');
+insert into tb_member values ('ojh5797@nve.com', 1234, '오정훈', '오5', sysdate, '010-3952-5797');
+insert into tb_member values ('ojh5797@nvr.com', 1234, '오정훈', '오6', sysdate, '010-3952-5797');
+insert into tb_member values ('ojh5797@nver.com', 1234, '오정훈', '오7', sysdate, '010-3952-5797');
+insert into tb_member values ('ojh5797@ner.com', 1234, '오정훈', '오8', sysdate, '010-3952-5797');
+insert into tb_member values ('ojh5797@ver.com', 1234, '오정훈', '오9', sysdate, '010-3952-5797');
+insert into tb_member values ('ojh5797@nver.cm', 1234, '오정훈', '오10', sysdate, '010-3952-5797');
 
 insert into tb_notice values (seq_notice_num.nextval, '드루미드루미', 'gonggong', 'hihihi', sysdate);
 delete from tb_notice where nickname='드루미드루미';

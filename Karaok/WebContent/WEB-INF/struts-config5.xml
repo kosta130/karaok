@@ -79,8 +79,6 @@
 	  <forward name="reply" path="/view/customer_QnA/replyResult.jsp"></forward>
 	  	<forward name="select" path="/qna4.ok"></forward>
 	   </action>
-	   
-    
 	    		
 	</action-mappings>
 

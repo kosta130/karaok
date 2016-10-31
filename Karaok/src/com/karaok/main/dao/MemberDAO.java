@@ -47,4 +47,15 @@ public class MemberDAO {
 		}
 		return memberDto;
 	}
+	
+	public String insertUser(MemberDTO dto){
+		String result = "fail";
+		try {
+			if(smc.insert("member.insertUser", dto)==null)
+				result ="success";
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
 }

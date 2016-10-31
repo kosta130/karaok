@@ -4,12 +4,12 @@
 
 	<insert id="insert" parameterClass="com.karaok.freeBoard.dto.FreeBoard">
 		insert into tb_free	
-		values (seq_free_num.nextval,#nickname#,#subject#,#contents#,sysdate)
+		values (seq_free_num.nextval,#nickname#,#subject#,#contents#,sysdate,#hits#)
 	</insert>
 	
 	<!-- 리스트화면 데이터 출력 -->
 	<select id="selectAll" resultClass="com.karaok.freeBoard.dto.FreeBoard">
-		select num, nickname, subject, ndate
+		select num, nickname, subject, ndate, hits
 		from tb_free
 		order by num desc
 	</select>
@@ -21,7 +21,7 @@
 	
 	<!-- 글화면 데이터 출력 -->
 	<select id="select" parameterClass="int" resultClass="com.karaok.freeBoard.dto.FreeBoard">
-		select nickname, subject, contents
+		select nickname, subject, contents,hits
 		from tb_free
 		where num=#num#
 	</select>
@@ -37,11 +37,17 @@
  	</select>  
  	
  	<select id="selectPage" parameterClass="java.util.Map" resultClass="com.karaok.freeBoard.dto.FreeBoard">  
- 		select num,nickname,subject,contents,ndate   
- 		from  (select num,nickname,subject,contents,ndate, rownum rn   
-      	from ( select num,nickname,subject,contents,ndate    
-        from tb_notice order by num desc))  
+ 		select num,nickname,subject,contents,ndate,hits  
+ 		from  (select num,nickname,subject,contents,ndate,hits, rownum rn   
+      	from ( select num,nickname,subject,contents,ndate,hits    
+        from tb_free order by num desc))  
         where rn between #start# and #end#  
  	</select>  
-
+	
+	<update id="seekCount" parameterClass="com.karaok.freeBoard.dto.FreeBoard">
+		update tb_free
+		set hits=hits+1
+		where num=#num#
+	</update>
+	
 </sqlMap>

@@ -55,5 +55,19 @@
 							where num>#parameter#))]]>
 	</select>
 	
+
+	
+	<!-- 댓글 등록 -->
+	<insert id="insertReply" parameterClass="com.karaok.event.dto.EventReply">
+		insert into event_reply values(seq_Revent_num.nextval,#num#,#id#,sysdate,#contents#)
+	</insert>
+
+	
+	<!-- 댓글 출력 -->
+	<select id="ListReply"  parameterClass="int" resultClass="com.karaok.event.dto.EventReply">
+		select replyNum,num,id,edate,contents from event_reply where num=#num#
+		order by replyNum desc
+	</select>
+	
 	
 </sqlMap>

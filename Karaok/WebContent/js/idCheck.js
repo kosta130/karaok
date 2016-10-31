@@ -19,7 +19,6 @@ function sendId() {// 서버 페이지 요청!!
 	var id = document.signup.signup_id.value;
 	if (id == '') {
 		hide('suggestId');
-		//document.signup.submit.disabled = 'true';
 		lastId = '';
 		loopSendId = false;
 		checkFirstId = false;
@@ -42,7 +41,7 @@ function displayIdResult() {// 콜백함수 : 서버 요청 후 실행할 함수
 				var suggest = document.getElementById("suggestId");
 				suggest.innerHTML = "<font color=green>" + result[1] + "</font>";
 				show('suggestId');
-				idCheck = false;
+				idCheck = true;
 			} else if (state == 1) {
 				var suggest = document.getElementById("suggestId");
 				suggest.innerHTML = "<font color=red>" + result[1] + "</font>";
@@ -52,7 +51,7 @@ function displayIdResult() {// 콜백함수 : 서버 요청 후 실행할 함수
 				var suggest = document.getElementById("suggestId");
 				suggest.innerHTML = "<font color=red>" + result[1] + "</font>";
 				show('suggestId');
-				idCheck = true;
+				idCheck = false;
 			} else {
 				hide('suggestId');
 				idCheck = false;

@@ -59,6 +59,13 @@ create table qna_reply(
 	edate Date,
 	contents varchar2(1000),
 	constraint tb_Rqna_fk_nickname foreign key(num) references tb_qna(num)
+
+drop table tb_qna_reply;
+create table tb_qna_reply
+(
+nickname varchar2(50) references tb_member(nickname) primary key,
+contents varchar2(1000)
+>>>>>>> branch 'master' of https://github.com/kosta130/karaok.git
 );
 
 create sequence seq_Rqna_num
@@ -68,7 +75,6 @@ nocycle
 nocache;
 
 select*from tb_qna
-
 
 	delete from tb_qna on delete CASCADE 
 	where num=3

@@ -50,6 +50,7 @@ nickname varchar2(50),
 subject varchar2(100),
 contents varchar2(1000),
 ndate date,
+hits number(20),
 constraint tb_free_fk_nickname foreign key(nickname) references tb_member(nickname)
 );
 
@@ -59,6 +60,8 @@ increment by 1
 start with 1
 nocycle
 nocache;
+
+
 
 insert into tb_free values (seq_free_num.nextval,'오1', '안녕', '리턴3조',sysdate);
 insert into tb_free values (seq_free_num.nextval,'오2', '안녕', '리턴3조',sysdate);
@@ -115,14 +118,31 @@ constraint tb_screen_fk_nickname foreign key(nickname) references tb_member(nick
 
 select * from tb_screen
 
-delete from tb_screen where num between 9 and 36;
-
+delete from tb_screen where num between 79 and 86;
+drop sequence seq_screen_num;
 create sequence seq_screen_num
 increment by 1
 start with 1
 nocycle
 nocache;
-drop sequence seq_screen_num;
+--스크린샷 댓글
+drop table screen_reply
+
+-- 스크린샷 댓글 테이블  
+create table screen_reply(
+	replyNum number(20) constraint screen_replyNum_pk primary key,
+	re_num number(20),
+	re_id varchar2(50),
+	re_ndate Date,
+	re_contents varchar2(1000),
+	constraint tb_Rscreen_fk_id foreign key(re_num) references tb_screen(num)
+);
+
+create sequence seq_Rscreen_num
+increment by 1
+start with 1
+nocycle
+nocache;
 --[고객센터]
 --QnA
 
@@ -148,3 +168,5 @@ insert into tb_notice values (seq_notice_num.nextval, '오바사키', '2016년 10월 2
 
 select * from tb_notice
 select NUM,NICKNAME,SUBJECT,CONTENTS,NDATE from TB_UPDATE order by NUM desc;
+
+select * from tb_screen

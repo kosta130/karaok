@@ -12,6 +12,24 @@
 </head>
 
 <script type="text/javascript">
+
+$(document).ready(function(){
+	$('#replySubmit').click(function(){
+		$.ajax({
+			url:'./event_confirm.ok?action=insertReply',
+			data:{contents:$('#reply').val()},
+			success:function(result){
+				$('#reply').val('');
+				$('#replyResult').html(result);
+			}
+		});
+		
+	});
+});
+
+
+
+
 function check(){
 	if(confirm('정말로 삭제하시겠습니까?')){
 		location.href='./event_delete.ok?num='+${num}
@@ -66,8 +84,39 @@ function check(){
               </div>
               <!-- /.mailbox-read-message -->
             </div>
-       
-              <div class="pull-right">
+		 <!-------------------------  댓글등록부분--------------------------------->
+            <div class="box-footer">
+              <div class="input-group">
+                <input class="form-control" placeholder="댓글을 입력하세요.." id="reply">
+
+                <div class="input-group-btn">
+                  <button type="button" class="btn btn-success" id="replySubmit">댓글등록</button>
+                </div>
+                
+               <!-------------------------  댓글생성부분 --------------------------------->
+              </div>
+                <hr>
+                <div id="replyResult">
+                <c:forEach items="${list}" var="v">
+               <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> ${v.edate}</small>
+                    ${v.id }<br>
+           
+             		${v.contents }
+             		<hr>
+			</c:forEach>
+                
+                
+                
+                </div>
+             
+            </div>
+            
+              
+
+
+
+				<br><br><br>
+              <div align="center">
             <form action="./event_list.ok" name="frm">
               	<button type="submit" class="btn btn-primary">목록으로</button>
                  <button type="button" class="btn btn-warning" name="delete" onclick="check()"><i class="fa fa-trash-o" ></i>삭제</button>

@@ -75,6 +75,7 @@ public class NoticeAction extends Action {
 			}
 
 			request.getSession().setAttribute("list", list);
+			forward = mapping.findForward("insert");
 
 		} else if (action.equals("edit")) {
 			int num = Integer.parseInt(request.getParameter("num"));
@@ -97,11 +98,13 @@ public class NoticeAction extends Action {
 
 			if (dao.update(dto)) {
 				request.getSession().setAttribute("list", dao.selectAll());
+				forward = mapping.findForward("update");
 			}
 		} else if (action.equals("delete")) {
 			int num = Integer.parseInt(request.getParameter("num"));
 			dao.delete(num);
 			request.getSession().setAttribute("list", dao.selectAll());
+			forward = mapping.findForward("delete");
 		} else if (action.equals("select")) {
 			int num = Integer.parseInt(request.getParameter("num"));
 			NoticeDTO dto = dao.select(num);

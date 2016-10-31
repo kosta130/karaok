@@ -63,6 +63,19 @@ public class NoteDAO {
 		return false;
 	}
 	
+	public boolean hitsup(NoteDTO dto) {
+
+		try {
+			int t = smc.update("note.hitsup", dto);
+			if(t==1)
+				return true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
 	public NoteDTO select(int num) {
 		NoteDTO dto = null;
 		try {

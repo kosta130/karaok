@@ -34,13 +34,13 @@ public class LoginAction extends Action {
 			if(dto==null){//비밀번호 불일치
 				state = 0;
 				msg = "아이디 또는 비밀번호가 일치하지 않습니다.";
-				request.getSession().setAttribute("state", state);
+				request.setAttribute("state", state);
 				request.setAttribute("msg", msg);
 				forward = mapping.findForward("success");
 			}else{//비밀번호 일치
 				state = 1;
 				msg = "로그인 되었습니다.";
-				request.getSession().setAttribute("state", state);
+				request.setAttribute("state", state);
 				request.setAttribute("msg", msg);
 				request.getSession().setAttribute("currentInfo", dto);
 				request.getSession().setAttribute("currentId", login_id);
@@ -55,9 +55,6 @@ public class LoginAction extends Action {
 			request.setAttribute("msg", msg);
 			forward = mapping.findForward("success");
 		}
-
-		System.out.println(login_id);
-		System.out.println(login_pwd);
 
 		return forward;
 	}

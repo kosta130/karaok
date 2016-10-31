@@ -13,7 +13,7 @@
 	
 	<!-- 글화면 데이터 출력 -->
 	<select id="select" parameterClass="int" resultClass="scr">
-		select nickname, subject, contents,fileName
+		select nickname, subject, contents,seek,fileName
 		from tb_screen
 		where num=#num#
 	</select>	
@@ -28,4 +28,31 @@
 		where num = #num#
 	</delete>
 
+	<!-- 페이지 -->
+	<select id="selectCount" resultClass="int">  
+ 	select count(*) from tb_screen  
+ 	</select>  
+ 	
+ 	<select id="selectPage" parameterClass="java.util.Map" resultClass="scr">  
+ 		select num,nickname,subject,ndate,seek,fileName
+ 		from  (select num,nickname,subject,ndate,seek,fileName, rownum rn   
+      	from ( select num,nickname,subject,ndate,seek,fileName
+        from tb_screen order by num desc))  
+        where rn between #start# and #end#  
+ 	</select>  
+ 	
+ 	<update id="seekCount" parameterClass="scr">
+ 		update tb_screen
+ 		set seek=seek+1
+ 		where num=#num#
+ 	</update>
+ 	<!-- 댓글 등록 -->
+ 	<insert id="insertReply" parameterClass="scr">
+ 		insert into screen_reply values(seq_Rscreen_num.nextval,#re_num#,#re_id#,sysdate,#re_contents#)
+ 	</insert>
+ 	<!-- 댓글 출력 -->
+ 	<select id="ListReply" parameterClass="int" resultClass="scr">
+ 		select replyNum,re_num,id,re_ndate,re_contents from screen_reply where re_num=#re_num#
+ 		order by replyNum desc
+ 	</select>
 </sqlMap>
