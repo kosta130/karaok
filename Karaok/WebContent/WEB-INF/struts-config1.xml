@@ -23,8 +23,23 @@
 				type="guest.actions.ListAction">
 			<forward name="success" path="/guest/list.jsp"/>		
 		</action> -->
+		
+		<!-- 메인 띄우기 -->
 	<action path="/main"
-	    		forward="/view/main/main.jsp"/>
+			type="com.karaok.main.actions.StartAction">
+		<forward name="main" path="/view/main/main.jsp"></forward>
+	</action>
+	    		
+	    		
+	    		
+	    		
+	    		
+	    		
+	    		
+	    		
+	    		
+	    		
+	    		
 	 <!-- Event리스트 -->
 	<action path="/event_list"
 			type="com.karaok.event.actions.EventAction_r">
