@@ -133,7 +133,7 @@
           <ul class="dropdown-menu" role="menu">
             <li><a href="notice.ok?action=list">공지사항</a></li>
             <li class="divider"></li>
-            <li><a href="#">개임소개</a></li>
+            <li><a href="introduce.ok">개임소개</a></li>
             <li class="divider"></li>
             <li><a href="">개발자노트</a></li>
           </ul>

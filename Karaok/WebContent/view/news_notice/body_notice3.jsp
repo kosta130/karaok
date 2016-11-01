@@ -19,6 +19,9 @@
 	<div class="container">
 		<div class="row row-offcanvas row-offcanvas-center">
 			<div class="row">
+<%
+	request.getSession().setAttribute("currentNickname", "오바사키");
+%>
 <div class="box-body">
 		<font size="10">공지사항 게시판</font>
               <table id="example1" class="table table-bordered table-striped"align="center">
@@ -28,6 +31,7 @@
                   <th style="width: *%" class="title" >제목</th>
                   <th style="width: 10%" class="title">작성자</th>
                   <th style="width: 20%" class="title">날짜</th>
+                  <th style="width: 20%" class="title">조회수</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -37,6 +41,7 @@
          <td><a href="/Karaok/notice.ok?action=select&num=${v.num }">${v.subject }</a></td>
          <td>${v.nickname }</td>
          <td>${v.ndate }</td>
+         <td>${v.hits }</td>
        </tr>
  </c:forEach>
               </table>

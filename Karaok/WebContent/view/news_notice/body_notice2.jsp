@@ -47,6 +47,10 @@ $(document).ready(function(){
                   <label for="exampleInputEmail1">작성자</label>
                   <input type="text" class="form-control" id="exampleInputEmail1" placeholder="작성자" value=${dto.nickname } name="nickname">
                 </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">조회수</label>
+                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="작성자" value=${dto.hits } name="hitnum">
+                </div>
                 <div class="form-group" >
                   <label>Textarea</label>
                   <textarea  style="height: 300px;" class="form-control" rows="3" placeholder="Enter ..." name="contents" id="con">${dto.contents }</textarea>

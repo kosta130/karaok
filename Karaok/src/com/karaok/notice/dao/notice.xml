@@ -6,7 +6,7 @@
 
 <insert id="insert" parameterClass="Notice">
 insert into tb_notice
-	values(seq_notice_num.nextval, #nickname#, #subject#, #contents#, sysdate)
+	values(seq_notice_num.nextval, #nickname#, #subject#, #contents#, sysdate, #hits#)
 
 </insert>
 
@@ -22,21 +22,21 @@ insert into tb_notice
   </update>
   
   <select id="select" parameterClass="int" resultClass="Notice">
-	select  num, nickname, subject, contents, ndate
+	select  num, nickname, subject, contents, ndate, hits
 	from tb_notice
 	where num=#num#
   </select>
   
   <select id="selectAll" resultClass="Notice">
-	select num, nickname, subject, contents, ndate
+	select num, nickname, subject, contents, ndate, hits
 	from tb_notice
 	order by num desc
   </select>
 
   <select id="selectPage" parameterClass="java.util.Map" resultClass="Notice">  
- select num,nickname,subject,contents,ndate   
- 	from  (select num,nickname,subject,contents,ndate, rownum rn   
-      from ( select num,nickname,subject,contents,ndate    
+ select num,nickname,subject,contents,ndate,hits   
+ 	from  (select num,nickname,subject,contents,ndate,hits, rownum rn   
+      from ( select num,nickname,subject,contents,ndate,hits    
            from tb_notice order by num desc))  
               where rn between #start# and #end#  
  </select>  
@@ -45,5 +45,10 @@ insert into tb_notice
  select count(*) from tb_notice  
  </select>  
   
+ <update id="hitsUpdate" parameterClass="Notice">
+ 	update TB_notice
+		set hits=hits+1
+		where num=#num#
+ </update>
 
 </sqlMap>

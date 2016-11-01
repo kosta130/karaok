@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.ibatis.sqlmap.client.SqlMapClient;
+import com.karaok.note.dto.NoteDTO;
 import com.karaok.notice.dto.NoticeDTO;
 
 import iba.SqlMapConfig;
@@ -98,6 +99,19 @@ public class NoticeDAO {
 			e.printStackTrace();
 		}
 		return list;
+	}
+	
+	public boolean hitsup(NoticeDTO dto) {
+
+		try {
+			int t = smc.update("notice.hitsUpdate", dto);
+			if(t==1)
+				return true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
 	}
 
 }
