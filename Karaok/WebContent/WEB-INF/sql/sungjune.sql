@@ -151,7 +151,15 @@ insert into tb_rank values(6, 80, '오5', sysdate,0);
 insert into tb_rank values(7, 60, '오4', sysdate,0);
 insert into tb_rank values(8, 40, '오6', sysdate,0);
 insert into tb_rank values(9, 70, '오7', sysdate,0);
-insert into tb_rank values(10, 90, '오8', sysdate,0);
+insert into tb_rank values(10, 89, '오8', sysdate,0);
+insert into tb_rank values(11, 99, '오9', sysdate,0);
+insert into tb_rank values(12, 98, '오10', sysdate,0);
+insert into tb_rank values(13, 97, '오11', sysdate,0);
+insert into tb_rank values(14, 96, '오12', sysdate,0);
+insert into tb_rank values(15, 95, '오13', sysdate,0);
+insert into tb_rank values(16, 94, '오14', sysdate,0);
+insert into tb_rank values(17, 93, '오15', sysdate,0);
+insert into tb_rank values(18, 92, '오16', sysdate,0);
 
 SELECT *
  		FROM (
@@ -225,6 +233,14 @@ insert into tb_member values ('ojh5797@nver.com', 1234, '오정훈', '오7', sysdate
 insert into tb_member values ('ojh5797@ner.com', 1234, '오정훈', '오8', sysdate, '010-3952-5797');
 insert into tb_member values ('ojh5797@ver.com', 1234, '오정훈', '오9', sysdate, '010-3952-5797');
 insert into tb_member values ('ojh5797@nver.cm', 1234, '오정훈', '오10', sysdate, '010-3952-5797');
+insert into tb_member values ('ojh5797@nvoer.cm', 1234, '오정훈', '오11', sysdate, '010-3952-5797');
+insert into tb_member values ('ojh5797@nveir.cm', 1234, '오정훈', '오12', sysdate, '010-3952-5797');
+insert into tb_member values ('ojh5797@nverh.cm', 1234, '오정훈', '오13', sysdate, '010-3952-5797');
+insert into tb_member values ('ojh5797@nvehr.cm', 1234, '오정훈', '오14', sysdate, '010-3952-5797');
+insert into tb_member values ('ojh5797@nverd.cm', 1234, '오정훈', '오15', sysdate, '010-3952-5797');
+insert into tb_member values ('ojh5797@nverg.cm', 1234, '오정훈', '오16', sysdate, '010-3952-5797');
+insert into tb_member values ('ojh5797@nverb.cm', 1234, '오정훈', '오17', sysdate, '010-3952-5797');
+insert into tb_member values ('ojh5797@nverc.cm', 1234, '오정훈', '오18', sysdate, '010-3952-5797');
 
 insert into tb_notice values (seq_notice_num.nextval, '드루미드루미', 'gonggong', 'hihihi', sysdate);
 delete from tb_notice where nickname='드루미드루미';

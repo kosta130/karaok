@@ -31,7 +31,8 @@ public class NoteAction extends Action{
 			request.setAttribute("dto", dto);
 			forward = mapping.findForward("upform");
 		} else if(action.equals("update")){
-			NoteDTO dto = new NoteDTO(Integer.parseInt(request.getParameter("num")), request.getParameter("nickname"), request.getParameter("subject"),  request.getParameter("contents"), null, Integer.parseInt(request.getParameter("hits")));
+			NoteDTO dto = new NoteDTO(Integer.parseInt(request.getParameter("num")), request.getParameter("nickname"), request.getParameter("subject"),  request.getParameter("contents"), null, 
+					0);
 			dao.update(dto);
 		} else if(action.equals("view")){
 			int num = Integer.parseInt(request.getParameter("num"));

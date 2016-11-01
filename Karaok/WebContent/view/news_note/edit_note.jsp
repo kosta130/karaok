@@ -46,6 +46,7 @@
                   <label>Textarea</label>
                   <textarea  style="height: 300px;" class="form-control" rows="3" name="contents" id="contents"> ${dto.contents }</textarea>
                 </div>
+                <input type="hidden" name="hits" value="${dto.hits }">
                 
               </div>
               <!-- /.box-body -->

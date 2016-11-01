@@ -36,6 +36,7 @@
                    <th bgcolor="#ccccc">날짜</th>
                    <th>${dto.ndate }</th>
                 </tr>
+                	<input type="hidden" name="hits" value="${dto.hits }">
             	 <tr>
             	 	<td colspan="2" height="250pt">${dto.contents }</td>
             	 </tr>
@@ -43,7 +44,7 @@
 		         	<td colspan="2" align="center">
                      <input type="submit" value="수정"">         
                      <input type="button" value="삭제" onclick="update('del')">
-                     <input type="reset" value="취소" onclick="location.href='note_list.ok'">
+                     <input type="reset" value="목록" onclick="location.href='note_list.ok'">
 		         	</td>
 		       	</tr>
             	</table>
