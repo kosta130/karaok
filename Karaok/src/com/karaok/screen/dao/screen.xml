@@ -19,7 +19,8 @@
 	</select>	
 	
 	<update id="update" parameterClass="scr">
-		 update tb_screen set nickname=#nickname#,subject=#subject#,contents = #contents# ,fileName=#fileName# 
+		 update tb_screen set nickname=#nickname#,subject=#subject#,contents = #contents# 
+		 <isNotNull property="fileName" prepend=",">fileName=#fileName#</isNotNull>
 		 where num=#num#
 	</update>
 	

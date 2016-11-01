@@ -26,7 +26,7 @@
 	} 
  
 </script>
-<form role="form"  action="crud.ok?action=update" method="post" name="upform"> 
+<form role="form"  action="crud.ok?action=update&num=${dto.num }" method="post" name="upform"> 
 <h1>자유게시판 글수정</h1>
 <hr>
               <div class="box-body">
@@ -38,6 +38,9 @@
                 <div class="form-group">
                   <label for="exampleInputEmail1">작성자</label>
                   <input type="text" class="form-control" name="nickname" placeholder="작성자" value=${dto.nickname } readonly="readonly">
+                </div>
+                <div class="form-group">
+                  <input type="hidden" class="form-control" name="hits" placeholder="조회수" value=${dto.hits } >
                 </div>
                 <div class="form-group" >
                   <label>Textarea</label>

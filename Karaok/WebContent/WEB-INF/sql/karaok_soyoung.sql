@@ -137,7 +137,7 @@ create table screen_reply(
 	re_contents varchar2(1000),
 	constraint tb_Rscreen_fk_id foreign key(re_num) references tb_screen(num)
 );
-
+drop sequence seq_Rscreen_num;
 create sequence seq_Rscreen_num
 increment by 1
 start with 1
@@ -169,4 +169,17 @@ insert into tb_notice values (seq_notice_num.nextval, '오바사키', '2016년 10월 2
 select * from tb_notice
 select NUM,NICKNAME,SUBJECT,CONTENTS,NDATE from TB_UPDATE order by NUM desc;
 
-select * from tb_screen
+select * from tb_screen;
+
+-- 테스트
+
+select num,nickname,subject,ndate,seek,fileName
+ 		from  (select num,nickname,subject,ndate,seek,fileName, rownum rn   
+      	from ( select num,nickname,subject,ndate,seek,fileName
+        from tb_screen order by num desc))  
+        where rn between 1 and 10; 
+        
+update  tb_screen set fileName='120.jpg';        
+
+
+

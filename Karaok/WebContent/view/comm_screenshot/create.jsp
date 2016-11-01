@@ -8,6 +8,7 @@ $(document).ready(function(){
 	
 	  var sub = $("#sub");
 	  var con = $("#con");
+	  var fn=$("#fn");
 	  
     $('button[type=submit]').click(function() {
         if($.trim(sub.val())==""){
@@ -22,6 +23,9 @@ $(document).ready(function(){
         	alert("내용을 3자 이상 입력하세요.");
             con.focus();
             return false;
+        }else if(fn.val()==""){
+			alert("이미지를 첨부하세요.")
+			return false;
         }
         document.sc_create.action="screen.ok?action=insert";
        
@@ -32,7 +36,7 @@ $(document).ready(function(){
 
 </script>
 	
-	<div class="container">
+	<div class="container">6
 		<div class="row row-offcanvas row-offcanvas-center">
 			<div class="row">
 
@@ -59,7 +63,7 @@ $(document).ready(function(){
                 </div>
  				<div class="form-group">
                   <label for="exampleInputFile">File input</label>
-                  <input type="file" name="fileName" id="exampleInputFile" >
+                  <input type="file" name="fileName"  id="fn">
                   <p class="help-block">JPG,JPEG,PNG파일만 가능합니다.</p>
                 </div>
 

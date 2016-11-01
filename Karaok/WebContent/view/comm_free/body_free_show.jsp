@@ -10,7 +10,7 @@ function del() {
 		location.href = 'crud.ok?action=delete&num=${dto.num }';
 }
 </script>
-<form role="form"  action="crud.ok?action=upform" method="post" name="view"> 
+<form role="form"  action="crud.ok?action=upform&num=${dto.num }" method="post" name="view"> 
 <h1>자유게시판 글화면</h1>
 <hr>
               <div class="box-body">

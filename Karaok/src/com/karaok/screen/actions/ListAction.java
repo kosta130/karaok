@@ -20,12 +20,8 @@ public class ListAction extends Action{
 				HttpServletResponse response) throws Exception {
 				ScreenDAO dao = new ScreenDAO();
 				action = request.getParameter("action");
-				List<Screen> list = dao.listScreenBoard();
 				
-				if(action==null || action.equals("list")){ 
-					 
-					list = dao.listScreenBoard();
-					request.getSession().setAttribute("list", list); 
+				if(action==null || action.equals("list")){ 					 
 					
 					//페이지 정보 얻어오기 
 					String pageStr = request.getParameter("page"); 
@@ -46,8 +42,9 @@ public class ListAction extends Action{
 					request.getSession().removeAttribute("list"); 
 					request.getSession().removeAttribute("page"); 
 					request.getSession().removeAttribute("totalPage"); 
-					list = dao.selectPage(start,end);//dao.selectAll(); 			   
-					request.getSession().setAttribute("list", list);//4. 영역에 데이터 저장 
+					
+					//request.getSession().setAttribute("list", dao.listScreenBoard());//4. 영역에 데이터 저장 
+					request.getSession().setAttribute("list", dao.selectPage(start,end));//4. 영역에 데이터 저장 
 					request.getSession().setAttribute("page", page);//현재페이지 
 					request.getSession().setAttribute("totalPage", totalPage);//전체페이지 
 					 //영역에 데이터 저장하는 이유? 뷰와 공유하기 위해서!!    	   

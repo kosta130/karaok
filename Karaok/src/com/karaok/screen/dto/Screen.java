@@ -11,14 +11,13 @@ public class Screen {
 	private Date ndate;
 	private int seek;
 	private String fileName;
-	
 
-
-
+	public Screen() {
+	}
 
 	public Screen(int num, String nickname, String subject, String contents, 
 			Date ndate, int seek, String fileName) {
-		super();
+	
 		this.num = num;
 		this.nickname = nickname;
 		this.subject = subject;
@@ -35,24 +34,28 @@ public class Screen {
 	public void setNum(int num) {
 		this.num = num;
 	}
+	
 	public String getNickname() {
 		return nickname;
 	}
 	public void setNickname(String nickname) {
 		this.nickname = nickname;
 	}
+	
 	public String getSubject() {
 		return subject;
 	}
 	public void setSubject(String subject) {
 		this.subject = subject;
 	}
+	
 	public String getContents() {
 		return contents;
 	}
 	public void setContents(String contents) {
 		this.contents = contents;
 	}
+	
 	public Date getNdate() {
 		return ndate;
 	}
@@ -66,6 +69,7 @@ public class Screen {
 	public void setSeek(int seek) {
 		this.seek = seek;
 	}
+	
 	public String getFileName() {
 		return fileName;
 	}

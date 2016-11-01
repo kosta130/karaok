@@ -10,6 +10,7 @@
 			var subject=document.sc_edit.subject.value;
 			var contents=document.sc_edit.contents.value;
 			
+			
 			if(subject==0){
 				 alert("제목을 입력하세요.");
 		         return false;
@@ -24,7 +25,7 @@
 		}
 	
  </script> 
-<form role="form"  action="screen.ok?action=update" method="post" name="sc_edit" enctype="multipart/form-data"> 
+<form role="form"  action="screen.ok?action=update&num=${dto.num }" method="post" name="sc_edit" enctype="multipart/form-data"> 
 <h1>스크린샷 수정</h1>
 <hr>
               <div class="box-body">
@@ -37,11 +38,16 @@
                   <label for="exampleInputEmail1">작성자</label>
                   <input type="text" class="form-control" name="nickname" placeholder="작성자" value=${dto.nickname } readonly="readonly">
                 </div>
+                
+                <div class="form-group">
+                  <input type="hidden" class="form-control" name="seek"  value=${dto.seek }>
+                </div>
+                
                 <div class="form-group" >
                   <label>Textarea</label>
                   <textarea  style="height: 300px;" class="form-control" rows="3" placeholder="Enter ..." name="contents" >${dto.contents }</textarea>
        			</div>
-       			
+         		 
        			<div class="form-group">
                   <label for="exampleInputFile">File input</label>
                   <input type="file" name="fileName" id="exampleInputFile">
@@ -52,7 +58,7 @@
               <div class="box-footer" align="center">
                 
                 <button type="button" class="btn btn-primary" onclick="update()">등록</button>
-                <button type="reset" class="btn btn-primary" onclick="history.back()">목록</button>
+                <button type="reset" class="btn btn-primary" onclick="history.back()">취소</button>
               </div>
         
             </form>

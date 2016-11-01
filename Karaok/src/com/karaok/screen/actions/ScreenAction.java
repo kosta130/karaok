@@ -53,11 +53,8 @@ public class ScreenAction extends Action {
 			
 		}else if(action.equals("edit")){// 글수정폼 요청 
 			
-			MultipartRequest mr=
-					new MultipartRequest(request, saveDirectory,maxSize,"UTF-8",
-							new DefaultFileRenamePolicy());
-			
-			int num = Integer.parseInt(mr.getParameter("num"));
+		
+			int num = Integer.parseInt(request.getParameter("num"));
 			Screen dto = dao.selectScreen(num);
 			dto.setNum(num);
 			request.setAttribute("dto", dto);
@@ -74,7 +71,7 @@ public class ScreenAction extends Action {
 					mr.getParameter("subject"),
 					mr.getParameter("contents"),
 					null,
-					Integer.parseInt(mr.getParameter("seek")),
+					0,
 					mr.getFilesystemName("fileName"));
 			
 			dao.updateScreen(dto);

@@ -11,13 +11,14 @@ function del() {
 		location.href = 'screen.ok?action=delete&num=${dto.num }';
 }
 </script>
-<form role="form"  action="screen.ok?action=edit" method="post" name="sc_view" enctype="multipart/form-data"> 
+<form role="form"  action="screen.ok?action=edit&num=${dto.num }" method="post" name="sc_view" enctype="multipart/form-data"> 
 <h1>스크린샷 글화면</h1>
 <hr>
      <div class="box-body">
               	<div align="center"> 	
-         		 <img width="600" height="250" src="./img_soyoung/${dto.fileName}" alt="">
+         		 <img name="fileName" width="600" height="250" src="./img_soyoung/${dto.fileName}" alt="">
          		 </div>	
+         		 
                 <div class="form-group">
                 <input type="hidden" name="num" value="${dto.num }">
                   <label for="exampleInputEmail1">제목</label>
@@ -39,21 +40,7 @@ function del() {
                   <textarea  style="height: 300px;" class="form-control" rows="3" placeholder="Enter ..." name="contents" readonly="readonly">${dto.contents }</textarea>
        			</div>
        					
-             <!-- 댓글 등록 -->
-              <input placeholder="댓들을 입력하세요.." id="relpy">
-              
-              <div>
-              	<button type="button" id="replySubmit">댓글등록</button>
-              </div>
-              
-              <div id="replyResult">
-              	<c:forEach items="${list }" var="v">
-              		<small><i></i>${v.re_ndate }</small>
-              		${v.re_id }<br>
-              		${v.re_contents }
-              		<hr>
-              	</c:forEach>
-              </div>
+             
 
               <div class="box-footer" align="center">
                 
