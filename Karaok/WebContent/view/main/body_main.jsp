@@ -41,8 +41,10 @@
 	<div class="container">
 		<div class="row row-offcanvas row-offcanvas-center">
 			<div class="row">
+			
+	
 		<div class="col-xs-5 col-lg-6">
-              <h2><span class="glyphicon glyphicon-ok-sign" style="color:green">공지사항</span>
+              <h2><span class="glyphicon glyphicon-ok-sign" style="color:black">공지사항</span>
               <c:forEach begin="1" end="31">
               &nbsp
               </c:forEach>
@@ -71,7 +73,7 @@
          
          
          <div class="col-xs-5 col-lg-6">
-              <h2><span class="glyphicon glyphicon-info-sign" style="color:skyblue">개발자노트</span>
+              <h2><span class="glyphicon glyphicon-info-sign" style="color:black">개발자노트</span>
               <c:forEach begin="1" end="28">
               &nbsp
               </c:forEach>
@@ -94,7 +96,7 @@
               </table>	
             </div><!--/.col-xs-6.col-lg-4-->
 <div class="col-xs-5 col-lg-6">
-           <h2><span class="glyphicon glyphicon-time" style="color:orange">자유게시판</span>
+           <h2><span class="glyphicon glyphicon-time" style="color:black">자유게시판</span>
               <c:forEach begin="1" end="28">
               &nbsp
               </c:forEach>
@@ -117,7 +119,7 @@
               </table>	
             </div><!--/.col-xs-6.col-lg-4-->
             <div class="col-xs-5 col-lg-6">
-           <h2><span class="glyphicon glyphicon-question-sign" style="color:blue">자주묻는질문</span>
+           <h2><span class="glyphicon glyphicon-question-sign" style="color:black">자주묻는질문</span>
               <c:forEach begin="1" end="26">
               &nbsp
               </c:forEach>
@@ -135,9 +137,95 @@
    </c:forEach>
  </ul>
             </div><!--/.col-xs-6.col-lg-4-->
-<div class="col-xs-20 col-lg-12">
+            
+<div class="col-xs-5 col-lg-6">
+              <h2><span class="glyphicon glyphicon-user" style="color:black">랭킹</span>
+              <c:forEach begin="1" end="26">
+              &nbsp
+              </c:forEach>
+              <small><small><a href="faq_list.ok?page=1">더보기</a></small></small></h2>
+			<table class="table table-bordered">
+                <tr>
+                  <th style="width: 10px">no</th>
+                  <th>제목</th>
+                  <th>작성자</th>
+                  <th>조회수</th>
+                </tr>
+            <c:forEach items="${notice }" var="n" begin="1" end="5">
+                <tr>
+                  <td>${n.num }</td>
+                  <td>${n.subject}</td>
+               	  <td>작성일</td>
+                  <td><span class="badge bg-red">55%</span></td>
+                </tr>
+              </c:forEach>
+              </table>	
+            </div><!--/.col-xs-6.col-lg-4-->
+            
+<div class="col-xs-5 col-lg-6">
+              <h2><span class="glyphicon glyphicon-question-sign" style="color:black">고객센터</span>
+              <c:forEach begin="1" end="26">
+              &nbsp
+              </c:forEach>
+              <small><small><a href="faq_list.ok?page=1">더보기</a></small></small></h2>
+			<table class="table table-bordered">
+                <tr>
+                  <th style="width: 10px">no</th>
+                  <th>제목</th>
+                  <th>작성자</th>
+                  <th>조회수</th>
+                </tr>
+            <c:forEach items="${notice }" var="n" begin="1" end="5">
+                <tr>
+                  <td>${n.num }</td>
+                  <td>${n.subject}</td>
+               	  <td>작성일</td>
+                  <td><span class="badge bg-red">55%</span></td>
+                </tr>
+              </c:forEach>
+              </table>	
+            </div><!--/.col-xs-6.col-lg-4-->
+            
+            <div class="col-xs-20 col-lg-12">
               
-              <h2><span class="glyphicon glyphicon-exclamation-sign" style="color:red">이벤트</span></h2>     
+              <h2><span class="glyphicon glyphicon-exclamation-sign" style="color:black">이벤트</span></h2>     
+             <hr>
+<c:forEach items="${listIng }" var="ing" begin="2" end="2">
+				<div class="container">
+					<div class="row" style="outline-color: blue;">
+
+						<div i class="col-lg-7 col-md-7">
+						<a href="./event_confirm.ok?action=read&num=${ing.num}">
+							 <img width="550" height="250"
+								src="./img/${ing.fileName}" alt="">
+						</a>	
+						</div>
+
+						<div class="col-lg-5 col-md-4" align="left">
+							<h4>
+								<span class="label label-danger">진행중</span>
+										 <c:forEach begin="1" end="49">
+              									&nbsp
+              							 </c:forEach>
+              							 <small><a href="event_list.ok">더보기</a></small>
+								
+							</h4>
+							<h1>${ing.subject }</h1><hr>
+							<h4>기간: ${ing.startDate} ~ ${ing.endDate }</h4><hr>
+							<p>${ing.point }</p>
+							<!--<a class="btn btn-primary" href="#">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>  -->
+						</div>
+					</div>
+
+					<hr>
+				</div>
+			</c:forEach>
+            </div><!--/.col-xs-6.col-lg-4-->
+            
+            
+            <div class="col-xs-20 col-lg-12">
+              
+              <h2><span class="glyphicon glyphicon-exclamation-sign" style="color:black">스크린샷</span></h2>     
              <hr>
 <c:forEach items="${listIng }" var="ing" begin="2" end="2">
 				<div class="container">
@@ -171,25 +259,11 @@
 			</c:forEach>
             </div><!--/.col-xs-6.col-lg-4-->
 
-<div class="col-xs-5 col-lg-6">
-              <h2>공지사항</h2>
-			<table class="table table-bordered">
-                <tr>
-                  <th style="width: 10px">no</th>
-                  <th>제목</th>
-                  <th>작성자</th>
-                  <th>조회수</th>
-                </tr>
-            <c:forEach items="${notice }" var="n">
-                <tr>
-                  <td>${n.num }</td>
-                  <td>${n.subject}</td>
-               	  <td>작성일</td>
-                  <td><span class="badge bg-red">55%</span></td>
-                </tr>
-              </c:forEach>
-              </table>	
-            </div><!--/.col-xs-6.col-lg-4-->
+
+
+
+
+
           </div><!--/row-->
 		</div>
 	</div>
