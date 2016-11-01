@@ -19,6 +19,7 @@ nickname varchar2(50),
 subject varchar2(100),
 contents varchar2(1000),
 ndate date,
+hits number(20),
 constraint tb_notice_fk_nickname foreign key(nickname) references tb_member(nickname)
 );
 

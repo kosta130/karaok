@@ -62,11 +62,13 @@ public class NoticeAction extends Action {
 			String nickname = request.getParameter("nickname");
 			String subject = request.getParameter("subject");
 			String contents = request.getParameter("contents");
-
+			int hits = 0;
+			
 			NoticeDTO dto = new NoticeDTO();
 			dto.setNickname(nickname);
 			dto.setSubject(subject);
 			dto.setContents(contents);
+			dto.setHits(hits);
 
 			if (dao.insert(dto)) {
 				System.out.println("디비입력성공");
@@ -88,6 +90,7 @@ public class NoticeAction extends Action {
 			int num = Integer.parseInt(request.getParameter("num"));
 			String subject = request.getParameter("subject");
 			String contents = request.getParameter("contents");
+			int hits = 0;
 
 			// 다섯개의 데이터를 하나(클래스)의 이름으로 묶기s
 			NoticeDTO dto = new NoticeDTO();
@@ -95,6 +98,7 @@ public class NoticeAction extends Action {
 			dto.setSubject(subject);
 			dto.setContents(contents);
 			dto.setNum(num);
+			dto.setHits(hits);
 
 			if (dao.update(dto)) {
 				request.getSession().setAttribute("list", dao.selectAll());
@@ -108,6 +112,7 @@ public class NoticeAction extends Action {
 		} else if (action.equals("select")) {
 			int num = Integer.parseInt(request.getParameter("num"));
 			NoticeDTO dto = dao.select(num);
+			dao.hitsup(dto);
 			request.setAttribute("dto", dto);
 			forward = mapping.findForward("select");
 		}

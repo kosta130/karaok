@@ -45,10 +45,21 @@ insert into tb_qna
  select count(*) from tb_qna  
  </select>  
  
+ <!-- 댓글 등록 -->
+	<insert id="insertReply" parameterClass="com.karaok.qna.dto.ReplyDTO">
+		insert into qna_reply values(seq_Rqna_num.nextval,#num#,#nickname#,sysdate,#contents#)
+	</insert>
+ 
   <delete id="deleteReply" parameterClass="int">
 	delete from qna_reply
 	where num=#num#
   </delete>
+  
+  <select id="ListReply" parameterClass="int" resultClass="com.karaok.qna.dto.ReplyDTO">
+   select qnaNum ,num ,nickname, edate ,contents from qna_reply where num=#num#
+  </select>
+  
+  
   
   
   

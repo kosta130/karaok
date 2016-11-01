@@ -7,7 +7,7 @@ num number(20) constraint qna_num_pk primary key,
 nickname varchar2(50),
 subject varchar2(100),
 contents varchar2(1000),
-ndate date,
+ndate date
 constraint tb_qna_fk_nickname foreign key(nickname) references tb_member(nickname)
 );
 
@@ -50,22 +50,24 @@ insert into tb_qna values (seq_qna_num.nextval, '오바사키', '이것이 궁금하당께13
 delete from tb_qna where nickname='오바사키';
 
 delete from qna_reply;
-
-<!-- 이벤트 댓글 테이블  -->
+drop table qna_reply
+<!-- qna 댓글 테이블  -->
 create table qna_reply(
-	qnaNum number(20) constraint qna_replyNum_fk,
+	qnaNum number(20) constraint qna_replyNum_pk primary key,
 	num number(20),
 	nickname varchar2(50),
 	edate Date,
 	contents varchar2(1000),
 	constraint tb_Rqna_fk_nickname foreign key(num) references tb_qna(num)
+)
 
+select*from qna_reply
 drop table tb_qna_reply;
 create table tb_qna_reply
 (
 nickname varchar2(50) references tb_member(nickname) primary key,
 contents varchar2(1000)
->>>>>>> branch 'master' of https://github.com/kosta130/karaok.git
+
 );
 
 create sequence seq_Rqna_num
