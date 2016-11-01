@@ -119,7 +119,7 @@ where num=156
 				
 				select * from tb_update
 				
-				insert into tb_update values(5,'드루미드루미','개발자노트','개발자노트입니다',sysdate,3)
+				insert into tb_free values(6,'드루미드루미','자유게시판제목','자유게시판입니당',sysdate,3)
 		
 
-	select*From tb_notice
+	select*From tb_free

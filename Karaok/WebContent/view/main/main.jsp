@@ -8,7 +8,7 @@
 <jsp:include page="../header.jsp" flush="true"/>
 </head>
 <body>
-<div class="container">
+<div class="container" >
  	<table>
 		<tr>
 			<td><!-- nav 메뉴/로그인바 -->

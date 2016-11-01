@@ -19,7 +19,7 @@
 		select num,id,subject,point,contents,fileName,startDate,endDate,state 
 			from tb_event natural join tb_member
 			where endDate > sysdate
-			order by num desc
+			order by endDate desc
 	</select>
 	
 	<select id="selectEnd"   resultClass="com.karaok.event.dto.Event">
