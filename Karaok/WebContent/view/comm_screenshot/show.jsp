@@ -39,7 +39,21 @@ function del() {
                   <textarea  style="height: 300px;" class="form-control" rows="3" placeholder="Enter ..." name="contents" readonly="readonly">${dto.contents }</textarea>
        			</div>
        					
-              <!-- /.box-body -->
+             <!-- 댓글 등록 -->
+              <input placeholder="댓들을 입력하세요.." id="relpy">
+              
+              <div>
+              	<button type="button" id="replySubmit">댓글등록</button>
+              </div>
+              
+              <div id="replyResult">
+              	<c:forEach items="${list }" var="v">
+              		<small><i></i>${v.re_ndate }</small>
+              		${v.re_id }<br>
+              		${v.re_contents }
+              		<hr>
+              	</c:forEach>
+              </div>
 
               <div class="box-footer" align="center">
                 

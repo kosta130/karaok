@@ -11,61 +11,13 @@ public class Screen {
 	private Date ndate;
 	private int seek;
 	private String fileName;
-	private String re_id;
-	private int re_num;
-	private String re_contents;
-	public Screen() {
-		
-	}
-	
 	
 
 
 
 
-	public String getRe_contents() {
-		return re_contents;
-	}
-
-
-
-
-
-
-	public void setRe_contents(String re_contents) {
-		this.re_contents = re_contents;
-	}
-
-
-
-
-
-
-	public String getRe_id() {
-		return re_id;
-	}
-
-
-
-
-
-
-	public void setRe_id(String re_id) {
-		this.re_id = re_id;
-	}
-
-
-
-
-
-
-
-
-
-
-
-	public Screen(int num, String nickname, String subject, String contents, Date ndate, int seek, String fileName,
-			String re_id, int re_num, String re_contents) {
+	public Screen(int num, String nickname, String subject, String contents, 
+			Date ndate, int seek, String fileName) {
 		super();
 		this.num = num;
 		this.nickname = nickname;
@@ -74,27 +26,8 @@ public class Screen {
 		this.ndate = ndate;
 		this.seek = seek;
 		this.fileName = fileName;
-		this.re_id = re_id;
-		this.re_num = re_num;
-		this.re_contents = re_contents;
+	
 	}
-
-
-
-
-
-
-	public int getRe_num() {
-		return re_num;
-	}
-
-
-
-	public void setRe_num(int re_num) {
-		this.re_num = re_num;
-	}
-
-
 
 	public int getNum() {
 		return num;

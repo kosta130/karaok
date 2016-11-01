@@ -46,13 +46,5 @@
  		set seek=seek+1
  		where num=#num#
  	</update>
- 	<!-- 댓글 등록 -->
- 	<insert id="insertReply" parameterClass="scr">
- 		insert into screen_reply values(seq_Rscreen_num.nextval,#re_num#,#re_id#,sysdate,#re_contents#)
- 	</insert>
- 	<!-- 댓글 출력 -->
- 	<select id="ListReply" parameterClass="int" resultClass="scr">
- 		select replyNum,re_num,id,re_ndate,re_contents from screen_reply where re_num=#re_num#
- 		order by replyNum desc
- 	</select>
+ 	
 </sqlMap>
