@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd" >
 <sqlMap namespace="rank">
-<!-- 	<select id="selectAll" resultClass="com.karaok.rank.dto.Rank">
+ 	<select id="selectAll" resultClass="com.karaok.rank.dto.Rank">
 		<![CDATA[SELECT *
  		FROM (
    			 SELECT RANK() OVER(ORDER BY SCORE DESC)rank, nickname, SCORE
@@ -12,6 +12,5 @@
      			WHERE rn = 1
      			 ORDER BY row_number() OVER (ORDER BY score DESC, ndate, nickname)
     			)]]>
-	</select> -->
-	<select id="countRank" parameterClass=""
+	</select>
 </sqlMap>
