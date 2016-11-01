@@ -135,7 +135,7 @@
             <li class="divider"></li>
             <li><a href="introduce.ok">개임소개</a></li>
             <li class="divider"></li>
-            <li><a href="">개발자노트</a></li>
+            <li><a href="note.ok?action=list">개발자노트</a></li>
           </ul>
         </li>
       <!-- 이벤트 -->
@@ -151,7 +151,7 @@
           <ul class="dropdown-menu" role="menu">
             <li><a href="free_list.ok">자유게시판</a></li>
             <li class="divider"></li>
-            <li><a href="#">랭킹게시판</a></li>
+            <li><a href="rank.ok">랭킹게시판</a></li>
             <li class="divider"></li>
             <li><a href="screen_list.ok">스 크 린 샷</a></li>
           </ul>
