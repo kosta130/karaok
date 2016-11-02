@@ -61,7 +61,7 @@
             </div>
             <br>
             <div>
-            <center>
+            <left>
             <c:if test="${page ==1 }">이전</c:if>
             <c:if test="${page > 1 }">
             	<a href = "note_list.ok?page=${page-1 }">이전</a>
@@ -74,7 +74,7 @@
            	<c:forEach begin="1" end="${totalPage }" var="i">
            		[<a href="note_list.ok?page=${i }">${i }</a>]
            	</c:forEach>  
-           	</center>   
+           	</left>
             </div>
             </div>
           	</div><!--/row-->

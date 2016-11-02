@@ -25,7 +25,7 @@ public class NoteListAction extends Action {
 		String pageStr = request.getParameter("page");
 		
 		int page=1;
-		int viewRowCnt=3;
+		int viewRowCnt=10;
 		
 		if(pageStr != null) {
 			page = Integer.parseInt(pageStr);
