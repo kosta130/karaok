@@ -175,7 +175,7 @@
           <button type="button" class="btn btn-default" id="login">로그인</button>
           <button type="button" class="btn btn-default" id="signup" data-target="#layerpop" data-toggle="modal">회원가입</button>	
          <%}else{ %>
-        	<span id=usernickname><%=request.getSession().getAttribute("currentNickName") %>님이 로그인하셨습니다</span>
+        	<span id=usernickname><font color="blue"><b><%=request.getSession().getAttribute("currentNickName") %></b></font><small>님이 로그인하셨습니다</small></span>
         	<button type="button" class="btn btn-default" id="logout">로그아웃</button>
          <%} %>
         	<button type="button" class="btn btn-default" id="gamestart">GAME START</button>

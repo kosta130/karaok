@@ -77,7 +77,7 @@
               <c:forEach begin="1" end="28">
               &nbsp
               </c:forEach>
-              <small><small><a href="">더보기</a></small></small></h2>
+              <small><small><a href="note.ok?action=list">더보기</a></small></small></h2>
 			<table class="table table-bordered">
                 <tr>
                   <th style="width: 50px">번호</th>

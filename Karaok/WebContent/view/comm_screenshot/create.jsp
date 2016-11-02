@@ -43,10 +43,6 @@ $(document).ready(function(){
 <form role="form"  method="post" name="sc_create" id="sc_create" enctype="multipart/form-data"> 
 <h1>스크린샷 게시판 입력</h1>
 <hr>
-<%
-	request.getSession().setAttribute("currentNickname", "오1");
-
-%>
               <div class="box-body" >
                 <div class="form-group">
                 <input type="hidden" name="num" value="${num }">
@@ -55,7 +51,7 @@ $(document).ready(function(){
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">작성자</label>
-                  <input type="text" class="form-control"  name="nickname" placeholder="작성자" value="${currentNickname }" readonly="readonly">
+                  <input type="text" class="form-control"  name="nickname" placeholder="작성자" value="${currentNickName }" readonly="readonly">
                 </div>
                 <div class="form-group" >
                   <label>Textarea</label>

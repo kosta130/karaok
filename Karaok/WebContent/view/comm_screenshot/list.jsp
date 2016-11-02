@@ -7,7 +7,7 @@
 <div class="nav-tabs-custom">
 	<ul class="nav nav-tabs">
 <div align="right">
-<button type="button" class="btn btn-primary" onclick="location.href='screen_create.ok'" >글쓰기</button>
+<button type="button" class="btn btn-primary" onclick="location.href='screen_create.ok?'" >글쓰기</button>
 </div>
 <br>		
 	<div class="tab-content">

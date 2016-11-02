@@ -160,3 +160,9 @@ select * from (select * from tb_event order by num desc) where rownum between 1 
 order by endDate desc
 
 select * from (select * from tb_event order by num desc) where rownum=1
+
+select*from tb_update
+
+select*from tb_screen
+
+drop table tb_screen cascade constraint
