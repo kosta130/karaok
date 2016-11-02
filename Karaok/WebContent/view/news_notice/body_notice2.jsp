@@ -49,7 +49,7 @@ $(document).ready(function(){
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1"></label>
-                  <input type="hidden" class="form-control" id="exampleInputEmail1" placeholder="작성자" value=${dto.hits } name="hitnum">
+                  <input type="hidden" class="form-control" id="exampleInputEmail1" value=${dto.hits } name="hitnum">
                 </div>
                 <div class="form-group" >
                   <label>Textarea</label>

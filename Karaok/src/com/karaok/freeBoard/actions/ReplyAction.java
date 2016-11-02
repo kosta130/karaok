@@ -19,13 +19,16 @@ public class ReplyAction extends Action {
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		String nickname=(String) request.getSession().getAttribute("currentNickname");
-		request.getSession().getAttribute("currentNickName");
+		
+		
+	
 		
 		String action = request.getParameter("action");
 		FreeBoardDAO dao=new FreeBoardDAO();
 		
 		if(action.equals("insertReply")){
+			String nickname = request.getParameter("nickname");
+			System.out.println(nickname);
 			num=Integer.parseInt(request.getParameter("num"));
 			String contents = request.getParameter("contents");
 			ReplyDTO dto = new ReplyDTO();
