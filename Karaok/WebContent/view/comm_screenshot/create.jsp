@@ -36,7 +36,7 @@ $(document).ready(function(){
 
 </script>
 	
-	<div class="container">6
+	<div class="container">
 		<div class="row row-offcanvas row-offcanvas-center">
 			<div class="row">
 

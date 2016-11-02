@@ -30,7 +30,26 @@ function del() {
                 <div class="form-group" >
                   <label>Textarea</label>
                   <textarea  style="height: 300px;" class="form-control" rows="3" placeholder="Enter ..." name="contents" readonly="readonly">${dto.contents }</textarea>
-       
+        <!-------------------------  댓글등록부분--------------------------------->
+            <div class="box-footer">
+              <div class="input-group">
+                <input class="form-control" placeholder="댓글을 입력하세요.." id="reply">
+
+                <div class="input-group-btn">
+                  <button type="button" class="btn btn-success" id="replySubmit">댓글등록</button>
+                </div>
+                
+               <!-------------------------  댓글생성부분 --------------------------------->
+              </div>
+                <hr>
+                <div id="replyResult" align="left">
+                <c:forEach items="${list1}" var="v">
+               <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> ${v.ndate}</small>
+                    <b>${v.nickname }</b><br>
+           
+             		${v.contents }
+             		<hr>
+			</c:forEach>
               <div class="box-footer" align="center">
                 
                 <button type="submit" class="btn btn-primary" >수정</button>

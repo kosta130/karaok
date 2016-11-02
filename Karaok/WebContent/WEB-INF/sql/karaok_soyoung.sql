@@ -60,8 +60,23 @@ increment by 1
 start with 1
 nocycle
 nocache;
-
-
+--자유게시판 댓글
+drop table free_reply;
+select * from tb_free_reply
+create table free_reply(
+	freeNum number(20) constraint free_replyNum_pk primary key,
+	num number(20),
+	nickname varchar2(50),
+	ndate Date,
+	contents varchar2(1000),
+	constraint tb_Rfree_fk_nickname foreign key(num) references tb_free(num)
+);
+drop sequence seq_Rqna_num;
+create sequence seq_Rfree_num
+increment by 1
+start with 1
+nocycle
+nocache;
 
 insert into tb_free values (seq_free_num.nextval,'오1', '안녕', '리턴3조',sysdate);
 insert into tb_free values (seq_free_num.nextval,'오2', '안녕', '리턴3조',sysdate);
