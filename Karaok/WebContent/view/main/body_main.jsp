@@ -229,31 +229,26 @@
               
               <h2><span class="glyphicon glyphicon-exclamation-sign" style="color:black">스크린샷</span></h2>     
              <hr>
-<c:forEach items="${listIng }" var="ing" begin="2" end="2">
+			<c:forEach items="${screen }" var="s">
 				<div class="container">
 					<div class="row" style="outline-color: blue;">
-
-						<div i class="col-lg-7 col-md-7">
-						<a href="./event_confirm.ok?action=read&num=${ing.num}">
-							 <img width="550" height="250"
-								src="./img/${ing.fileName}" alt="">
-						</a>	
-						</div>
-
-						<div class="col-lg-5 col-md-4" align="left">
-							<h4>
-								<span class="label label-danger">진행중</span>
-										 <c:forEach begin="1" end="49">
-              									&nbsp
-              							 </c:forEach>
-              							 <small><a href="event_list.ok">더보기</a></small>
 								
-							</h4>
-							<h1>${ing.subject }</h1><hr>
-							<h4>기간: ${ing.startDate} ~ ${ing.endDate }</h4><hr>
-							<p>${ing.point }</p>
-							<!--<a class="btn btn-primary" href="#">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>  -->
+						<div i class="col-lg-7 col-md-7">
+						<a href="screen.ok?action=view&num=${s.num }">
+							 <img width="600" height="250" src="./img_soyoung/${s.fileName}" alt="">
+						</a>
 						</div>
+						
+						<div class="col-lg-5 col-md-4" align="left">
+							
+							<h3>No. ${s.num }</h3> 
+							<h1>${s.subject }</h1> <br>
+							<h3>작성자: ${s.nickname }</h3> 
+							<h3>조회수: ${s.seek }</h3> 
+							<h3>날짜: ${s.ndate }</h3> 
+							
+						</div>
+						
 					</div>
 
 					<hr>
