@@ -7,7 +7,8 @@ num number(20) constraint qna_num_pk primary key,
 nickname varchar2(50),
 subject varchar2(100),
 contents varchar2(1000),
-ndate date
+ndate date,
+hits number(20),
 constraint tb_qna_fk_nickname foreign key(nickname) references tb_member(nickname)
 );
 
@@ -62,14 +63,8 @@ create table qna_reply(
 )
 
 select*from qna_reply
-drop table tb_qna_reply;
-create table tb_qna_reply
-(
-nickname varchar2(50) references tb_member(nickname) primary key,
-contents varchar2(1000)
 
-);
-
+drop sequence seq_Rqna_num;
 create sequence seq_Rqna_num
 increment by 1
 start with 1
@@ -78,13 +73,5 @@ nocache;
 
 select*from tb_qna
 
-	delete from tb_qna on delete CASCADE 
-	where num=3
-	
-	
-select CONSTRAINT_NAME, TABLE_NAME, R_CONSTRAINT_NAME
-from user_constraints
-where CONSTRAINT_NAME = 'TB_RQNA_FK_NICKNAME' 
-
-select * from tb_member;
+select * 
 

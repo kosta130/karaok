@@ -1,4 +1,4 @@
-package com.karaok.qna.actions;
+package com.karaok.screen.actions;
 
 import java.util.List;
 
@@ -10,39 +10,38 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
-import com.karaok.qna.dao.QnaDAO;
-import com.karaok.qna.dto.ReplyDTO;
+import com.karaok.screen.dao.ScreenDAO;
+import com.karaok.screen.dto.ReplyDTO;
+
+
 
 public class ReplyAction extends Action{
-	
-	int num;
+		int num;
 	
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		String nickname=request.getParameter("currentNickName");
-		System.out.println(nickname);
-		//String nickname = (String) request.getSession().getAttribute("currentNickname");
+		String nickname=(String) request.getSession().getAttribute("currentNickname");
 		request.getSession().getAttribute("currentNickName");
 		
 		String action = request.getParameter("action");
-		QnaDAO dao = new QnaDAO();
+		ScreenDAO dao=new ScreenDAO();
 		
 		if(action.equals("insertReply")){
-			num = Integer.parseInt(request.getParameter("num"));
+			num=Integer.parseInt(request.getParameter("num"));
 			String contents = request.getParameter("contents");
 			ReplyDTO dto = new ReplyDTO();
 			dto.setNickname(nickname);
 			dto.setContents(contents);
 			dto.setNum(num);
+			
 			dao.insertReply(dto);
 			
 			List<ReplyDTO> list = dao.ListReply(num);
 			request.setAttribute("list", list);
 			
 			return mapping.findForward("reply");
-			
 		}
-		return mapping.findForward("select");
+		return mapping.findForward("sc_view");
 	}
 }

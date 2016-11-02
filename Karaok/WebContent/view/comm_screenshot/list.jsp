@@ -25,11 +25,11 @@
 						
 						<div class="col-lg-5 col-md-4" align="left">
 							
-							<h3>No. ${dto.num }</h3> 
-							<h1>${dto.subject }</h1> <br>
-							<h3>작성자: ${dto.nickname }</h3> 
-							<h3>조회수: ${dto.seek }</h3> 
-							<h3>날짜: ${dto.ndate }</h3> 
+						
+							<h1>${dto.subject }</h1> <hr>
+							<h4>작성자: ${dto.nickname }</h4><hr>
+							<h4>조회수: ${dto.seek }</h4><hr>
+							<h4>날짜: ${dto.ndate }</h4> 
 							
 						</div>
 						

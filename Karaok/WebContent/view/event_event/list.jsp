@@ -132,9 +132,13 @@
 		</div>
 	</div>
 </div>
+
+
+<c:if test="${currentId=='lee52x@naver.com' }">
 <form action="./event_create.ok">
 	<h3 align="center"><input class="btn btn-warning" type="submit" value="글등록"></h3>
 </form>
+</c:if>
 
 
 

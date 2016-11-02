@@ -77,7 +77,7 @@ create table event_reply(
 	id varchar2(50),
 	edate Date,
 	contents varchar2(1000),
-	constraint tb_Revent_fk_id foreign key(num) references tb_event(num)
+	constraint tb_Revent_fk_id foreign key(num) references tb_event(num) ON DELETE CASCADE
 )
 
 create sequence seq_Revent_num
@@ -166,3 +166,9 @@ select*from tb_update
 select*from tb_screen
 
 drop table tb_screen cascade constraint
+
+
+select*from tb_qna
+select*from qna_reply
+select * from tb_event 
+delete from tb_event where num=154 cascad

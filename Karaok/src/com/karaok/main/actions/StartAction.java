@@ -20,6 +20,8 @@ import com.karaok.note.dao.NoteDAO;
 import com.karaok.note.dto.NoteDTO;
 import com.karaok.notice.dao.NoticeDAO;
 import com.karaok.notice.dto.NoticeDTO;
+import com.karaok.screen.dao.ScreenDAO;
+import com.karaok.screen.dto.Screen;
 
 public class StartAction extends Action {
 	@Override
@@ -52,6 +54,11 @@ public class StartAction extends Action {
 		FaqDAO dao5=new FaqDAO();
 		List<Faq> faq = dao5.selectAll(1, 5);
 		request.setAttribute("faq", faq);
+		
+		//스크린샷게시판 불러오기
+		ScreenDAO dao6=new ScreenDAO();
+		List<Screen> screen = dao6.MlistScreenBoard();
+		request.setAttribute("screen", screen);
 		
 		
 		

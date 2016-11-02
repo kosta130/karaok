@@ -129,5 +129,19 @@ public class QnaDAO {
 		}
 		return false;
 	} 
+	
+	public boolean hitsup(QnaDTO dto){
+		
+		try {
+			int t = smc.update("qna.hitsUpdate",dto);
+			if(t==1)
+				return true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return false;
+	}
 
 }

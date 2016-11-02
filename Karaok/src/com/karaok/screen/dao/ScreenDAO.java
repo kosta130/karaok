@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.ibatis.sqlmap.client.SqlMapClient;
+import com.karaok.screen.dto.ReplyDTO;
 import com.karaok.screen.dto.Screen;
 
 
@@ -38,6 +39,17 @@ public class ScreenDAO {
 		}
 		return list;
 	}
+	
+	public List<Screen> MlistScreenBoard() {//리스트에 보여질 정보 출력
+		List<Screen> list = null;
+		try {
+			list= smc.queryForList("screen.selectMAll");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
 	
 	public Screen selectScreen(int num) {//글화면, 수정폼에 데이터 출력
 		Screen dto = null;
@@ -101,6 +113,26 @@ public class ScreenDAO {
 		}
 		return false;
 	}
- 	
+ 	 public boolean insertReply(ReplyDTO dto){
+			
+			try {
+				smc.insert("screen.insertReply",dto);
+				return true;
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			return false;
+		}
+		
+		public List<ReplyDTO> ListReply(int num){
+			 List<ReplyDTO> list=null;
+			try {
+				list= (List<ReplyDTO>)smc.queryForList("screen.ListReply",num);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			
+			return list;
+		}
 		
 }

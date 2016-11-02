@@ -8,8 +8,8 @@
 <hr>
               <div class="box-body">
                 <div class="form-group">
-                  <label for="exampleInputEmail1">글번호</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="글번호" value=${dto.num } name="num">
+                  <label for="exampleInputEmail1"></label>
+                  <input type="hidden" class="form-control" id="exampleInputEmail1" placeholder="글번호" value=${dto.num } name="num">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">제목</label>
@@ -17,7 +17,11 @@
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">작성자</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="작성자" value=${currentNickname } name="nickname">
+                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="작성자" value=${currentNickName } name="nickname" readonly="readonly">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1"></label>
+                  <input type="hidden" class="form-control" id="exampleInputEmail1" value=${dto.hits } name="hitnum">
                 </div>
                 <div class="form-group" >
                   <label>Textarea</label>

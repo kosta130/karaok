@@ -6,7 +6,7 @@
 
 <insert id="insert" parameterClass="Qna">
 insert into tb_qna
-	values(seq_qna_num.nextval, #nickname#, #subject#, #contents#, sysdate)
+	values(seq_qna_num.nextval, #nickname#, #subject#, #contents#, sysdate, #hits#)
 
 </insert>
 
@@ -22,21 +22,21 @@ insert into tb_qna
   </update>
   
   <select id="select" parameterClass="int" resultClass="Qna">
-	select  num, nickname, subject, contents, ndate
+	select  num, nickname, subject, contents, ndate, hits
 	from tb_qna
 	where num=#num#
   </select>
   
   <select id="selectAll" resultClass="Qna">
-	select num, nickname, subject, contents, ndate
+	select num, nickname, subject, contents, ndate, hits
 	from tb_qna
 	order by num desc
   </select>
   
   <select id="selectPage" parameterClass="java.util.Map" resultClass="Qna">  
- select num,nickname,subject,contents,ndate   
- 	from  (select num,nickname,subject,contents,ndate, rownum rn   
-      from ( select num,nickname,subject,contents,ndate    
+ select num,nickname,subject,contents,ndate, hits   
+ 	from  (select num,nickname,subject,contents,ndate,hits, rownum rn   
+      from ( select num,nickname,subject,contents,ndate,hits    
            from tb_qna order by num desc))  
               where rn between #start# and #end#  
  </select>  
@@ -58,6 +58,12 @@ insert into tb_qna
   <select id="ListReply" parameterClass="int" resultClass="com.karaok.qna.dto.ReplyDTO">
    select qnaNum ,num ,nickname, edate ,contents from qna_reply where num=#num#
   </select>
+  
+ <update id="hitsUpdate" parameterClass="Qna">
+ 	update tb_qna
+	set hits=hits+1
+	where num=#num#
+ </update>
   
   
   

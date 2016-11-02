@@ -43,11 +43,11 @@
                 <tbody>
 <c:forEach items="${list }" var="v">
        <tr>
-         <td>${v.num }</td>
+         <td align="center">${v.num }</td>
          <td><a href="/Karaok/notice.ok?action=select&num=${v.num }">${v.subject }</a></td>
-         <td>${v.nickname }</td>
-         <td>${v.ndate }</td>
-         <td>${v.hits }</td>
+         <td align="center">${v.nickname }</td>
+         <td align="center">${v.ndate }</td>
+         <td align="center">${v.hits }</td>
        </tr>
  </c:forEach>
               </table>

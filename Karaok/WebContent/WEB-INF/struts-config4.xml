@@ -35,7 +35,13 @@
       <action path="/free_list" type="com.karaok.freeBoard.actions.ListAction">
       	<forward name="success" path="/view/comm_free/free_list.jsp"></forward>
       </action> 
-          		
+      
+      <!-- 자유게시판 댓글 -->
+      <action path="/freeReply" type="com.karaok.freeBoard.actions.ReplyAction">
+      	<forward name="reply" path="/view/comm_free/replyResult.jsp"></forward>
+      	<forward name="view" path="/view/comm_free/free_show.jsp"></forward>
+      </action>
+      
 		<!-- 스크린 리스트 페이지  -->
 		<action path="/screen_list"
 				forward="/view/comm_screenshot/screen_list.jsp"></action>
@@ -65,7 +71,12 @@
       	<!-- 스크린 게시물 목록 요청 -->
       	<action path="/screen_list" type="com.karaok.screen.actions.ListAction">
       		<forward name="sc_success" path="/view/comm_screenshot/screen_list.jsp"/>
-      	</action> 		
-				
+      	</action> 
+      	
+      	<!-- 스샷게시판 댓글 -->		
+      <action path="/screenReply" type="com.karaok.screen.actions.ReplyAction">
+      	<forward name="reply" path="/view/comm_screenshot/replyResult.jsp"></forward>
+      	<forward name="sc_view" path="/view/comm_screenshot/show.jsp"></forward>
+      </action>
 		</action-mappings>
 </struts-config>

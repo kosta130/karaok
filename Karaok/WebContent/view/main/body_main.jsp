@@ -83,6 +83,7 @@
                   <th style="width: 50px">번호</th>
                   <th>제목</th>
                   <th>작성자</th>
+                  <th>등록일</th>
                   <th>조회수</th>
                 </tr>
             <c:forEach items="${note }" var="n1">
@@ -90,7 +91,8 @@
                   <td>${n1.num }</td>
                   <td><a href="note.ok?action=view&num=${n1.num}">${n1.subject }</a></td>
                	  <td>${n1.nickname }</td>
-                  <td><span class="badge bg-red">12</span></td>
+               	  <td>${n1.ndate }</td>
+                  <td><span class="badge bg-red">${n1.hits}</span></td>
                 </tr>
               </c:forEach>
               </table>	
@@ -106,6 +108,7 @@
                   <th style="width: 10px">no</th>
                   <th>제목</th>
                   <th>작성자</th>
+                  <th>등록일</th>
                   <th>조회수</th>
                 </tr>
            
@@ -113,8 +116,9 @@
                 <tr>
                   <td>${f.num }</td>
                   <td><a href="crud.ok?action=view&num=${f.num }">${f.subject }</a></td>
+               	  <td>${f.nickname }</td>
                	  <td>${f.ndate }</td>
-                  <td><span class="badge bg-red">55%</span></td>
+                  <td><span class="badge bg-red">${f.hits}</span></td>
                 </tr>
               </c:forEach>
          
@@ -142,7 +146,7 @@
             
 <div class="col-xs-5 col-lg-6">
               <h2><span class="glyphicon glyphicon-user" style="color:black">랭킹</span>
-              <c:forEach begin="1" end="26">
+              <c:forEach begin="1" end="35">
               &nbsp
               </c:forEach>
               <small><small><a href="faq_list.ok?page=1">더보기</a></small></small></h2>
@@ -165,8 +169,8 @@
             </div><!--/.col-xs-6.col-lg-4-->
             
 <div class="col-xs-5 col-lg-6">
-              <h2><span class="glyphicon glyphicon-question-sign" style="color:black">고객센터</span>
-              <c:forEach begin="1" end="26">
+              <h2><span class="glyphicon glyphicon-question-sign" style="color:black">FAQ</span>
+              <c:forEach begin="1" end="36">
               &nbsp
               </c:forEach>
               <small><small><a href="faq_list.ok?page=1">더보기</a></small></small></h2>
@@ -229,31 +233,33 @@
               
               <h2><span class="glyphicon glyphicon-exclamation-sign" style="color:black">스크린샷</span></h2>     
              <hr>
-<c:forEach items="${listIng }" var="ing" begin="2" end="2">
+			<c:forEach items="${screen }" var="s">
 				<div class="container">
 					<div class="row" style="outline-color: blue;">
-
+								
 						<div i class="col-lg-7 col-md-7">
-						<a href="./event_confirm.ok?action=read&num=${ing.num}">
-							 <img width="550" height="250"
-								src="./img/${ing.fileName}" alt="">
-						</a>	
+						<a href="screen.ok?action=view&num=${s.num }">
+							 <img width="600" height="250" src="./img_soyoung/${s.fileName}" alt="">
+						</a>
 						</div>
-
+						
 						<div class="col-lg-5 col-md-4" align="left">
+							
 							<h4>
-								<span class="label label-danger">진행중</span>
-										 <c:forEach begin="1" end="49">
+								<span class="label label-danger">No.${s.num }</span>
+										 <c:forEach begin="1" end="50">
               									&nbsp
               							 </c:forEach>
-              							 <small><a href="event_list.ok">더보기</a></small>
+              							 <small><a href="screen_list.ok">더보기</a></small>
 								
 							</h4>
-							<h1>${ing.subject }</h1><hr>
-							<h4>기간: ${ing.startDate} ~ ${ing.endDate }</h4><hr>
-							<p>${ing.point }</p>
-							<!--<a class="btn btn-primary" href="#">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>  -->
+							<h1>${s.subject }</h1> <hr>
+							<h5>작성자: ${s.nickname }</h5><hr>
+							<h5>날짜: ${s.ndate }</h5><hr> 
+							<h5>조회수: ${s.seek }</h5s>
+							
 						</div>
+						
 					</div>
 
 					<hr>
