@@ -21,6 +21,11 @@ public class QnaAction extends Action {
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
+		
+		request.getSession().getAttribute("currentId");
+		String nickname = (String)request.getSession().getAttribute("currentNickName");
+		System.out.println(nickname);
+
 		QnaDAO dao = new QnaDAO();
 
 		action = request.getParameter("action");
@@ -61,14 +66,16 @@ public class QnaAction extends Action {
 		    
 		} else if (action.equals("insert")) {
 
-			String nickname = request.getParameter("nickname");
+			nickname = request.getParameter("nickname");
 			String subject = request.getParameter("subject");
 			String contents = request.getParameter("contents");
-
+			int hits = 0;
+			
 			QnaDTO dto = new QnaDTO();
 			dto.setNickname(nickname);
 			dto.setSubject(subject);
 			dto.setContents(contents);
+			dto.setHits(hits);
 
 			if (dao.insert(dto)) {
 				System.out.println("디비입력성공");
@@ -90,13 +97,14 @@ public class QnaAction extends Action {
 			int num = Integer.parseInt(request.getParameter("num"));
 			String subject = request.getParameter("subject");
 			String contents = request.getParameter("contents");
-
+			int hits = 0;
 			// 다섯개의 데이터를 하나(클래스)의 이름으로 묶기s
 			QnaDTO dto = new QnaDTO();
 
 			dto.setSubject(subject);
 			dto.setContents(contents);
 			dto.setNum(num);
+			dto.setHits(hits);;
 
 			if (dao.update(dto)) {
 				request.getSession().setAttribute("qlist", dao.selectAll());
@@ -113,6 +121,7 @@ public class QnaAction extends Action {
 		} else if (action.equals("select")) {
 			int num = Integer.parseInt(request.getParameter("num"));
 			QnaDTO dto = dao.select(num);
+			dao.hitsup(dto);
 			request.setAttribute("dto", dto);
 			List<ReplyDTO> list1 = dao.ListReply(num);//리플 받아오기
 			request.setAttribute("list1", list1);

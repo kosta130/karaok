@@ -18,15 +18,20 @@ $(document).ready(function(){
 });
 
 
-	function update(up) {
-		if(up=='del'){
+	function update(up, currentNickName) {
+		if(currentNickName==''){
+			alert('권한이 없습니다.');
+		}else if(up=='del' && currentNickName=='${dto.nickname}'){
 			if (confirm('정말삭제?')){
 				location.href = 'qna.ok?action=delete&num=${dto.num }';
 			}
-		}else{
+		}else if(up=='up' && currentNickName=='${dto.nickname}'){
 			document.view.submit();
+		}else{
+			alert('권한이 없습니다.');
 		}
 	}
+	
 </script>
 <form role="form" action="qna.ok?action=edit&num=${dto.num }" method="post" name="view">
    <div class="container">
@@ -60,8 +65,8 @@ $(document).ready(function(){
                <tr>
                   <td colspan="2" align="center">
                   
-                     <button type="submit" class="btn btn-primary" onclick="update('up')">수정</button>
-                     <button  type="button" class="btn btn-primary" onclick="update('del')">삭제</button>
+                     <button type="button" class="btn btn-primary" onclick="update('up', '${currentNickName}')">수정</button>
+                     <button  type="button" class="btn btn-primary" onclick="update('del', '${currentNickName}')">삭제</button>
                		 <button type="reset" class="btn btn-primary" onclick="location.href='qlist.ok'">목록</button>        
                      
                   </td>
@@ -71,10 +76,11 @@ $(document).ready(function(){
             <div class="box-footer">
               <div class="input-group">
                 <input class="form-control" placeholder="댓글을 입력하세요.." id="reply">
-
+		
                 <div class="input-group-btn">
                   <button type="button" class="btn btn-success" id="replySubmit">댓글등록</button>
                 </div>
+  
                 
                <!-------------------------  댓글생성부분 --------------------------------->
               </div>

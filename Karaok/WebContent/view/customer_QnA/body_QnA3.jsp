@@ -3,8 +3,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<script src="http://code.jquery.com/jquery-1.12.0.js"></script>
 <script type="text/javascript">
-
+	function sessionCheck(currentNickName){
+		if(currentNickName==''){
+			alert('글쓰기 권한이 없습니다.');
+			return;
+		}else{
+			document.getElementById('formAction').submit();
+		}
+	}
 </script>
 <style>
 
@@ -16,9 +24,7 @@
 	text-align: center;
 	}
 </style>
-<%
-	request.getSession().setAttribute("currentNickname", "오바사키");
-%>
+
 	<div class="container">
 		<div class="row row-offcanvas row-offcanvas-center">
 			<div class="row">
@@ -31,23 +37,25 @@
                   <th style="width: *%" class="title" >제목</th>
                   <th style="width: 10%" class="title">작성자</th>
                   <th style="width: 20%" class="title">날짜</th>
+                  <th style="width: 20%" class="title">조회수</th>
                 </tr>
                 </thead>
                 <tbody>
 <c:forEach items="${qlist }" var="v">
        <tr>
-         <td>${v.num }</td>
+         <td align="center">${v.num }</td>
          <td><a href="/Karaok/qna.ok?action=select&num=${v.num }">${v.subject }</a></td>
-         <td>${v.nickname }</td>
-         <td>${v.ndate }</td>
+         <td align="center">${v.nickname }</td>
+         <td align="center">${v.ndate }</td>
+         <td align="center">${v.hits }</td>
        </tr>
  </c:forEach>
               </table>
             </div>
             <!-- /.box-body -->
-            <form action="./qna3.ok">
+            <form action="./qna3.ok" id="formAction">
              <div class="box-footer" align="center">
-                <input type="button" value="글쓰기" onclick="location.href='./qna3.ok'">
+                <input type="button" value="글쓰기" onclick="sessionCheck('${currentNickName}')">
   <br> 
 <c:if test="${page == 1}">이전</c:if> 
 <c:if test="${page > 1}"> 
