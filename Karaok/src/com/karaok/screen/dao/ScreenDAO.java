@@ -39,6 +39,17 @@ public class ScreenDAO {
 		return list;
 	}
 	
+	public List<Screen> MlistScreenBoard() {//리스트에 보여질 정보 출력
+		List<Screen> list = null;
+		try {
+			list= smc.queryForList("screen.selectMAll");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
+	
 	public Screen selectScreen(int num) {//글화면, 수정폼에 데이터 출력
 		Screen dto = null;
 		try {

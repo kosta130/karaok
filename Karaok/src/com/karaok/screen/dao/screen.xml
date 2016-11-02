@@ -11,6 +11,10 @@
 		select num,nickname,subject,ndate,seek,fileName from tb_screen order by num desc
 	</select>
 	
+	<select id="selectMAll" resultClass="scr">
+		select * from (select * from tb_screen order by num desc) where rownum=1
+	</select>
+	
 	<!-- 글화면 데이터 출력 -->
 	<select id="select" parameterClass="int" resultClass="scr">
 		select nickname, subject, contents,seek,fileName
