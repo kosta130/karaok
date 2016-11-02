@@ -27,6 +27,7 @@ public class Filter implements javax.servlet.Filter {
 			request.setCharacterEncoding("UTF-8");
 		}
 		chain.doFilter(request, response);
+		
 	}
 
 	@Override
