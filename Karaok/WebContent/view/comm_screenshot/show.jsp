@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 	<div class="container">
 		<div class="row row-offcanvas row-offcanvas-center">
@@ -60,6 +60,14 @@ function del() {
                   <textarea  style="height: 300px;" class="form-control" rows="3" placeholder="Enter ..." name="contents" readonly="readonly">${dto.contents }</textarea>
        			</div>
               </div>
+              <div class="box-footer" align="center">
+                
+              
+                <button type="submit" class="btn btn-primary" >수정</button>
+                <button type="button" class="btn btn-primary" onclick="del()" >삭제</button>
+                <button type="reset" class="btn btn-primary" onclick="location.href='screen_list.ok'">목록</button>
+              </div>
+             
                 <!-------------------------  댓글등록부분--------------------------------->
             <div class="box-footer">
               <div class="input-group">
@@ -70,7 +78,7 @@ function del() {
                 </div>
                 
                <!-------------------------  댓글생성부분 --------------------------------->
-              </div>
+         		</div>
                 <hr>
                 <div id="replyResult" align="left">
                 <c:forEach items="${list1}" var="v">
@@ -81,15 +89,9 @@ function del() {
              		<hr>
 			</c:forEach>
 
-              <div class="box-footer" align="center">
-                
-              
-                <button type="submit" class="btn btn-primary" >수정</button>
-                <button type="button" class="btn btn-primary" onclick="del()" >삭제</button>
-                <button type="reset" class="btn btn-primary" onclick="location.href='screen_list.ok'">목록</button>
-              </div>
+                </form>
         
-            </form>
+           
         
           </div><!--/row-->
 		</div>

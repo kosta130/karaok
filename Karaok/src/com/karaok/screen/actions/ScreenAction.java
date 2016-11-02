@@ -11,6 +11,7 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
 import com.karaok.screen.dao.ScreenDAO;
+import com.karaok.screen.dto.ReplyDTO;
 import com.karaok.screen.dto.Screen;
 
 import com.oreilly.servlet.MultipartRequest;
@@ -53,6 +54,8 @@ public class ScreenAction extends Action {
 			dto.setNum(num);
 			dao.seekCount(dto);
 			request.setAttribute("dto", dto);
+			List<ReplyDTO> list1 = dao.ListReply(num); //댓글 받아오기
+			request.setAttribute("list1", list1);
 			forward = mapping.findForward("sc_view");
 			
 		}else if(action.equals("edit")){// 글수정폼 요청 
