@@ -52,6 +52,7 @@
 	
 	
 	</action-mappings>
-	
+	<!-- 사용자 정의 컨트롤러 등록 -->
+	<controller processorClass="com.karaok.control.MyRequestProcessor"></controller>
 
 </struts-config>

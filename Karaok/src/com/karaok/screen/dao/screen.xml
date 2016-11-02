@@ -29,7 +29,7 @@
 	</update>
 	
 	<delete id="delete" parameterClass="int">
-		delete from tb_screen
+		delete * from tb_screen
 		where num = #num#
 	</delete>
 

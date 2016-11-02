@@ -50,6 +50,12 @@ function del() {
                 <div class="form-group" >
                   <label>Textarea</label>
                   <textarea  style="height: 300px;" class="form-control" rows="3" placeholder="Enter ..." name="contents" readonly="readonly">${dto.contents }</textarea>
+              <div class="box-footer" align="center">
+                
+                <button type="submit" class="btn btn-primary" >수정</button>
+                <button  type="button" class="btn btn-primary" onclick="del()">삭제</button>
+                <button type="reset" class="btn btn-primary" onclick="location.href='free_list.ok'">목록</button>
+              </div>
         <!-------------------------  댓글등록부분--------------------------------->
             <div class="box-footer">
               <div class="input-group">
@@ -70,12 +76,6 @@ function del() {
              		${v.contents }
              		<hr>
 			</c:forEach>
-              <div class="box-footer" align="center">
-                
-                <button type="submit" class="btn btn-primary" >수정</button>
-                <button  type="button" class="btn btn-primary" onclick="del()">삭제</button>
-                <button type="reset" class="btn btn-primary" onclick="location.href='free_list.ok'">목록</button>
-              </div>
         
             </form>
           </div>
