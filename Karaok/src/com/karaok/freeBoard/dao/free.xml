@@ -58,11 +58,6 @@ select * from (select * from tb_free order by num desc) where rownum between 1 a
 		insert into free_reply values(seq_Rfree_num.nextval,#num#,#nickname#,sysdate,#contents#)
 	</insert>
  
-  <delete id="deleteReply" parameterClass="int">
-	delete from free_reply
-	where num=#num#
-  </delete>
-  
   <select id="ListReply" parameterClass="int" resultClass="com.karaok.freeBoard.dto.ReplyDTO">
    select freeNum ,num ,nickname, ndate ,contents from free_reply where num=#num#
   </select>

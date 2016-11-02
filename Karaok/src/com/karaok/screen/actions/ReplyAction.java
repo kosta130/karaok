@@ -1,4 +1,4 @@
-package com.karaok.freeBoard.actions;
+package com.karaok.screen.actions;
 
 import java.util.List;
 
@@ -10,11 +10,13 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
-import com.karaok.freeBoard.dao.FreeBoardDAO;
-import com.karaok.freeBoard.dto.ReplyDTO;
+import com.karaok.screen.dao.ScreenDAO;
+import com.karaok.screen.dto.ReplyDTO;
 
-public class ReplyAction extends Action {
-	int num;
+
+
+public class ReplyAction extends Action{
+		int num;
 	
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
@@ -23,7 +25,7 @@ public class ReplyAction extends Action {
 		request.getSession().getAttribute("currentNickName");
 		
 		String action = request.getParameter("action");
-		FreeBoardDAO dao=new FreeBoardDAO();
+		ScreenDAO dao=new ScreenDAO();
 		
 		if(action.equals("insertReply")){
 			num=Integer.parseInt(request.getParameter("num"));
@@ -40,6 +42,6 @@ public class ReplyAction extends Action {
 			
 			return mapping.findForward("reply");
 		}
-		return mapping.findForward("view");
+		return mapping.findForward("sc_view");
 	}
 }

@@ -51,5 +51,12 @@
  		set seek=seek+1
  		where num=#num#
  	</update>
- 	
+ 	<!-- 댓글 등록 -->
+	<insert id="insertReply" parameterClass="com.karaok.screen.dto.ReplyDTO">
+		insert into screen_reply values(seq_Rscreen_num.nextval,#num#,#nickname#,sysdate,#contents#)
+	</insert>
+ 
+  <select id="ListReply" parameterClass="int" resultClass="com.karaok.screen.dto.ReplyDTO">
+   select screenNum ,num ,nickname, ndate ,contents from screen_reply where num=#num#
+  </select>
 </sqlMap>

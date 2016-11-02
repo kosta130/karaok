@@ -62,7 +62,7 @@ nocycle
 nocache;
 --ÀÚÀ¯°Ô½ÃÆÇ ´ñ±Û
 drop table free_reply;
-select * from tb_free_reply
+select * from free_reply
 create table free_reply(
 	freeNum number(20) constraint free_replyNum_pk primary key,
 	num number(20),
@@ -71,7 +71,7 @@ create table free_reply(
 	contents varchar2(1000),
 	constraint tb_Rfree_fk_nickname foreign key(num) references tb_free(num)
 );
-drop sequence seq_Rqna_num;
+drop sequence seq_Rfree_num;
 create sequence seq_Rfree_num
 increment by 1
 start with 1
@@ -141,16 +141,15 @@ start with 1
 nocycle
 nocache;
 --½ºÅ©¸°¼¦ ´ñ±Û
-drop table screen_reply
-
--- ½ºÅ©¸°¼¦ ´ñ±Û Å×ÀÌºí  
+drop table screen_reply;
+select * from screen_reply
 create table screen_reply(
-	replyNum number(20) constraint screen_replyNum_pk primary key,
-	re_num number(20),
-	re_id varchar2(50),
-	re_ndate Date,
-	re_contents varchar2(1000),
-	constraint tb_Rscreen_fk_id foreign key(re_num) references tb_screen(num)
+	screenNum number(20) constraint screen_replyNum_pk primary key,
+	num number(20),
+	nickname varchar2(50),
+	ndate Date,
+	contents varchar2(1000),
+	constraint tb_Rscreen_fk_nickname foreign key(num) references tb_screen(num)
 );
 drop sequence seq_Rscreen_num;
 create sequence seq_Rscreen_num
@@ -158,6 +157,8 @@ increment by 1
 start with 1
 nocycle
 nocache;
+
+
 --[°í°´¼¾ÅÍ]
 --QnA
 

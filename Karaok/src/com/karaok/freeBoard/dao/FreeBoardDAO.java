@@ -7,7 +7,7 @@ import java.util.Map;
 
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.karaok.freeBoard.dto.FreeBoard;
-import com.karaok.notice.dto.NoticeDTO;
+import com.karaok.freeBoard.dto.ReplyDTO;
 
 import iba.SqlMapConfig;
 
@@ -111,4 +111,28 @@ public class FreeBoardDAO {
 		}
 		 return false;
 	 }
+	 public boolean insertReply(ReplyDTO dto){
+			
+			try {
+				smc.insert("free.insertReply",dto);
+				return true;
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			return false;
+		}
+		
+		public List<ReplyDTO> ListReply(int num){
+			 List<ReplyDTO> list=null;
+			try {
+				list= (List<ReplyDTO>)smc.queryForList("free.ListReply",num);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			
+			return list;
+		}
+		
+		
+
 }

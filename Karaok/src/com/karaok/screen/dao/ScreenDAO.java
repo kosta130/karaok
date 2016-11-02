@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.ibatis.sqlmap.client.SqlMapClient;
+import com.karaok.screen.dto.ReplyDTO;
 import com.karaok.screen.dto.Screen;
 
 
@@ -112,6 +113,26 @@ public class ScreenDAO {
 		}
 		return false;
 	}
- 	
+ 	 public boolean insertReply(ReplyDTO dto){
+			
+			try {
+				smc.insert("screen.insertReply",dto);
+				return true;
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			return false;
+		}
+		
+		public List<ReplyDTO> ListReply(int num){
+			 List<ReplyDTO> list=null;
+			try {
+				list= (List<ReplyDTO>)smc.queryForList("screen.ListReply",num);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			
+			return list;
+		}
 		
 }

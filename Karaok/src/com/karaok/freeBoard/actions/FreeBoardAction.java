@@ -1,5 +1,7 @@
 package com.karaok.freeBoard.actions;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -10,6 +12,7 @@ import org.apache.struts.action.ActionMapping;
 
 import com.karaok.freeBoard.dao.FreeBoardDAO;
 import com.karaok.freeBoard.dto.FreeBoard;
+import com.karaok.freeBoard.dto.ReplyDTO;
 
 public class FreeBoardAction extends Action {
 	
@@ -53,6 +56,9 @@ public class FreeBoardAction extends Action {
 			dto.setNum(num);
 			dao.seekCount(dto);
 			request.setAttribute("dto", dto);
+			List<ReplyDTO> list1 = dao.ListReply(num); //댓글 받아오기
+			request.setAttribute("list1", list1);
+			
 			forward = mapping.findForward("view");
 			
 		}else if(action.equals("select")){//글화면 관련

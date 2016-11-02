@@ -5,6 +5,26 @@
 		<div class="row row-offcanvas row-offcanvas-center">
 			<div class="row">
 <script type="text/javascript">
+$(document).ready(function(){
+		var repl=$("#reply");
+		
+	$('#replySubmit').click(function(){
+		if(repl.val()==""){
+			alert("댓글을 입력하세요.");
+			repl.focus();
+			return false;
+		}
+		$.ajax({
+			url:'./freeReply.ok?action=insertReply&num=${dto.num}',
+			data:{contents:$('#reply').val()},
+			success:function(result){
+				$('#reply').val('');
+				$('#replyResult').html(result); 
+			}
+		});
+		
+	});
+});
 function del() {
 		confirm('정말삭제?')
 		location.href = 'crud.ok?action=delete&num=${dto.num }';
@@ -45,8 +65,8 @@ function del() {
                 <div id="replyResult" align="left">
                 <c:forEach items="${list1}" var="v">
                <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> ${v.ndate}</small>
-                    <b>${v.nickname }</b><br>
-           
+                    <b>${v.nickname }</b> <br>
+
              		${v.contents }
              		<hr>
 			</c:forEach>
