@@ -18,6 +18,11 @@ public class ListAction extends Action{
 		@Override
 		public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 				HttpServletResponse response) throws Exception {
+			
+			String id=(String)request.getSession().getAttribute("currentId");
+			String nickname=(String)request.getSession().getAttribute("currentNickName");
+			System.out.println(nickname);	
+			
 				ScreenDAO dao = new ScreenDAO();
 				action = request.getParameter("action");
 				
