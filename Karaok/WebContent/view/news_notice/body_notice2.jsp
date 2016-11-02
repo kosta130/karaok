@@ -36,8 +36,8 @@ $(document).ready(function(){
 <hr>
               <div class="box-body">
                 <div class="form-group">
-                  <label for="exampleInputEmail1">글번호</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="글번호" value=${dto.num } name="num">
+                  <label for="exampleInputEmail1"></label>
+                  <input type="hidden" class="form-control" id="exampleInputEmail1" placeholder="글번호" value=${dto.num } name="num">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">제목</label>
@@ -45,11 +45,11 @@ $(document).ready(function(){
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">작성자</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="작성자" value=${dto.nickname } name="nickname">
+                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="작성자" value=${dto.nickname } name="nickname" readonly="readonly">
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputEmail1">조회수</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="작성자" value=${dto.hits } name="hitnum">
+                  <label for="exampleInputEmail1"></label>
+                  <input type="hidden" class="form-control" id="exampleInputEmail1" placeholder="작성자" value=${dto.hits } name="hitnum">
                 </div>
                 <div class="form-group" >
                   <label>Textarea</label>
