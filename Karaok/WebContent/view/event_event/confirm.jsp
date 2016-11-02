@@ -15,6 +15,10 @@
 
 $(document).ready(function(){
 	$('#replySubmit').click(function(){
+		if($('#reply').val()==''){
+			alert('댓글 내용을 입력하세요');
+		}
+		else{
 		$.ajax({
 			url:'./event_confirm.ok?action=insertReply',
 			data:{contents:$('#reply').val()},
@@ -23,6 +27,7 @@ $(document).ready(function(){
 				$('#replyResult').html(result);
 			}
 		});
+		}
 		
 	});
 });
@@ -119,7 +124,9 @@ function check(){
               <div align="center">
             <form action="./event_list.ok" name="frm">
               	<button type="submit" class="btn btn-primary">목록으로</button>
+              	<c:if test="${currentId=='lee52x@naver.com' }">
                  <button type="button" class="btn btn-warning" name="delete" onclick="check()"><i class="fa fa-trash-o" ></i>삭제</button>
+                 </c:if>
            	</form>  
               </div>
             </div>
