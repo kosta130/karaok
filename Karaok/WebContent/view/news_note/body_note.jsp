@@ -1,7 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-    
+<script src="http://code.jquery.com/jquery-1.12.0.js"></script>
+<script type="text/javascript">
+	function sessionCheck(currentNickName){
+		if(currentNickName=='오바사키'){
+			document.getElementById('formAction').submit();
+		}else{
+			alert('글쓰기 권한이 없습니다.');
+			return;
+		}
+	}
+</script>
 	<style>
 	
 	   th.no{
@@ -18,7 +28,9 @@
 			<div class="row">
 			<div class="box-body">
 			<div align="right">
-				<button class="btn btn-primary" onclick="location.href='note_input.ok'">글 등록</button>
+			<form action="/Karaok/note_input.ok" id="formAction">
+				<input class="btn btn-primary" type="button" value="글등록" onclick="sessionCheck('${currentNickName}')">
+			</form>
 			</div>
             <div align="center">
             	<h3>개발자 노트</h3>

@@ -86,5 +86,5 @@ select CONSTRAINT_NAME, TABLE_NAME, R_CONSTRAINT_NAME
 from user_constraints
 where CONSTRAINT_NAME = 'TB_RQNA_FK_NICKNAME' 
 
-delete * 
+select * from tb_member;
 

@@ -36,7 +36,7 @@ $(document).ready(function(){
 <h1>공지사항 입력</h1>
 <hr>
 	<input name="subject" type="text" class="form-control" id="sub" placeholder="제목" value="${subject }"><br>
-	<input name="nickname" type="text" class="form-control" placeholder="작성자" value="${nickname }"><br>
+	<input name="nickname" type="text" class="form-control" placeholder="작성자" value="${currentNickName }" readonly="readonly"><br>
 	<textarea name="contents" style="height: 300px;" class="form-control" rows="3" id="con">${contents }</textarea>
                
     <div class="box-footer" align="center">

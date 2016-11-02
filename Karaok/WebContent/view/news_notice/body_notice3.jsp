@@ -3,8 +3,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<script src="http://code.jquery.com/jquery-1.12.0.js"></script>
 <script type="text/javascript">
-
+	function sessionCheck(currentNickName){
+		if(currentNickName=='오바사키'){
+			document.getElementById('formAction').submit();
+		}else{
+			alert('글쓰기 권한이 없습니다.');
+			return;
+		}
+	}
 </script>
 <style>
 
@@ -19,9 +27,7 @@
 	<div class="container">
 		<div class="row row-offcanvas row-offcanvas-center">
 			<div class="row">
-<%
-	request.getSession().setAttribute("currentNickname", "오바사키");
-%>
+
 <div class="box-body">
 		<font size="10">공지사항 게시판</font>
               <table id="example1" class="table table-bordered table-striped"align="center">
@@ -47,9 +53,9 @@
               </table>
             </div>
             <!-- /.box-body -->
-            <form action="./notice3.ok">
+            <form action="./notice3.ok" id="formAction">
              <div class="box-footer" align="center">
-                <input type="submit" value="글쓰기" >
+                <input type="button" value="글쓰기" onclick="sessionCheck('${currentNickName}')">
   <br> 
 <c:if test="${page == 1}">이전</c:if> 
 <c:if test="${page > 1}"> 

@@ -40,7 +40,7 @@
                 </div>
                 <div class="form-group">
                   <label for="exampleNote1">작성자</label>
-                  <input type="text" class="form-control" id="nickname" placeholder="작성자" value="${subject }" name="nickname">
+                  <input type="text" class="form-control" id="nickname" placeholder="작성자" value="${currentNickName }" name="nickname" readonly="readonly">
                 </div>
                 <div class="form-group" >
                   <label>Textarea</label>
