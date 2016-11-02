@@ -123,3 +123,40 @@ where num=156
 		
 
 	select*From tb_free
+	
+	
+	select*from tb_notice
+	
+	
+	select num, nickname, subject, contents, ndate, hits
+	from tb_notice
+	where num= between 1 and (select max(num) from tb_notice)  
+	
+	
+	
+	select max(num) m ,nickname,subject,contents,ndate,hits from
+		(select min(num) n,nickname,subject,contents,ndate,hits from tb_notice)
+			where num between n and m
+			order by num desc
+	
+	
+	
+	 select * from(
+       select A.*,rownum rn
+          from(
+             select *from tb_notice order by num desc
+             )A
+          )
+          where rn between #start# and #end#
+          
+          
+          select * from (select * from tb_notice order by num desc) where rownum between 1 and 5
+			select num,id,subject,point,contents,fileName,startDate,endDate,state 
+			from tb_event natural join tb_member
+			where endDate > sysdate
+			order by endDate desc
+	
+select * from (select * from tb_event order by num desc) where rownum between 1 and 5 and where endDate>sysdate
+order by endDate desc
+
+select * from (select * from tb_event order by num desc) where rownum=1

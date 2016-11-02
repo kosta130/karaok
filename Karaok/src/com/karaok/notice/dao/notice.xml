@@ -32,6 +32,12 @@ insert into tb_notice
 	from tb_notice
 	order by num desc
   </select>
+  
+   <select id="selectMAll" resultClass="Notice">
+	select * from (select * from tb_notice order by num desc) where rownum between 1 and 5
+  </select>
+  
+  
 
   <select id="selectPage" parameterClass="java.util.Map" resultClass="Notice">  
  select num,nickname,subject,contents,ndate,hits   

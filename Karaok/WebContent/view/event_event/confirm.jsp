@@ -74,12 +74,12 @@ function check(){
 				</c:if>
 				이전글:
 				<c:if test="${pre != null }">
-				<a href="./event_confirm.ok?num=${pre.num}">${pre.subject }</a>
+				<a href="./event_confirm.ok?action=read&num=${pre.num}">${pre.subject }</a>
 				</c:if>
 				<br>
 				다음글:
 				<c:if test="${next != null }">
-				<a href="./event_confirm.ok?num=${next.num }">${next.subject }</a>
+				<a href="./event_confirm.ok?action=read&num=${next.num }">${next.subject }</a>
 				</c:if>
               </div>
               <!-- /.mailbox-read-message -->

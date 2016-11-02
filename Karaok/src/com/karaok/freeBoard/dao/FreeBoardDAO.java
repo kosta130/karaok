@@ -68,6 +68,16 @@ public class FreeBoardDAO {
 		 return list;
 	 }//listFreeBoard
 	 
+	 public List<FreeBoard> MlistFreeBoard(){//글목록에 보여질 정보 출력
+		 List<FreeBoard> list=null;
+		 try {
+			list=smc.queryForList("free.selectMAll");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		 return list;
+	 }//listFreeBoard
+	 
 	 public int selectCount() {
 			int cnt = 0;
 			try {

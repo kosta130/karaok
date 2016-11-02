@@ -65,6 +65,18 @@ public class EventDAO {
 		
 	}
 	
+	public List<Event> selectMIng(){
+		List<Event> listIng=null;
+		try {
+			listIng = smc.queryForList("event.selectMIng");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return listIng;
+		
+	}
+	
 	public List<Event> selectEnd(){
 		List<Event> listEnd=null;
 		try {

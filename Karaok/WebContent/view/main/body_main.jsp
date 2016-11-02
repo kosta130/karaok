@@ -59,13 +59,13 @@
                   <th>등록일</th>
                   <th>조회수</th>
                 </tr>
-            <c:forEach items="${notice }" var="n" begin="1" end="5">
+            <c:forEach items="${notice}" var="n">
                 <tr>
                   <td>${n.num }</td>
                   <td><a href="/Karaok/notice.ok?action=select&num=${n.num }">${n.subject }</a></td>
                	  <td>${n.nickname }</td>
                	  <td>${n.ndate }</td>
-                  <td><span class="badge bg-red">12</span></td>
+                  <td><span class="badge bg-red">${n.hits }</span></td>
                 </tr>
               </c:forEach>
               </table>	
@@ -85,7 +85,7 @@
                   <th>작성자</th>
                   <th>조회수</th>
                 </tr>
-            <c:forEach items="${note }" var="n1" begin="1" end="5">
+            <c:forEach items="${note }" var="n1">
                 <tr>
                   <td>${n1.num }</td>
                   <td><a href="note.ok?action=view&num=${n1.num}">${n1.subject }</a></td>
@@ -108,7 +108,8 @@
                   <th>작성자</th>
                   <th>조회수</th>
                 </tr>
-            <c:forEach items="${free }" var="f" begin="1" end="5">
+           
+            <c:forEach items="${free }" var="f">
                 <tr>
                   <td>${f.num }</td>
                   <td><a href="crud.ok?action=view&num=${f.num }">${f.subject }</a></td>
@@ -116,6 +117,7 @@
                   <td><span class="badge bg-red">55%</span></td>
                 </tr>
               </c:forEach>
+         
               </table>	
             </div><!--/.col-xs-6.col-lg-4-->
             <div class="col-xs-5 col-lg-6">
@@ -151,10 +153,10 @@
                   <th>작성자</th>
                   <th>조회수</th>
                 </tr>
-            <c:forEach items="${notice }" var="n" begin="1" end="5">
+            <c:forEach items="${xx }" var="x" begin="1" end="5">
                 <tr>
-                  <td>${n.num }</td>
-                  <td>${n.subject}</td>
+                  <td>${x.num }</td>
+                  <td>${x.subject}</td>
                	  <td>작성일</td>
                   <td><span class="badge bg-red">55%</span></td>
                 </tr>
@@ -175,10 +177,10 @@
                   <th>작성자</th>
                   <th>조회수</th>
                 </tr>
-            <c:forEach items="${notice }" var="n" begin="1" end="5">
+            <c:forEach items="${xxx }" var="x1" begin="1" end="5">
                 <tr>
-                  <td>${n.num }</td>
-                  <td>${n.subject}</td>
+                  <td>${x1.num }</td>
+                  <td>${x1.subject}</td>
                	  <td>작성일</td>
                   <td><span class="badge bg-red">55%</span></td>
                 </tr>
@@ -190,7 +192,7 @@
               
               <h2><span class="glyphicon glyphicon-exclamation-sign" style="color:black">이벤트</span></h2>     
              <hr>
-<c:forEach items="${listIng }" var="ing" begin="2" end="2">
+<c:forEach items="${listIng }" var="ing" >
 				<div class="container">
 					<div class="row" style="outline-color: blue;">
 

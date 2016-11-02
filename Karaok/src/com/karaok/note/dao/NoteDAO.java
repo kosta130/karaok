@@ -39,6 +39,17 @@ public class NoteDAO {
 		return list;
 	}
 	
+	public List<NoteDTO> selectMAll() {
+		List<NoteDTO> list = null;
+		try {
+			list = smc.queryForList("note.selectMAll");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
 	public boolean delete(int num){
 		try {
 			int t = smc.delete("note.delete", num);

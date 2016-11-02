@@ -75,6 +75,19 @@ public class NoticeDAO {
 		return list;
 	}
 	
+	public List<NoticeDTO> selectMAll() {
+		List<NoticeDTO> list = null;
+		try {
+			list = smc.queryForList("notice.selectMAll");
+			for (int i = 0; i < list.size(); i++) {
+				System.out.println("listNick=" + list.get(i).getNickname());
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
 
 
 	public int selectCount() {

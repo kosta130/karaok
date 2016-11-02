@@ -22,6 +22,10 @@
 			order by endDate desc
 	</select>
 	
+	<select id="selectMIng"   resultClass="com.karaok.event.dto.Event">
+		select * from (select * from tb_event order by num desc) where rownum=1
+	</select>
+	
 	<select id="selectEnd"   resultClass="com.karaok.event.dto.Event">
 	
 	<![CDATA[select num,id,subject,point,contents,fileName,startDate,endDate,state 

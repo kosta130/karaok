@@ -14,6 +14,11 @@
 		from TB_UPDATE
 		order by NUM desc
 	</select>
+	
+	<select id="selectMAll" resultClass="com.karaok.note.dto.NoteDTO">
+
+select * from (select * from tb_update order by num desc) where rownum between 1 and 5
+	</select>
 	<delete id="delete" parameterClass="int" >
 		delete from TB_UPDATE
 		where NUM = #NUM#

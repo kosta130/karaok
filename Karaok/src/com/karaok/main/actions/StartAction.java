@@ -30,22 +30,22 @@ public class StartAction extends Action {
 		
 		//공지사항 불러오기
 		NoticeDAO dao=new NoticeDAO();
-		List<NoticeDTO> notice = dao.selectAll();
+		List<NoticeDTO> notice = dao.selectMAll();
 		request.setAttribute("notice", notice);
 		
 		//개발자노트 불러오기
 		NoteDAO dao1=new NoteDAO();
-		List<NoteDTO> note= dao1.selectAll();
+		List<NoteDTO> note= dao1.selectMAll();
 		request.setAttribute("note", note);
 		
 		//자유게시판 불러오기
 		FreeBoardDAO dao3=new FreeBoardDAO();
-		List<FreeBoard> free = dao3.listFreeBoard();
+		List<FreeBoard> free = dao3.MlistFreeBoard();
 		request.setAttribute("free", free);
 		
 		//이벤트게시판 불러오기
 		EventDAO dao4=new EventDAO();
-		List<Event> listIng = dao4.selectIng();
+		List<Event> listIng = dao4.selectMIng();
 		request.setAttribute("listIng", listIng);
 		
 		//FAQ게시판 불러오기
