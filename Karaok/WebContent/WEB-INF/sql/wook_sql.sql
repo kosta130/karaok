@@ -229,9 +229,9 @@ delete from tb_event where num=154 cascad
      			 ORDER BY row_number() OVER (ORDER BY score DESC, nickname)
      			 
      			 
-   create table tb_rank
+create table tb_rank
 (
-num number(30)  primary key,
+num number(30) constraint rank_num_pk primary key,
 score number(30) not null,
 nickname varchar2(50) references tb_member(nickname) not null
 );
@@ -266,3 +266,36 @@ insert into tb_rank values(11,1002,'오바10')
           )
           where rn between 1 and 6
 	
+          
+          drop table tb_rank;
+create table tb_rank
+(
+num number(30) constraint rank_num_pk  primary key,
+score number(30) not null,
+nickname varchar2(50),
+foreign key(nickname) references tb_member(nickname)
+);
+
+alter table tb_rank score add default 0
+
+alter table tb_rank score add(score number(30),default=0)
+
+select*from tb_rank
+
+select*from tb_member
+
+insert into tb_rank values(seq_rank_num.nextval,0,'드루미드루')
+	insert into tb_rank values(seq_rank_num.nextval(),0,#nickname#)
+
+drop table tb_member cascade constraints;
+create table tb_member
+(
+	id varchar2(50) constraint member_id_pk primary key,
+	pwd varchar2(50) not null,
+	name varchar2(50) not null,
+	nickname varchar2(50) unique not null,
+	birth date not null,
+	tel varchar2(50) not null
+);
+
+insert into tb_member values('admin','admin','관리자','관리자','1980-01-02','010-2312-1234')

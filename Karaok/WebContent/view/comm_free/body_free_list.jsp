@@ -38,7 +38,7 @@ body {background-repeat: no-repeat;
 <form action="./free_write.ok" id="formAction">
 
 </form>
-<h1>자유게시판</h1>
+<h1><span class="glyphicon glyphicon-time" style="color:black">자유게시판</span></h1><hr>
 <br>
 
               <table id="example1" class="table table-bordered table-striped" align="center">

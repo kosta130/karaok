@@ -30,7 +30,9 @@ body {background-repeat: no-repeat;
 
 
  <script type="text/javascript">
+
  jQuery(function($){
+ 	$('textarea').css({'height':'250pt','width':'100%'});
   var faqList = $("#faq_list>li"); //리스트를 변수로 저장
  faqList.attr("class","fold"); //dom이 로딩되면 다 접어서 닫아준다
  function unfoldFaq(){
@@ -117,7 +119,7 @@ body {background-repeat: no-repeat;
          <c:if test="${v.fileName!=null }">
   		<img  src="./img/${v.fileName }"><br>
   		</c:if>
-         ${v.contents }</p>
+         <textarea disabled="disabled" style="border:0;background-color:transparent">${v.contents }</textarea></p>
      </li>
    </c:forEach>
  </ul>
@@ -159,7 +161,7 @@ body {background-repeat: no-repeat;
          <c:if test="${v.fileName!=null }">
   		<img  src="./img/${v.fileName }"><br>
   		</c:if>
-         ${v.contents }</p>
+         <textarea disabled="disabled" style="border:0;background-color:transparent">${v.contents }</textarea></p>
      </li>
      </c:if>
    </c:forEach>
@@ -178,7 +180,7 @@ body {background-repeat: no-repeat;
          <c:if test="${v.fileName!=null }">
   		<img  src="./img/${v.fileName }"><br>
   		</c:if>
-         ${v.contents }</p>
+         <textarea disabled="disabled" style="border:0;background-color:transparent">${v.contents }</textarea></p>
      </li>
      </c:if>
  </c:forEach>
@@ -201,7 +203,7 @@ body {background-repeat: no-repeat;
          <c:if test="${v.fileName!=null }">
   		<img  src="./img/${v.fileName }"><br>
   		</c:if>
-         ${v.contents }</p>
+         <textarea disabled="disabled" style="border:0;background-color:transparent">${v.contents }</textarea></p>
      </li>
      </c:if>
    </c:forEach>
@@ -228,7 +230,7 @@ body {background-repeat: no-repeat;
          <c:if test="${v.fileName!=null }">
   		<img  src="./img/${v.fileName }"><br>
   		</c:if>
-         ${v.contents }</p>
+         <textarea disabled="disabled" style="border:0;background-color:transparent">${v.contents }</textarea></p>
      </li>
      </c:if>
    </c:forEach>

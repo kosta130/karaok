@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd" >
 <sqlMap namespace="rank">
+ 	
+ 	<insert id="insertRank" parameterClass="String">
+ 		insert into tb_rank values (seq_rank_num.nextval,0,#nickname#)
+ 	</insert>
+ 	
  	<select id="selectAll"  parameterClass="java.util.Map" resultClass="com.karaok.rank.dto.Rank">
  select * from(
        select A.*,rownum rn
@@ -19,6 +24,8 @@
 	     select num,score,nickname from tb_rank natural join tb_member
          where nickname like '%'||#keyword#||'%'
 	</select>
+	
+	
 	
 	<select id="selectPage" parameterClass="java.util.Map" resultClass="com.karaok.rank.dto.Rank">
 		<![CDATA[SELECT *
