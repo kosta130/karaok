@@ -78,7 +78,7 @@
               </c:forEach>
               <small><small><a href="note.ok?action=list">더보기</a></small></small></h2>
 			<table class="table table-bordered">
-                <tr>
+                <tr style="">
                   <th style="width: 50px">번호</th>
                   <th>제목</th>
                   <th>작성자</th>

@@ -26,7 +26,6 @@ public class ReplyAction extends Action{
 		
 		String action = request.getParameter("action");
 		ScreenDAO dao=new ScreenDAO();
-		System.out.println(nickname);
 		if(action.equals("insertReply")){
 			num=Integer.parseInt(request.getParameter("num"));
 			String contents = request.getParameter("contents");

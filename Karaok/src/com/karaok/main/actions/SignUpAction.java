@@ -10,6 +10,7 @@ import org.apache.struts.action.ActionMapping;
 
 import com.karaok.main.dao.MemberDAO;
 import com.karaok.main.dto.MemberDTO;
+import com.karaok.rank.dao.RankDAO;
 
 public class SignUpAction extends Action{
 	@Override
@@ -42,6 +43,14 @@ public class SignUpAction extends Action{
 		}else{//입력값 완비
 			MemberDTO dto = new MemberDTO(id, pwd, name, nickname, birth, tel);
 			if(new MemberDAO().insertUser(dto).equals("success")){
+
+			
+					System.out.println(nickname);
+					RankDAO dao=new RankDAO();
+					if(dao.insertRank(nickname))
+						System.out.println("랭킹테이블등록 성공");
+					else
+						System.out.println("랭킹테이블등록 실패");
 				state=1;
 				msg="회원가입성공";
 				request.setAttribute("state", state);
