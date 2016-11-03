@@ -21,12 +21,12 @@ public class ReplyAction extends Action{
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		String nickname=(String) request.getSession().getAttribute("currentNickname");
-		request.getSession().getAttribute("currentNickName");
+		
+		String nickname = (String)request.getSession().getAttribute("currentNickName");
 		
 		String action = request.getParameter("action");
 		ScreenDAO dao=new ScreenDAO();
-		
+		System.out.println(nickname);
 		if(action.equals("insertReply")){
 			num=Integer.parseInt(request.getParameter("num"));
 			String contents = request.getParameter("contents");

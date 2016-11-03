@@ -252,4 +252,17 @@ insert into tb_rank values(11,1002,'오바10')
 			     select num,score,nickname from tb_rank natural join tb_member
          where nickname like '오바'
 	
+         
+         select*From tb_qna
+         
+         
+         
+         
+          select * from(
+       select A.*,rownum rn
+          from(
+             select *from tb_faq order by num desc
+             )A
+          )
+          where rn between 1 and 6
 	
