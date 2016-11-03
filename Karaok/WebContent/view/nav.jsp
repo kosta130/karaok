@@ -109,6 +109,30 @@
 			});
 		});
 		
+		$(document).on("click","#gamestart",function(){
+			//현재 로그인 상태 프로세스 호출
+			$.ajax({
+				type:"POST",
+				url:"loginState.ok",
+				success:function(response){
+					alert(response.msg);
+					if(response.state==0){
+						return;
+					}else if(response.state==2){
+						//jQuery 새창 열기
+						window.open("mainChat.ok?action=joinGame");
+					}
+				},
+				dataType:"json",
+				error: function(error,status,xhr) {
+		               alert('error : '+error
+		                     +'\nstatus : '+status
+		                     +'\nxhr : '+xhr.statusText);
+		        }
+			});
+		});
+		
+		
 	});
 </script>
 <nav class="navbar navbar-default">
@@ -121,7 +145,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="main.ok">Keyboard Warrior</a>
+      <a class="navbar-brand" href="main.ok" style="vertical-align:middle"><img src="/Karaok/img/logo.png" width="120px" height="30px"></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->

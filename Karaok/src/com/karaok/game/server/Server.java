@@ -47,4 +47,8 @@ public class Server extends Thread {// 소켓서비스준비, 클라이언트 접속 대기!
 		}
 	}//run
 
+	public static void main(String[] args) {
+		new Server();
+		System.out.println("게임서버 실행...");
+	}
 }

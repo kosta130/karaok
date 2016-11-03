@@ -61,6 +61,7 @@ public class Service extends Thread {// 소켓을 통한 입출력 서비스!!
 			     // '|'를 기준으로 문자열 분리 ===> 문자열배열
 			  
 			  int protocol = Integer.parseInt(dataArr[0]);// "100" ---> 100
+			  System.out.println("from Client : "+protocol);
 		   switch(protocol){
 		      case 100://대기실입장, 대화명전달
 		    	   nickName = dataArr[1];//String nickName="길동";

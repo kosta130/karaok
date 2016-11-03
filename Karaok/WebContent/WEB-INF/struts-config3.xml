@@ -50,6 +50,12 @@
 		<forward name="success" path="/view/loginSucceed.jsp"/>
 	</action>
 	
+	<action path="/mainChat"
+			type="com.karaok.game.client.MainChatAction">
+		<forward name="success" path="/view/game/mainChat.jsp"/>
+	</action>
+			
+	
 	
 	</action-mappings>
 	<!-- 사용자 정의 컨트롤러 등록 -->
