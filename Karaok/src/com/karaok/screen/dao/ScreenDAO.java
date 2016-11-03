@@ -134,5 +134,17 @@ public class ScreenDAO {
 			
 			return list;
 		}
+
+		public boolean deleteReply(int num) {
+			try {
+				int t = smc.delete("screen.deleteReply", num);
+				if (t == 1)
+					System.out.println(t);
+					return true;
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			return false;
+		} 
 		
 }

@@ -72,6 +72,7 @@ public class FreeBoardAction extends Action {
 			
 		}else if(action.equals("delete")){// 글삭제 요청 action="delete"
 			int num = Integer.parseInt(request.getParameter("num"));
+			dao.deleteReply(num);
 			dao.deleteFreeBoard(num);
 		}
 		return forward;

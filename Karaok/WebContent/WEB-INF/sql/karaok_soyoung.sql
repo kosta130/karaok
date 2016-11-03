@@ -161,7 +161,39 @@ nocache;
 
 --[∞Ì∞¥ºæ≈Õ]
 --QnA
+create table tb_qna
+(
+num number(20) constraint qna_num_pk primary key,
+nickname varchar2(50),
+subject varchar2(100),
+contents varchar2(1000),
+ndate date,
+hits number(20),
+constraint tb_qna_fk_nickname foreign key(nickname) references tb_member(nickname)
+);
+create sequence seq_qna_num
+increment by 1
+start with 1
+nocycle
+nocache;
+<!-- qna ¥Ò±€ ≈◊¿Ã∫Ì  -->
+create table qna_reply(
+	qnaNum number(20) constraint qna_replyNum_pk primary key,
+	num number(20),
+	nickname varchar2(50),
+	edate Date,
+	contents varchar2(1000),
+	constraint tb_Rqna_fk_nickname foreign key(num) references tb_qna(num)
+)
 
+select*from qna_reply
+
+drop sequence seq_Rqna_num;
+create sequence seq_Rqna_num
+increment by 1
+start with 1
+nocycle
+nocache;
 --FAQ
 
 select *from tb_event

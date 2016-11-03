@@ -22,9 +22,6 @@ public class ScreenAction extends Action {
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		
-		String id=(String)request.getSession().getAttribute("currentId");
-		String nickname=(String)request.getSession().getAttribute("currentNickName");
-		System.out.println(nickname);
 
 		ScreenDAO dao = new ScreenDAO();
 		String action = request.getParameter("action");
@@ -59,7 +56,6 @@ public class ScreenAction extends Action {
 			forward = mapping.findForward("sc_view");
 			
 		}else if(action.equals("edit")){// 글수정폼 요청 
-			
 		
 			int num = Integer.parseInt(request.getParameter("num"));
 			Screen dto = dao.selectScreen(num);
@@ -85,6 +81,7 @@ public class ScreenAction extends Action {
 			
 		}else if(action.equals("delete")){// 글삭제 요청 action="delete"
 			int num = Integer.parseInt(request.getParameter("num"));
+			dao.deleteReply(num);
 			dao.deleteScreen(num);
 		
 		}	

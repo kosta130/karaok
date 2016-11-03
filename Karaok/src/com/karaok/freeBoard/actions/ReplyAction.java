@@ -20,9 +20,7 @@ public class ReplyAction extends Action {
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		
-		
 	
-		
 		String action = request.getParameter("action");
 		FreeBoardDAO dao=new FreeBoardDAO();
 		

@@ -62,5 +62,9 @@ select * from (select * from tb_free order by num desc) where rownum between 1 a
    select freeNum ,num ,nickname, ndate ,contents from free_reply where num=#num#
   </select>
   
+  <delete id="deleteReply" parameterClass="int">
+	delete from free_reply
+	where num=#num#
+  </delete>
   
 </sqlMap>
