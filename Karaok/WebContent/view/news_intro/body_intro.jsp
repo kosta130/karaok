@@ -10,7 +10,7 @@ body {background-repeat: no-repeat;
 	<div class="container">
 		<div class="row row-offcanvas row-offcanvas-center">
 			<div class="row">
-<div class="box-body">
+<div class="box-body" align="center">
 <br><br>
 
 <img src="./img/K-001.jpg" width="696" height="399"><br>
