@@ -75,6 +75,7 @@ $(document).ready(function(){
                 </tr>
                </table>
                		 <!-------------------------  댓글등록부분--------------------------------->
+            <c:if test="${currentNickName=='관리자' }">
             <div class="box-footer">
               <div class="input-group">
                 <input class="form-control" placeholder="댓글을 입력하세요.." id="reply">
@@ -82,7 +83,7 @@ $(document).ready(function(){
                 <div class="input-group-btn">
                   <button type="button" class="btn btn-success" id="replySubmit" onclick="check()">댓글등록</button>
                 </div>
-  
+  			</c:if>
                 
                <!-------------------------  댓글생성부분 --------------------------------->
               </div>
