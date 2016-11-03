@@ -10,6 +10,7 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
+import com.karaok.main.dto.MemberDTO;
 import com.karaok.qna.dao.QnaDAO;
 import com.karaok.qna.dto.ReplyDTO;
 
@@ -20,10 +21,9 @@ public class ReplyAction extends Action{
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		String nickname=request.getParameter("currentNickName");
-		System.out.println(nickname);
-		//String nickname = (String) request.getSession().getAttribute("currentNickname");
-		request.getSession().getAttribute("currentNickName");
+
+		String nickname = (String)request.getSession().getAttribute("currentNickName");
+		
 		
 		String action = request.getParameter("action");
 		QnaDAO dao = new QnaDAO();
@@ -39,6 +39,8 @@ public class ReplyAction extends Action{
 			
 			List<ReplyDTO> list = dao.ListReply(num);
 			request.setAttribute("list", list);
+			
+			dao.addReplyCount(num);
 			
 			return mapping.findForward("reply");
 			

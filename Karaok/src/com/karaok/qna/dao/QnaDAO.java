@@ -60,10 +60,10 @@ public class QnaDAO {
 		return dto;
 	}
 
-	public List<QnaDTO> selectAll() {
+	public List<QnaDTO> selectAll(String nickname) {
 		List<QnaDTO> list = null;
 		try {
-			list = smc.queryForList("qna.selectAll");
+			list = smc.queryForList("qna.selectAll",nickname);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -143,5 +143,28 @@ public class QnaDAO {
 		
 		return false;
 	}
+	
+	public boolean addReplyCount(int num){//리플카운트 증가
+		try {
+			smc.update("qna.addReplyCount",num);
+			return true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	public List<QnaDTO> selectAdminAll(){
+		List<QnaDTO> list=null;
+		try {
+			list = smc.queryForList("qna.selectAdminAll");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
 
 }

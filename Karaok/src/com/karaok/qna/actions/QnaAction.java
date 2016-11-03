@@ -24,46 +24,73 @@ public class QnaAction extends Action {
 		
 		request.getSession().getAttribute("currentId");
 		String nickname = (String)request.getSession().getAttribute("currentNickName");
-		System.out.println(nickname);
+	
 
 		QnaDAO dao = new QnaDAO();
-
 		action = request.getParameter("action");
         System.out.println("Qna action: "+ action);
+        
+        
+        
 		ActionForward forward = mapping.findForward("qlist");
-		List<QnaDTO> list = dao.selectAll();
+		List<QnaDTO> list;
 		if(action==null || action.equals("qlist")){ 
-				 
-			list = dao.selectAll(); 
-			request.getSession().setAttribute("qlist", list); 
-			forward = mapping.findForward("qlist"); 
+			
+			if(nickname.equals("관리자")){//관리자 아이디로 로그인했다면  모든 문의내역 보이기
+				
+				list = dao.selectAdminAll(); 
+				request.setAttribute("qlist", list);
+				//페이지 정보 얻어오기 
+				String pageStr = request.getParameter("page"); 
+						           
+				int page=1;//기본페이지를 1페이지로 하겠다!! 
+					    	   
+				int viewRowCnt=10;//한 페이지에 보여줄 행(레코드)의 수 
+				if(pageStr != null){ 
+					  page = Integer.parseInt(pageStr); 
+				} 
+				
+				int end=page*viewRowCnt; 
+				int start=end-(viewRowCnt-1); 
+				int totalRecord=dao.selectCount(); 
+				System.out.println("totalRecord: "+ totalRecord); 
+				int totalPage = totalRecord/viewRowCnt; 
+				if(totalRecord%viewRowCnt >0) 
+				totalPage++; 
+				request.getSession().removeAttribute("qlist"); 
+				request.getSession().removeAttribute("page"); 
+				request.getSession().removeAttribute("totalPage"); 
+				list = dao.selectPage(start,end);//dao.selectAll(); 			   
+				request.getSession().setAttribute("qlist", list);//4. 영역에 데이터 저장 
+				request.getSession().setAttribute("page", page);//현재페이지 
+				request.getSession().setAttribute("totalPage", totalPage);//전체페이지 
+
+
+			}else{
+			
+			list=dao.selectAll(nickname);
+			request.setAttribute("qlist", list);
 			//페이지 정보 얻어오기 
-			String pageStr = request.getParameter("page"); 
-					           
+			String pageStr = request.getParameter("page");
 			int page=1;//기본페이지를 1페이지로 하겠다!! 
-				    	   
 			int viewRowCnt=10;//한 페이지에 보여줄 행(레코드)의 수 
 			if(pageStr != null){ 
 				  page = Integer.parseInt(pageStr); 
 			} 
-			
 			int end=page*viewRowCnt; 
 			int start=end-(viewRowCnt-1); 
 			int totalRecord=dao.selectCount(); 
-			System.out.println("totalRecord: "+ totalRecord); 
 			int totalPage = totalRecord/viewRowCnt; 
 			if(totalRecord%viewRowCnt >0) 
 			totalPage++; 
 			request.getSession().removeAttribute("qlist"); 
 			request.getSession().removeAttribute("page"); 
 			request.getSession().removeAttribute("totalPage"); 
-			list = dao.selectPage(start,end);//dao.selectAll(); 			   
-			request.getSession().setAttribute("qlist", list);//4. 영역에 데이터 저장 
+			list = dao.selectPage(start,end);//dao.selectAll(); 	에 데이터 저장 
 			request.getSession().setAttribute("page", page);//현재페이지 
 			request.getSession().setAttribute("totalPage", totalPage);//전체페이지 
 			 //영역에 데이터 저장하는 이유? 뷰와 공유하기 위해서!!    	   
-			return forward=mapping.findForward("qlist"); 
-		    
+			}
 		} else if (action.equals("insert")) {
 
 			nickname = request.getParameter("nickname");
@@ -76,6 +103,7 @@ public class QnaAction extends Action {
 			dto.setSubject(subject);
 			dto.setContents(contents);
 			dto.setHits(hits);
+			dto.setReply_count(0);
 
 			if (dao.insert(dto)) {
 				System.out.println("디비입력성공");
@@ -83,7 +111,7 @@ public class QnaAction extends Action {
 				System.out.println("디비입력실패");
 			}
 
-			request.getSession().setAttribute("qlist", list);
+			
 			forward = mapping.findForward("insert");
 
 		} else if (action.equals("edit")) {
@@ -107,14 +135,14 @@ public class QnaAction extends Action {
 			dto.setHits(hits);;
 
 			if (dao.update(dto)) {
-				request.getSession().setAttribute("qlist", dao.selectAll());
+				request.getSession().setAttribute("qlist", dao.selectAll(nickname));
 				forward = mapping.findForward("update");
 			}
 		} else if (action.equals("delete")) {
 			int num = Integer.parseInt(request.getParameter("num"));
 			dao.deleteReply(num);
 			dao.delete(num);
-			request.getSession().setAttribute("qlist", dao.selectAll());
+			request.getSession().setAttribute("qlist", dao.selectAll(nickname));
 			forward = mapping.findForward("delete");
 			
 			

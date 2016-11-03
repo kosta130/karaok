@@ -4,7 +4,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <script type="text/javascript">
 $(document).ready(function(){
-	$('#replySubmit').click(function(){
+	$('#replySubmit').click(function(){	
 		$.ajax({
 			url:'./qnaReply.ok?action=insertReply&num=${dto.num}',
 			data:{contents:$('#reply').val()},
@@ -38,8 +38,10 @@ $(document).ready(function(){
       <div class="row row-offcanvas row-offcanvas-center">
          <div class="row">
          <div class="box-body">
+            <h1>1:1문의내역</h1>
+            <hr>
             <div align="center">
-               <h3>1대1 질문 현황</h3>
+              
                <hr>
                  
                <table cellpadding="5" class="table table-bordered table-striped">
@@ -67,7 +69,7 @@ $(document).ready(function(){
                   
                      <button type="button" class="btn btn-primary" onclick="update('up', '${currentNickName}')">수정</button>
                      <button  type="button" class="btn btn-primary" onclick="update('del', '${currentNickName}')">삭제</button>
-               		 <button type="reset" class="btn btn-primary" onclick="location.href='qlist.ok'">목록</button>        
+               		 <button type="reset" class="btn btn-primary" onclick="location.href='./qna.ok?action=qlist'">목록</button>        
                      
                   </td>
                 </tr>
@@ -78,7 +80,7 @@ $(document).ready(function(){
                 <input class="form-control" placeholder="댓글을 입력하세요.." id="reply">
 		
                 <div class="input-group-btn">
-                  <button type="button" class="btn btn-success" id="replySubmit">댓글등록</button>
+                  <button type="button" class="btn btn-success" id="replySubmit" onclick="check()">댓글등록</button>
                 </div>
   
                 

@@ -1,16 +1,5 @@
 select * from tb_qna;
 
-drop table tb_qna;
-create table tb_qna
-(
-num number(20) constraint qna_num_pk primary key,
-nickname varchar2(50),
-subject varchar2(100),
-contents varchar2(1000),
-ndate date,
-hits number(20),
-constraint tb_qna_fk_nickname foreign key(nickname) references tb_member(nickname)
-);
 
 alter table tb_qna add constraint tb_qna_fk_nickname foreign key(nickname) references tb_member(nickname)
 on delete cascade
@@ -51,8 +40,28 @@ insert into tb_qna values (seq_qna_num.nextval, '오바사키', '이것이 궁금하당께13
 delete from tb_qna where nickname='오바사키';
 
 delete from qna_reply;
-drop table qna_reply
+
+
+
+
+
+
+<!--qna테이블 --!>
+drop table tb_qna cascade constraints;
+create table tb_qna
+(
+num number(20) constraint qna_num_pk primary key,
+nickname varchar2(50),
+subject varchar2(100),
+contents varchar2(1000),
+ndate date,
+hits number(20),
+reply_count number(20),
+constraint tb_qna_fk_nickname foreign key(nickname) references tb_member(nickname)
+);
+
 <!-- qna 댓글 테이블  -->
+drop table qna_reply
 create table qna_reply(
 	qnaNum number(20) constraint qna_replyNum_pk primary key,
 	num number(20),

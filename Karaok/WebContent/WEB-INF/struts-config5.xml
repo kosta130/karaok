@@ -59,17 +59,16 @@
 	  <action path="/qna4"
 	  			forward="/view/customer_QnA/qna_show.jsp"/>
 	  
-	  <action path="/qlist"
-	          forward="/view/customer_QnA/qna_list.jsp"></action>
+	
 	    		
 	  <action path="/qna" 
 	  				type="com.karaok.qna.actions.QnaAction">
-				<forward name="qlist" path="/qlist.ok" redirect="true"/>
+				<forward name="qlist" path="/view/customer_QnA/qna_list.jsp"/>
 				<forward name="edit" path="/qna2.ok"/>
 				<forward name="select" path="/qna4.ok"></forward>
-				<forward name="insert" path="/qna.ok?action=qlist"></forward>
-				<forward name="update" path="/qna.ok?action=qlist"></forward>
-				<forward name="delete" path="/qna.ok?action=qlist"></forward>
+				<forward name="insert" path="/qna.ok?action=qlist" redirect="true"></forward>
+				<forward name="update" path="/qna.ok?action=qlist" redirect="true"></forward>
+				<forward name="delete" path="/qna.ok?action=qlist" redirect="true"></forward>
 			
 	   </action>
 	   

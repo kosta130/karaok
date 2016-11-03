@@ -266,7 +266,7 @@
                <ul class="todo-list">
                 <li>
                   <span class="text">찾으시는 답변이 없을 경우에는 1:1문의를 이용해 주세요.</span>
-               		<button class="btn btn-danger">1:1문의하기</button>
+               		<button class="btn btn-danger" onclick="location.href='./qna3.ok'">1:1문의하기</button>
                 </li>
               </ul>
 

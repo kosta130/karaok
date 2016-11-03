@@ -160,7 +160,7 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">고객센터<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="qna.ok?action=qlist">QnA</a></li>
+            <li><a href="qna.ok?action=qlist">1:1문의</a></li>
             <li class="divider"></li>
             <li><a href="faq_list.ok?page=1">FAQ</a></li>
           </ul>

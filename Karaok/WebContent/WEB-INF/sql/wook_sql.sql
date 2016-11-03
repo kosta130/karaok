@@ -172,3 +172,55 @@ select*from tb_qna
 select*from qna_reply
 select * from tb_event 
 delete from tb_event where num=154 cascad
+
+
+	select num, nickname, subject, contents, ndate, hits
+	from tb_qna where nickname='오바사키'
+	order by num desc
+
+	
+	
+	select num from tb_qna natural join qna_reply 
+	where num=1
+	
+	
+	select*from tb_qna
+	
+	select*from tb_member
+	insert into tb_member values('admin','admin','관리자','관리자','1981-10-10','010-2341-2345')
+	
+		select num, nickname, subject, contents, ndate, hits,reply_count
+	from tb_qna
+	order by num desc
+	
+	
+	
+	
+	
+	  <!-- 로그인한 아이디가 질문한 내용만 보이기 -->
+  <select id="selectAll" parameterClass="String" resultClass="Qna">
+	select num, nickname, subject, contents, ndate, hits,reply_count
+	from tb_qna where nickname='드루미드루미'
+	order by num desc
+  </select>
+  
+  <!-- 관리자 아이디로 로그인 했을시 모든 사용자가 올린 질문 내용 보이기 -->
+    <select id="selectAdminAll"  resultClass="Qna">
+	select num, nickname, subject, contents, ndate, hits,reply_count
+	from tb_qna
+	order by num desc
+  </select>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

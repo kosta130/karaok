@@ -9,12 +9,17 @@ public class QnaDTO {
 	private String contents;
 	private Date ndate;
 	private int hits;
+	private int reply_count;
 	
 	public QnaDTO() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public QnaDTO(int num, String nickname, String subject, String contents, Date ndate, int hits) {
+
+	
+	
+
+	public QnaDTO(int num, String nickname, String subject, String contents, Date ndate, int hits, int reply_count) {
 		super();
 		this.num = num;
 		this.nickname = nickname;
@@ -22,6 +27,19 @@ public class QnaDTO {
 		this.contents = contents;
 		this.ndate = ndate;
 		this.hits = hits;
+		this.reply_count = reply_count;
+	}
+
+
+
+
+
+	public int getReply_count() {
+		return reply_count;
+	}
+
+	public void setReply_count(int reply_count) {
+		this.reply_count = reply_count;
 	}
 
 	public int getNum() {
