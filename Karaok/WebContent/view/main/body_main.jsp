@@ -149,28 +149,46 @@
               <c:forEach begin="1" end="35">
               &nbsp
               </c:forEach>
-              <small><small><a href="faq_list.ok?page=1">더보기</a></small></small></h2>
+              <small><small><a href="rank.ok?page=1">더보기</a></small></small></h2>
 			<table class="table table-bordered">
                 <tr>
-                  <th style="width: 10px">no</th>
-                  <th>제목</th>
-                  <th>작성자</th>
-                  <th>조회수</th>
+                  <th width="20%">계급</th>
+                  <th width="30%">닉네임</th>
+                  <th width="20%">점수</th>
                 </tr>
-            <c:forEach items="${xx }" var="x" begin="1" end="5">
+            <c:forEach items="${rank }" var="r">
                 <tr>
-                  <td>${x.num }</td>
-                  <td>${x.subject}</td>
-               	  <td>작성일</td>
-                  <td><span class="badge bg-red">55%</span></td>
+                
+                  <c:choose>
+            			<c:when test="${r.score>1000 }">
+            			<td align="left"> <img src="./img/c.JPG" width="180"> </td>
+            			</c:when>
+            			<c:when test="${r.score>800 }">
+            			<td align="left"> <img src="./img/d.JPG" width="180"> </td>
+            			</c:when>
+            			<c:when test="${r.score>600 }">
+            			<td align="left"> <img src="./img/p.JPG" width="180"> </td>
+            			</c:when>
+            			<c:when test="${r.score>400 }">
+            			<td align="left"> <img src="./img/g.JPG" width="180"> </td>
+            			</c:when>
+            			<c:when test="${r.score>200 }">
+            			<td align="left"> <img src="./img/s.JPG" width="180"> </td>
+            			</c:when>
+            			<c:otherwise>
+            			<td align="left"> <img src="./img/b.JPG" width="180"> </td>
+            			</c:otherwise>
+            			</c:choose>
+                  <td>${r.nickname}</td>
+               	  <td>${r.score }</td>
                 </tr>
               </c:forEach>
               </table>	
             </div><!--/.col-xs-6.col-lg-4-->
             
 <div class="col-xs-5 col-lg-6">
-              <h2><span class="glyphicon glyphicon-question-sign" style="color:black">FAQ</span>
-              <c:forEach begin="1" end="36">
+              <h2><span class="glyphicon glyphicon-question-sign" style="color:black">1:1문의내역</span>
+              <c:forEach begin="1" end="27">
               &nbsp
               </c:forEach>
               <small><small><a href="faq_list.ok?page=1">더보기</a></small></small></h2>
@@ -179,14 +197,25 @@
                   <th style="width: 10px">no</th>
                   <th>제목</th>
                   <th>작성자</th>
+                  <th>진행현황</th>
                   <th>조회수</th>
                 </tr>
-            <c:forEach items="${xxx }" var="x1" begin="1" end="5">
+            <c:forEach items="${qna }" var="q" >
                 <tr>
-                  <td>${x1.num }</td>
-                  <td>${x1.subject}</td>
-               	  <td>작성일</td>
-                  <td><span class="badge bg-red">55%</span></td>
+                  <td>${q.num }</td>
+                  <td>${q.subject}</td>
+               	  <td>${q.nickname }</td>
+               	 <td>
+               	          <c:choose>
+         <c:when test="${q.reply_count>0 }">
+         <span class="label label-primary">답변완료</span>
+         </c:when>
+         <c:otherwise>
+          <span class="label label-default">답변대기</span>
+         </c:otherwise>
+         </c:choose>
+               	 </td>
+                  <td><span class="badge bg-red">조회수</span></td>
                 </tr>
               </c:forEach>
               </table>	

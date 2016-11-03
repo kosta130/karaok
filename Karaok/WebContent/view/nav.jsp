@@ -151,7 +151,7 @@
           <ul class="dropdown-menu" role="menu">
             <li><a href="free_list.ok">자유게시판</a></li>
             <li class="divider"></li>
-            <li><a href="rank.ok">랭킹게시판</a></li>
+            <li><a href="rank.ok?page=1">랭킹게시판</a></li>
             <li class="divider"></li>
             <li><a href="screen_list.ok">스 크 린 샷</a></li>
           </ul>

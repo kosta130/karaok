@@ -130,9 +130,7 @@ create table tb_rank
 (
 num number(30)  primary key,
 score number(30) not null,
-nickname varchar2(50) references tb_member(nickname) not null,
-ndate date,
-rank number(30)
+nickname varchar2(50) references tb_member(nickname) not null
 );
 
 drop sequence seq_rank_num;
@@ -142,7 +140,9 @@ start with 1
 nocycle
 nocache;
 
-insert into tb_rank values(4, 20, '오1', sysdate,0);
+insert into tb_rank values(1,20,'드루미드루미',1)
+
+insert into tb_rank values(4, 20, '드루미드루미', sysdate,0);
 insert into tb_rank values(1, 30, '오2', sysdate,0);
 insert into tb_rank values(2, 40, '오3', sysdate,0);
 insert into tb_rank values(3, 50, '오1', sysdate,0);

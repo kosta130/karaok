@@ -1,18 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd" >
 <sqlMap namespace="rank">
- 	<select id="selectAll" parameterClass="java.util.Map" resultClass="com.karaok.rank.dto.Rank">
-		<![CDATA[SELECT *
- 		FROM (
-   			 SELECT RANK() OVER(ORDER BY SCORE DESC)rank, nickname, SCORE
-     		FROM (SELECT tb_rank.*
-           		, row_number() OVER (PARTITION BY nickname ORDER BY score DESC, ndate) rn
-         		FROM tb_rank
-        		)
-     			WHERE rn = 1
-     			 ORDER BY row_number() OVER (ORDER BY score DESC, ndate, nickname)
-    			)]]>
+ 	<select id="selectAll"  parameterClass="java.util.Map" resultClass="com.karaok.rank.dto.Rank">
+ select * from(
+       select A.*,rownum rn
+          from(
+             select *from tb_rank order by score desc
+             )A
+          )
+          where rn between #start# and #end#
 	</select>
+	
+	<select id="selectMAll" resultClass="com.karaok.rank.dto.Rank">
+	select * from (select * from tb_rank order by score desc) where rownum between 1 and 5
+	</select>
+	
+	<select id="selectRank" parameterClass="String" resultClass="com.karaok.rank.dto.Rank">
+	     select num,score,nickname from tb_rank natural join tb_member
+         where nickname like '%'||#keyword#||'%'
+	</select>
+	
 	<select id="selectPage" parameterClass="java.util.Map" resultClass="com.karaok.rank.dto.Rank">
 		<![CDATA[SELECT *
  		FROM (

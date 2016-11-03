@@ -10,6 +10,8 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
+import com.karaok.faq.dao.FaqDAO;
+import com.karaok.faq.dto.Faq;
 import com.karaok.rank.dao.RankDAO;
 import com.karaok.rank.dto.Rank;
 
@@ -19,48 +21,33 @@ public class RankAction  extends Action{
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		
-		String keyword = request.getParameter("keyword");
+		
+		String keyword=request.getParameter("keyword");			
+	
 		RankDAO dao = new RankDAO();
-		List<Rank> list =dao.selectAll();
-		if(keyword==null) {
-		
-		request.getSession().setAttribute("list", list);
-		String pageStr = request.getParameter("page");
-		
-		int page=1;
-		int viewRowCnt=10;
-		
-		if(pageStr != null) {
-			page = Integer.parseInt(pageStr);
+		List<Rank> list;
+		if(keyword==null){
+			int page=Integer.parseInt(request.getParameter("page"));//파리미터로 전달된 page얻어오기
+			int viewCnt=10;//한 페이지에 보여줄 행 수
+			int end=page*viewCnt; //1페이지라면 10, 2페이지라면 20
+			int start=end-(viewCnt-1); //1페이지라면 1 2페이지라면 11
+			int count=dao.selectCount();//총 게시물 수	
+			int pageCount=Math.floorDiv(count, 10)+1;//총 페이지 수 
+			
+			
+			list =dao.selectAll(start,end);
+			request.setAttribute("page", page);//현재 페이지
+			request.setAttribute("pageCount", pageCount);
+			request.setAttribute("count", count);
+			request.setAttribute("list", list);
+			
+		}else{///검색
+			list = dao.selectRank(keyword);
+			request.setAttribute("list", list);
 		}
+		
 
-		int end = page*viewRowCnt;
-		int start=end-(viewRowCnt-1);
-		int totalRecord=dao.selectCount();
-		int totalPage = totalRecord/viewRowCnt;
 		
-		if(totalRecord%viewRowCnt > 0) {
-			totalPage++;
-		}
-		request.getSession().removeAttribute("list"); 
-		request.getSession().removeAttribute("page"); 
-		request.getSession().removeAttribute("totalPage"); 
-		
-		list = dao.selectPage(start,end);//dao.selectAll(); 			   
-		
-		request.getSession().setAttribute("list", list);
-		request.getSession().setAttribute("page", page);
-		request.getSession().setAttribute("totalPage", totalPage);
-		} else {
-			int viewRowCnt=10;
-			int totalRecord=dao.selectCount();
-			int totalPage = totalRecord/viewRowCnt;
-			list = dao.selectSearch(keyword);
-			request.getSession().removeAttribute("totalPage"); 
-			request.getSession().removeAttribute("list"); 
-			request.getSession().setAttribute("list", list);
-			request.getSession().setAttribute("totalPage", totalPage);
-		}
 		return mapping.findForward("success");
 	}
 

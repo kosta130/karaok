@@ -69,6 +69,15 @@ public class QnaDAO {
 		}
 		return list;
 	}
+	public List<QnaDTO> selectMAll(String nickname) {
+		List<QnaDTO> list = null;
+		try {
+			list = smc.queryForList("qna.selectMAll",nickname);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
 
 	public int selectCount() {
 		int cnt = 0;

@@ -34,6 +34,12 @@ insert into tb_qna
 	order by num desc
   </select>
   
+  <!-- 메인페이지 질문한 내용 보이기 -->
+  <select id="selectMAll" parameterClass="String" resultClass="Qna">
+  select * from (select * from tb_qna order by num desc) where rownum between 1 and 5 and nickname=#nickname#
+  
+  </select>
+  
   <!-- 관리자 아이디로 로그인 했을시 모든 사용자가 올린 질문 내용 보이기 -->
     <select id="selectAdminAll"  resultClass="Qna">
 	select num, nickname, subject, contents, ndate, hits,reply_count

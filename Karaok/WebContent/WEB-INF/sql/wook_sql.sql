@@ -212,15 +212,44 @@ delete from tb_event where num=154 cascad
   </select>
 	
 	
+	select * from (select * from tb_qna order by num desc) where rownum between 1 and 5 and nickname='드루미드루미'
 	
 	
 	
 	
 	
+	SELECT *
+ 		FROM (
+   			 SELECT RANK() OVER(ORDER BY SCORE DESC)rank, nickname, SCORE
+     		FROM (SELECT tb_rank.*
+           		, row_number() OVER (PARTITION BY nickname ORDER BY score DESC) rn
+         		FROM tb_rank
+        		)
+     			WHERE rn = 1
+     			 ORDER BY row_number() OVER (ORDER BY score DESC, nickname)
+     			 
+     			 
+   create table tb_rank
+(
+num number(30)  primary key,
+score number(30) not null,
+nickname varchar2(50) references tb_member(nickname) not null
+);
+
+select*from tb_member
+insert into tb_member values('k10','1234','홍길동','오바10','2020-01-03','010-1234-1234')
+
+
+insert into tb_rank values(11,1002,'오바10')
 	
+	select num,score,nickname from tb_rank
 	
+			select num,score,nickname from tb_rank 
+		order by score desc
 	
-	
-	
+		
+		
+			     select num,score,nickname from tb_rank natural join tb_member
+         where nickname like '오바'
 	
 	
