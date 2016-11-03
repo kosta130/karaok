@@ -5,7 +5,7 @@
 			<div class="row">
 			<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 			<script type="text/javascript">
-				$(function(){
+			$(function(){
 					var subject = $("#subject");
 					var cont = $("#cont");
 					
@@ -36,7 +36,7 @@
                 <div class="form-group">
                   <input type="hidden" name="num" value="${num }">
                   <label for="exampleNote1">제목</label>
-                  <input type="text" class="form-control" id="subject" placeholder="제목" value="${subject }" name="subject">
+                  <input type="text" class="form-control" id="subject" placeholder="제목" name="subject">
                 </div>
                 <div class="form-group">
                   <label for="exampleNote1">작성자</label>
@@ -44,7 +44,7 @@
                 </div>
                 <div class="form-group" >
                   <label>Textarea</label>
-                  <textarea  style="height: 300px;" id="cont" class="form-control" rows="3" placeholder="3글자 이상 입력하여 주십시오..." name="contents"> ${contents } </textarea>
+                  <textarea  style="height: 300px;" id="cont" class="form-control" rows="3" placeholder="3글자 이상 입력하여 주십시오..." name="contents"></textarea>
                 </div>
                 
               </div>

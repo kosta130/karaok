@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript">
+
+	$(function(){
+		$('textarea').css({'height':'250pt','width':'100%'});
+	});
 	function update(up, currentNickName) {
 		
 		if(up=='del' && currentNickName=='관리자'){
@@ -42,7 +47,7 @@
                    <th>${dto.ndate }</th>
                 </tr>
                 <tr>
-                   <td colspan="2" height="250pt">${dto.contents }</td>
+                   <td colspan="2" height="250pt"><textarea disabled="disabled" style="border:0;background-color:transparent">${dto.contents }</textarea></td>
                 </tr>
                <tr>
                   <td colspan="2" align="center">

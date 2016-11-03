@@ -61,7 +61,7 @@ function update(up,currentNickName) {
                 </div>
                 <div class="form-group" >
                   <label>Textarea</label>
-                  <textarea  style="height: 300px;" class="form-control" rows="3" placeholder="Enter ..." name="contents" readonly="readonly">${dto.contents }</textarea>
+                  <textarea  style="height: 300px;border:0;background-color:transparent" class="form-control" rows="3" placeholder="Enter ..." name="contents" disabled="disabled">${dto.contents }</textarea>
               <div class="box-footer" align="center">
                 
                 <button type="button" class="btn btn-primary" onclick="update('up','${currentNickName}')" >수정</button>

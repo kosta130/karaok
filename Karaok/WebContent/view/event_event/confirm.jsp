@@ -14,6 +14,7 @@
 <script type="text/javascript">
 
 $(document).ready(function(){
+	$('textarea').css({'height':'250pt','width':'100%'});
 	$('#replySubmit').click(function(){
 		if($('#reply').val()==''){
 			alert('댓글 내용을 입력하세요');
@@ -74,7 +75,7 @@ function check(){
 				</c:if>
 				
 				<c:if test="${dto !=null }">
-				<p>${dto.contents }</p>
+				<p><textarea disabled="disabled" style="border:0;background-color:transparent">${dto.contents }</textarea></p>
 				<hr>
 				</c:if>
 				이전글:

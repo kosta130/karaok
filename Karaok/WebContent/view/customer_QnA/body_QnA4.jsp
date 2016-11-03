@@ -3,7 +3,9 @@
 <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <script type="text/javascript">
+
 $(document).ready(function(){
+	$('textarea').css({'height':'250pt','width':'100%'});
 	$('#replySubmit').click(function(){	
 		$.ajax({
 			url:'./qnaReply.ok?action=insertReply&num=${dto.num}',
@@ -62,7 +64,7 @@ $(document).ready(function(){
                    <th>${dto.ndate }</th>
                 </tr>
                 <tr>
-                   <td colspan="2" height="250pt">${dto.contents }</td>
+                   <td colspan="2" height="250pt"><textarea disabled="disabled" style="border:0;background-color:transparent">${dto.contents }</textarea></td>
                 </tr>
                <tr>
                   <td colspan="2" align="center">
