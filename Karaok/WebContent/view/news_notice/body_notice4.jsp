@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <style type="text/css">
+	body {background-repeat: no-repeat;
+	      background-attachment: fixed;
+	      background-position: right bottom;
+	      background-color: beige;
+	}
+	</style>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript">
 

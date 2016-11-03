@@ -30,7 +30,9 @@ body {background-repeat: no-repeat;
 
 
  <script type="text/javascript">
+
  jQuery(function($){
+ 	$('textarea').css({'height':'250pt','width':'100%'});
   var faqList = $("#faq_list>li"); //리스트를 변수로 저장
  faqList.attr("class","fold"); //dom이 로딩되면 다 접어서 닫아준다
  function unfoldFaq(){
@@ -42,13 +44,24 @@ body {background-repeat: no-repeat;
   }
   }
   faqList.find(">h4>a").click(unfoldFaq);
+  
+  
  });
  
  function search(){
 	var keyword=$('input[name=keyword]').val();
-	alert(keyword);
-	location.href=""
+	if(keyword==''){
+		alert('검색할 단어를 입력해주세요.');
+		return false;
+	}
+	location.href="./faq_list.ok?keyword="+keyword;
  }
+ 
+ function previous(){
+	 location.href="./faq_list.ok?page=1";
+ }
+ 
+ 
  
  
  </script>
@@ -64,14 +77,16 @@ body {background-repeat: no-repeat;
 <h1><span class="glyphicon glyphicon-question-sign" style="color: blue"></span>  자주묻는 질문</h1><hr>
 <div align="center" >
          <div class="box box-solid" style="width: 500px;">
+         
             <div class="box-header with-border" >
               <h3 class="box-title">FAQ검색<small>캐치마인드</small></h3>
             </div>
+            
             <div class="box-body" >
               <!-- /btn-group -->
               <div class="input-group">
                 <input id="new-event" name="keyword" type="text" class="form-control" placeholder="검색하세요">
-
+                
                 <div class="input-group-btn">
                   <button id="add-new-event" type="button" class="btn btn-primary btn-flat" onclick="search()">찾기</button>
                 </div>
@@ -89,8 +104,7 @@ body {background-repeat: no-repeat;
 		<li><a href="#tab_4" data-toggle="tab">그래픽카드</a></li>
 		<li><a href="#tab_5" data-toggle="tab">서버,패치,렉</a></li>
 
-		<li class="pull-right"><a href="#" class="text-muted"><i
-				class="fa fa-gear"></i></a></li>
+		<li class="pull-right"><h4><font color="blue">${page}페이지/${pageCount}페이지</font></h4></li>
 	</ul>
 	<br>
 	<div class="tab-content">
@@ -98,14 +112,14 @@ body {background-repeat: no-repeat;
 			<!-------- tab1 자리 --------->
 			
 <ul id="faq_list" >
-<c:forEach items="${list }" var="v">
+<c:forEach items="${list}" var="v">
   <li>
       <h4><a href="#a1">${v.subject }</a></h4>
          <p>
          <c:if test="${v.fileName!=null }">
   		<img  src="./img/${v.fileName }"><br>
   		</c:if>
-         ${v.contents }</p>
+         <textarea disabled="disabled" style="border:0;background-color:transparent">${v.contents }</textarea></p>
      </li>
    </c:forEach>
  </ul>
@@ -147,7 +161,7 @@ body {background-repeat: no-repeat;
          <c:if test="${v.fileName!=null }">
   		<img  src="./img/${v.fileName }"><br>
   		</c:if>
-         ${v.contents }</p>
+         <textarea disabled="disabled" style="border:0;background-color:transparent">${v.contents }</textarea></p>
      </li>
      </c:if>
    </c:forEach>
@@ -166,7 +180,7 @@ body {background-repeat: no-repeat;
          <c:if test="${v.fileName!=null }">
   		<img  src="./img/${v.fileName }"><br>
   		</c:if>
-         ${v.contents }</p>
+         <textarea disabled="disabled" style="border:0;background-color:transparent">${v.contents }</textarea></p>
      </li>
      </c:if>
  </c:forEach>
@@ -189,7 +203,7 @@ body {background-repeat: no-repeat;
          <c:if test="${v.fileName!=null }">
   		<img  src="./img/${v.fileName }"><br>
   		</c:if>
-         ${v.contents }</p>
+         <textarea disabled="disabled" style="border:0;background-color:transparent">${v.contents }</textarea></p>
      </li>
      </c:if>
    </c:forEach>
@@ -216,7 +230,7 @@ body {background-repeat: no-repeat;
          <c:if test="${v.fileName!=null }">
   		<img  src="./img/${v.fileName }"><br>
   		</c:if>
-         ${v.contents }</p>
+         <textarea disabled="disabled" style="border:0;background-color:transparent">${v.contents }</textarea></p>
      </li>
      </c:if>
    </c:forEach>
@@ -224,10 +238,45 @@ body {background-repeat: no-repeat;
 		</div>
 	</div>
 </div>
+<div align="center">
+<nav>
+  <ul class="pagination pagination-lg">
+    <li>
+      <a href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+	
+    <li>
+    	<c:forEach  begin="1"  end="${pageCount }" var="i">
+    	<a href="faq_list.ok?page=${i}">${i }</a>
+    	</c:forEach>
+    </li>
+    
 
-<form action="./faq_create.ok">
-	<h3 align="center"><input class="btn btn-warning" type="submit" value="글등록"></h3>
+    
+    <li>
+      <a href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+</div>
+<form action="./faq_create.ok"  >
+	<div align="right">
+	<input class="btn btn-info" type="button" value="처음으로" onclick="previous()">
+	<input class="btn btn-warning" type="submit" value="글등록">
+	</div>
 </form>
+
+               <ul class="todo-list">
+                <li>
+                  <span class="text">찾으시는 답변이 없을 경우에는 1:1문의를 이용해 주세요.</span>
+               		<button class="btn btn-danger" onclick="location.href='./qna3.ok'">1:1문의하기</button>
+                </li>
+              </ul>
 
 
 
