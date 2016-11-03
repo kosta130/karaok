@@ -2,6 +2,13 @@
     pageEncoding="UTF-8"%>
 <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<style type="text/css">
+body {background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: right bottom;
+      background-color: beige;
+}
+</style>
 <script type="text/javascript">
 
 $(document).ready(function(){
