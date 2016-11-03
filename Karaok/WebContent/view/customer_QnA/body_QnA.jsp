@@ -4,7 +4,13 @@
 	<div class="container">
 		<div class="row row-offcanvas row-offcanvas-center">
 			<div class="row">
-		
+<style type="text/css">
+body {background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: right bottom;
+      background-color: beige;
+}
+</style>	
 <h1>1:1문의하기
 	<c:forEach begin="1" end="61">
 	&nbsp

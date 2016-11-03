@@ -5,7 +5,13 @@
 
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-
+<style type="text/css">
+body {background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: right bottom;
+      background-color: beige;
+}
+</style>
 <!-- Custom Tabs -->
 <h1><span class="glyphicon glyphicon-exclamation-sign" style="color: red"></span>&nbsp이벤트</h1><hr>
 <div class="nav-tabs-custom">

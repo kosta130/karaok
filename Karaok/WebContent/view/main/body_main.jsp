@@ -16,6 +16,14 @@
  #faq_list li.unfold h4 a {font-weight:bold}
  #faq_list li.fold p {display:none}
  </style>
+ 
+<style type="text/css">
+body {background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: right bottom;
+      background-color: beige;
+}
+</style>
 
 
  <script type="text/javascript">
@@ -36,8 +44,8 @@
 
  </script>
 
- 
-	<div class="container">
+
+	<div class="container"> 
 		<div class="row row-offcanvas row-offcanvas-center">
 			<div class="row">
 			
@@ -51,7 +59,7 @@
               
               
 			<table class="table table-bordered">
-                <tr>
+                <tr style="background-color: #1DDB16;">
                   <th style="width: 50px">번호</th>
                   <th>제목</th>
                   <th>작성자</th>
@@ -78,7 +86,7 @@
               </c:forEach>
               <small><small><a href="note.ok?action=list">더보기</a></small></small></h2>
 			<table class="table table-bordered">
-                <tr>
+                <tr style="background-color: #FFE400;">
                   <th style="width: 50px">번호</th>
                   <th>제목</th>
                   <th>작성자</th>
@@ -103,7 +111,7 @@
               </c:forEach>
               <small><small><a href="free_list.ok">더보기</a></small></small></h2>
 			<table class="table table-bordered">
-                <tr>
+                <tr style="background-color: #FF4848;">
                   <th style="width: 10px">no</th>
                   <th>제목</th>
                   <th>작성자</th>
@@ -132,7 +140,7 @@
               </c:forEach>
               <small><small><a href="qna.ok?page=1" id="qna">더보기</a></small></small></h2>
 			<table class="table table-bordered">
-                <tr>
+                <tr style="background-color: #2478FF;">
                   <th style="width: 10px">no</th>
                   <th>제목</th>
                   <th>작성자</th>
@@ -185,7 +193,7 @@
               </c:forEach>
               <small><small><a href="rank.ok?page=1">더보기</a></small></small></h2>
 			<table class="table table-bordered">
-                <tr>
+                <tr style="background-color: #FF00DD;">
                   <th width="20%">계급</th>
                   <th width="30%">닉네임</th>
                   <th width="20%">점수</th>
@@ -325,3 +333,4 @@
           </div><!--/row-->
 		</div>
 	</div>
+	
