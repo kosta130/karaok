@@ -82,7 +82,7 @@ body {background-repeat: no-repeat;
             </div>
             <!-- /.box-body -->
             <form action="./qna3.ok" id="formAction">
-             <div class="box-footer" align="center">
+             <div class="box-footer" align="center"  style="background:#000000;background:rgba(0,0,0,0);">
              
                 
   <br> 
