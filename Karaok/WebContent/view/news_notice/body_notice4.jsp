@@ -3,11 +3,11 @@
 <script type="text/javascript">
 	function update(up, currentNickName) {
 		
-		if(up=='del' && currentNickName=='오바사키'){
+		if(up=='del' && currentNickName=='관리자'){
 			if (confirm('정말삭제?')){
 				location.href = 'notice.ok?action=delete&num=${dto.num }';
 			}
-		}else if(up=='up' && currentNickName=='오바사키'){
+		}else if(up=='up' && currentNickName=='관리자'){
 			document.view.submit();
 		}else{
 			alert('권한이 없습니다.');
@@ -48,7 +48,7 @@
                   <td colspan="2" align="center">
                   
                      <button type="button" class="btn btn-primary" onclick="update('up','${currentNickName}')">수정</button>
-                     <button  type="button" class="btn btn-primary" onclick="update('del','${currentNickName}')">삭제</button>
+                     <button type="button" class="btn btn-primary" onclick="update('del','${currentNickName}')">삭제</button>
                		 <button type="reset" class="btn btn-primary" onclick="location.href='list.ok'">목록</button>        
                      
                   </td>

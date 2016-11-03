@@ -4,7 +4,7 @@
 <script src="http://code.jquery.com/jquery-1.12.0.js"></script>
 <script type="text/javascript">
 	function sessionCheck(currentNickName){
-		if(currentNickName=='오바사키'){
+		if(currentNickName=='관리자'){
 			document.getElementById('formAction').submit();
 		}else{
 			alert('글쓰기 권한이 없습니다.');

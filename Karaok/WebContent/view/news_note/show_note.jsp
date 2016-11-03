@@ -1,13 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <script type="text/javascript">
-	function update(up) {
-		if(up=='del'){
+	function update(up, currentNickName) {
+		
+		if(up=='del' && currentNickName=='관리자'){
 			if (confirm('정말삭제?')){
-				location.href = 'note.ok?action=delete&num=${note.num }';
+				location.href = 'note.ok?action=delete&num=${dto.num }';
 			}
+		}else if(up=='up' && currentNickName=='관리자'){
+			document.upform.submit();
 		}else{
-			document.view.submit();
+			alert('권한이 없습니다.');
 		}
 	}
 </script>
@@ -42,9 +45,10 @@
             	 </tr>
 		         <tr>
 		         	<td colspan="2" align="center">
-                     <input type="submit" value="수정"">         
-                     <input type="button" value="삭제" onclick="update('del')">
-                     <input type="reset" value="목록" onclick="location.href='note_list.ok'">
+                     <button type="button" class="btn btn-primary" onclick="update('up','${currentNickName}')">수정</button>
+                     <button type="button" class="btn btn-primary" onclick="update('del','${currentNickName}')">삭제</button>
+                     <button type="reset" class="btn btn-primary" onclick="location.href='note_list.ok'">목록</button> 
+                     
 		         	</td>
 		       	</tr>
             	</table>
