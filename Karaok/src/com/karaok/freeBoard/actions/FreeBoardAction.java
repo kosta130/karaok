@@ -59,6 +59,7 @@ public class FreeBoardAction extends Action {
 			List<ReplyDTO> list1 = dao.ListReply(num); //댓글 받아오기
 			request.setAttribute("list1", list1);
 			
+			
 			forward = mapping.findForward("view");
 			
 		}else if(action.equals("select")){//글화면 관련

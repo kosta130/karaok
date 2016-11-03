@@ -26,12 +26,24 @@ $('#replySubmit').click(function(){
 	
 });
 });
-function del() {
-		confirm('정말삭제?')
+function update(up,currentNickName) {
+	if(currentNickName==''){
+		alert('권한이 없습니다.');
+		
+	}else if(up=='del' && currentNickName=='${dto.nickname}'){
+		if(confirm('정말삭제?')){
 		location.href = 'screen.ok?action=delete&num=${dto.num }';
+		}
+	}else if(up=='up' && currentNickName=='${dto.nickname}'){
+		document.sc_view.submit();
+	
+	}else{
+		alert('권한이 없습니다.');
+	}
+	
 }
 </script>
-<form role="form"  action="screen.ok?action=edit&num=${dto.num }" method="post" name="sc_view" enctype="multipart/form-data"> 
+<form role="form"  action="screen.ok?action=edit&num=${dto.num }" method="post" enctype="multipart/form-data" name="sc_view"> 
 <h1>스크린샷 글화면</h1>
 <hr>
      <div class="box-body">
@@ -51,8 +63,8 @@ function del() {
                 </div>
                 
                 <div class="form-group">
-                  <label for="exampleInputEmail1">조회수</label>
-                  <input type="text" class="form-control" name="seek" placeholder="조회수" value=${dto.seek } readonly="readonly">
+                  <label for="exampleInputEmail1"></label>
+                  <input type="hidden" class="form-control" name="seek" placeholder="조회수" value=${dto.seek } readonly="readonly">
                 </div>
                 
                 <div class="form-group" >
@@ -63,8 +75,8 @@ function del() {
               <div class="box-footer" align="center">
                 
               
-                <button type="submit" class="btn btn-primary" >수정</button>
-                <button type="button" class="btn btn-primary" onclick="del()" >삭제</button>
+                <button type="button" class="btn btn-primary" onclick="update('up','${currentNickName}')">수정</button>
+                <button type="button" class="btn btn-primary" onclick="update('del','${currentNickName}')" >삭제</button>
                 <button type="reset" class="btn btn-primary" onclick="location.href='screen_list.ok'">목록</button>
               </div>
              

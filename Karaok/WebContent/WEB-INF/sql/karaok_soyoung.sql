@@ -131,6 +131,8 @@ fileName varchar2(50),
 constraint tb_screen_fk_nickname foreign key(nickname) references tb_member(nickname)
 );
 
+delete from tb_screen where subject='gyuj'
+
 select * from tb_screen
 
 delete from tb_screen where num between 79 and 86;

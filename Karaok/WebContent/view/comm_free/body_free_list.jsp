@@ -1,8 +1,18 @@
-
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<script src="http://code.jquery.com/jquery-1.12.0.js"></script>
+<script type="text/javascript">
+	function sessionCheck(currentNickName){
+		if(currentNickName==''){
+			alert('권한이 없습니다.');
+			return;
+		}else{
+			document.getElementById('formAction').submit();
+		}
+	}
+</script>
 
 <style>
 
@@ -18,13 +28,15 @@
 		<div class="row row-offcanvas row-offcanvas-center">
 			<div class="row">
 <div class="box-body">
+<form action="./free_write.ok" id="formAction">
 <div align="right">
-<button type="button" class="btn btn-primary" onclick="location.href='free_write.ok'" >글쓰기</button>
+<input type="button" value="글쓰기"  onclick="sessionCheck('${currentNickName}')">
+<%-- <button type="button" class="btn btn-primary" onclick="sessionCheck('${currentNickName}')">글쓰기</button> --%>
 </div>
+</form>
+<h1>자유게시판</h1>
 <br>
-<%
-	//request.getSession().setAttribute("currentNickname", "오바사키");
-%>
+
               <table id="example1" class="table table-bordered table-striped" align="center">
                 <thead>
                 <tr>

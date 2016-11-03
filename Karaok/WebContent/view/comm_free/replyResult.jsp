@@ -7,7 +7,7 @@
 <c:forEach items="${list}" var="v">
                <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> ${v.ndate}</small>
                     <b>${v.nickname }</b> <br>
-           		
+           			
              		${v.contents }
              		<hr>
 </c:forEach>
