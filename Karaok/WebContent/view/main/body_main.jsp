@@ -229,7 +229,8 @@ body {background-repeat: no-repeat;
             </div><!--/.col-xs-6.col-lg-4-->
             
             <div class="col-xs-5 col-lg-6">
-           <h2><span class="glyphicon glyphicon-question-sign" style="color:black">자주묻는질문</span>
+           <h2>
+           <div style="background-color: #CB6CFF"><span class="glyphicon glyphicon-question-sign" style="color:black">자주묻는질문</span></div>
               <c:forEach begin="1" end="26">
               &nbsp
               </c:forEach>
@@ -252,7 +253,7 @@ body {background-repeat: no-repeat;
             
             <div class="col-xs-20 col-lg-12">
               
-              <h2><span class="glyphicon glyphicon-exclamation-sign" style="color:black">이벤트</span></h2>     
+              <h2><div style="background-color: #00C6ED"><span class="glyphicon glyphicon-exclamation-sign" style="color:black" >이벤트</span></h2></div>     
              <hr>
 <c:forEach items="${listIng }" var="ing" >
 				<div class="container">
@@ -289,7 +290,7 @@ body {background-repeat: no-repeat;
             
             <div class="col-xs-20 col-lg-12">
               
-              <h2><span class="glyphicon glyphicon-exclamation-sign" style="color:black">스크린샷</span></h2>     
+              <h2><div style="background-color: #FFFF5A"><span class="glyphicon glyphicon-exclamation-sign" style="color:black">스크린샷</span></h2></div>     
              <hr>
 			<c:forEach items="${screen }" var="s">
 				<div class="container">
