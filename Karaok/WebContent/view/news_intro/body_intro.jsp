@@ -13,8 +13,8 @@ body {background-repeat: no-repeat;
 <div class="box-body" align="center">
 <br><br>
 
-<img src="./img/K-001.jpg" width="696" height="399"><br>
-<img src="./img/K-002.jpg" width="696" height="520">
+<img src="./img/K-001.jpg" width="100%" height="650"><br>
+<img src="./img/K-002.jpg" width="100%" height="820">
 
               
           </div>
