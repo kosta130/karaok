@@ -1,7 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<style type="text/css">
+body {background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: right bottom;
+      background-color: beige;
+}
+</style>
 
 
 
@@ -24,7 +30,9 @@
 
 
  <script type="text/javascript">
+
  jQuery(function($){
+ 	$('textarea').css({'height':'250pt','width':'100%'});
   var faqList = $("#faq_list>li"); //리스트를 변수로 저장
  faqList.attr("class","fold"); //dom이 로딩되면 다 접어서 닫아준다
  function unfoldFaq(){
@@ -111,7 +119,7 @@
          <c:if test="${v.fileName!=null }">
   		<img  src="./img/${v.fileName }"><br>
   		</c:if>
-         ${v.contents }</p>
+         <textarea disabled="disabled" style="border:0;background-color:transparent">${v.contents }</textarea></p>
      </li>
    </c:forEach>
  </ul>
@@ -153,7 +161,7 @@
          <c:if test="${v.fileName!=null }">
   		<img  src="./img/${v.fileName }"><br>
   		</c:if>
-         ${v.contents }</p>
+         <textarea disabled="disabled" style="border:0;background-color:transparent">${v.contents }</textarea></p>
      </li>
      </c:if>
    </c:forEach>
@@ -172,7 +180,7 @@
          <c:if test="${v.fileName!=null }">
   		<img  src="./img/${v.fileName }"><br>
   		</c:if>
-         ${v.contents }</p>
+         <textarea disabled="disabled" style="border:0;background-color:transparent">${v.contents }</textarea></p>
      </li>
      </c:if>
  </c:forEach>
@@ -195,7 +203,7 @@
          <c:if test="${v.fileName!=null }">
   		<img  src="./img/${v.fileName }"><br>
   		</c:if>
-         ${v.contents }</p>
+         <textarea disabled="disabled" style="border:0;background-color:transparent">${v.contents }</textarea></p>
      </li>
      </c:if>
    </c:forEach>
@@ -222,7 +230,7 @@
          <c:if test="${v.fileName!=null }">
   		<img  src="./img/${v.fileName }"><br>
   		</c:if>
-         ${v.contents }</p>
+         <textarea disabled="disabled" style="border:0;background-color:transparent">${v.contents }</textarea></p>
      </li>
      </c:if>
    </c:forEach>

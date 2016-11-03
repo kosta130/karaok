@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<style type="text/css">
+body {background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: right bottom;
+      background-color: beige;
+}
+</style>
 	<div class="container">
 		<div class="row row-offcanvas row-offcanvas-center">
 			<div class="row">
@@ -51,7 +58,7 @@
               </div>
               <!-- /.box-body -->
 
-              <div class="box-footer" align="center">
+              <div class="box-footer" align="center" style="background:#000000;background:rgba(0,0,0,0);">
                 <button type="submit" class="btn btn-primary">수정</button>
                 <button type="reset" class="btn btn-primary" onclick="location.href='note_list.ok'">취소</button>
               </div>

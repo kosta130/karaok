@@ -3,6 +3,13 @@
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <script src="http://code.jquery.com/jquery-1.12.0.js"></script>
+<style type="text/css">
+body {background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: right bottom;
+      background-color: beige;
+}
+</style>
 <script type="text/javascript">
 	function sessionCheck(currentNickName){
 		if(currentNickName==''){
@@ -29,12 +36,9 @@
 			<div class="row">
 <div class="box-body">
 <form action="./free_write.ok" id="formAction">
-<div align="right">
-<input type="button" value="글쓰기"  onclick="sessionCheck('${currentNickName}')">
-<%-- <button type="button" class="btn btn-primary" onclick="sessionCheck('${currentNickName}')">글쓰기</button> --%>
-</div>
+
 </form>
-<h1>자유게시판</h1>
+<h1><span class="glyphicon glyphicon-time" style="color:black">자유게시판</span></h1><hr>
 <br>
 
               <table id="example1" class="table table-bordered table-striped" align="center">
@@ -61,20 +65,23 @@
                 </tfoot>
               </table>
             <br> 
+            <div align="right">
+				<input type="button" value="글쓰기"  onclick="sessionCheck('${currentNickName}')">
+				<%-- <button type="button" class="btn btn-primary" onclick="sessionCheck('${currentNickName}')">글쓰기</button> --%>
+			</div>
          	<center>
 			<c:if test="${page == 1}">이전</c:if> 
 			<c:if test="${page > 1}"> 
 			<a href="free_list.ok?page=${ page-1 }">이전</a>       
 			</c:if> 
+			 <c:forEach begin="1" end="${totalPage }" var="i"> 
+			[<a href="free_list.ok?page=${i }">${i }</a>] 
+			</c:forEach> 
 			         
 			<c:if test="${page == totalPage }">다음</c:if> 
 			<c:if test="${page < totalPage }"> 
 			 <a href="free_list.ok?page=${ page+1 }">다음</a>       
 			</c:if> 
-			<br><br> 
-			 <c:forEach begin="1" end="${totalPage }" var="i"> 
-			[<a href="free_list.ok?page=${i }">${i }</a>] 
-			</c:forEach> 
 			</center>
             <!-- /.box-body -->
           </div>

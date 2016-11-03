@@ -3,6 +3,13 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<style type="text/css">
+body {background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: right bottom;
+      background-color: beige;
+}
+</style>
 <script type="text/javascript">
 function sessionCheck(currentNickName){
 	if(currentNickName==''){

@@ -19,6 +19,17 @@ public class RankDAO {
 		smc = SqlMapConfig.getSqlMapInstance();
 	}
 	
+	public boolean insertRank(String nickname){
+		try {
+			smc.insert("rank.insertRank",nickname);
+			return true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
 	public List<Rank> selectAll(int start, int end){
 		List<Rank> list = null;
 		Map<String, Object> map=new HashMap<>();

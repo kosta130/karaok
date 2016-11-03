@@ -4,6 +4,13 @@
 	<div class="container">
 		<div class="row row-offcanvas row-offcanvas-center">
 			<div class="row">
+			<style type="text/css">
+			body {background-repeat: no-repeat;
+			      background-attachment: fixed;
+			      background-position: right bottom;
+			      background-color: beige;
+			}
+			</style>
 <script type="text/javascript">
 $(document).ready(function(){
 		var repl=$("#reply");
@@ -61,7 +68,7 @@ function update(up,currentNickName) {
                 </div>
                 <div class="form-group" >
                   <label>Textarea</label>
-                  <textarea  style="height: 300px;" class="form-control" rows="3" placeholder="Enter ..." name="contents" readonly="readonly">${dto.contents }</textarea>
+                  <textarea  style="height: 300px;border:0;background-color:transparent" class="form-control" rows="3" placeholder="Enter ..." name="contents" disabled="disabled">${dto.contents }</textarea>
               <div class="box-footer" align="center">
                 
                 <button type="button" class="btn btn-primary" onclick="update('up','${currentNickName}')" >수정</button>
@@ -90,6 +97,7 @@ function update(up,currentNickName) {
 			</c:forEach>
         
             </form>
+
           </div>
           </div><!--/row-->
 		</div>

@@ -5,7 +5,13 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 
 <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
-      
+<style type="text/css">
+body {background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: right bottom;
+      background-color: beige;
+}
+</style>    
 <script type="text/javascript">
  function search(){
 	var keyword=$('input[name=keyword]').val();
