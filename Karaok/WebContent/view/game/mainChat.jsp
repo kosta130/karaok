@@ -9,6 +9,10 @@
 <%-- <jsp:include page="../header.jsp" flush="true"/> --%>
 <script src="http://code.jquery.com/jquery-1.12.0.js"></script>
 <script type="text/javascript">
+	$(document).ready(function(){
+		alert("정기점검 시간입니다. 현재 게임 이용이 불가합니다. 11:00~23:00")
+	});
+	
 	$(document).on("click","#bt_create",function(){
 		var room_title = prompt('방제목을 입력하세요');
 		alert(room_title);
