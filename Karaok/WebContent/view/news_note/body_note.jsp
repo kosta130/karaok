@@ -39,11 +39,11 @@ body {background-repeat: no-repeat;
             	<table id="example2" class="table table-bordered table-striped">
             	 <thread>
             	 <tr>
-            	 	<th style="background-color: #FFFF5A" width="10%" class="title"><font color="white">번호</font></th>
-            	 	<th style="background-color: #FFFF5A" width="50%" class="title"><font color="white">제목</font></th>
-            	 	<th style="background-color: #FFFF5A" width="15%" class="title"><font color="white">작성자</font></th>
-            	 	<th style="background-color: #FFFF5A" width="15%" class="title"><font color="white">작성일</font></th>
-            	 	<th style="background-color: #FFFF5A" width="10%" class="title"><font color="white">조회수</font></th>
+            	 	<th style="background-color: #FF5E00" width="10%" class="title"><font color="white">번호</font></th>
+            	 	<th style="background-color: #FF5E00" width="50%" class="title"><font color="white">제목</font></th>
+            	 	<th style="background-color: #FF5E00" width="15%" class="title"><font color="white">작성자</font></th>
+            	 	<th style="background-color: #FF5E00" width="15%" class="title"><font color="white">작성일</font></th>
+            	 	<th style="background-color: #FF5E00" width="10%" class="title"><font color="white">조회수</font></th>
             	 	
             	 </tr>
             	 </thread>

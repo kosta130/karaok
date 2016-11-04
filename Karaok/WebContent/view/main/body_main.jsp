@@ -86,7 +86,7 @@ body {background-repeat: no-repeat;
               </c:forEach>
               <small><small><a href="note.ok?action=list">더보기</a></small></small></h2>
 			<table class="table table-bordered">
-                <tr style="background-color: #FFE400;">
+                <tr style="background-color: #FF5E00">
                   <th style="width: 50px">번호</th>
                   <th>제목</th>
                   <th>작성자</th>
@@ -140,7 +140,7 @@ body {background-repeat: no-repeat;
               </c:forEach>
               <small><small><a href="qna.ok?page=1" id="qna">더보기</a></small></small></h2>
 			<table class="table table-bordered">
-                <tr style="background-color: #2478FF;">
+                <tr style="background-color: #4374D9;">
                   <th style="width: 10px">no</th>
                   <th>제목</th>
                   <th>작성자</th>
@@ -290,7 +290,7 @@ body {background-repeat: no-repeat;
             
             <div class="col-xs-20 col-lg-12">
               
-              <h2><div style="background-color: #FFFF5A"><span class="glyphicon glyphicon-exclamation-sign" style="color:black">스크린샷</span></h2></div>     
+              <h2><div style="background-color: #FFE400;"><span class="glyphicon glyphicon-exclamation-sign" style="color:black">스크린샷</span></h2></div>     
              <hr>
 			<c:forEach items="${screen }" var="s">
 				<div class="container">

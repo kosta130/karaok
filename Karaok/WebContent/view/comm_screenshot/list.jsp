@@ -21,9 +21,9 @@ function sessionCheck(currentNickName){
 }
 </script>
 
-<div class="nav-tabs-custom">
+<div class="nav-tabs-custom" style="background-color: beige">
 	<ul class="nav nav-tabs">
-<form action="./screen_create.ok" id="formAction">
+<form action="./screen_create.ok" id="formAction" style="background-color: beige">
 <div align="right" style="background-color: beige">
 <input class="btn btn-primary" type="button" value="글쓰기"  onclick="sessionCheck('${currentNickName}')">
 </div>
@@ -34,7 +34,7 @@ function sessionCheck(currentNickName){
 
 			<c:forEach items="${list }" var="dto">
 				<div class="container" style="background-color: beige">
-					<div class="row" style="outline-color: blue;">
+					<div class="row" style="outline-color: blue; background-color: beige" >
 								
 						<div i class="col-lg-7 col-md-7" style="background-color: beige">
 						<a href="screen.ok?action=view&num=${dto.num }">
