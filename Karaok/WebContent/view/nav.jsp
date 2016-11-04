@@ -70,6 +70,12 @@
 						$('#usernickname').show();
 						$('#login_id').hide();
 						$('#login_pwd').hide();
+						
+						/* alert($(location).attr('href'));
+						if($(location).attr('href')=='http://localhost/Karaok/main.ok'){ */
+						$('#qnaSmall').remove();
+						$('#qnaPreview').append('<small id="qnaSmall"><small><a href="qna.ok?page=1" id="qna">더보기</a></small></small></h2>');
+						/* } */
 					}
 				},
 				dataType : "json",
@@ -96,7 +102,7 @@
 				success:function(response){
 					alert(response.msg);
 					$('#QnA').hide();
-					$('#QnAMother').prepend('<li id="QnA"><a href="#" onclick="alert("로그인이 필요합니다.")">1:1문의</a></li>');
+					$('#QnAMother').prepend('<li id="QnA"><a href="" onclick="alert("로그인이 필요합니다.")">1:1문의</a></li>');
 					
 					$('#loginFormDiv').prepend("<button type='button' class='btn btn-default' id='signup' data-target='#layerpop' data-toggle='modal'>회원가입</button>");	
 					$('#loginFormDiv').prepend("<button type='button' class='btn btn-default' id='login'>로그인</button>");
@@ -105,6 +111,12 @@
 						
 					$('#logout').hide();
 					$('#usernickname').hide();
+					
+					/* alert($(location).attr('href'));
+					if($(location).attr('href')=='http://localhost/Karaok/main.ok'){ */
+					$('#qnaSmall').remove();
+					$('#qnaPreview').append('<small id="qnaSmall"><small><a href="" id="qna" onclick="alert("로그인이 필요합니다.")">더보기</a></small></small></h2>');
+					/* } */
 				},
 				dataType : "json",
 	            error: function(error,status,xhr) {
@@ -190,7 +202,7 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="color: #000000"><font face="한컴 소망 B">고객센터</font><span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu" id="QnAMother">
           	<%if(request.getSession().getAttribute("currentId") == null) {%>
-            	<li id="QnA"><a href="#" onclick="alert('로그인이 필요합니다.')">1:1문의</a></li>
+            	<li id="QnA"><a href="" onclick="alert('로그인이 필요합니다.')">1:1문의</a></li>
             <%} else { %>
             	<li id="QnA"><a href="qna.ok?action=qlist">1:1문의</a></li>
             <%} %>

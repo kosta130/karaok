@@ -135,11 +135,15 @@ body {background-repeat: no-repeat;
 
 
 <div class="col-xs-5 col-lg-6">
-              <h2><span class="glyphicon glyphicon-question-sign" style="color:black">1:1문의내역</span>
+              <h2 id="qnaPreview"><span class="glyphicon glyphicon-question-sign" style="color:black">1:1문의내역</span>
               <c:forEach begin="1" end="27">
               &nbsp
               </c:forEach>
-              <small><small><a href="qna.ok?page=1" id="qna">더보기</a></small></small></h2>
+              <%if(request.getSession().getAttribute("currentId") == null) {%>
+            	<small id="qnaSmall"><small><a href="" id="qna"  onclick="alert('로그인이 필요합니다.')">더보기</a></small></small></h2>
+              <%} else { %>
+             	<small id="qnaSmall"><small><a href="qna.ok?page=1" id="qna">더보기</a></small></small></h2>
+              <%} %>
 			<table class="table table-bordered">
                 <tr style="background-color: #4374D9;">
                   <th style="width: 10px">no</th>
