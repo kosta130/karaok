@@ -71,7 +71,7 @@ $(document).ready(function(){
 
               <div class="box-footer" align="center"  style="background:#000000;background:rgba(0,0,0,0);">
                 <button type="submit" class="btn btn-primary" >수정</button>
-                <button type="reset" class="btn btn-primary">취소</button>
+                <button type="reset" class="btn btn-primary" onclick="location.href='list.ok'">취소</button>
               </div>
         
             </form>

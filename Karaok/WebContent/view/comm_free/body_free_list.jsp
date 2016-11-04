@@ -38,17 +38,17 @@ body {background-repeat: no-repeat;
 <form action="./free_write.ok" id="formAction">
 
 </form>
-<h1><span class="glyphicon glyphicon-time" style="color:black">자유게시판</span></h1><hr>
+<h1><span style="color:black"></span></h1><hr>
 <br>
 
               <table id="example1" class="table table-bordered table-striped" align="center">
                 <thead>
                 <tr>
-                  <th style="width: 7%" class="title">글번호</th>
-                  <th style="width: *%" class="title" >제목</th>
-                  <th style="width: 10%" class="title">작성자</th>
-                  <th style="width: 10%" class="title">조회수</th>
-                  <th style="width: 20%" class="title">날짜</th>
+                  <th style="background-color: #FF4848;" style="width: 7%" class="title"><font color="white">글번호</font></th>
+                  <th style="background-color: #FF4848;" style="width: *%" class="title" ><font color="white">제목</font></th>
+                  <th style="background-color: #FF4848;" style="width: 10%" class="title"><font color="white">작성자</font></th>
+                  <th style="background-color: #FF4848;" style="width: 10%" class="title"><font color="white">조회수</font></th>
+                  <th style="background-color: #FF4848;" style="width: 20%" class="title"><font color="white">날짜</font></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -66,7 +66,7 @@ body {background-repeat: no-repeat;
               </table>
             <br> 
             <div align="right">
-				<input type="button" value="글쓰기"  onclick="sessionCheck('${currentNickName}')">
+				<input class="btn btn-primary" type="button" value="글쓰기"  onclick="sessionCheck('${currentNickName}')">
 				<%-- <button type="button" class="btn btn-primary" onclick="sessionCheck('${currentNickName}')">글쓰기</button> --%>
 			</div>
          	<center>

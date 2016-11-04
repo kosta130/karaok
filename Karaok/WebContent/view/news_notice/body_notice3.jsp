@@ -36,15 +36,15 @@ body {background-repeat: no-repeat;
 			<div class="row">
 
 <div class="box-body">
-		<font size="10">공지사항 게시판</font>
+		
               <table id="example1" class="table table-bordered table-striped"align="center">
                 <thead>
                 <tr>
-                  <th style="width: 7%" class="title">글번호</th>
-                  <th style="width: *%" class="title" >제목</th>
-                  <th style="width: 10%" class="title">작성자</th>
-                  <th style="width: 20%" class="title">날짜</th>
-                  <th style="width: 20%" class="title">조회수</th>
+                  <th style= "background-color: #1DDB16;" "width: 7%" class="title" >글번호</th>
+                  <th style= "background-color: #1DDB16;" "width: *%" class="title" >제목</th>
+                  <th style= "background-color: #1DDB16;" "width: 10%" class="title">작성자</th>
+                  <th style= "background-color: #1DDB16;" "width: 20%" class="title">날짜</th>
+                  <th style= "background-color: #1DDB16;" "width: 20%" class="title">조회수</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -63,7 +63,7 @@ body {background-repeat: no-repeat;
             <form action="./notice3.ok" id="formAction">
              <div class="box-footer" align="center"  style="background:#000000;background:rgba(0,0,0,0);">
              <div align="right">
-                <input type="button" value="글쓰기" onclick="sessionCheck('${currentNickName}')">
+                <input class="btn btn-primary" type="button" value="글쓰기" onclick="sessionCheck('${currentNickName}')">
                 </div>
   <br> 
 <c:if test="${page == 1}">이전</c:if> 

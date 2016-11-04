@@ -35,16 +35,15 @@ body {background-repeat: no-repeat;
 			<div class="row">
 			<div class="box-body">
             <div align="center">
-            	<h3>개발자 노트</h3>
             	<hr>
             	<table id="example2" class="table table-bordered table-striped">
             	 <thread>
             	 <tr>
-            	 	<th width="10%" class="title">번호</th>
-            	 	<th width="50%" class="title">제목</th>
-            	 	<th width="15%" class="title">작성자</th>
-            	 	<th width="15%" class="title">작성일</th>
-            	 	<th width="10%" class="title">조회수</th>
+            	 	<th style="background-color: #FFE400;" width="10%" class="title">번호</th>
+            	 	<th style="background-color: #FFE400;" width="50%" class="title">제목</th>
+            	 	<th style="background-color: #FFE400;" width="15%" class="title">작성자</th>
+            	 	<th style="background-color: #FFE400;" width="15%" class="title">작성일</th>
+            	 	<th style="background-color: #FFE400;" width="10%" class="title">조회수</th>
             	 	
             	 </tr>
             	 </thread>

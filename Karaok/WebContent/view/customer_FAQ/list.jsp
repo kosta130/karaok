@@ -73,18 +73,20 @@ body {background-repeat: no-repeat;
 
 
 <!-- Custom Tabs -->
-<div class="nav-tabs-custom">
+<div class="nav-tabs-custom" style="background-color: beige">
+
 <h1><span class="glyphicon glyphicon-question-sign" style="color: blue"></span>  자주묻는 질문</h1><hr>
-<div align="center" >
+<div align="center" style="background-color: beige">
+
          <div class="box box-solid" style="width: 500px;">
          
-            <div class="box-header with-border" >
-              <h3 class="box-title">FAQ검색<small>캐치마인드</small></h3>
+            <div class="box-header with-border" style="background-color: beige">
+              <h3 class="box-title">FAQ검색<small></small></h3>
             </div>
             
-            <div class="box-body" >
+            <div class="box-body" style="background-color: beige">
               <!-- /btn-group -->
-              <div class="input-group">
+              <div class="input-group" style="background-color: beige">
                 <input id="new-event" name="keyword" type="text" class="form-control" placeholder="검색하세요">
                 
                 <div class="input-group-btn">
@@ -108,12 +110,13 @@ body {background-repeat: no-repeat;
 	</ul>
 	<br>
 	<div class="tab-content">
-		<div class="tab-pane active" id="tab_1">
+		<div class="tab-pane active" id="tab_1" style="background:#000000;background:rgba(0,0,0,0);">
 			<!-------- tab1 자리 --------->
 			
-<ul id="faq_list" >
+<div style="background:#000000;background:rgba(0,0,0,0);">
+<ul id="faq_list" style="background:#000000;background:rgba(0,0,0,0);">
 <c:forEach items="${list}" var="v">
-  <li>
+  <li style="background:#000000;background:rgba(0,0,0,0);">
       <h4><a href="#a1">${v.subject }</a></h4>
          <p>
          <c:if test="${v.fileName!=null }">
@@ -123,6 +126,7 @@ body {background-repeat: no-repeat;
      </li>
    </c:forEach>
  </ul>
+ </div>
  <div align="center">
 <!--  <nav>
   <ul class="pagination pagination-lg">
