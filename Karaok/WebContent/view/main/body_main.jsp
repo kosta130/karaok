@@ -232,7 +232,7 @@ body {background-repeat: no-repeat;
             <div class="col-xs-5 col-lg-6">
            <h2>
            <div style="background-color: #CB6CFF"><span class="glyphicon glyphicon-question-sign" style="color:black">자주묻는질문</span></div>
-              <c:forEach begin="1" end="26">
+              <c:forEach begin="1" end="50">
               &nbsp
               </c:forEach>
               <small><small><a href="faq_list.ok?page=1">더보기</a></small></small></h2>

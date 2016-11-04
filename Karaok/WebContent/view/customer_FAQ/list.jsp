@@ -271,7 +271,9 @@ body {background-repeat: no-repeat;
 <form action="./faq_create.ok"  >
 	<div align="right">
 	<input class="btn btn-info" type="button" value="처음으로" onclick="previous()">
+	<c:if test="${currentNickName=='관리자'}">
 	<input class="btn btn-warning" type="submit" value="글등록">
+	</c:if>
 	</div>
 </form>
 
