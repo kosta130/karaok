@@ -140,7 +140,7 @@ body {background-repeat: no-repeat;
               &nbsp
               </c:forEach>
               <%if(request.getSession().getAttribute("currentId") == null) {%>
-            	<small id="qnaSmall"><small><a href="" id="qna"  onclick="alert('로그인이 필요합니다.')">더보기</a></small></small></h2>
+            	<small id="qnaSmall"><small><a href="main.ok" id="qna"  onclick="alert('로그인이 필요합니다.')">더보기</a></small></small></h2>
               <%} else { %>
              	<small id="qnaSmall"><small><a href="qna.ok?page=1" id="qna">더보기</a></small></small></h2>
               <%} %>
