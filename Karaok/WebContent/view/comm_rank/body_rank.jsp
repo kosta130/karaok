@@ -107,6 +107,7 @@ body {background-repeat: no-repeat;
             			<td style="border-collapse: collapse; border:1px #EAEAEA solid;" align="center" ><b>${rank.nickname }</b></td>
             			<td style="border-collapse: collapse; border:1px #EAEAEA solid;" align="center"><b>${rank.score }</b></td>
             		</tr>
+            		
             	</c:forEach>
             	 </tbody>
             	</table>
