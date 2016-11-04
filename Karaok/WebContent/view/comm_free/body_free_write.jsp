@@ -61,7 +61,7 @@ $(document).ready(function(){
               
               <!-- /.box-body -->
 
-              <div class="box-footer" align="center" >
+              <div class="box-footer" align="center" style="background-color: beige">
                 <button type="submit" class="btn btn-primary" >등록</button>
                 <button type="button" class="btn btn-primary" onclick="location.href='free_list.ok'">목록</button>
               </div>

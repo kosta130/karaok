@@ -40,11 +40,11 @@ body {background-repeat: no-repeat;
               <table id="example1" class="table table-bordered table-striped"align="center">
                 <thead>
                 <tr>
-                  <th style= "background-color: #1DDB16;" "width: 7%" class="title" >글번호</th>
-                  <th style= "background-color: #1DDB16;" "width: *%" class="title" >제목</th>
-                  <th style= "background-color: #1DDB16;" "width: 10%" class="title">작성자</th>
-                  <th style= "background-color: #1DDB16;" "width: 20%" class="title">날짜</th>
-                  <th style= "background-color: #1DDB16;" "width: 20%" class="title">조회수</th>
+                  <th style= "background-color: #1DDB16;" "width: 7%" class="title" ><font color="white">글번호</font></th>
+                  <th style= "background-color: #1DDB16;" "width: *%" class="title" ><font color="white">제목</font></th>
+                  <th style= "background-color: #1DDB16;" "width: 10%" class="title"><font color="white">작성자</font></th>
+                  <th style= "background-color: #1DDB16;" "width: 20%" class="title"><font color="white">날짜</font></th>
+                  <th style= "background-color: #1DDB16;" "width: 20%" class="title"><font color="white">조회수</font></th>
                 </tr>
                 </thead>
                 <tbody>

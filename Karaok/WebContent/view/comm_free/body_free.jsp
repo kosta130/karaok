@@ -57,7 +57,7 @@ body {background-repeat: no-repeat;
               </div>
               <!-- /.box-body -->
 
-              <div class="box-footer" align="center">
+              <div class="box-footer" align="center" style="background-color: beige">
                 <button  type="button" class="btn btn-primary" onclick="update()">등록</button>
                 <button type="reset" class="btn btn-primary" onclick="history.back()">취소</button>
               </div>

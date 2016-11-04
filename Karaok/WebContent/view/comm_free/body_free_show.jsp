@@ -69,7 +69,7 @@ function update(up,currentNickName) {
                 <div class="form-group" >
                   <label>Textarea</label>
                   <textarea  style="height: 300px;border:0;background-color:transparent" class="form-control" rows="3" placeholder="Enter ..." name="contents" disabled="disabled">${dto.contents }</textarea>
-              <div class="box-footer" align="center">
+              <div class="box-footer" align="center" style="background-color: beige">
                 
                 <button type="button" class="btn btn-primary" onclick="update('up','${currentNickName}')" >수정</button>
                 <button  type="button" class="btn btn-primary" onclick="update('del','${currentNickName}')">삭제</button>
@@ -77,7 +77,7 @@ function update(up,currentNickName) {
               </div>
         <!-------------------------  댓글등록부분--------------------------------->
             <div class="box-footer">
-              <div class="input-group">
+              <div class="input-group" style="background-color: beige">
                 <input class="form-control" placeholder="댓글을 입력하세요.." id="reply">
 
                 <div class="input-group-btn">
