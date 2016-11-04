@@ -5,11 +5,9 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-	
 	  var sub = $("#sub");
 	  var con = $("#con");
 	  var fn=$("#fn");
-	  
     $('button[type=submit]').click(function() {
         if($.trim(sub.val())==""){
             alert("제목을 입력하세요.");
@@ -28,12 +26,8 @@ $(document).ready(function(){
 			return false;
         }
         document.sc_create.action="screen.ok?action=insert";
-       
     })
- 
 });
-
-
 </script>
 	
 	<div class="container">
