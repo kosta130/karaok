@@ -39,10 +39,10 @@ nocycle
 nocache;
 
 --[커뮤니티]
---자유게시판
 drop table tb_free;
 delete from tb_free where num=46;
 delete from tb_free where num between 29 and 44;
+--자유게시판
 create table tb_free
 (
 num number(20) constraint free_num_pk primary key,
@@ -71,13 +71,13 @@ create table free_reply(
 	contents varchar2(1000),
 	constraint tb_Rfree_fk_nickname foreign key(num) references tb_free(num)
 );
-drop sequence seq_Rfree_num;
 create sequence seq_Rfree_num
 increment by 1
 start with 1
 nocycle
 nocache;
 
+drop sequence seq_Rfree_num;
 insert into tb_free values (seq_free_num.nextval,'오1', '안녕', '리턴3조',sysdate);
 insert into tb_free values (seq_free_num.nextval,'오2', '안녕', '리턴3조',sysdate);
 insert into tb_free values (seq_free_num.nextval,'오3', '안녕', '리턴3조',sysdate);
