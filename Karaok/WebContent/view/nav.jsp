@@ -203,6 +203,8 @@
         	<button type="button" class="btn btn-default" id="logout">로그아웃</button>
          <%} %>
         	<button type="button" class="btn btn-default" id="gamestart" style="background-color: #FF3636; color: white">GAME START</button>
+        	
+        	
         </div>
       </form>
     </div><!-- /.navbar-collapse -->
