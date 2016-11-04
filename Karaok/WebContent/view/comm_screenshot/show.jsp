@@ -37,7 +37,7 @@ function update(up,currentNickName) {
 	if(currentNickName==''){
 		alert('권한이 없습니다.');
 		
-	}else if(up=='del' && currentNickName=='${dto.nickname}'){
+	}else if((up=='del' && currentNickName=='${dto.nickname}') || (up=='del' && currentNickName=='관리자')){
 		if(confirm('정말삭제?')){
 		location.href = 'screen.ok?action=delete&num=${dto.num }';
 		}
@@ -79,7 +79,7 @@ function update(up,currentNickName) {
                   <textarea  style="height: 300px;border:0;background-color:transparent" class="form-control" rows="3" placeholder="Enter ..." name="contents" disabled="disabled">${dto.contents }</textarea>
        			</div>
               </div>
-              <div class="box-footer" align="center">
+              <div class="box-footer" align="center" style="background-color: beige">
                 
               
                 <button type="button" class="btn btn-primary" onclick="update('up','${currentNickName}')">수정</button>

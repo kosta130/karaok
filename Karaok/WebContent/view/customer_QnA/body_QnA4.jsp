@@ -30,11 +30,11 @@ $(document).ready(function(){
 	function update(up, currentNickName) {
 		if(currentNickName==''){
 			alert('권한이 없습니다.');
-		}else if(up=='del' && currentNickName=='${dto.nickname}'){
+		}else if((up=='del' && currentNickName=='${dto.nickname}') || (up=='del' && currentNickName=='관리자')){
 			if (confirm('정말삭제?')){
 				location.href = 'qna.ok?action=delete&num=${dto.num }';
 			}
-		}else if(up=='up' && currentNickName=='${dto.nickname}'){
+		}else if((up=='up' && currentNickName=='${dto.nickname}')){
 			document.view.submit();
 		}else{
 			alert('권한이 없습니다.');
