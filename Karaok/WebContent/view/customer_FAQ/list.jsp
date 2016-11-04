@@ -32,7 +32,7 @@ body {background-repeat: no-repeat;
  <script type="text/javascript">
 
  jQuery(function($){
- 	$('textarea').css({'height':'250pt','width':'100%'});
+ 	$('textarea').css({'height':'100%','width':'100%'});
   var faqList = $("#faq_list>li"); //리스트를 변수로 저장
  faqList.attr("class","fold"); //dom이 로딩되면 다 접어서 닫아준다
  function unfoldFaq(){
@@ -271,7 +271,9 @@ body {background-repeat: no-repeat;
 <form action="./faq_create.ok"  >
 	<div align="right">
 	<input class="btn btn-info" type="button" value="처음으로" onclick="previous()">
+	<c:if test="${currentNickName=='관리자'}">
 	<input class="btn btn-warning" type="submit" value="글등록">
+	</c:if>
 	</div>
 </form>
 

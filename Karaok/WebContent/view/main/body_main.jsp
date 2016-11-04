@@ -26,6 +26,7 @@ body {background-repeat: no-repeat;
 </style>
 
 
+
  <script type="text/javascript">
  jQuery(function($){
   var faqList = $("#faq_list>li"); //리스트를 변수로 저장
@@ -61,18 +62,18 @@ body {background-repeat: no-repeat;
 			<table class="table table-bordered">
                 <tr style="background-color: #1DDB16;">
                   <th style="width: 50px">번호</th>
-                  <th>제목</th>
-                  <th>작성자</th>
-                  <th>등록일</th>
-                  <th>조회수</th>
+                  <th style="border-collapse: collapse; border:1px #EAEAEA solid;">제목</th>
+                  <th style="border-collapse: collapse; border:1px #EAEAEA solid;">작성자</th>
+                  <th style="border-collapse: collapse; border:1px #EAEAEA solid;">등록일</th>
+                  <th style="border-collapse: collapse; border:1px #EAEAEA solid;">조회수</th>
                 </tr>
             <c:forEach items="${notice}" var="n">
                 <tr>
-                  <td>${n.num }</td>
-                  <td><a href="/Karaok/notice.ok?action=select&num=${n.num }">${n.subject }</a></td>
-               	  <td>${n.nickname }</td>
-               	  <td>${n.ndate }</td>
-                  <td><span class="badge bg-red">${n.hits }</span></td>
+                  <td style="border-collapse: collapse; border:1px #EAEAEA solid;">${n.num }</td>
+                  <td style="border-collapse: collapse; border:1px #EAEAEA solid;"><a href="/Karaok/notice.ok?action=select&num=${n.num }">${n.subject }</a></td>
+               	  <td style="border-collapse: collapse; border:1px #EAEAEA solid;">${n.nickname }</td>
+               	  <td style="border-collapse: collapse; border:1px #EAEAEA solid;">${n.ndate }</td>
+                  <td style="border-collapse: collapse; border:1px #EAEAEA solid;"><span class="badge bg-red">${n.hits }</span></td>
                 </tr>
               </c:forEach>
               </table>	
@@ -88,18 +89,18 @@ body {background-repeat: no-repeat;
 			<table class="table table-bordered">
                 <tr style="background-color: #FF5E00">
                   <th style="width: 50px">번호</th>
-                  <th>제목</th>
-                  <th>작성자</th>
-                  <th>등록일</th>
-                  <th>조회수</th>
+                  <th style="border-collapse: collapse; border:1px #EAEAEA solid;">제목</th>
+                  <th style="border-collapse: collapse; border:1px #EAEAEA solid;">작성자</th>
+                  <th style="border-collapse: collapse; border:1px #EAEAEA solid;">등록일</th>
+                  <th style="border-collapse: collapse; border:1px #EAEAEA solid;">조회수</th>
                 </tr>
             <c:forEach items="${note }" var="n1">
                 <tr>
-                  <td>${n1.num }</td>
-                  <td><a href="note.ok?action=view&num=${n1.num}">${n1.subject }</a></td>
-               	  <td>${n1.nickname }</td>
-               	  <td>${n1.ndate }</td>
-                  <td><span class="badge bg-red">${n1.hits}</span></td>
+                  <td style="border-collapse: collapse; border:1px #EAEAEA solid;">${n1.num }</td>
+                  <td style="border-collapse: collapse; border:1px #EAEAEA solid;"><a href="note.ok?action=view&num=${n1.num}">${n1.subject }</a></td>
+               	  <td style="border-collapse: collapse; border:1px #EAEAEA solid;">${n1.nickname }</td>
+               	  <td style="border-collapse: collapse; border:1px #EAEAEA solid;">${n1.ndate }</td>
+                  <td style="border-collapse: collapse; border:1px #EAEAEA solid;"><span class="badge bg-red">${n1.hits}</span></td>
                 </tr>
               </c:forEach>
               </table>	
@@ -113,19 +114,19 @@ body {background-repeat: no-repeat;
 			<table class="table table-bordered">
                 <tr style="background-color: #FF4848;">
                   <th style="width: 10px">no</th>
-                  <th>제목</th>
-                  <th>작성자</th>
-                  <th>등록일</th>
-                  <th>조회수</th>
+                  <th style="border-collapse: collapse; border:1px #EAEAEA solid;">제목</th>
+                  <th style="border-collapse: collapse; border:1px #EAEAEA solid;">작성자</th>
+                  <th style="border-collapse: collapse; border:1px #EAEAEA solid;">등록일</th>
+                  <th style="border-collapse: collapse; border:1px #EAEAEA solid;">조회수</th>
                 </tr>
            
             <c:forEach items="${free }" var="f">
                 <tr>
-                  <td>${f.num }</td>
-                  <td><a href="crud.ok?action=view&num=${f.num }">${f.subject }</a></td>
-               	  <td>${f.nickname }</td>
-               	  <td>${f.ndate }</td>
-                  <td><span class="badge bg-red">${f.hits}</span></td>
+                  <td style="border-collapse: collapse; border:1px #EAEAEA solid;">${f.num }</td>
+                  <td style="border-collapse: collapse; border:1px #EAEAEA solid;"><a href="crud.ok?action=view&num=${f.num }">${f.subject }</a></td>
+               	  <td style="border-collapse: collapse; border:1px #EAEAEA solid;">${f.nickname }</td>
+               	  <td style="border-collapse: collapse; border:1px #EAEAEA solid;">${f.ndate }</td>
+                  <td style="border-collapse: collapse; border:1px #EAEAEA solid;"><span class="badge bg-red">${f.hits}</span></td>
                 </tr>
               </c:forEach>
          
@@ -142,10 +143,10 @@ body {background-repeat: no-repeat;
 			<table class="table table-bordered">
                 <tr style="background-color: #4374D9;">
                   <th style="width: 10px">no</th>
-                  <th>제목</th>
-                  <th>작성자</th>
-                  <th>진행현황</th>
-                  <th>조회수</th>
+                  <th style="border-collapse: collapse; border:1px #EAEAEA solid;">제목</th>
+                  <th style="border-collapse: collapse; border:1px #EAEAEA solid;">작성자</th>
+                  <th style="border-collapse: collapse; border:1px #EAEAEA solid;">진행현황</th>
+                  <th style="border-collapse: collapse; border:1px #EAEAEA solid;">조회수</th>
                 </tr>
              <c:if test="${currentNickName ==null }">
              	<c:forEach begin="1" end="5">
@@ -156,13 +157,13 @@ body {background-repeat: no-repeat;
              </c:if>
             <c:forEach items="${qna }" var="q" >
                 <tr>
-                  <td>${q.num }</td>
-                  <td>${q.subject}
+                  <td style="border-collapse: collapse; border:1px #EAEAEA solid;">${q.num }</td>
+                  <td style="border-collapse: collapse; border:1px #EAEAEA solid;">${q.subject}
                   <c:if test="${q.reply_count!=0}">
                   <font color="red">[${q.reply_count}]</font>
                   </c:if>
                   </td>
-               	  <td>${q.nickname }</td>
+               	  <td style="border-collapse: collapse; border:1px #EAEAEA solid;">${q.nickname }</td>
                	 <td>
                	          <c:choose>
          <c:when test="${q.reply_count>0 }">
@@ -194,47 +195,62 @@ body {background-repeat: no-repeat;
               <small><small><a href="rank.ok?page=1">더보기</a></small></small></h2>
 			<table class="table table-bordered">
                 <tr style="background-color: #FF00DD;">
-                  <th width="20%">계급</th>
-                  <th width="30%">닉네임</th>
-                  <th width="20%">점수</th>
+                  <th width="20%" style="border-collapse: collapse; border:1px #EAEAEA solid;">계급</th>
+                  <th width="30%" style="border-collapse: collapse; border:1px #EAEAEA solid;">닉네임</th>
+                  <th width="20%" style="border-collapse: collapse; border:1px #EAEAEA solid;">점수</th>
                 </tr>
             <c:forEach items="${rank }" var="r">
                 <tr>
                 
                   <c:choose>
             			<c:when test="${r.score>1000 }">
-            			<td align="left"> <img src="./img/c.JPG" width="180"> </td>
+            			<td align="left" style="border-collapse: collapse; border:1px #EAEAEA solid;"> <img src="./img/c.JPG" width="180"> </td>
             			</c:when>
             			<c:when test="${r.score>800 }">
-            			<td align="left"> <img src="./img/d.JPG" width="180"> </td>
+            			<td align="left" style="border-collapse: collapse; border:1px #EAEAEA solid;"> <img src="./img/d.JPG" width="180"> </td>
             			</c:when>
             			<c:when test="${r.score>600 }">
-            			<td align="left"> <img src="./img/p.JPG" width="180"> </td>
+            			<td align="left" style="border-collapse: collapse; border:1px #EAEAEA solid;"> <img src="./img/p.JPG" width="180"> </td>
             			</c:when>
             			<c:when test="${r.score>400 }">
-            			<td align="left"> <img src="./img/g.JPG" width="180"> </td>
+            			<td align="left" style="border-collapse: collapse; border:1px #EAEAEA solid;"> <img src="./img/g.JPG" width="180"> </td>
             			</c:when>
             			<c:when test="${r.score>200 }">
-            			<td align="left"> <img src="./img/s.JPG" width="180"> </td>
+            			<td align="left" style="border-collapse: collapse; border:1px #EAEAEA solid;"> <img src="./img/s.JPG" width="180"> </td>
             			</c:when>
             			<c:otherwise>
-            			<td align="left"> <img src="./img/b.JPG" width="180"> </td>
+            			<td align="left" style="border-collapse: collapse; border:1px #EAEAEA solid;"> <img src="./img/b.JPG" width="180"> </td>
             			</c:otherwise>
             			</c:choose>
-                  <td>${r.nickname}</td>
-               	  <td>${r.score }</td>
+                  <td style="border-collapse: collapse; border:1px #EAEAEA solid;">${r.nickname}</td>
+               	  <td style="border-collapse: collapse; border:1px #EAEAEA solid;">${r.score }</td>
                 </tr>
               </c:forEach>
               </table>	
             </div><!--/.col-xs-6.col-lg-4-->
             
             <div class="col-xs-5 col-lg-6">
-           <h2>
-           <div style="background-color: #CB6CFF"><span class="glyphicon glyphicon-question-sign" style="color:black">자주묻는질문</span></div>
-              <c:forEach begin="1" end="26">
+              <h2><span class="glyphicon glyphicon-question-sign" style="color:black">자주묻는질문</span>
+              <c:forEach begin="1" end="24">
               &nbsp
               </c:forEach>
               <small><small><a href="faq_list.ok?page=1">더보기</a></small></small></h2>
+              
+              			<table class="table table-bordered">
+                <tr style="background-color: #BCE55C">
+                  <th width="20%" style="border-collapse: collapse; border:1px #EAEAEA solid;">FAQ</th>
+                  <th width="30%" style="border-collapse: collapse; border:1px #EAEAEA solid;"></th>
+                  <th width="20%" style="border-collapse: collapse; border:1px #EAEAEA solid;"> </th>
+                </tr>
+ 
+    
+              </table>	
+              
+              
+              
+              
+              
+              
 <ul id="faq_list" >
 <c:forEach items="${faq}" var="f" >
   <li>

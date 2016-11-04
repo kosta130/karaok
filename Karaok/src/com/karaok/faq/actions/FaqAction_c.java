@@ -20,13 +20,16 @@ public class FaqAction_c extends Action {
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		
+		String id=(String)request.getSession().getAttribute("currentId");
+		request.getSession().getAttribute("currentNickName");
+		
 		int maxSize=5*1024*1024;
 		String saveDirectory=request.getRealPath("img");//저장경로
 		MultipartRequest mr=
 					new MultipartRequest(request,saveDirectory,maxSize,"UTF-8",
 								new DefaultFileRenamePolicy());	
 		
-		String id="lee52x@naver.com";
+		
 		String subject=mr.getParameter("subject");
 		String contents=mr.getParameter("contents");
 		contents=contents.replace("/r/n", "<br>");

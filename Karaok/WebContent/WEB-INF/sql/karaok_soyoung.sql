@@ -43,6 +43,7 @@ drop table tb_free;
 delete from tb_free where num=46;
 delete from tb_free where num between 29 and 44;
 --자유게시판
+drop table tb_free cascade constraints;
 create table tb_free
 (
 num number(20) constraint free_num_pk primary key,
@@ -118,7 +119,7 @@ nickname varchar2(50) constraint rank_nickname_fk references tb_member(nickname)
 );
 --스크린샷게시판
 
-drop table tb_screen
+drop table tb_screen cascade constraints
 create table tb_screen
 (
 num number(20) constraint screen_num_pk primary key,
