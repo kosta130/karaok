@@ -19,6 +19,10 @@ public class FreeBoardAction extends Action {
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
+		String id=(String)request.getSession().getAttribute("currentId");
+		String nickname = (String)request.getSession().getAttribute("currentNickName");
+		
+		
 		FreeBoardDAO dao = new  FreeBoardDAO();
 		
 		String action =request.getParameter("action");

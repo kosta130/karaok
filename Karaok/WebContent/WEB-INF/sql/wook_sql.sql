@@ -1,3 +1,4 @@
+drop table tb_event cascade constraints
 create table tb_event
 (	
 	num number(20) constraint event_num_pk primary key,
@@ -298,4 +299,38 @@ create table tb_member
 	tel varchar2(50) not null
 );
 
-insert into tb_member values('admin','admin','관리자','관리자','1980-01-02','010-2312-1234')
+insert into tb_member values('test','test','사용자','사용자','1980-01-02','010-2312-1234')
+
+select*from tb_member
+
+drop table tb_member
+
+
+create table tb_member
+(
+	id varchar2(50) constraint member_id_pk primary key,
+	pwd varchar2(50) not null,
+	name varchar2(50) not null,
+	nickname varchar2(50) unique not null,
+	birth date not null,
+	tel varchar2(50) not null
+);
+
+select *from tb_member
+
+insert into tb_member values('admin','admin','관리자','관리자','1980-02-28','010-7157-8550')
+
+
+insert into tb_update values(2, '관리자', '[개발자 노트] 안녕하세요', '안녕하세요!
+Karaok-키보드워리어의 개발실에서 인사드립니다.
+
+게임에 대해서 궁금한 점이나 개선 사항이 있으실 경우 메뉴->고객센터->1:1 문의 또는 FAQ를 통하여 저희에게 많은 의견을 주시길 바랍니다.
+
+그 의견을 수립하여 저희 개발팀은 고객님들에게 더욱 만족스러운 게임으로 발전해 나가도록 하겠습니다.
+
+저희 게임에 대해 많은 관심과 사랑 부탁드립니다.
+
+순발력 향상을 할 수 있는 난이도 조정 및 문제의 다양화가 진행 될 예정입니다.', '2016-10-27', 0)
+
+
+update tb_update set ndate='2016-10-14' where num=1

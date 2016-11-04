@@ -140,7 +140,7 @@ body {background-repeat: no-repeat;
 </div>
 
 
-<c:if test="${currentId=='lee52x@naver.com' }">
+<c:if test="${currentId=='admin' }">
 <form action="./event_create.ok">
 	<h3 align="center"><input class="btn btn-warning" type="submit" value="글등록"></h3>
 </form>

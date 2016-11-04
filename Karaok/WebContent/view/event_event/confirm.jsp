@@ -132,7 +132,7 @@ function check(){
               <div align="center">
             <form action="./event_list.ok" name="frm">
               	<button type="submit" class="btn btn-primary">목록으로</button>
-              	<c:if test="${currentId=='lee52x@naver.com' }">
+              	<c:if test="${currentId=='admin' }">
                  <button type="button" class="btn btn-warning" name="delete" onclick="check()"><i class="fa fa-trash-o" ></i>삭제</button>
                  </c:if>
            	</form>  
