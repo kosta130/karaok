@@ -75,7 +75,7 @@ body {background-repeat: no-repeat;
             	<hr>
             	<table id="example2" class="table table-bordered table-striped">
             	 <thread>
-            	 <tr>
+            	 <tr style="border-collapse: collapse; border:1px black solid;">
             	 	<th style="background-color: #FF00DD;" width="10%" class="title">계급</th>
             	 	<th style="background-color: #FF00DD;" width="60%" class="title">닉네임</th>
             	 	<th style="background-color: #FF00DD;" width="30%" class="title">점수</th>
@@ -86,26 +86,26 @@ body {background-repeat: no-repeat;
             		<tr style="background-color: beige">
             			<c:choose>
             			<c:when test="${rank.score>1000 }">
-            			<td align="center"> <img src="./img/c.JPG" width="150"> </td>
+            			<td align="center" style="border-collapse: collapse; border:1px #EAEAEA solid;"> <img src="./img/c.JPG" width="150"> </td>
             			</c:when>
             			<c:when test="${rank.score>800 }">
-            			<td align="center"> <img src="./img/d.JPG" width="150"> </td>
+            			<td align="center" style="border-collapse: collapse; border:1px #EAEAEA solid;"> <img src="./img/d.JPG" width="150"> </td>
             			</c:when>
             			<c:when test="${rank.score>600 }">
-            			<td align="center"> <img src="./img/p.JPG" width="150"> </td>
+            			<td align="center" style="border-collapse: collapse; border:1px #EAEAEA solid;"> <img src="./img/p.JPG" width="150"> </td>
             			</c:when>
             			<c:when test="${rank.score>400 }">
-            			<td align="center"> <img src="./img/g.JPG" width="150"> </td>
+            			<td align="center" style="border-collapse: collapse; border:1px #EAEAEA solid;"> <img src="./img/g.JPG" width="150"> </td>
             			</c:when>
             			<c:when test="${rank.score>200 }">
-            			<td align="center"> <img src="./img/s.JPG" width="150"> </td>
+            			<td align="center" style="border-collapse: collapse; border:1px #EAEAEA solid;"> <img src="./img/s.JPG" width="150"> </td>
             			</c:when>
             			<c:otherwise>
-            			<td align="center"> <img src="./img/b.JPG" width="150"> </td>
+            			<td align="center" style="border-collapse: collapse; border:1px #EAEAEA solid;"> <img src="./img/b.JPG" width="150"> </td>
             			</c:otherwise>
             			</c:choose>
-            			<td align="center"><b>${rank.nickname }</b></td>
-            			<td align="center"><b>${rank.score }</b></td>
+            			<td style="border-collapse: collapse; border:1px #EAEAEA solid;" align="center" ><b>${rank.nickname }</b></td>
+            			<td style="border-collapse: collapse; border:1px #EAEAEA solid;" align="center"><b>${rank.score }</b></td>
             		</tr>
             	</c:forEach>
             	 </tbody>
