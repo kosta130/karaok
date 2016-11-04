@@ -323,6 +323,70 @@ insert into tb_member values('admin','admin','관리자','관리자','1980-02-28','010
 
 select*from tb_faq
 
-delete from tb_faq where num=76
+delete from tb_faq where num=85
+
+
+select*from tb_qna
+
+
+
+insert into tb_qna values (1, '오정훈', '회원가입이 안 됩니다.', '회원가입이 되질 않습니다.', '2016-10-16',0,0);
+insert into tb_qna values (2, '이성욱', '로그인이 안 됩니다.', '로그인이 되질 않습니다.', '2016-10-16',0,0);
+insert into tb_qna values (3, '김현영', '게임 실행이 안 됩니다', '게임이 되질 않습니다.', '2016-10-18',0,0);
+insert into tb_qna values (4, '오정훈', '비밀번호가 일치하지 않다고 합니다.', '비밀번호가 일치하지 않는다고 합니다', '2016-10-18',0,0);
+insert into tb_qna values (5, '이성욱', '게임중 버그가 발견되었습니다.', '정답을 정확히 쳤는데 정답처리가 되질 않습니다.', '2016-10-18',0,0);
+insert into tb_qna values (6, '김현영', '게임 실행이 안되요.', '게임실행이 되질 않습니다.', '2016-10-19',0,0);
+insert into tb_qna values (7, '김소영', '실행화면이 이상해요.', '게임 실행을 누르니 화면이 검정색으로 변했습니다.', '2016-10-20',0,0);
+insert into tb_qna values (8, '권성준', '화면에 이상한 글자가 보여요.', '게임화면 뒤로 이상한 글자가 보입니다.', '2016-10-20',0,0);
+insert into tb_qna values (9, '김소영', '글이 삭제 되요.', '제가 올린 글이 삭제 됩니다.', '2016-10-26',0,0);
+insert into tb_qna values (10, '오정훈', '점수 저장이 안되요.', '게임 후 랭킹에 갓는데 저장이 안되어 있습니다.', '2016-10-26',0,0);
+insert into tb_qna values (11, '권성준', '게임 내 욕설 신고는 어디다 하면 되나요?', '게임하다가 욕하는 유저를 신고하고 싶습니다.', '2016-10-26',0,0);
+insert into tb_qna values (12, '이성욱', '이메일 인증 꼭 해야 하나요?', '인증 없이는 게임 못하나요?', '2016-10-27',0,0);
+insert into tb_qna values (13, '김현영', '예전에 했던 아이디 복구 불가능 한가요?', '예전에 햇던 게임 아이디 복구 불가능 한가요?', '2016-10-28',0,0);
+insert into tb_qna values (14, '오정훈', '이벤트에 당첨 되었는데....', '이벤트에 당첨 되었는데 연락이 없습니다', '2016-10-29',0,0);
+insert into tb_qna values (15, '권성준', '길드 가입이 안됩니다.', '길드에 가입햇는데 가입이 되질 않습니다.', '2016-10-30',0,0);
+insert into tb_qna values (16, '이성욱', '회원 탈퇴는 어떻게 하나요?', '회원 탈퇴하고 싶습니다.', '2016-11-01',0,0);
+insert into tb_qna values (17, '김소영', '게임삭제가 안됩니다.', '게임 삭제 하고 싶어요.', '2016-11-01',0,0);
+insert into tb_qna values (18, '권성준', '계정이 도용된 것 같습니다.', '제 아이디로 회원가입하려 햇는데 안되요', '2016-11-03',0,0);
+insert into tb_qna values (19, '김현영', '시작버튼이 눌리지 않습니다.', '게임 시작이 안됩니다.', '2016-11-04',0,0);
+insert into tb_qna values (20, '오정훈', '로딩중 실행이 안됩니다.', '게임 로딩중 실행이 안됩니다..', '2016-11-04',0,0);
+
+
+select*From tb_faq
+
+delete from tb_faq where num=87
+
+
+select*from tb_qna 
+delete from tb_qna where num=42
+
+select *from tb_member
+delete from tb_member where id='test' cascade constraints
+
+
+
+
+select*from tb_faq
+update tb_faq set subject='[키보드워리어] 로그인 시 연결이 실패했다는 메시지가 발생' where num=82
+
+
+ [키보드워리어] 챔피언 선택 화면에서 Maestro 오류 메시지 발생
+
+ [키보드워리어] 연결이 자주 끊기는 현상이 있습니다. 어떤 부분에 문제가 있는 건가요?
+
+ [키보드워리어] 방화벽으로 인한 문제를 개선할 수 있는 방법은 무엇이 있나요?
+
+ [키보드워리어] 반응속도(핑)가 높을 때 나타나는 증상은 무엇인가요?
+
+ [키보드워리어] 로그인 시 연결이 실패했다는 메시지가 나옵니다. 어떤 부분을 확인해야 하나요?
+
+이벤트
+ 
+
+
+
+
+
+
 
 

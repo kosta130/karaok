@@ -43,6 +43,7 @@ drop table tb_free;
 delete from tb_free where num=46;
 delete from tb_free where num between 29 and 44;
 --자유게시판
+drop table tb_free cascade constraints;
 create table tb_free
 (
 num number(20) constraint free_num_pk primary key,
