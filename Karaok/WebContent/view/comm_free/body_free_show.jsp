@@ -56,19 +56,19 @@ function update(up,currentNickName) {
                 <div class="form-group">
                 <input type="hidden" name="num" value="${dto.num }">
                   <label for="exampleInputEmail1">제목</label>
-                  <input type="text" class="form-control" name="subject" placeholder="제목" value=${dto.subject } readonly="readonly">
+                  <input type="text" class="form-control" name="subject" placeholder="제목" value="${dto.subject }" readonly="readonly">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">작성자</label>
-                  <input type="text" class="form-control" name="nickname" placeholder="작성자" value=${dto.nickname } readonly="readonly">
+                  <input type="text" class="form-control" name="nickname" placeholder="작성자" value="${dto.nickname }" readonly="readonly">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1"></label>
-                  <input type="hidden" class="form-control" name="hits" placeholder="조회수" value=${dto.hits } readonly="readonly">
+                  <input type="hidden" class="form-control" name="hits" placeholder="조회수" value="${dto.hits }" readonly="readonly">
                 </div>
                 <div class="form-group" >
                   <label>Textarea</label>
-                  <textarea  style="height: 300px;border:0;background-color:transparent" class="form-control" rows="3" placeholder="Enter ..." name="contents" disabled="disabled">${dto.contents }</textarea>
+                  <textarea  style="height: 300px;border:0;background-color:transparent" class="form-control" rows="3" placeholder="Enter ..." name="contents" disabled="disabled">"${dto.contents }"</textarea>
               <div class="box-footer" align="center" style="background-color: beige">
                 
                 <button type="button" class="btn btn-primary" onclick="update('up','${currentNickName}')" >수정</button>
