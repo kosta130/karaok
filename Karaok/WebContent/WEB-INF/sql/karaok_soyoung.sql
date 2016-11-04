@@ -119,7 +119,7 @@ nickname varchar2(50) constraint rank_nickname_fk references tb_member(nickname)
 );
 --스크린샷게시판
 
-drop table tb_screen
+drop table tb_screen cascade constraints
 create table tb_screen
 (
 num number(20) constraint screen_num_pk primary key,

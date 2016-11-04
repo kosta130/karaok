@@ -230,12 +230,27 @@ body {background-repeat: no-repeat;
             </div><!--/.col-xs-6.col-lg-4-->
             
             <div class="col-xs-5 col-lg-6">
-           <h2>
-           <div style="background-color: #CB6CFF"><span class="glyphicon glyphicon-question-sign" style="color:black">자주묻는질문</span></div>
-              <c:forEach begin="1" end="50">
+              <h2><span class="glyphicon glyphicon-question-sign" style="color:black">자주묻는질문</span>
+              <c:forEach begin="1" end="24">
               &nbsp
               </c:forEach>
               <small><small><a href="faq_list.ok?page=1">더보기</a></small></small></h2>
+              
+              			<table class="table table-bordered">
+                <tr style="background-color: #BCE55C">
+                  <th width="20%" style="border-collapse: collapse; border:1px #EAEAEA solid;">FAQ</th>
+                  <th width="30%" style="border-collapse: collapse; border:1px #EAEAEA solid;"></th>
+                  <th width="20%" style="border-collapse: collapse; border:1px #EAEAEA solid;"> </th>
+                </tr>
+ 
+    
+              </table>	
+              
+              
+              
+              
+              
+              
 <ul id="faq_list" >
 <c:forEach items="${faq}" var="f" >
   <li>

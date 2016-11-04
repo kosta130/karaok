@@ -32,7 +32,7 @@ body {background-repeat: no-repeat;
  <script type="text/javascript">
 
  jQuery(function($){
- 	$('textarea').css({'height':'250pt','width':'100%'});
+ 	$('textarea').css({'height':'100%','width':'100%'});
   var faqList = $("#faq_list>li"); //리스트를 변수로 저장
  faqList.attr("class","fold"); //dom이 로딩되면 다 접어서 닫아준다
  function unfoldFaq(){
