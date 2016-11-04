@@ -86,19 +86,36 @@ body {background-repeat: no-repeat;
              
                 
   <br> 
-<c:if test="${page == 1}">이전</c:if> 
-<c:if test="${page > 1}"> 
-<a href="qna.ok?action=qlist&page=${ page-1 }">이전</a>       
-</c:if> 
-         
-<c:if test="${page == totalPage }">다음</c:if> 
-<c:if test="${page < totalPage }"> 
- <a href="qna.ok?action=qlist&page=${ page+1 }">다음</a>       
-</c:if> 
-<br><br> 
- <c:forEach begin="1" end="${totalPage }" var="i"> 
-[<a href="qna.ok?action=qlist&page=${i }">${i }</a>] 
-</c:forEach>     
+<nav>
+  <ul class="pagination pagination-lg">
+    <li>
+      <a href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+	
+    <li>
+    	<c:forEach  begin="1"  end="${pageCount }" var="i">
+    	<a href="rank.ok?page=${i}">${i }</a>
+    	</c:forEach>
+    </li>
+    
+
+    
+    <li>
+      <a href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+	<div align="center">
+	<input class="btn btn-info" type="button" value="처음으로" onclick="location.href='./rank.ok?page=1'">
+	</div>
+
+
+</div>
                 
               </div>
               </form>
