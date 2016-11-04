@@ -99,14 +99,14 @@ body {background-repeat: no-repeat;
           </div>
   </div>        
           
-	<ul class="nav nav-tabs" >
+	<ul class="nav nav-tabs" style="background-color: #F3CA5A">
 		<li class="active"><a href="#tab_1" data-toggle="tab">전체</a></li>
 		<li><a href="#tab_2" data-toggle="tab">게임관련</a></li>
 		<li><a href="#tab_3" data-toggle="tab">설치실행</a></li>
 		<li><a href="#tab_4" data-toggle="tab">그래픽카드</a></li>
 		<li><a href="#tab_5" data-toggle="tab">서버,패치,렉</a></li>
 
-		<li class="pull-right"><h4><font color="blue">${page}페이지/${pageCount}페이지</font></h4></li>
+		<li class="pull-right"><h4><font color="black">${page}페이지/${pageCount}페이지</font></h4></li>
 	</ul>
 	<br>
 	<div class="tab-content">

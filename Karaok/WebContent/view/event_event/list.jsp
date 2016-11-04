@@ -13,9 +13,9 @@ body {background-repeat: no-repeat;
 }
 </style>
 <!-- Custom Tabs -->
-<h1><span class="glyphicon glyphicon-exclamation-sign" style="color: red"></span>&nbsp이벤트</h1><hr>
+<h1><span style="color: red"></span></h1><hr>
 <div class="nav-tabs-custom">
-	<ul class="nav nav-tabs">
+	<ul class="nav nav-tabs" style="background-color: #FFFF90">
 		<li class="active"><a href="#tab_1" data-toggle="tab">전체 이벤트</a></li>
 		<li><a href="#tab_2" data-toggle="tab">진행중인 이벤트</a></li>
 		<li><a href="#tab_3" data-toggle="tab">종료된 이벤트</a></li>
