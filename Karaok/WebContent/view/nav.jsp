@@ -58,9 +58,12 @@
 					}else{//로그인 성공
 						alert(response.msg);
 					
+						$('#QnA').hide();
+						$('#QnAMother').prepend('<li id="QnA"><a href="qna.ok?action=qlist">1:1문의</a></li>');
+						
 						$('#loginFormDiv').prepend("<button type='button' class='btn btn-default' id='logout'>로그아웃</button>");
 						$('#loginFormDiv').prepend("<span id='usernickname'></span>");
-						$('#usernickname').text(currentNickName+'님이 로그인하셨습니다.');
+						$('#usernickname').html('<font color="blue"><b>'+currentNickName+'</b></font>님이 로그인하셨습니다.');
 						$('#login').hide();
 						$('#logout').show();
 						$('#signup').hide();
@@ -92,6 +95,9 @@
 				url:"logoutSucceed.ok",
 				success:function(response){
 					alert(response.msg);
+					$('#QnA').hide();
+					$('#QnAMother').prepend('<li id="QnA"><a href="#" onclick="alert("로그인이 필요합니다.")">1:1문의</a></li>');
+					
 					$('#loginFormDiv').prepend("<button type='button' class='btn btn-default' id='signup' data-target='#layerpop' data-toggle='modal'>회원가입</button>");	
 					$('#loginFormDiv').prepend("<button type='button' class='btn btn-default' id='login'>로그인</button>");
 					$('#loginFormDiv').prepend("<input type='password' class='form-control' placeholder='비밀번호' id='login_pwd' name='login_pwd' size='15'>");
@@ -131,9 +137,8 @@
 		        }
 			});
 		});
-		
-		
 	});
+		
 </script>
 <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -183,8 +188,12 @@
       <!-- 고객센터 -->
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="color: #000000"><font face="한컴 소망 B">고객센터</font><span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="qna.ok?action=qlist">1:1문의</a></li>
+          <ul class="dropdown-menu" role="menu" id="QnAMother">
+          	<%if(request.getSession().getAttribute("currentId") == null) {%>
+            	<li id="QnA"><a href="#" onclick="alert('로그인이 필요합니다.')">1:1문의</a></li>
+            <%} else { %>
+            	<li id="QnA"><a href="qna.ok?action=qlist">1:1문의</a></li>
+            <%} %>
             <li class="divider"></li>
             <li><a href="faq_list.ok?page=1">FAQ</a></li>
           </ul>
