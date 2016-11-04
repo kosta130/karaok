@@ -109,6 +109,30 @@
 			});
 		});
 		
+		$(document).on("click","#gamestart",function(){
+			//현재 로그인 상태 프로세스 호출
+			$.ajax({
+				type:"POST",
+				url:"loginState.ok",
+				success:function(response){
+					alert(response.msg);
+					if(response.state==0){
+						return;
+					}else if(response.state==2){
+						//jQuery 새창 열기
+						window.open("mainChat.ok?action=joinGame");
+					}
+				},
+				dataType:"json",
+				error: function(error,status,xhr) {
+		               alert('error : '+error
+		                     +'\nstatus : '+status
+		                     +'\nxhr : '+xhr.statusText);
+		        }
+			});
+		});
+		
+		
 	});
 </script>
 <nav class="navbar navbar-default">
@@ -121,7 +145,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="main.ok">Keyboard Warrior</a>
+      <a class="navbar-brand" href="main.ok" style="vertical-align:middle"><img src="/Karaok/img/logo.png" width="120px" height="30px"></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -129,7 +153,7 @@
       <ul class="nav navbar-nav">
       <!-- 게임소식 -->
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">게임소식 <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="color: #000000"><font face="한컴 소망 B">게임소식</font> <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="notice.ok?action=list">공지사항</a></li>
             <li class="divider"></li>
@@ -140,14 +164,14 @@
         </li>
       <!-- 이벤트 -->
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">이 벤 트<span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="color: #000000"><font face="한컴 소망 B">이 벤 트</font><span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="event_list.ok">이벤트</a></li>
           </ul>
         </li>
       <!-- 커뮤니티 -->
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">커뮤니티<span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="color: #000000"><font face="한컴 소망 B">커뮤니티</font></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="free_list.ok">자유게시판</a></li>
             <li class="divider"></li>
@@ -158,7 +182,7 @@
         </li>
       <!-- 고객센터 -->
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">고객센터<span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="color: #000000"><font face="한컴 소망 B">고객센터</font><span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="qna.ok?action=qlist">1:1문의</a></li>
             <li class="divider"></li>
@@ -178,7 +202,9 @@
         	<span id=usernickname><font color="blue"><b><%=request.getSession().getAttribute("currentNickName") %></b></font><small>님이 로그인하셨습니다</small></span>
         	<button type="button" class="btn btn-default" id="logout">로그아웃</button>
          <%} %>
-        	<button type="button" class="btn btn-default" id="gamestart">GAME START</button>
+        	<button type="button" class="btn btn-default" id="gamestart" style="background-color: #FF3636; color: white">GAME START</button>
+        	
+        	
         </div>
       </form>
     </div><!-- /.navbar-collapse -->

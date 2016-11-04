@@ -2,10 +2,8 @@
     pageEncoding="UTF-8"%>
 <div class="container">
       <div class="row row-offcanvas row-offcanvas-center">
-			<div class="jumbotron">
-				<h1>키보드 워리어</h1><br>
-				<h2>가라~OK!!!</h2>
-				<h2 align="right">GAME START</h2>
+			<div>
+				<img src="./img/banner_intro.jpg" width="1150" height="390">
 			</div>
 	</div>
 </div>

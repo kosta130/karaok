@@ -3,6 +3,13 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<style type="text/css">
+body {background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: right bottom;
+      background-color: beige;
+}
+</style>
 <script type="text/javascript">
 function sessionCheck(currentNickName){
 	if(currentNickName==''){
@@ -14,29 +21,28 @@ function sessionCheck(currentNickName){
 }
 </script>
 
-<div class="nav-tabs-custom">
+<div class="nav-tabs-custom" style="background-color: beige">
 	<ul class="nav nav-tabs">
-<form action="./screen_create.ok" id="formAction">
-<div align="right">
-<input type="button" value="글쓰기"  onclick="sessionCheck('${currentNickName}')">
+<form action="./screen_create.ok" id="formAction" style="background-color: beige">
+<div align="right" style="background-color: beige">
+<input class="btn btn-primary" type="button" value="글쓰기"  onclick="sessionCheck('${currentNickName}')">
 </div>
 </form>
-<h1>스크린샷 게시판</h1>
 <br>		
-	<div class="tab-content">
+	<div class="tab-content" style="background-color: beige">
 	
 
 			<c:forEach items="${list }" var="dto">
-				<div class="container">
-					<div class="row" style="outline-color: blue;">
+				<div class="container" style="background-color: beige">
+					<div class="row" style="outline-color: blue; background-color: beige" >
 								
-						<div i class="col-lg-7 col-md-7">
+						<div i class="col-lg-7 col-md-7" style="background-color: beige">
 						<a href="screen.ok?action=view&num=${dto.num }">
 							 <img width="600" height="250" src="./img_soyoung/${dto.fileName}" alt="">
 						</a>
 						</div>
 						
-						<div class="col-lg-5 col-md-4" align="left">
+						<div class="col-lg-5 col-md-4" align="left" style="background-color: beige">
 							
 						
 							<h1>${dto.subject }</h1> <hr>

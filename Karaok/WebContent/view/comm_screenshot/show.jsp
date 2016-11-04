@@ -5,6 +5,13 @@
 	<div class="container">
 		<div class="row row-offcanvas row-offcanvas-center">
 			<div class="row">
+<style type="text/css">
+body {background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: right bottom;
+      background-color: beige;
+}
+</style>
 <script type="text/javascript">
 $(document).ready(function(){
 	var repl=$("#reply");
@@ -30,7 +37,7 @@ function update(up,currentNickName) {
 	if(currentNickName==''){
 		alert('권한이 없습니다.');
 		
-	}else if(up=='del' && currentNickName=='${dto.nickname}'){
+	}else if((up=='del' && currentNickName=='${dto.nickname}') || (up=='del' && currentNickName=='관리자')){
 		if(confirm('정말삭제?')){
 		location.href = 'screen.ok?action=delete&num=${dto.num }';
 		}
@@ -69,10 +76,10 @@ function update(up,currentNickName) {
                 
                 <div class="form-group" >
                   <label>Textarea</label>
-                  <textarea  style="height: 300px;" class="form-control" rows="3" placeholder="Enter ..." name="contents" readonly="readonly">${dto.contents }</textarea>
+                  <textarea  style="height: 300px;border:0;background-color:transparent" class="form-control" rows="3" placeholder="Enter ..." name="contents" disabled="disabled">${dto.contents }</textarea>
        			</div>
               </div>
-              <div class="box-footer" align="center">
+              <div class="box-footer" align="center" style="background-color: beige">
                 
               
                 <button type="button" class="btn btn-primary" onclick="update('up','${currentNickName}')">수정</button>

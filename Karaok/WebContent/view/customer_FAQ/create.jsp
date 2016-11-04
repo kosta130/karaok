@@ -9,7 +9,13 @@
 <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 
 <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
-
+<style type="text/css">
+body {background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: right bottom;
+      background-color: beige;
+}
+</style>
 
 <script>
 

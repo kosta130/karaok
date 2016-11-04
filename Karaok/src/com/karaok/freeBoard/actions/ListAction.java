@@ -20,6 +20,11 @@ public class ListAction extends Action{
 		@Override
 		public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 				HttpServletResponse response) throws Exception {//전체 게시물 조회
+			
+			String id=(String)request.getSession().getAttribute("currentId");
+			String currentNickName = (String)request.getSession().getAttribute("currentNickName");
+			request.setAttribute("currentNickName", currentNickName);
+			
 			FreeBoardDAO dao=new FreeBoardDAO();
 			action = request.getParameter("action");
 			

@@ -1,7 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<style type="text/css">
+body {background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: right bottom;
+      background-color: beige;
+}
+</style>
 
 
 
@@ -24,7 +30,9 @@
 
 
  <script type="text/javascript">
+
  jQuery(function($){
+ 	$('textarea').css({'height':'250pt','width':'100%'});
   var faqList = $("#faq_list>li"); //리스트를 변수로 저장
  faqList.attr("class","fold"); //dom이 로딩되면 다 접어서 닫아준다
  function unfoldFaq(){
@@ -65,18 +73,20 @@
 
 
 <!-- Custom Tabs -->
-<div class="nav-tabs-custom">
+<div class="nav-tabs-custom" style="background-color: beige">
+
 <h1><span class="glyphicon glyphicon-question-sign" style="color: blue"></span>  자주묻는 질문</h1><hr>
-<div align="center" >
+<div align="center" style="background-color: beige">
+
          <div class="box box-solid" style="width: 500px;">
          
-            <div class="box-header with-border" >
-              <h3 class="box-title">FAQ검색<small>캐치마인드</small></h3>
+            <div class="box-header with-border" style="background-color: beige">
+              <h3 class="box-title">FAQ검색<small></small></h3>
             </div>
             
-            <div class="box-body" >
+            <div class="box-body" style="background-color: beige">
               <!-- /btn-group -->
-              <div class="input-group">
+              <div class="input-group" style="background-color: beige">
                 <input id="new-event" name="keyword" type="text" class="form-control" placeholder="검색하세요">
                 
                 <div class="input-group-btn">
@@ -89,32 +99,34 @@
           </div>
   </div>        
           
-	<ul class="nav nav-tabs" >
+	<ul class="nav nav-tabs" style="background-color: #F3CA5A">
 		<li class="active"><a href="#tab_1" data-toggle="tab">전체</a></li>
 		<li><a href="#tab_2" data-toggle="tab">게임관련</a></li>
 		<li><a href="#tab_3" data-toggle="tab">설치실행</a></li>
 		<li><a href="#tab_4" data-toggle="tab">그래픽카드</a></li>
 		<li><a href="#tab_5" data-toggle="tab">서버,패치,렉</a></li>
 
-		<li class="pull-right"><h4><font color="blue">${page}페이지/${pageCount}페이지</font></h4></li>
+		<li class="pull-right"><h4><font color="black">${page}페이지/${pageCount}페이지</font></h4></li>
 	</ul>
 	<br>
 	<div class="tab-content">
-		<div class="tab-pane active" id="tab_1">
+		<div class="tab-pane active" id="tab_1" style="background:#000000;background:rgba(0,0,0,0);">
 			<!-------- tab1 자리 --------->
 			
-<ul id="faq_list" >
+<div style="background:#000000;background:rgba(0,0,0,0);">
+<ul id="faq_list" style="background:#000000;background:rgba(0,0,0,0);">
 <c:forEach items="${list}" var="v">
-  <li>
+  <li style="background:#000000;background:rgba(0,0,0,0);">
       <h4><a href="#a1">${v.subject }</a></h4>
          <p>
          <c:if test="${v.fileName!=null }">
   		<img  src="./img/${v.fileName }"><br>
   		</c:if>
-         ${v.contents }</p>
+         <textarea disabled="disabled" style="border:0;background-color:transparent">${v.contents }</textarea></p>
      </li>
    </c:forEach>
  </ul>
+ </div>
  <div align="center">
 <!--  <nav>
   <ul class="pagination pagination-lg">
@@ -153,7 +165,7 @@
          <c:if test="${v.fileName!=null }">
   		<img  src="./img/${v.fileName }"><br>
   		</c:if>
-         ${v.contents }</p>
+         <textarea disabled="disabled" style="border:0;background-color:transparent">${v.contents }</textarea></p>
      </li>
      </c:if>
    </c:forEach>
@@ -172,7 +184,7 @@
          <c:if test="${v.fileName!=null }">
   		<img  src="./img/${v.fileName }"><br>
   		</c:if>
-         ${v.contents }</p>
+         <textarea disabled="disabled" style="border:0;background-color:transparent">${v.contents }</textarea></p>
      </li>
      </c:if>
  </c:forEach>
@@ -195,7 +207,7 @@
          <c:if test="${v.fileName!=null }">
   		<img  src="./img/${v.fileName }"><br>
   		</c:if>
-         ${v.contents }</p>
+         <textarea disabled="disabled" style="border:0;background-color:transparent">${v.contents }</textarea></p>
      </li>
      </c:if>
    </c:forEach>
@@ -222,7 +234,7 @@
          <c:if test="${v.fileName!=null }">
   		<img  src="./img/${v.fileName }"><br>
   		</c:if>
-         ${v.contents }</p>
+         <textarea disabled="disabled" style="border:0;background-color:transparent">${v.contents }</textarea></p>
      </li>
      </c:if>
    </c:forEach>

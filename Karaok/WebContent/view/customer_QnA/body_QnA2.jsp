@@ -3,6 +3,13 @@
 	<div class="container">
 		<div class="row row-offcanvas row-offcanvas-center">
 			<div class="row">
+<style type="text/css">
+body {background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: right bottom;
+      background-color: beige;
+}
+</style>
 <form role="form" action="qna.ok?action=update&num=${dto.num }" method="post">
 <h1>1대1 질문글 수정</h1>
 <hr>

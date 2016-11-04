@@ -4,6 +4,13 @@
 		<div class="row row-offcanvas row-offcanvas-center">
 			<div class="row">
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<style type="text/css">
+body {background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: right bottom;
+      background-color: beige;
+}
+</style>
 <script type="text/javascript">
 $(document).ready(function(){
 	
@@ -34,9 +41,7 @@ $(document).ready(function(){
 <form role="form"  method="post" name="write" id="write"> 
 <h1>자유게시판 입력</h1>
 <hr>
-<%
-	request.getSession().setAttribute("currentNickname", "오1");
-%>
+
               <div class="box-body" >
                 <div class="form-group">
                 <input type="hidden" name="num" value="${num }">
@@ -45,7 +50,7 @@ $(document).ready(function(){
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">작성자</label>
-                  <input type="text" class="form-control"  name="nickname" placeholder="작성자" value="${currentNickname }" readonly="readonly">
+                  <input type="text" class="form-control"  name="nickname" placeholder="작성자" value="${currentNickName}" readonly="readonly">
                 </div>
                 <div class="form-group" >
                   <label>Textarea</label>
@@ -56,7 +61,7 @@ $(document).ready(function(){
               
               <!-- /.box-body -->
 
-              <div class="box-footer" align="center" >
+              <div class="box-footer" align="center" style="background-color: beige">
                 <button type="submit" class="btn btn-primary" >등록</button>
                 <button type="button" class="btn btn-primary" onclick="location.href='free_list.ok'">목록</button>
               </div>

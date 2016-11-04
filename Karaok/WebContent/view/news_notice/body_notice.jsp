@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <style type="text/css">
+body {background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: right bottom;
+      background-color: beige;
+}
+</style>
 	<div class="container">
 		<div class="row row-offcanvas row-offcanvas-center">
 			<div class="row">
@@ -39,7 +46,7 @@ $(document).ready(function(){
 	<input name="nickname" type="text" class="form-control" placeholder="작성자" value="${currentNickName }" readonly="readonly"><br>
 	<textarea name="contents" style="height: 300px;" class="form-control" rows="3" id="con">${contents }</textarea>
                
-    <div class="box-footer" align="center">
+    <div class="box-footer" align="center"  style="background:#000000;background:rgba(0,0,0,0);">
         <button type="submit" class="btn btn-primary" >등록</button>
         <button type="button" class="btn btn-primary" onclick="history.back()">취소</button>
     </div>

@@ -3,6 +3,13 @@
 	<div class="container">
 		<div class="row row-offcanvas row-offcanvas-center">
 			<div class="row">
+<style type="text/css">
+body {background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: right bottom;
+      background-color: beige;
+}
+</style>
 <script type="text/javascript">
  function update() {
 		
@@ -50,7 +57,7 @@
               </div>
               <!-- /.box-body -->
 
-              <div class="box-footer" align="center">
+              <div class="box-footer" align="center" style="background-color: beige">
                 <button  type="button" class="btn btn-primary" onclick="update()">등록</button>
                 <button type="reset" class="btn btn-primary" onclick="history.back()">취소</button>
               </div>

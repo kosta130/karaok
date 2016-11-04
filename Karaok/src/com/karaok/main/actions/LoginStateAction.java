@@ -22,16 +22,26 @@ public class LoginStateAction extends Action{
 		
 		int state = -1;
 		String msg = null;
+		System.out.println("로그인 상태 진입");
 		if(currentId == null || currentNickName == null || currentInfo == null){
 			state = 0;
-			msg = "로그인아님";
+			msg = "로그인이 필요합니다";
+			request.setAttribute("msg", msg);
+			request.setAttribute("state", state);
+			System.out.println("로그인 되지 않은 상태");
+			
+			forward = mapping.findForward("success");
 		}else{
 			state = 2;//현재 로그인중
-			msg = "로그인중";
+			msg = "게임 대기실에 접속합니다.";
+			request.setAttribute("msg", msg);
 			request.setAttribute("state", state);
+			System.out.println("로그인 된 상태");
 			request.getSession().setAttribute("currentInfo", currentInfo);
 			request.getSession().setAttribute("currentId", currentId);
 			request.getSession().setAttribute("currentNickName", currentNickName);
+			
+			forward = mapping.findForward("success");
 		}
 		
 		return forward;

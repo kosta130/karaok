@@ -16,6 +16,14 @@
  #faq_list li.unfold h4 a {font-weight:bold}
  #faq_list li.fold p {display:none}
  </style>
+ 
+<style type="text/css">
+body {background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: right bottom;
+      background-color: beige;
+}
+</style>
 
 
  <script type="text/javascript">
@@ -31,14 +39,13 @@
   }
   }
   faqList.find(">h4>a").click(unfoldFaq);
-  
-  
  });
+
 
  </script>
 
- 
-	<div class="container">
+
+	<div class="container"> 
 		<div class="row row-offcanvas row-offcanvas-center">
 			<div class="row">
 			
@@ -52,7 +59,7 @@
               
               
 			<table class="table table-bordered">
-                <tr>
+                <tr style="background-color: #1DDB16;">
                   <th style="width: 50px">번호</th>
                   <th>제목</th>
                   <th>작성자</th>
@@ -79,7 +86,7 @@
               </c:forEach>
               <small><small><a href="note.ok?action=list">더보기</a></small></small></h2>
 			<table class="table table-bordered">
-                <tr>
+                <tr style="background-color: #FF5E00">
                   <th style="width: 50px">번호</th>
                   <th>제목</th>
                   <th>작성자</th>
@@ -104,7 +111,7 @@
               </c:forEach>
               <small><small><a href="free_list.ok">더보기</a></small></small></h2>
 			<table class="table table-bordered">
-                <tr>
+                <tr style="background-color: #FF4848;">
                   <th style="width: 10px">no</th>
                   <th>제목</th>
                   <th>작성자</th>
@@ -124,25 +131,60 @@
          
               </table>	
             </div><!--/.col-xs-6.col-lg-4-->
-            <div class="col-xs-5 col-lg-6">
-           <h2><span class="glyphicon glyphicon-question-sign" style="color:black">자주묻는질문</span>
-              <c:forEach begin="1" end="26">
+
+
+<div class="col-xs-5 col-lg-6">
+              <h2><span class="glyphicon glyphicon-question-sign" style="color:black">1:1문의내역</span>
+              <c:forEach begin="1" end="27">
               &nbsp
               </c:forEach>
-              <small><small><a href="faq_list.ok?page=1">더보기</a></small></small></h2>
-<ul id="faq_list" >
-<c:forEach items="${faq}" var="f" begin="1" end="4">
-  <li>
-      <h4><a href="#a1">&nbsp${f.subject }</a></h4>
-         <p>
-         <c:if test="${f.fileName!=null }">
-  		<img  src="./img/${f.fileName }"><br>
-  		</c:if>
-         ${f.contents }</p>
-     </li>
-   </c:forEach>
- </ul>
+              <small><small><a href="qna.ok?page=1" id="qna">더보기</a></small></small></h2>
+			<table class="table table-bordered">
+                <tr style="background-color: #4374D9;">
+                  <th style="width: 10px">no</th>
+                  <th>제목</th>
+                  <th>작성자</th>
+                  <th>진행현황</th>
+                  <th>조회수</th>
+                </tr>
+             <c:if test="${currentNickName ==null }">
+             	<c:forEach begin="1" end="5">
+             	<tr>
+             		<td colspan="4">로그인이 필요합니다.</td>
+             	</tr>
+             	</c:forEach>
+             </c:if>
+            <c:forEach items="${qna }" var="q" >
+                <tr>
+                  <td>${q.num }</td>
+                  <td>${q.subject}
+                  <c:if test="${q.reply_count!=0}">
+                  <font color="red">[${q.reply_count}]</font>
+                  </c:if>
+                  </td>
+               	  <td>${q.nickname }</td>
+               	 <td>
+               	          <c:choose>
+         <c:when test="${q.reply_count>0 }">
+         <span class="label label-primary">답변완료</span>
+         </c:when>
+         <c:otherwise>
+          <span class="label label-default">답변대기</span>
+         </c:otherwise>
+         </c:choose>
+               	 </td>
+                  <td><span class="badge bg-red">${q.hits }</span></td>
+                </tr>
+              </c:forEach>
+              </table>	
             </div><!--/.col-xs-6.col-lg-4-->
+
+
+
+
+
+
+
             
 <div class="col-xs-5 col-lg-6">
               <h2><span class="glyphicon glyphicon-user" style="color:black">랭킹</span>
@@ -151,7 +193,7 @@
               </c:forEach>
               <small><small><a href="rank.ok?page=1">더보기</a></small></small></h2>
 			<table class="table table-bordered">
-                <tr>
+                <tr style="background-color: #FF00DD;">
                   <th width="20%">계급</th>
                   <th width="30%">닉네임</th>
                   <th width="20%">점수</th>
@@ -186,44 +228,32 @@
               </table>	
             </div><!--/.col-xs-6.col-lg-4-->
             
-<div class="col-xs-5 col-lg-6">
-              <h2><span class="glyphicon glyphicon-question-sign" style="color:black">1:1문의내역</span>
-              <c:forEach begin="1" end="27">
+            <div class="col-xs-5 col-lg-6">
+           <h2>
+           <div style="background-color: #CB6CFF"><span class="glyphicon glyphicon-question-sign" style="color:black">자주묻는질문</span></div>
+              <c:forEach begin="1" end="26">
               &nbsp
               </c:forEach>
               <small><small><a href="faq_list.ok?page=1">더보기</a></small></small></h2>
-			<table class="table table-bordered">
-                <tr>
-                  <th style="width: 10px">no</th>
-                  <th>제목</th>
-                  <th>작성자</th>
-                  <th>진행현황</th>
-                  <th>조회수</th>
-                </tr>
-            <c:forEach items="${qna }" var="q" >
-                <tr>
-                  <td>${q.num }</td>
-                  <td>${q.subject}</td>
-               	  <td>${q.nickname }</td>
-               	 <td>
-               	          <c:choose>
-         <c:when test="${q.reply_count>0 }">
-         <span class="label label-primary">답변완료</span>
-         </c:when>
-         <c:otherwise>
-          <span class="label label-default">답변대기</span>
-         </c:otherwise>
-         </c:choose>
-               	 </td>
-                  <td><span class="badge bg-red">조회수</span></td>
-                </tr>
-              </c:forEach>
-              </table>	
+<ul id="faq_list" >
+<c:forEach items="${faq}" var="f" >
+  <li>
+      <h4><a href="#a1">&nbsp${f.subject }</a></h4>
+         <p>
+         <c:if test="${f.fileName!=null }">
+  		<img  src="./img/${f.fileName }"><br>
+  		</c:if>
+         ${f.contents }</p>
+     </li>
+   </c:forEach>
+ </ul>
             </div><!--/.col-xs-6.col-lg-4-->
+            
+
             
             <div class="col-xs-20 col-lg-12">
               
-              <h2><span class="glyphicon glyphicon-exclamation-sign" style="color:black">이벤트</span></h2>     
+              <h2><div style="background-color: #00C6ED"><span class="glyphicon glyphicon-exclamation-sign" style="color:black" >이벤트</span></h2></div>     
              <hr>
 <c:forEach items="${listIng }" var="ing" >
 				<div class="container">
@@ -260,7 +290,7 @@
             
             <div class="col-xs-20 col-lg-12">
               
-              <h2><span class="glyphicon glyphicon-exclamation-sign" style="color:black">스크린샷</span></h2>     
+              <h2><div style="background-color: #FFE400;"><span class="glyphicon glyphicon-exclamation-sign" style="color:black">스크린샷</span></h2></div>     
              <hr>
 			<c:forEach items="${screen }" var="s">
 				<div class="container">
@@ -304,3 +334,4 @@
           </div><!--/row-->
 		</div>
 	</div>
+	

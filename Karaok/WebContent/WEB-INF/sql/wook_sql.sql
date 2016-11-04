@@ -1,3 +1,4 @@
+drop table tb_event cascade constraints
 create table tb_event
 (	
 	num number(20) constraint event_num_pk primary key,
@@ -229,9 +230,9 @@ delete from tb_event where num=154 cascad
      			 ORDER BY row_number() OVER (ORDER BY score DESC, nickname)
      			 
      			 
-   create table tb_rank
+create table tb_rank
 (
-num number(30)  primary key,
+num number(30) constraint rank_num_pk primary key,
 score number(30) not null,
 nickname varchar2(50) references tb_member(nickname) not null
 );
@@ -252,4 +253,86 @@ insert into tb_rank values(11,1002,'오바10')
 			     select num,score,nickname from tb_rank natural join tb_member
          where nickname like '오바'
 	
+         
+         select*From tb_qna
+         
+         
+         
+         
+          select * from(
+       select A.*,rownum rn
+          from(
+             select *from tb_faq order by num desc
+             )A
+          )
+          where rn between 1 and 6
 	
+          
+          drop table tb_rank;
+create table tb_rank
+(
+num number(30) constraint rank_num_pk  primary key,
+score number(30) not null,
+nickname varchar2(50),
+foreign key(nickname) references tb_member(nickname)
+);
+
+alter table tb_rank score add default 0
+
+alter table tb_rank score add(score number(30),default=0)
+
+select*from tb_rank
+
+select*from tb_member
+
+insert into tb_rank values(seq_rank_num.nextval,0,'드루미드루')
+	insert into tb_rank values(seq_rank_num.nextval(),0,#nickname#)
+
+drop table tb_member cascade constraints;
+create table tb_member
+(
+	id varchar2(50) constraint member_id_pk primary key,
+	pwd varchar2(50) not null,
+	name varchar2(50) not null,
+	nickname varchar2(50) unique not null,
+	birth date not null,
+	tel varchar2(50) not null
+);
+
+insert into tb_member values('test','test','사용자','사용자','1980-01-02','010-2312-1234')
+
+select*from tb_member
+
+drop table tb_member
+
+
+create table tb_member
+(
+	id varchar2(50) constraint member_id_pk primary key,
+	pwd varchar2(50) not null,
+	name varchar2(50) not null,
+	nickname varchar2(50) unique not null,
+	birth date not null,
+	tel varchar2(50) not null
+);
+
+select *from tb_member
+
+insert into tb_member values('admin','admin','관리자','관리자','1980-02-28','010-7157-8550')
+
+
+insert into tb_update values(5, '관리자', '[개발자 노트] 안녕하세요', '안녕하세요!
+Karaok-키보드워리어의 개발실에서 인사드립니다.
+
+게임에 대해서 궁금한 점이나 개선 사항이 있으실 경우 메뉴->고객센터->1:1 문의 또는 FAQ를 통하여 저희에게 많은 의견을 주시길 바랍니다.
+
+그 의견을 수립하여 저희 개발팀은 고객님들에게 더욱 만족스러운 게임으로 발전해 나가도록 하겠습니다.
+
+저희 게임에 대해 많은 관심과 사랑 부탁드립니다.
+
+길드시스템의 접목을 통하여 다른 사람들과의 친목을 더하고 다른 길드의 사람들과의 경쟁을 통해 더 많은 게임을 할 수 있습니다.
+
+즐거운 채팅 되시길 바랍니다.', '2016-10-31', 0)
+
+
+select*from tb_member

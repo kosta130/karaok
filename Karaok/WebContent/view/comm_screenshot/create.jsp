@@ -3,6 +3,13 @@
 
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<style type="text/css">
+body {background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: right bottom;
+      background-color: beige;
+}
+</style>
 <script type="text/javascript">
 $(document).ready(function(){
 	  var sub = $("#sub");
@@ -61,7 +68,7 @@ $(document).ready(function(){
               
               <!-- /.box-body -->
 
-              <div class="box-footer" align="center" >
+              <div class="box-footer" align="center" style="background-color: beige">
                 <button type="submit" class="btn btn-primary" >등록</button>
                 <button type="button" class="btn btn-primary" onclick="location.href='screen_list.ok'">취소</button>
               </div>

@@ -5,11 +5,17 @@
 
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-
+<style type="text/css">
+body {background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: right bottom;
+      background-color: beige;
+}
+</style>
 <!-- Custom Tabs -->
-<h1><span class="glyphicon glyphicon-exclamation-sign" style="color: red"></span>&nbsp이벤트</h1><hr>
+<h1><span style="color: red"></span></h1><hr>
 <div class="nav-tabs-custom">
-	<ul class="nav nav-tabs">
+	<ul class="nav nav-tabs" style="background-color: #FFFF90">
 		<li class="active"><a href="#tab_1" data-toggle="tab">전체 이벤트</a></li>
 		<li><a href="#tab_2" data-toggle="tab">진행중인 이벤트</a></li>
 		<li><a href="#tab_3" data-toggle="tab">종료된 이벤트</a></li>
@@ -134,7 +140,7 @@
 </div>
 
 
-<c:if test="${currentId=='lee52x@naver.com' }">
+<c:if test="${currentId=='admin' }">
 <form action="./event_create.ok">
 	<h3 align="center"><input class="btn btn-warning" type="submit" value="글등록"></h3>
 </form>

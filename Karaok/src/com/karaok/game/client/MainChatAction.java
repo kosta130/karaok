@@ -10,16 +10,20 @@ import java.net.UnknownHostException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.catalina.connector.Request;
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
-public class MainChatAction extends Action {
+public class MainChatAction extends Action implements Runnable{
 	BufferedReader in;
 	OutputStream out;
 	Socket s;
 	Service service;
+	String[] currentNickNameList;
+	String[] currentRoomList;
+	String[] waitInfo;
 	
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
@@ -37,9 +41,10 @@ public class MainChatAction extends Action {
 			
 			sendMessage("100|"+currentNickName);
 			
-			 = new Service(s, null);
 			
 			//서버 전달 메시지 받는 부분 추가
+			new Thread(this).start();
+			request.getSession().setAttribute("currentNickNameList", currentNickNameList);
 			
 			forward = mapping.findForward("success");
 		}else if(action!=null && action.equals("bt_create")){
@@ -80,6 +85,7 @@ public class MainChatAction extends Action {
 	// 서버 ----------메시지----------> 클라이언트
 	public void run() {
 		// 왜 스레드? 밑에 있는 반복문이 다른 프로세스에 영향을 안주기 위해서
+		System.out.println("client run.....s");
 		try {
 			while (true) {// 왜 반복문? 서버는 계속해서 메시지를 전달
 				String fromMsg = in.readLine();// fromMsg: 서버가 전달한 메시지
@@ -90,15 +96,16 @@ public class MainChatAction extends Action {
 				switch (protocol) {
 				case 100:// 대기실입장
 					// String waitNickNames = strArr[1];//"길동,라임,주원"
-					waitInfo.setListData(strArr[1].split(","));
+					System.out.println("client:100");
+					currentNickNameList = strArr[1].split(",");
 					break;
 				case 150:
 					// "KOSTA130--1,오바사키--2,행복방--2"
 					if (strArr.length > 1) {// 개설된 방이 있다면
-						roomInfo.setListData(strArr[1].split(","));
+						currentRoomList = strArr[1].split(",");
 					}
 					break;
-				case 160:// 방타이틀이 서버로부터 전달
+				/*case 160:// 방타이틀이 서버로부터 전달
 					cc.setTitle("채팅방-[" + strArr[1] + "]");
 					break;
 				case 300:// 대화를 입력
@@ -106,7 +113,7 @@ public class MainChatAction extends Action {
 													// 라인바꿈!!
 					cc.ta.setCaretPosition(cc.ta.getText().length());
 					// 수직스크롤바를 자동으로 내려주는 기능.
-				}// switch
+*/				}// switch
 
 			}
 		} catch (IOException e) {
@@ -126,6 +133,6 @@ public class MainChatAction extends Action {
 
 	public void printWaitInfo(String str) {// ','로 구분되는 문자열을 JList대기실정보에 뿌리기
 		// waitInfo.setListData(String []listData);
-		waitInfo.setListData(str.split(","));
+		waitInfo = str.split(",");
 	}// printWaitInfo
 }

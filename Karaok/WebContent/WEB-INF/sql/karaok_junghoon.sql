@@ -47,7 +47,7 @@ delete from qna_reply;
 
 
 <!--qnaÅ×ÀÌºí --!>
-drop table tb_qna cascade constraints;
+drop table tb_qna
 create table tb_qna
 (
 num number(20) constraint qna_num_pk primary key,

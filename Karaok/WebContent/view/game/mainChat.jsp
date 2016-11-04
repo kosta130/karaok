@@ -13,7 +13,37 @@
 		var room_title = prompt('방제목을 입력하세요');
 		alert(room_title);
 	});
+	
+	$(document).ready(function(){
+		function autoRefresh_sample_div(){
+			var currentLocation = window.location;
+			$("#div_inwon").reload;
+		}
+		setInterval('autoRefresh_sample_div()', 1000); //1초 후 새로고침
+	});
+	
 </script>
+<!-- <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript">
+	var cacheData;
+	var data = $("#div").html();
+	var auto_refresh = setInterval(
+		function(){
+			$.ajax({
+				url:"",
+				type:'POST',
+				data: data,
+				dataType: 'html',
+				success: function(data){
+					if(data != cacheData){
+						cacheData = data;
+						$('#div').html(data);
+					}
+				}
+			});
+		},1000
+	);
+</script> -->
 </head>
 <body>
 <div class="container">
@@ -30,13 +60,18 @@
 		<tr>
 			<td style="width:80%;">
 					<select name=room_info id=room_info size="15" style="width:100%">
+						
 						<option value='' selected></option>
 					</select>
 			</td>
 			<td>
-				<select name=room_inwon id=room_inwon size="15" style="width:100%">
-						<option value='' selected></option>
-				</select>
+				<div id=div_inwon>
+					<select name=room_inwon id=room_inwon size="15" style="width:100%">
+							<c:forEach items="${currentNickNameList }" var="nicknameList">
+								<option value="${nicknameList }">${nicknameList }</option>
+							</c:forEach>
+					</select>
+				</div>
 			</td>
 		</tr>
 		<tr height="35%">

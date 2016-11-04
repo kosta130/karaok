@@ -163,6 +163,7 @@ nocache;
 
 --[∞Ì∞¥ºæ≈Õ]
 --QnA
+drop table tb_qna
 create table tb_qna
 (
 num number(20) constraint qna_num_pk primary key,
@@ -173,12 +174,15 @@ ndate date,
 hits number(20),
 constraint tb_qna_fk_nickname foreign key(nickname) references tb_member(nickname)
 );
+
+drop sequence seq_qna_num
 create sequence seq_qna_num
 increment by 1
 start with 1
 nocycle
 nocache;
 <!-- qna ¥Ò±€ ≈◊¿Ã∫Ì  -->
+drop table qna_reply
 create table qna_reply(
 	qnaNum number(20) constraint qna_replyNum_pk primary key,
 	num number(20),

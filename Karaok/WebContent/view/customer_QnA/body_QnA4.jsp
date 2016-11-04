@@ -2,8 +2,17 @@
     pageEncoding="UTF-8"%>
 <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<style type="text/css">
+body {background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: right bottom;
+      background-color: beige;
+}
+</style>
 <script type="text/javascript">
+
 $(document).ready(function(){
+	$('textarea').css({'height':'250pt','width':'100%'});
 	$('#replySubmit').click(function(){	
 		$.ajax({
 			url:'./qnaReply.ok?action=insertReply&num=${dto.num}',
@@ -21,11 +30,11 @@ $(document).ready(function(){
 	function update(up, currentNickName) {
 		if(currentNickName==''){
 			alert('권한이 없습니다.');
-		}else if(up=='del' && currentNickName=='${dto.nickname}'){
+		}else if((up=='del' && currentNickName=='${dto.nickname}') || (up=='del' && currentNickName=='관리자')){
 			if (confirm('정말삭제?')){
 				location.href = 'qna.ok?action=delete&num=${dto.num }';
 			}
-		}else if(up=='up' && currentNickName=='${dto.nickname}'){
+		}else if((up=='up' && currentNickName=='${dto.nickname}')){
 			document.view.submit();
 		}else{
 			alert('권한이 없습니다.');
@@ -62,7 +71,7 @@ $(document).ready(function(){
                    <th>${dto.ndate }</th>
                 </tr>
                 <tr>
-                   <td colspan="2" height="250pt">${dto.contents }</td>
+                   <td colspan="2" height="250pt"><textarea disabled="disabled" style="border:0;background-color:transparent">${dto.contents }</textarea></td>
                 </tr>
                <tr>
                   <td colspan="2" align="center">
@@ -75,6 +84,7 @@ $(document).ready(function(){
                 </tr>
                </table>
                		 <!-------------------------  댓글등록부분--------------------------------->
+            <c:if test="${currentNickName=='관리자' }">
             <div class="box-footer">
               <div class="input-group">
                 <input class="form-control" placeholder="댓글을 입력하세요.." id="reply">
@@ -82,7 +92,7 @@ $(document).ready(function(){
                 <div class="input-group-btn">
                   <button type="button" class="btn btn-success" id="replySubmit" onclick="check()">댓글등록</button>
                 </div>
-  
+  			</c:if>
                 
                <!-------------------------  댓글생성부분 --------------------------------->
               </div>

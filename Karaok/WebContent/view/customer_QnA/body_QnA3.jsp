@@ -3,6 +3,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<style type="text/css">
+body {background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: right bottom;
+      background-color: beige;
+}
+</style>
 <script src="http://code.jquery.com/jquery-1.12.0.js"></script>
 <script type="text/javascript">
 	function sessionCheck(currentNickName){
@@ -36,13 +43,13 @@
 <hr>
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
-                <tr>
-                  <th style="width: 7%" class="title">글번호</th>
-                  <th style="width: *%" class="title" >제목</th>
-                  <th style="width: 10%" class="title">작성자</th>
-                  <th style="width: 20%" class="title">날짜</th>
-                  <th style="width: 10%" class="title">진행현황</th>
-                  <th style="width: 20%" class="title">조회수</th>
+                <tr style="background-color: #CB6CFF;">
+                  <th style="width: 7%" class="title"><font color="white">글번호</font></th>
+                  <th style="width: *%" class="title" ><font color="white">제목</font></th>
+                  <th style="width: 10%" class="title"><font color="white">작성자</font></th>
+                  <th style="width: 20%" class="title"><font color="white">날짜</font></th>
+                  <th style="width: 10%" class="title"><font color="white">진행현황</font></th>
+                  <th style="width: 20%" class="title"><font color="white">조회수</font></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -75,7 +82,7 @@
             </div>
             <!-- /.box-body -->
             <form action="./qna3.ok" id="formAction">
-             <div class="box-footer" align="center">
+             <div class="box-footer" align="center"  style="background:#000000;background:rgba(0,0,0,0);">
              
                 
   <br> 

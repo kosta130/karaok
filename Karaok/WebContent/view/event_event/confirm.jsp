@@ -2,6 +2,13 @@
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<style type="text/css">
+body {background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: right bottom;
+      background-color: beige;
+}
+</style>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -14,6 +21,7 @@
 <script type="text/javascript">
 
 $(document).ready(function(){
+	$('textarea').css({'height':'250pt','width':'100%'});
 	$('#replySubmit').click(function(){
 		if($('#reply').val()==''){
 			alert('댓글 내용을 입력하세요');
@@ -74,7 +82,7 @@ function check(){
 				</c:if>
 				
 				<c:if test="${dto !=null }">
-				<p>${dto.contents }</p>
+				<p><textarea disabled="disabled" style="border:0;background-color:transparent">${dto.contents }</textarea></p>
 				<hr>
 				</c:if>
 				이전글:
@@ -124,7 +132,7 @@ function check(){
               <div align="center">
             <form action="./event_list.ok" name="frm">
               	<button type="submit" class="btn btn-primary">목록으로</button>
-              	<c:if test="${currentId=='lee52x@naver.com' }">
+              	<c:if test="${currentId=='admin' }">
                  <button type="button" class="btn btn-warning" name="delete" onclick="check()"><i class="fa fa-trash-o" ></i>삭제</button>
                  </c:if>
            	</form>  
