@@ -130,7 +130,16 @@ seek number(20),
 fileName varchar2(50),
 constraint tb_screen_fk_nickname foreign key(nickname) references tb_member(nickname)
 );
-
+insert into tb_screen values(seq_screen_num.nextval,'이길재','[[ 약탄 소녀단 ]] 단원 모집!','[[ 약탄 소녀단 ]] 단원 모집!',sysdate,0,'1.jpg')
+insert into tb_screen values(seq_screen_num.nextval,'김현영','아까까고또까고 길원모집','아까까고또까고 길원모집',sysdate,0,'2.jpg')
+insert into tb_screen values(seq_screen_num.nextval,'권성준','[◈온새미◈]에서 여러분을 초대합니다!','[온새미]길드원 상시 모집 중!',sysdate,0,'3.jpg')
+insert into tb_screen values(seq_screen_num.nextval,'김소영','사냥&생활 COCOA','사냥&생활 COCOA',sysdate,0,'4.jpg')
+insert into tb_screen values(seq_screen_num.nextval,'이성욱','패트리샤 길드원을 모집합니다~ ^0^','패트리샤 길드원을 모집합니다~ ^0^',sysdate,0,'5.jpg')
+insert into tb_screen values(seq_screen_num.nextval,'전성원','뭐가 할로윈호박이게~','ㅎㅎ',sysdate,0,'6.jpg')
+insert into tb_screen values(seq_screen_num.nextval,'황혜정','할로윈 + 유령선','할로윈 + 유령선',sysdate,0,'7.jpg')
+insert into tb_screen values(seq_screen_num.nextval,'이대원','Halloween MooN','Halloween MooN',sysdate,0,'8.jpg')
+insert into tb_screen values(seq_screen_num.nextval,'윤철','[악의무리] 길드원 2차모집! 어서오세욥!!','[악의무리] 길드원 2차모집! 어서오세욥!!',sysdate,0,'8.jpg')
+insert into tb_screen values(seq_screen_num.nextval,'이하은','자연여신','자연여신',sysdate,0,'9.jpg')
 delete from tb_screen where subject='gyuj'
 
 select * from tb_screen
